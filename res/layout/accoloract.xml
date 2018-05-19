@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/accolmainact"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  >
+
+<LinearLayout
+    android:id="@+id/llad_acolact"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+    android:orientation="vertical" >
+    
+<!-- <com.google.android.gms.ads.AdView -->
+<!--     android:id="@+id/AdView_acolact" -->
+<!--     android:layout_width="match_parent" -->
+<!--     android:layout_height="wrap_content" -->
+<!--     android:layout_alignParentBottom="true" -->
+<!--     android:layout_centerHorizontal="true" -->
+<!--     ads:adSize="BANNER" -->
+<!--     ads:adUnitId="@string/banner_ad_unit_id" -->
+<!--     /> -->
+
+</LinearLayout>
+    
+<ScrollView
+    android:id="@+id/accolact_scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/llad_acolact"
+    android:padding="7dp" >
+
+<LinearLayout
+  android:id="@+id/accolact_ll"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:layout_alignParentTop="true"
+  android:layout_alignParentRight="true"
+  android:layout_above="@+id/llad_acolact"
+  >
+
+<TextView
+    android:id="@+id/accolact_info"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:text="@string/pc2act_color_desc"
+    android:textColor="#0f0"
+    android:textSize="15sp" 
+    />
+
+<TextView
+    android:id="@+id/accolact_"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal"
+    android:text="---"
+    android:textColor="#fff"
+    android:textSize="15sp" />
+
+<!-- общий фон автодополнения -->
+<TextView
+    android:id="@+id/accolact_mainback"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_mainback"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<EditText
+    android:id="@+id/accolact_main_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:editable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_keycode"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_keycode"
+    android:textSize="20sp"
+    android:textStyle="bold" 
+    />
+
+<TextView
+    android:id="@+id/accolact_keycodebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_keycode_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_keycodet"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_keycode_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_counter"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_counter"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_counterbg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_counter_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_countert"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_counter_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_forcibly"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_forcibly"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_forciblybg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_forcibly_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_forciblyt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_forcibly_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_addvocab"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_addvocab"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_addvocabbg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_addvocab_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_addvocabt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_addvocab_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_word"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_word"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_wordbg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_word_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_wordt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_word_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_arrowd"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_arrowdown"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_arrowdbg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_arrowd_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_arrowdt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_arrowd_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_calcmenu"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_calcmenu"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_calcmenubg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_calcmenu_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_calcmenut"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_calcmenu_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<!-- блок для цвета одной кнопки -->
+<TextView
+    android:id="@+id/accolact_calcind"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_calcind"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/accolact_calcindbg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_back"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_calcind_ebg"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+<TextView
+    android:id="@+id/accolact_calcindt"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/ac_color_text"
+    android:textSize="15sp"
+    android:textStyle="italic" />
+
+<EditText
+    android:id="@+id/accolact_calcind_et"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:minLines="1"
+	android:maxLines="1"  
+    android:inputType="numberSigned"
+    android:digits="0123456789#xabcdef"
+    android:clickable="true"
+    android:ems="10"
+	>
+    </EditText>
+
+</LinearLayout>
+</ScrollView> 
+</RelativeLayout>

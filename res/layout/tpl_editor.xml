@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView 
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content">
+    
+<RelativeLayout
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+
+ <EditText
+     android:id="@+id/tpl_name"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+     android:layout_alignParentTop="true"
+     android:gravity="top"
+     android:hint="@string/tpl_name"
+     android:inputType="textMultiLine"
+     android:maxLines="1" />
+
+<!-- 	android:inputType="text|textAutoCorrect|textAutoComplete" -->
+ 
+<CheckBox
+    android:id="@+id/tpl_cb_invert_button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:layout_below="@id/tpl_name"
+    android:text="@string/tpl_cb_inv"
+    />
+
+<CheckBox
+    android:id="@+id/tpl_cb_right"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:layout_below="@id/tpl_cb_invert_button"
+    android:text="@string/tpl_cb_right"
+    />
+
+<HorizontalScrollView
+  android:id="@+id/tpl_hsv"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"
+  android:layout_alignParentRight="true"
+  android:layout_below="@id/tpl_cb_right"
+  >
+
+<LinearLayout
+    android:id="@+id/tpl_lltoolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tpl_cb_right"
+    android:orientation="horizontal" >
+
+	<Button android:id="@+id/tpl_save"
+			style="@style/img_button"
+			android:drawableTop="@drawable/save"
+			android:text="@string/save"
+			/>
+	<Button android:id="@+id/tpl_close"
+			style="@style/img_button"
+			android:drawableTop="@drawable/close"
+			android:text="@string/mm_close"
+			/>
+	<Button android:id="@+id/tpl_delete"
+			style="@style/img_button"
+			android:drawableTop="@drawable/tpl_delete"
+			android:text="@string/delete"
+			/>
+	<Button android:id="@+id/tpl_spec_options"
+			android:drawableTop="@drawable/keyboard"
+			android:text="@string/tpl_spec_options"
+			style="@style/img_button"
+			/>
+	<Button android:id="@+id/tpl_share"
+			android:drawableTop="@drawable/share"
+			android:text="@string/share"
+			android:visibility="gone"
+			style="@style/img_button"
+			/>
+
+	<Button
+	    android:id="@+id/tpl_hotkey"
+	    style="@style/img_button"
+	    android:drawableTop="@drawable/folder_add"
+	    android:text="@string/hotkey"
+	    android:visibility="gone" />
+
+	<Button
+	    android:id="@+id/tpl_hotkey_cancel"
+	    style="@style/img_button"
+	    android:drawableTop="@drawable/folder_del"
+	    android:text="@string/hotkey_cancel"
+	    android:visibility="gone" />
+</LinearLayout>    
+</HorizontalScrollView>
+
+<EditText
+ 	android:id="@+id/tpl_text"
+ 	android:hint="@string/tpl_text"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+  android:layout_below="@id/tpl_hsv"
+	android:minLines="5"
+	android:maxLines="5"  
+	android:autoText="true"
+	android:inputType="textMultiLine"
+	android:scrollbars="vertical"
+	android:gravity="top"  
+	/>
+
+<Button
+	android:id="@+id/tpl_unicode_app"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@id/tpl_text"
+	android:onClick="onClick_keycode"
+	android:text="@string/tpl_unicode_app" 
+     />
+
+</RelativeLayout>
+</ScrollView>

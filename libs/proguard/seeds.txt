@@ -1,0 +1,106 @@
+com.google.ads.AdActivity
+com.google.ads.AdActivity: AdActivity()
+com.google.ads.AdActivity: void onClick(android.view.View)
+com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode[] values()
+com.google.ads.AdRequest$ErrorCode: com.google.ads.AdRequest$ErrorCode valueOf(java.lang.String)
+com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender[] values()
+com.google.ads.AdRequest$Gender: com.google.ads.AdRequest$Gender valueOf(java.lang.String)
+com.google.ads.AdView
+com.google.ads.AdView: AdView(android.app.Activity,com.google.ads.AdSize,java.lang.String)
+com.google.ads.AdView: AdView(android.content.Context,android.util.AttributeSet)
+com.google.ads.AdView: AdView(android.content.Context,android.util.AttributeSet,int)
+com.google.ads.ab$a: void onClick(android.content.DialogInterface,int)
+com.google.ads.ab$b: com.google.ads.ab$b[] values()
+com.google.ads.ab$b: com.google.ads.ab$b valueOf(java.lang.String)
+com.google.ads.ab$c: void onClick(android.content.DialogInterface,int)
+com.google.ads.searchads.SearchAdRequest$BorderType: com.google.ads.searchads.SearchAdRequest$BorderType[] values()
+com.google.ads.searchads.SearchAdRequest$BorderType: com.google.ads.searchads.SearchAdRequest$BorderType valueOf(java.lang.String)
+com.google.ads.util.AdUtil$UserActivityReceiver
+com.google.ads.util.AdUtil$a: com.google.ads.util.AdUtil$a[] values()
+com.google.ads.util.AdUtil$a: com.google.ads.util.AdUtil$a valueOf(java.lang.String)
+com.google.android.voiceime.ActivityHelper
+com.google.android.voiceime.ActivityHelper: ActivityHelper()
+com.google.android.voiceime.ActivityHelper$1: void onClick(android.content.DialogInterface,int)
+com.google.android.voiceime.ActivityHelper$3: void onClick(android.content.DialogInterface,int)
+com.google.android.voiceime.ServiceHelper
+com.google.android.voiceime.ServiceHelper: ServiceHelper()
+com.jbak2.JbakKeyboard.AboutActivity
+com.jbak2.JbakKeyboard.AboutActivity: AboutActivity()
+com.jbak2.JbakKeyboard.AboutActivity: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.AboutActivity: void onClick_keycode(android.view.View)
+com.jbak2.JbakKeyboard.AboutActivity: void onClickDiary(android.view.View)
+com.jbak2.JbakKeyboard.AboutActivity2
+com.jbak2.JbakKeyboard.AboutActivity2: AboutActivity2()
+com.jbak2.JbakKeyboard.AboutActivity2: void onClickCopy(android.view.View)
+com.jbak2.JbakKeyboard.AdPreference
+com.jbak2.JbakKeyboard.AdPreference: AdPreference(android.content.Context,android.util.AttributeSet,int)
+com.jbak2.JbakKeyboard.AdPreference: AdPreference(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.ComMenu$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Desc_kbd
+com.jbak2.JbakKeyboard.Desc_kbd: Desc_kbd()
+com.jbak2.JbakKeyboard.Diary
+com.jbak2.JbakKeyboard.Diary: Diary()
+com.jbak2.JbakKeyboard.Dlg$1: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.Dlg$OnButtonListener: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.EditSetActivity
+com.jbak2.JbakKeyboard.EditSetActivity: EditSetActivity()
+com.jbak2.JbakKeyboard.Help
+com.jbak2.JbakKeyboard.Help: Help()
+com.jbak2.JbakKeyboard.JbCandView
+com.jbak2.JbakKeyboard.JbCandView: JbCandView(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.JbCandView$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$4: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$6: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference
+com.jbak2.JbakKeyboard.JbKbdPreference: JbKbdPreference()
+com.jbak2.JbakKeyboard.JbKbdPreference$1: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.JbKbdPreference$2: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.JbKbdReceiver
+com.jbak2.JbakKeyboard.JbKbdView
+com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet,int)
+com.jbak2.JbakKeyboard.Keycode
+com.jbak2.JbakKeyboard.Keycode: Keycode()
+com.jbak2.JbakKeyboard.Keycode: void onClick1000Down(android.view.View)
+com.jbak2.JbakKeyboard.Keycode: void onClick100Down(android.view.View)
+com.jbak2.JbakKeyboard.Keycode: void onClick1000Up(android.view.View)
+com.jbak2.JbakKeyboard.Keycode: void onClick100Up(android.view.View)
+com.jbak2.JbakKeyboard.LangSetActivity
+com.jbak2.JbakKeyboard.LangSetActivity: LangSetActivity()
+com.jbak2.JbakKeyboard.LangSetActivity$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.LangSetActivity$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.NewDictionary
+com.jbak2.JbakKeyboard.NewDictionary: NewDictionary()
+com.jbak2.JbakKeyboard.Popup2
+com.jbak2.JbakKeyboard.Popup2: Popup2(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.Popup2$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2$4: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2$6: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ServiceJbKbd
+com.jbak2.JbakKeyboard.ServiceJbKbd: ServiceJbKbd()
+com.jbak2.JbakKeyboard.SetKbdActivity
+com.jbak2.JbakKeyboard.SetKbdActivity: SetKbdActivity()
+com.jbak2.JbakKeyboard.SetKbdActivity$13: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$4: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$7: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$9: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.TplEditorActivity
+com.jbak2.JbakKeyboard.TplEditorActivity: TplEditorActivity()
+com.jbak2.JbakKeyboard.TplEditorActivity$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.UpdVocabActivity
+com.jbak2.JbakKeyboard.UpdVocabActivity: UpdVocabActivity()
+com.jbak2.JbakKeyboard.com_menu$3: void onClick(android.view.View)
+com.jbak2.ctrl.GlobDialog$1: void onClick(android.view.View)
+com.jbak2.ctrl.IntEditor
+com.jbak2.ctrl.IntEditor: IntEditor(android.content.Context,android.util.AttributeSet)
+com.jbak2.words.WordsService
+com.jbak2.words.WordsService: WordsService()

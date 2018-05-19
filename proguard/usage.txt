@@ -1,0 +1,496 @@
+com.google.android.voiceime.ActivityHelper:
+    private static final java.lang.String TAG
+    private static final int RECOGNITION_REQUEST
+com.google.android.voiceime.ImeTrigger:
+    private static final java.lang.String VOICE_IME_SUBTYPE_MODE
+    private static final java.lang.String VOICE_IME_PACKAGE_PREFIX
+com.google.android.voiceime.IntentApiTrigger:
+    private static final java.lang.String TAG
+com.google.android.voiceime.ServiceBridge:
+    private static final java.lang.String TAG
+com.google.android.voiceime.ServiceHelper:
+    private static final java.lang.String TAG
+com.google.android.voiceime.VoiceRecognitionTrigger:
+    private android.content.BroadcastReceiver mReceiver
+    74:74:public boolean isInstalled()
+    78:78:public boolean isEnabled()
+    115:123:private boolean isNetworkAvailable()
+    136:148:public void register(com.google.android.voiceime.VoiceRecognitionTrigger$Listener)
+    154:158:public void unregister(android.content.Context)
+com.google.android.voiceime.VoiceRecognitionTrigger$1
+com.google.android.voiceime.VoiceRecognitionTrigger$Listener
+com.jbak2.CustomGraphics.BitmapCachedGradBack:
+    110:116:public void recycle()
+com.jbak2.CustomGraphics.ColorsGradientBack:
+    25:27:public com.jbak2.CustomGraphics.ColorsGradientBack set(int[])
+    31:32:public void refresh()
+com.jbak2.CustomGraphics.ColorsGradientBack$RotatedColorsBackground
+com.jbak2.CustomGraphics.ColorsGradientBack$RotatedColorsBackground$1
+com.jbak2.CustomGraphics.ColorsGradientBack$RotatedColorsBackground$1$1
+com.jbak2.CustomGraphics.CustomButtonDrawable:
+    30:31:public com.jbak2.CustomGraphics.CustomButtonDrawable setCorners(int,int)
+    79:81:public void recycle()
+com.jbak2.CustomGraphics.GradBack:
+    public static final int DEFAULT_CORNER_X
+    public static final int DEFAULT_CORNER_Y
+    public static final int DEFAULT_GAP
+    public static final int DEFAULT_COLOR
+    public static final int GRADIENT_TYPE_LINEAR
+    public static final int GRADIENT_TYPE_SWEEP
+    299:300:public void setDependentback(com.jbak2.CustomGraphics.GradBack)
+com.jbak2.JbakKeyboard.Ads:
+    16:16:Ads()
+com.jbak2.JbakKeyboard.BuildConfig
+com.jbak2.JbakKeyboard.ClipbrdService:
+    public static final int CLIPBRD_INTERVAL
+    java.util.Timer m_timer
+com.jbak2.JbakKeyboard.ClipbrdSyncService:
+    java.util.Timer m_timer
+com.jbak2.JbakKeyboard.CustomKbdDesign:
+    229:232:java.lang.String getErrString()
+com.jbak2.JbakKeyboard.CustomKeyboard:
+    public static final java.lang.String KEYBOARD_FOLDER
+    public static final java.lang.String A_ANDROID
+    public static final java.lang.String TAG_KEYBOARD
+    public static final java.lang.String VAL_PERCENT
+    public static final java.lang.String VAL_PIXELS
+    public static final java.lang.String TAG_ROW
+    public static final java.lang.String TAG_KEY
+    public static final java.lang.String TAG_REPLACE
+    public static final java.lang.String DRW_PREFIX
+    public static final java.lang.String A_keyWidth
+    public static final java.lang.String A_keyHeight
+    public static final java.lang.String A_verticalGap
+    public static final java.lang.String A_horizontalGap
+    public static final java.lang.String A_typeKeyboard
+    public static final java.lang.String A_codes
+    public static final java.lang.String A_iconPreview
+    public static final java.lang.String A_isRepeatable
+    public static final java.lang.String A_isSticky
+    public static final java.lang.String A_keyIcon
+    public static final java.lang.String A_keyLabel
+    public static final java.lang.String A_keyOutputText
+    public static final java.lang.String A_longKeyOutputText
+    public static final java.lang.String A_popupCharacters
+    public static final java.lang.String A_shortPopupCharacters
+    public static final java.lang.String A_help
+    public static final java.lang.String A_calcReg
+    public static final java.lang.String A_calcMenu
+    public static final java.lang.String A_smallLabel
+    public static final java.lang.String A_upCode
+    public static final java.lang.String A_specKey
+    public static final java.lang.String A_noColor
+    public static final java.lang.String A_goQwerty
+    public static final java.lang.String A_From
+    public static final java.lang.String A_To
+    public static final java.lang.String A_Template
+    public static final java.lang.String A_TemplateLong
+    public static final java.lang.String A_Keyboard
+    public static final java.lang.String A_KeyboardLong
+    public static final byte B_keyWidth
+    public static final byte B_keyHeight
+    public static final byte B_verticalGap
+    public static final byte B_horizontalGap
+    public static final byte B_codes
+    public static final byte B_iconPreview
+    public static final byte B_isRepeatable
+    public static final byte B_isSticky
+    public static final byte B_keyIcon
+    public static final byte B_keyLabel
+    public static final byte B_keyOutputText
+    public static final byte B_popupCharacters
+    public static final byte B_upCode
+    public static final byte B_specKey
+    public static final byte B_smallLabel
+    public static final byte B_noColor
+    public static final byte B_longKeyOutputText
+    public static final byte B_goQwerty
+    public static final byte B_from
+    public static final byte B_to
+    public static final byte B_keyboard
+    public static final byte B_keyboardLong
+    public static final byte B_template
+    public static final byte B_templateLong
+    public static final byte B_help
+    public static final byte B_calcReg
+    public static final byte B_calcMenu
+    public static final byte B_shortPopupCharacters
+    public static final byte B_typeKeyboard
+    public static final byte BA_KBD
+    public static final byte BA_ROW
+    public static final byte BA_KEY
+    int m_rowHeight
+    728:735:final void processKeyPercentWidth(float,com.jbak2.JbakKeyboard.JbKbd$LatinKey)
+    1090:1090:public int getPercentSize(java.io.DataInputStream)
+com.jbak2.JbakKeyboard.EditSetActivity:
+    public static final java.lang.String EXTRA_PREF_KEY
+    public static final java.lang.String EXTRA_DEFAULT_EDIT_SET
+com.jbak2.JbakKeyboard.EditUserVocab:
+    645:670:public void search(java.lang.String)
+com.jbak2.JbakKeyboard.IKbdSettings
+com.jbak2.JbakKeyboard.IKeyboard:
+    public static final java.lang.String LANG_SYM_KBD
+    public static final java.lang.String LANG_SYM_KBD1
+    public static final java.lang.String LANG_EDITTEXT
+    public static final java.lang.String LANG_SMILE
+    public static final java.lang.String LANG_NUMBER
+    public static final java.lang.String LANG_CALCULATOR
+    public static final java.lang.String LANG_HIDE_LAYOUT
+    public static final java.lang.String LANG_QWERTY
+    public static final int LANG_EN
+    public static final int LANG_RU
+    public static final int LANG_UK
+    public static final int LANG_BE
+    public static final int LANG_FR
+    public static final int LANG_IT
+    public static final int LANG_DE
+    public static final int LANG_SV
+    public static final int LANG_TT
+    public static final int LANG_BA
+    public static final int LANG_TR
+    public static final int LANG_HE
+    public static final int LANG_EL
+    public static final int LANG_ES
+    public static final int LANG_LV
+    public static final int LANG_AR
+    public static final int LANG_ID
+    public static final int LANG_KA
+    public static final int LANG_PL
+    public static final int LANG_NO
+    public static final int LANG_UZ
+    public static final int LANG_AZ
+    public static final int LANG_PT
+    public static final int LANG_FI
+    public static final int LANG_SYM
+    public static final int LANG_SYM1
+    public static final int LANG_EDIT
+    public static final int LANG_SMIL
+    public static final int LANG_NUM
+    public static final int LANG_CALC
+    public static final int LANG_HIDE
+    public static final int KBD_QWERTY_EN
+    public static final int KBD_QWERTY_RU
+    public static final int KBD_QWERTY_BE
+    public static final int KBD_QWERTY_UA
+    public static final int KBD_QWERTY_RU_HALF
+    public static final int KBD_QWERTY_EN_HALF
+    public static final int KBD_SYM
+    public static final int KBD_SYM1
+    public static final int KBD_EDITTEXT
+    public static final int KBD_SMILE
+    public static final int KBD_CUSTOM
+    public static final int KBD_COMPILED
+    public static final int DF_BOLD
+    public static final int DF_BIG_GAP
+    public static final int DEF_COLOR
+    public static final int KBD_DESIGN_STANDARD
+    15:15:public IKeyboard()
+    643:649:public static com.jbak2.JbakKeyboard.IKeyboard$Keybrd kbdForCode(int)
+com.jbak2.JbakKeyboard.IKeyboard$Keybrd:
+    public static final java.lang.String WIDE_SUFFIX
+    public static final java.lang.String TABLET_SUFFIX
+    public static final java.lang.String TABLET_HALF_SUFFIX
+com.jbak2.JbakKeyboard.IKeyboard$Lang:
+    540:545:static java.lang.String getLangShortName(int)
+com.jbak2.JbakKeyboard.JbCandView:
+    public static final int AC_PLACE_NONE
+    public static final int AC_PLACE_KEYBOARD
+    public static final int AC_PLACE_TITLE
+    public static final int AC_PLACE_CURSOR_POS
+    183:183:public int getPlace()
+    187:188:public void setPlace(int)
+    843:843:int getFixedHeight()
+com.jbak2.JbakKeyboard.JbKbd:
+    53:53:public int getHeightKey()
+    57:58:void setHeightKey(int)
+com.jbak2.JbakKeyboard.JbKbd$LatinKey:
+    public static final int FLAG_GO_QWERTY
+    public static final int FLAG_NOT_GO_QWERTY
+    public static final int FLAG_USER_KEYBOARD
+    public static final int FLAG_USER_TEMPLATE
+    public static final int FLAG_USER_KEYBOARD_LONG
+    public static final int FLAG_USER_TEMPLATE_LONG
+    java.lang.String stringText
+com.jbak2.JbakKeyboard.JbKbdPreference:
+    private static final int MAX_STACK_STRING
+    private static final java.lang.String CAUSED_BY
+    public static final java.lang.String SAVE_CRASH
+    public static final java.lang.String DEF_SIZE_CLIPBRD
+    public static final java.lang.String DEF_SHORT_VIBRO
+    public static final java.lang.String DEF_LONG_VIBRO
+    1635:1655:public void setLangApp()
+com.jbak2.JbakKeyboard.JbKbdReceiver:
+    20:22:static android.content.Intent getClipbrdServiceIntent(android.content.Context)
+com.jbak2.JbakKeyboard.JbKbdView:
+    android.graphics.drawable.Drawable m_PreviewDrawable
+    public static final int STATE_TEMP_SHIFT
+    public static final int STATE_CAPS_LOCK
+    public static final int STATE_SOUNDS
+    public static final int STATE_GESTURES
+    1054:1055:void setTopSpace(int)
+com.jbak2.JbakKeyboard.KeyDrw:
+    public static final java.lang.String DRW_PREFIX
+    public static final int DELIM
+    public static final int DEFAULT_GAP
+    public static final int BIG_GAP
+com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo:
+    public static final int LEFT
+    public static final int RIGHT
+    public static final int UP
+    public static final int DOWN
+com.jbak2.JbakKeyboard.KeyboardPaints:
+    public static final int VAL_AC_PLACE_HEIGHT_PORTRAIT
+    public static final int VAL_AC_PLACE_HEIGHT_LANDSCAPE
+    public static final int VAL_KEY_HEIGHT_PORTRAIT
+    public static final int VAL_KEY_HEIGHT_LANDSCAPE
+    public static final int VAL_TEXT_SIZE_MAIN
+    public static final int VAL_TEXT_SIZE_SYMBOL
+    public static final int VAL_TEXT_SIZE_LABEL
+com.jbak2.JbakKeyboard.OwnKeyboardHandler:
+    android.widget.LinearLayout llMain
+    public static final int MSG_SHOW_PREVIEW
+    public static final int MSG_REMOVE_PREVIEW
+    public static final int MSG_REPEAT
+    public static final int MSG_LONGPRESS
+    public static final int MSG_INVALIDATE
+    public static final int MSG_MY_REPEAT
+    public static final int MSG_MY_LONG_PRESS
+    79:87:void invokeShowKey(int)
+com.jbak2.JbakKeyboard.PopupKeyWindow:
+    97:100:public void hide()
+com.jbak2.JbakKeyboard.PopupKeyboard:
+    638:638:public void setBackgroundOnTouch(android.view.View)
+com.jbak2.JbakKeyboard.PressArray
+com.jbak2.JbakKeyboard.PressArray$PressInfo
+com.jbak2.JbakKeyboard.R
+com.jbak2.JbakKeyboard.R$array
+com.jbak2.JbakKeyboard.R$attr
+com.jbak2.JbakKeyboard.R$color
+com.jbak2.JbakKeyboard.R$dimen
+com.jbak2.JbakKeyboard.R$drawable
+com.jbak2.JbakKeyboard.R$id
+com.jbak2.JbakKeyboard.R$layout
+com.jbak2.JbakKeyboard.R$string
+com.jbak2.JbakKeyboard.R$style
+com.jbak2.JbakKeyboard.R$xml
+com.jbak2.JbakKeyboard.ServiceJbKbd:
+    static final boolean PROCESS_HARD_KEYS
+    public static final int SUGGEST_NONE
+    public static final int SUGGEST_VOCAB
+    public static final int SUGGEST_OWN
+    public static final int SUGGEST_NOT_DICT
+    public static final java.lang.String PID
+    com.jbak2.JbakKeyboard.PopupKeyboard pk
+    com.jbak2.JbakKeyboard.JbCandView m_candView1
+    com.jbak2.JbakKeyboard.JbCandView m_kbdCandView
+    public static final int STATE_AUTO_CASE
+    public static final int STATE_SENTENCE_SPACE
+    public static final int STATE_EMPTY_UP
+    public static final int STATE_SPACE_SENTENCE_UP
+    public static final int STATE_UP_AFTER_SYMBOLS
+    public static final int STATE_GO_END
+    static final int MSG_SHOW_PANEL
+    313:319:void forceFullScreen(android.view.inputmethod.EditorInfo)
+    1722:1747:void onVoiceRecognition(java.util.ArrayList)
+    2870:2870:public final boolean canGiveVocabWords()
+    3034:3047:void getTextAfterCursor()
+    3107:3133:public void setText(int)
+com.jbak2.JbakKeyboard.ServiceJbKbd$5
+com.jbak2.JbakKeyboard.SetKbdActivity:
+    android.text.SpannableString m_testSpan
+com.jbak2.JbakKeyboard.ShowKeyboardReceiver:
+    30:32:public static void shoKbd()
+com.jbak2.JbakKeyboard.Stor:
+    public static final int DATABASE_VERSION
+    public static final java.lang.String TABLE_CLIPBOARD
+    public static final java.lang.String TABLE_KEYS
+    public static final java.lang.String C_TEXT
+    public static final java.lang.String C_LENGTH
+    public static final java.lang.String C_DATE
+    public static final java.lang.String C_ID
+    public static final java.lang.String C_KEYCODE
+    public static final java.lang.String C_CHAR
+    public static final java.lang.String C_FLAGS
+    public static final java.lang.String C_ACTION
+    public static final java.lang.String C_BINARY
+    public static final java.lang.String DB_FILENAME
+    private static final java.lang.String KEYS_TABLE_CREATE
+    private static final java.lang.String CLIPBOARD_TABLE_CREATE
+    102:124:void updateClipboardString(java.lang.String,long)
+    214:218:static byte[] getBytesFromIntent(android.content.Intent)
+    222:229:static android.content.Intent getIntentFromBytes(byte[])
+com.jbak2.JbakKeyboard.Templates:
+    java.io.File m_cd
+    public static final int STAT_EDIT_FOLDER
+    public static final int IB_SEL
+    public static final int IB_WORD
+    public static final int IB_LINE
+    public static final char TPL_SPEC_CHAR
+    32:34:static void destroy()
+    935:944:void rootDir()
+com.jbak2.JbakKeyboard.TplEditorActivity:
+    public static final java.lang.String EXTRA_CLIPBOARD_ENTRY
+com.jbak2.JbakKeyboard.Translate:
+    public static final java.lang.String RECORD
+com.jbak2.JbakKeyboard.Translit:
+    private static final char START_CHAR
+    10:10:public Translit()
+com.jbak2.JbakKeyboard.UpdVocabActivity:
+    android.view.View m_emptyView
+com.jbak2.JbakKeyboard.UpdateDownloader:
+    public static final java.lang.String HOST
+com.jbak2.JbakKeyboard.UpdateDownloader$UpdXMLDownload:
+    public static final java.lang.String REL_PATH
+    public static final java.lang.String TAG_VOCAB
+    public static final java.lang.String A_LINK
+    public static final java.lang.String A_NAME
+    public static final java.lang.String A_SIZE
+    public static final java.lang.String A_VERSION
+com.jbak2.JbakKeyboard.VRTest
+com.jbak2.JbakKeyboard.VRTest$1
+com.jbak2.JbakKeyboard.VRTest$2
+com.jbak2.JbakKeyboard.VibroThread:
+    public static final int VIBRO_SHORT
+    public static final int VIBRO_LONG
+    public static final int VIBRO_REPEAT
+com.jbak2.JbakKeyboard.com_menu:
+    com.jbak2.JbakKeyboard.JbCandView m_candView
+    public static final int ID_DELIMETER
+    public static final int STAT_TEMPLATES
+    public static final int STAT_CLIPBOARD
+    public static final int STAT_CALC_HISTORY
+    public static final int STAT_TRANSLATE
+    public static final int STAT_KEYCODE_NOTATION
+    200:201:void add(int,int,long)
+    584:586:public boolean has(int)
+    918:932:void removeLastLongClicked()
+com.jbak2.JbakKeyboard.st:
+    public static final boolean DEBUG
+    65:65:public st()
+    644:645:static void log(java.lang.String)
+    1249:1249:public static java.lang.String num2str(int,int)
+    1499:1510:public static varargs void toast(boolean,java.lang.Integer[])
+    1525:1528:public static void toastCopy()
+    1826:1837:public static int returnCtrlAltCode(int)
+    1928:1938:public static java.lang.String getKeyDesc(int)
+    1966:1974:public static boolean isAppInstalled(android.content.Context,java.lang.String)
+    2233:2235:public static java.lang.String getPackageName(android.content.Context)
+com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest:
+    437:442:public st$ArrayFuncAddSymbolsGest(int,int,java.lang.String)
+com.jbak2.JbakKeyboard.st$IntEntry:
+    public static final byte KeyBackStartColor
+    public static final byte KeyBackEndColor
+    public static final byte KeyBackGradientType
+    public static final byte KeyTextColor
+    public static final byte KeyTextBold
+    public static final byte KeyGapSize
+    public static final byte KeyStrokeStartColor
+    public static final byte KeyStrokeEndColor
+    public static final byte KeyboardBackgroundStartColor
+    public static final byte KeyboardBackgroundEndColor
+    public static final byte KeyboardBackgroundGradientType
+    public static final byte SpecKeyBackStartColor
+    public static final byte SpecKeyBackEndColor
+    public static final byte SpecKeyStrokeStartColor
+    public static final byte SpecKeyStrokeEndColor
+    public static final byte SpecKeyTextColor
+    public static final byte KeyBackCornerX
+    public static final byte KeyBackCornerY
+    public static final byte KeySymbolColor
+    public static final byte KeyTextPressedColor
+    public static final byte KeySymbolPressedColor
+    public static final byte SpecKeySymbolColor
+    public static final byte SpecKeyTextPressedColor
+    public static final byte SpecKeySymbolPressedColor
+    public static final byte KeyBackPressedStartColor
+    public static final byte KeyBackPressedEndColor
+    public static final byte KeyBackPressedGradientType
+    public static final byte KeyPressedStrokeStartColor
+    public static final byte KeyPressedStrokeEndColor
+    public static final byte SpecKeyBackPressedStartColor
+    public static final byte SpecKeyBackPressedEndColor
+    public static final byte SpecKeyBackPressedGradientType
+    public static final byte SpecKeyPressedStrokeStartColor
+    public static final byte SpecKeyPressedStrokeEndColor
+    499:505:public st$IntEntry(int,int,int)
+com.jbak2.JbakKeyboard.st$SyncAsycOper:
+    720:721:public void startSync()
+com.jbak2.JbakKeyboard.st$UniObserver:
+    521:525:public st$UniObserver(java.lang.Object,java.lang.Object)
+com.jbak2.ctrl.Dlg:
+    24:24:public Dlg()
+    101:108:public static android.app.AlertDialog yesNoDialog(android.content.Context,java.lang.String,int,int,com.jbak2.JbakKeyboard.st$UniObserver)
+    133:139:public static android.app.AlertDialog helpDialog(android.content.Context,java.lang.String,com.jbak2.JbakKeyboard.st$UniObserver)
+com.jbak2.ctrl.GlobDialog:
+    public static int[] list
+    public static java.util.ArrayList slist
+    public static final int NO_FINISH
+    560:562:public varargs void setList(int,int,int,int,int[])
+    566:568:public void setListArray(int,int,int,int,java.util.ArrayList)
+com.jbak2.ctrl.IniFile$iniParam:
+    49:52:public IniFile$iniParam(java.lang.String,java.lang.String)
+com.jbak2.ctrl.IntEditor:
+    119:119:public final boolean isFromUser()
+com.jbak2.ctrl.Mail:
+    public static final java.lang.String MAIL
+    14:14:public Mail()
+com.jbak2.ctrl.Notif
+com.jbak2.web.SearchGoogle:
+    17:17:public SearchGoogle()
+com.jbak2.words.IWords$WordEntry:
+    public static final int FLAG_FROM_USER_VOCAB
+com.jbak2.words.LineFileReader:
+    java.io.ByteArrayInputStream m_readStream
+    57:59:void setReadBlock(java.nio.ByteBuffer)
+    62:62:public final java.io.RandomAccessFile getFile()
+    145:145:public final int getLineStart()
+    160:177:public final int searchByte(byte,boolean)
+    198:198:public final java.lang.String getString()
+    202:207:public final int getLineBytes(byte[])
+    268:269:public final void selectLine()
+com.jbak2.words.TextTools:
+    public static final int CASE_LOWER
+    public static final int CASE_UPPER
+    public static final int CASE_CAPS_LOCK
+    public static final int COMPARE_TYPE_EQUAL
+    public static final int COMPARE_TYPE_COMPLETION
+    public static final int COMPARE_TYPE_CORRECTION
+    public static final int COMPARE_TYPE_NONE
+    6:6:public TextTools()
+com.jbak2.words.UserWords:
+    public static final java.lang.String C_WORD
+    public static final java.lang.String C_FREQ
+    public static final java.lang.String CRT_TABLE
+    android.database.sqlite.SQLiteStatement m_getWordsStat
+    301:304:public void close()
+com.jbak2.words.UserWords$LangCount:
+    76:79:public UserWords$LangCount(com.jbak2.words.UserWords,java.lang.String)
+com.jbak2.words.VocabFile:
+    public static final java.lang.String DEF_EXT
+com.jbak2.words.Words:
+    public static final java.lang.String INDEX_EXT
+    public static final int MSG_GET_WORDS
+com.jbak2.words.WordsIndex:
+    public static final int BUF_HEADER_SIZE
+    public static final byte INDEX_VERSION
+    83:100:final boolean processLine(java.lang.String)
+    192:192:final byte getDelimSize()
+com.jbak2.words.WordsIndex$IndexEntry:
+    public static final int sz
+    291:296:public WordsIndex$IndexEntry(char,char,int)
+com.jbak2.words.WordsService:
+    public static final java.lang.String EXTRA_CMD
+    public static final java.lang.String EXTRA_STR1
+    public static final java.lang.String EXTRA_STR2
+    public static final int CMD_OPEN_VOCAB
+    public static final int CMD_GET_WORDS
+    public static final int CMD_SAVE_WORD
+    public static final int CMD_CANCEL_VOCAB
+    public static final int CMD_CLOSE_VOCAB
+    public static final int CMD_DELETE_VOCAB
+    public static final int CMD_EXTENDED_SAVE_WORD
+    public static final java.lang.String DEF_PATH
+    java.lang.String m_curWord
+    69:69:public static final boolean hasAnyVocab()
+    73:73:public boolean hasVocabForLang(java.lang.String)
+    77:77:public boolean canGiveWords()

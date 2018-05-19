@@ -1,0 +1,121 @@
+com.google.android.voiceime.ActivityHelper
+com.google.android.voiceime.ActivityHelper: ActivityHelper()
+com.google.android.voiceime.ActivityHelper$1: void onClick(android.content.DialogInterface,int)
+com.google.android.voiceime.ActivityHelper$3: void onClick(android.content.DialogInterface,int)
+com.google.android.voiceime.ServiceHelper
+com.google.android.voiceime.ServiceHelper: ServiceHelper()
+com.jbak2.JbakKeyboard.AboutActivity
+com.jbak2.JbakKeyboard.AboutActivity: AboutActivity()
+com.jbak2.JbakKeyboard.AboutActivity: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.AcColorAct
+com.jbak2.JbakKeyboard.AcColorAct: AcColorAct()
+com.jbak2.JbakKeyboard.App
+com.jbak2.JbakKeyboard.App: App()
+com.jbak2.JbakKeyboard.ClipbrdSyncAct
+com.jbak2.JbakKeyboard.ClipbrdSyncAct: ClipbrdSyncAct()
+com.jbak2.JbakKeyboard.ClipbrdSyncAct: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$10: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$7: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ClipbrdSyncAct$9: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ColorPicker
+com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context)
+com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context,android.util.AttributeSet,int)
+com.jbak2.JbakKeyboard.ColorPicker$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Desc_act
+com.jbak2.JbakKeyboard.Desc_act: Desc_act()
+com.jbak2.JbakKeyboard.Desc_act: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.EditSetActivity
+com.jbak2.JbakKeyboard.EditSetActivity: EditSetActivity()
+com.jbak2.JbakKeyboard.EditUserVocab
+com.jbak2.JbakKeyboard.EditUserVocab: EditUserVocab()
+com.jbak2.JbakKeyboard.EditUserVocab: void onClickXml(android.view.View)
+com.jbak2.JbakKeyboard.EditUserVocab$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Gesture_create
+com.jbak2.JbakKeyboard.Gesture_create: Gesture_create()
+com.jbak2.JbakKeyboard.Gesture_create: void onClickAdd(android.view.View)
+com.jbak2.JbakKeyboard.Gesture_create$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Gesture_create$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Help
+com.jbak2.JbakKeyboard.Help: Help()
+com.jbak2.JbakKeyboard.Help: void onClickClose(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView
+com.jbak2.JbakKeyboard.JbCandView: JbCandView(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.JbCandView$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbCandView$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference
+com.jbak2.JbakKeyboard.JbKbdPreference: JbKbdPreference()
+com.jbak2.JbakKeyboard.JbKbdPreference$10: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference$12: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference$14: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference$16: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdPreference$20: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.JbKbdPreference$21: void onClick(android.content.DialogInterface,int)
+com.jbak2.JbakKeyboard.JbKbdPreference$8: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.JbKbdReceiver
+com.jbak2.JbakKeyboard.JbKbdView
+com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet)
+com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet,int)
+com.jbak2.JbakKeyboard.LangSetActivity
+com.jbak2.JbakKeyboard.LangSetActivity: LangSetActivity()
+com.jbak2.JbakKeyboard.LangSetActivity$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.MainmenuAct
+com.jbak2.JbakKeyboard.MainmenuAct: MainmenuAct()
+com.jbak2.JbakKeyboard.MainmenuAct: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Popup2act
+com.jbak2.JbakKeyboard.Popup2act: Popup2act()
+com.jbak2.JbakKeyboard.Popup2act$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$6: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$7: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.PopupKeyboard$8: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Quick_setting_act
+com.jbak2.JbakKeyboard.Quick_setting_act: Quick_setting_act()
+com.jbak2.JbakKeyboard.Quick_setting_act: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Runapp
+com.jbak2.JbakKeyboard.Runapp: Runapp()
+com.jbak2.JbakKeyboard.Runapp: void onClickSave(android.view.View)
+com.jbak2.JbakKeyboard.Runapp: void onClickRescan(android.view.View)
+com.jbak2.JbakKeyboard.Runapp$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.Runapp$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ServiceJbKbd
+com.jbak2.JbakKeyboard.ServiceJbKbd: ServiceJbKbd()
+com.jbak2.JbakKeyboard.SetKbdActivity
+com.jbak2.JbakKeyboard.SetKbdActivity: SetKbdActivity()
+com.jbak2.JbakKeyboard.SetKbdActivity$10: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$14: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$4: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$5: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$6: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$8: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetSound
+com.jbak2.JbakKeyboard.SetSound: SetSound()
+com.jbak2.JbakKeyboard.ShowKeyboardReceiver
+com.jbak2.JbakKeyboard.ShowKeyboardReceiver: ShowKeyboardReceiver()
+com.jbak2.JbakKeyboard.SkinConstructorAct
+com.jbak2.JbakKeyboard.SkinConstructorAct: SkinConstructorAct()
+com.jbak2.JbakKeyboard.SkinConstructorAct: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SkinConstructorAct$2: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.TplEditorActivity
+com.jbak2.JbakKeyboard.TplEditorActivity: TplEditorActivity()
+com.jbak2.JbakKeyboard.TplEditorActivity: void onClick_keycode(android.view.View)
+com.jbak2.JbakKeyboard.TplEditorActivity$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.UpdVocabActivity
+com.jbak2.JbakKeyboard.com_menu$3: void onClick(android.view.View)
+com.jbak2.ctrl.Dlg$1: void onClick(android.content.DialogInterface,int)
+com.jbak2.ctrl.Dlg$OnButtonListener: void onClick(android.content.DialogInterface,int)
+com.jbak2.ctrl.GlobDialog
+com.jbak2.ctrl.GlobDialog$1: void onClick(android.view.View)
+com.jbak2.ctrl.GlobDialog$2: void onClick(android.view.View)
+com.jbak2.ctrl.IntEditor
+com.jbak2.ctrl.IntEditor: IntEditor(android.content.Context,android.util.AttributeSet)
+com.jbak2.words.WordsService
+com.jbak2.words.WordsService: WordsService()

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button
+    android:id="@+id/popup_kbd_mini_btn"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+    style="@style/img_button"
+    android:background="@android:drawable/btn_dropdown"
+    android:drawableTop="@drawable/keyboard"
+    android:text="@string/mm_close" 
+    />

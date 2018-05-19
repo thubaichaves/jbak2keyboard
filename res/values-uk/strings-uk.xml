@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="ime_name">jbak2 Клавіатура</string>
+  <string name="ime_settings">Налаштування jbak2 Keyboard</string>
+  <string name="pref_keys">Налаштування клавіш і автодоповнення</string>
+  <string name="pref_keys_desc">Висота та вертикальна корекція клавіш і автодоповнення</string>
+  <string name="label_go_key">Йти</string>
+  <string name="label_next_key">Наступн</string>
+  <string name="label_send_key">Відпр</string>
+  <string name="kbd_warning">Спершу увімкніть та активуйте клавіатуру!\n(перший пункт налаштувань)</string>
+    <string name="msg_begin">Більше не показувати</string>   
+	<string name="jbak2layout">Розкладки від користувачів</string>
+	<string name="jbak2layout_desc">Окремий додаток, що містить інші мовні пакети та розкладки, також містить інструкції (російською), як створити свою розкладку чи мовний пакет.</string>
+	<string name="jbak2skin">Скіни від користувачів</string>
+	<string name="jbak2skin_desc">Окремий додаток, що містить інші скіни, також там є інструкція (російською), як створити свій скін.</string>
+	<string name="other_app">Інші додатки</string>
+	<string name="reboot">Завантажено. Потрібне перезавантаження пристрою</string>
+	<string name="default_pref">Налаштування за замовчуванням</string>
+	<string name="msg_avtocorrect_and_addspace">Ви увімкнули  одночасно \"автовиправлення\" та \"додавати пробіл після символів\" (в Автовводі).\n\nРазом вони працюють некоректно!</string>
+
+	<string name="set_show_kbd_notif">Визов зі шторки</string>
+	<string name="set_show_kbd_notif_desc">Визов клавіатури через сповіщення в  шторці. Необхідно у деяких місцях</string>
+    
+<!-- Title for small keyboard-->
+    <string name="pref_mini_kbd_screen">Маленька клавіатура (поки що beta)</string>
+    <string name="pref_mini_kbd_screen_desc">Поки beta. Данні налаштування діють тольки-но для маленькой клавіатуры перщої версії (коли тег popupCharacter не v2).</string>
+    <string name="pref_mini_kbd_its">Своя маленька клавіатура</string>
+    <string name="pref_mini_kbd_its_desc">Якщо відмічено, то використовується своя маленька клавіатура, інакше - системна</string>
+    <string name="pref_mini_kbd_btnsize">Розмір кнопок</string>
+    <string name="pref_mini_kbd_btnsize_desc">Розмір кнопок в маленькой клавіатурі</string>
+    <string-array name="array_minikbd_btn_size">
+        <item>Системний</item>
+        <item>Маленький</item>
+        <item>Середній</item>
+        <item>Як у кнопок клавіатури</item>
+        <item>Широкі</item>
+    </string-array>
+    <string name="pref_mini_kbd_textbtnsize">Розмір символів на кнопках</string>
+    <string name="pref_mini_kbd_textbtnsize_desc">Розмір символів на кнопках маленької клавіатури</string>
+    <string-array name="array_minikbd_btn_text_size">
+        <item>Системний</item>
+        <item>Маленький</item>
+        <item>Середній</item>
+        <item>Великий</item>
+    </string-array>
+    
+<!-- Title for syncronize multiclipboard activity -->
+    <string name="cs_pref_desc">Фонова синхронізация записів мультібуфера, через вказаний проміжок часу.</string>
+    <string name="cs_ann">Використовується для автоматичного запису вказанної кількості перших записів з мультибуфера, в файл save.txt в папці Jbak2Keyboard/save_clipboard на карті пам\'яті, періодично, через означений проміжок часу.\n\nЯкщо:\n- папки save_clipboard не існує, вона буде створена.\n- цей сервіс увімкнен, то программі знадобиться більше пам\'яті.\n- перший запис в мультібуфері має тойже час що й при минулому збереженні, то запис не здіснюється.\n\nМожливо не використовувати.</string>
+    <string name="cs_time">Період в хвилинах, через скільки робити запис:\n(чим частіше частота запису, тим більше навантаження на процесор, та тим повільніше працює програма)\nЗа замовчуванням - доба</string>
+    <string name="cs_cb1">Відображати кнопку синхронизації в мультибуфері?</string>
+    <string name="cs_cb2">Подавляти повідомлення про синхронизацию</string>
+    <string name="cs_cb3">Новий файл</string>
+    <string name="cs_cb3_desc">Перезаписувати файл, чи створювати новий з означенням часу створення.</string>
+    <string name="cs_size">Який максимальний розмір запису (у кілобайтах) зберігати в файл?\n(для зменшення "залипаннь" на слабких пристроях)</string>
+    <string name="cs_cnt_rec">Кількість зберігаємих записів.\nЯкщо значення більше встановленної кількості записів у мультібуфері, то зберігається весь мультібуфер.</string>
+    <string name="cs_start">Start</string>
+    <string name="cs_stop">Stop</string>
+    <string name="cs_start_msg">Буде запущено при першому запуску самої клавіатури</string>
+    <string name="cs_sync_msg">Мультібуфер синхронізован</string>
+    <string name="cs_error_write">Помилка!\nНе можу записати в файл</string>
+    
+<!-- Title for crash and feedbak -->
+<string name="crash_question">Попереднє виконання програми закінчилось з помилкою.\n\nНадіслати звіт розробнику?</string>
+    <string name="crash_desc">Будь ласка, не видаляйте інформацію нижче. Вона допоможе швидше виправити помилку.\n</string>
+    <string name="mail_developer">Лист розробнику</string>
+        
+	<string name="pref_one_start_text">(текст прокручуєтся)\n\nПрочитати Як користуватися клавіатурою? (на слабких пристроях може відкриватися дуже повільно)\n\nЦя клавіатура є професійною, що повністю налаштовується та відрізняється від більшості клавіатур.\nЦе конструктор клавіатур з великими можливостями.\nТому в ній відсутні предикативний ввід та свайп.\nПочатково клавіатура налаштована по принципу \"увімкнув та працюй\".\nПеред індивідуальним налаштуванням спочатку прочитайте цей текст - в ньому зібрані відповіді практично на будь-які Ваші запитання.</string>
+	<string name="transparency">Прозорість:</string>
+    
+<!-- Title for quick setting activity -->
+	<string name="qs_title">Майстер швидких налаштувань</string>
+	<string name="qs_ann">Ця клавіатура є професійною, що повністю налаштовується та відрізняється від більшості клавіатур.\nЦе конструктор клавіатур з великими можливостями.\nТому в ній відсутні предикативний ввід та свайп.\n\nСповіщення про можливість крадіжки паролів - це стандартне попередження системи. Подробиці про це читайте в \"Як користуватися клавіатурою\".\n\nЯкщо у Вас MIUI, то за замовчуванням у Вас не будуть показуватися вікна: автодоповнення (підказки слів) та показ натиснутих клавіш. Щоб їх увімкнути прочитайте \"Як користуватися клавіатурою\".</string>
+    <string name="qs_xiaomi">Виявлен виробник Xiaomi - у вас можуть не працювати вспливаючі вікна (автодоповнення, показ натиснутих клавіш, деякі запроси підтвердження дій та т.і.). Їх потрібно увімкнути в сістемних налаштуваннях. Для цього обов\'язково прочтіть Як користуватись клавіатурою</string>
+	<string name="qs_btn1">Увімкнути jbak2 keyboard</string>
+    <string name="qs_btn2">Активувати jbak2 keyboard</string>
+    <string name="qs_sel_lang">Обрати мову програми</string>
+    <string name="qs_sel_lang_def">Сістемна</string>
+    <string name="qs_btn3">Обрати мови та розкладки</string>
+    <string name="qs_btn3_help">Позначте потрібні мови.\nДалі, навпроти кожної мови знаходяться клавіша \"Обрати розкладку\". Натисніть її.\nВідкриється екран вибору розкладок. Клавішами \"стрілка праворуч\" та \"стрілка ліворуч\" розкладки перелистуються.\nПісля вибору потрібної не забудьте натиснути клавішу \"Зберегти\".\nПовторіть цю операцію для кожної обраної мови.</string>
+    <string name="qs_btn3_1">Висота клавіатури</string>
+    <string name="qs_btn4">Обрати скін (тему) клавіатури</string>
+    <string name="qs_btn4_help">Оберіть скін.\nПісля вибору натисніть \"Зберегти\".</string>
+    <string name="qs_btn5_help">Для роботи вікна автодоповнення необхідно встановити словники для обраних мов.\n\nЗавантажити додаток що встановлює словники?</string>
+    <string name="qs_end_msg">Для більш детального налаштування спершу прочтіть \"Як користуватися клавіатурою\" - там зібрані відповіді практично на всі запитання.\n\nВідкрити?\n\n(на слабких пристроях може відкриватися дуже повільно)</string>
+    <string name="qs_restart_app">Для змінення треба перезапустити программу</string>
+    	
+<!-- Title for set sound activity -->
+    <string name="ssact_title">Звуки на клавішах</string>
+    <string name="ssact_key_symb">Символьні клавіші</string>
+    <string name="ssact_key_left">Стрілка ліворуч</string>
+    <string name="ssact_key_right">Стрілка праворуч</string>
+    <string name="ssact_key_up">Стрілка догори</string>
+    <string name="ssact_key_down">Стрілка донизу</string>
+    <string name="ssact_key_space">Пробіл</string>
+    <string name="ssact_key_enter">Enter</string>
+    <string name="ssact_key_backspace">Backspace</string>
+    <string name="ssact_key_delete">Delete</string>
+    <string name="ssact_key_shift">Shift</string>
+    
+<!-- Title for edit user vocab -->
+    <string name="euv_actname">Редагувати словник користувача</string>
+    <string name="euv_lang_text">Мова</string>
+    <string name="euv_all_word_text">Всього слів:</string>
+    <string name="euv_freq">Частота</string>
+    <string name="euv_read">Читаю слова</string>
+    <string name="euv_save">Збереження</string>
+    <string name="euv_help">(текст прокручується)\n\nДля редагування слова чи його частоти натисніть на слово чи його частоту відповідно.\nДля закінчення редагування натисніть enter.\nДовге натискання на слово видаляє його з словника, а саме слово помічається червоним кольором.\n\nЧим вище частота слова, тим ближче слово до початку списка, якщо список автодоповнення видається по частоті.\nДіапазон частот слів от 0 до 10000000.\nЧастота слова вище 500000 вказує, що слово було відсутнє в основних словниках, його додав користувач та його потрібно показувати на початку списку (тому й настільки велике число).\nЯкщо слово встановлене з частотою 0, то його частота не збільшується, воно не відображається в списку слів (слова з основного словника мають мінімальну частоту 1 і тому завжди будуть відображатися).</string>
+    <string name="euv_cb1">Завжди відкривати цю мову</string>
+    
+<!-- Title for skin constructor  -->
+    <string name="sc_actname">Конструктор скінів</string>
+    <string name="sc_name">Конструктор скінів</string>
+    <string name="sc_name_desc">Cтворення свого скіна</string>
+    <string name="sc_help">Якщо параметр містить помилкове значення, то поле вводу забарвлюється червоним кольором</string>
+    <string name="sc_inf_port">ℹТап по кольоровому кругу вибирає колір</string>
+    <string name="sc_inf_land">ℹТап по кольоровому прямокутнику вибирає колір</string>
+    <string name="sc_create">Створити</string>
+    <string name="sc_upd">Оновити</string>
+    <string name="sc_create_edit">Створити чи редагувати</string>
+    <string name="sc_create_new">Новий</string>
+    <string name="sc_skin_name">Ім\'я скіна:</string>
+    <string name="sc_skin_change">Змінити ім\'я</string>
+    <string name="sc_notskin">Спершу завантажте скін.</string>
+    
+    <string name="sc_cat1">Фон клавіш</string>
+    <string name="sc_cat2">Текст на клавішах</string>
+    <string name="sc_cat3">Обводка клавіш</string>
+    <string name="sc_cat4">Фон клавіатури</string>
+    <string name="sc_cat5">Значення спеціальних клавіш (Shift, Backspace та ін.).</string>
+    <string name="sc_cat6">Загальне</string>
+
+    <string name="sc_msg1">Початковий колір градієнта для фону клавіші</string>
+    <string name="sc_msg2">Кінцевий колір градієнта.</string>
+    <string name="sc_msg3">Тип градієнта. 0 - лінійний, 1 - радіальний</string>
+    <string name="sc_msg4">Початковий колір градієнта для фону клавіші в натиснутому стані.</string>
+    <string name="sc_msg5">Кінцевий колір градіента для фону клавіші в натиснутому стані.</string>
+    <string name="sc_msg6">Колір тексту (написів та значків на клавішах)</string>
+    <string name="sc_msg7">Жирний шрифт (1) чи ні (0). Якщо не задано - не жирний</string>
+    <string name="sc_msg8">Колір додаткового символу</string>
+    <string name="sc_msg9">Колір тексту в натиснутому стані</string>
+    <string name="sc_msg10">Колір символа в натиснутому стані</string>
+    <string name="sc_msg11">Величина відступу фона клавіші в пікселях від повного прямокутника клавіші</string>
+    <string name="sc_msg12">Початковий колір градієнта для обводки клавіш.</string>
+    <string name="sc_msg13">Кінцевий колір градієнта для обводки клавіш.</string>
+    <string name="sc_msg14">Початковий колір градієнта для обводки клавіш в натиснутому стані.</string>
+    <string name="sc_msg15">Кінцевий колір градієнта для обводки клавіш в натиснутому стані.</string>
+    <string name="sc_msg16">Початковий колір градієнта для фону клавіатури</string>
+    <string name="sc_msg17">Кінцевий колір градієнта для фону клавіатури.</string>
+    <string name="sc_msg18">Тип градієнта. 0 - лінійний, 1 - радіальний</string>
+    <string name="sc_msg19">Колір текста на клавіші</string>
+    <string name="sc_msg20">Колір додаткового символу</string>
+    <string name="sc_msg21">Колір текста в натиснутому стані</string>
+    <string name="sc_msg22">Колір додаткового символу в натиснутому стані</string>
+    <string name="sc_msg23">Початковий колір градієнта для фона клавіш.</string>
+    <string name="sc_msg24">Кінцевий колір градієнта фона клавіш.</string>
+    <string name="sc_msg25">Початковий колір градієнта для обводки клавіш.</string>
+	<string name="sc_msg26">Кінцевий колір градієнта для обводки клавіш.</string>
+    <string name="sc_msg27">Початковий колір градієнта для фона клавіші в натиснутому стані.</string>
+    <string name="sc_msg28">Кінцевий колір градієнта для фона клавіші в натиснутому стані.</string>
+    <string name="sc_msg29">Тип градієнта. 0 - лінійний, 1 - радіальний</string>
+    <string name="sc_msg30">Радіус скруглення прямокутника клавіші по осі X, якщо не задано - 9</string>
+    <string name="sc_msg31">Радіус скруглення прямокутника клавіші по осі Y, якщо не задано - 9</string>
+    <string name="sc_msg32">Тип градієнта клавіш в натиснутому стані. 0 - лінійний, 1 - радіальний</string>
+    
+<!-- сохранение строки дополнительных символов -->
+	<string name="pop2s_save">Зберегти рядок</string>
+	<string name="pop2s_save_desc">Зберегти рядок додаткових символів в окремий файл</string>
+	<string name="pop2s_load">Завантажити рядок</string>
+	<string name="pop2s_load_desc">Завантажити рядок додаткових символів з окремого файлу</string>
+	<string name="pop2s_str_not_empty">Рядок не порожній.\nЗавантажити?</string>
+	<string name="pop2s_file_not_empty">Файл не порожній.\nПерезаписати?</string>
+					
+<!-- цвета кнопок для accoloract -->
+	<string name="ac_color_mainback">Кольори фону автодоповнення</string>
+	<string name="ac_color_title">Кольори всіх клавіш в автодоповненні</string>
+	<string name="ac_color_">Кольори в автодоповненні</string>
+	<string name="ac_color_desc">Задати кольори клавіш в автодоповненні</string>
+	<string name="ac_color_back">Колір клавіші</string>
+	<string name="ac_color_text">Колір тексту</string>
+	<string name="ac_color_addvocab">Додати слово</string>
+	<string name="ac_color_forcibly">Варіанти зі словника</string>
+	<string name="ac_color_keycode">Код натиснутої клавіші</string>
+	<string name="ac_color_counter">Лічильник натискань.</string>
+	<string name="ac_color_word">Слова</string>
+	<string name="ac_color_arrowdown">Стрілка донизу</string>
+	<string name="ac_color_calcmenu">Меню калькулятора</string>
+	<string name="ac_color_calcind">Індикатор калькулятора</string>
+								
+<!-- активность popup2act -->
+	<string name="ac_place_arrow_down">Стрілка донизу з автодоповнення</string>
+	<string name="ac_place_arrow_down_desc">Якщо відзначено, \"стрілка донизу\" в автодоповненні не показується. Замість неї можна використовувати жест</string>
+	<string name="ac_list_value">Кількість слів</string>
+	<string name="ac_list_value_desc">Кількість слів в випадаючому списку. Менше значення - швидше робота</string>
+	<string name="ac_del_word">Видалити слово?</string>
+	<string name="ac_del_word_notdict">Виконати неможливо.\nСлово відсутнє в словнику користувача </string>
+	<string name="ac_del_word_ok">Видалено</string>
+	<string name="ac_listview_alfavit">Випадаючий список по алфавіту</string>
+	<string name="ac_listview_alfavit_desc">Якщо відзначено, то випадаючий список слів видається по алфавіту, інакше - по частоті використання слів</string>
+
+<!-- активность popup2act -->
+	<string name="pc2act_title">Налаштування вікна малої клавіатури</string>
+	<string name="pc2act_color_desc">Колір вказується в шістнадцятковій формі - #aarrggbb, або 0xaarrggbb, (регістр літер не враховується) де:\naa - прозорість (00 - повністю прозорий, ff - геть не прозорий)\nrr - червоний\ngg - зелений\nbb - синій.</string>
+	<string name="pc2act_wind_color_back">Колір фону вікна:\n(стандартно #cc000000)</string>
+	<string name="pc2act_btn_off_color_txt">Колір тексту службових клавіш:\n(стандартно #ffffffff)</string>
+	<string name="pc2act_btn_off_color_back">Колір фона службових клавіш:\n(стандартно #ff444444)</string>
+	<string name="pc2act_btn_color_txt">Колір тексту клавіш:\n(стандартно #ff000000)</string>
+	<string name="pc2act_btn_color_back">Колір фону клавіш:\n (стандартно #ffffffff)</string>
+	<string name="pc2act_str_add">Рядок з налаштувань для Додаткового жесту\n</string>
+	<string name="pc2act_btn_size">Розмір клавіш\n(стандартно 20)</string>
+	<string name="pc2act_btn_off_size">Розмір службових клавіш\n(стандартно 20)</string>
+	<string name="pc2act_winfix">Фіксація вікна</string>
+	<string name="pc2act_winfix_desc">Якщо відзначено, то при натисканні звичайної клавіші вікно маленької клавіатури не зачиняється\n\n</string>
+	
+<!-- окно popupcharacter2 -->
+	<string name="pc2_info">ℹ Якщо клавіш багато, то вікно прокручується</string>
+
+<!-- создание своего жеста -->
+	<string name="gesture_create">Створення свого жесту</string>
+	<string name="gesture_create_all">Створені жести:</string>
+	<string name="gesture_create_add">Додати</string>
+	<string name="gesture_save">Зберегти</string>
+	<string name="gesture_tv1">Код клавіші зручно вводити увімкнувши відображення Кода клавіші (у Зовнішний вигляд) в автодоповнені - натискаємо на клавішу для якої створюємо жест та після цього натискаємо на клавішу натиснутого коду.\nЯкщо на клавіші декілька символів, береться перший з них.\n\nКод 32 (пробіл) зарезервовано!\n\nПісля зазначення всіх параметрів натискаємо клавішу Зберегти.</string>
+	<string name="gesture_tv2">Код клавіші: </string>
+	<string name="gc_type">Напрям жесту\n(щоб жест працював, потрібна хоча б одна клавіша в напрямку жесту після даної):</string>
+	<string name="gc_left">Ліворуч від клавіші</string>
+	<string name="gc_right">Праворуч від клавіші</string>
+	<string name="gc_up">Догори від клавіші</string>
+	<string name="gc_down">Донизу від клавіші</string>
+	<string name="gc_action">Дія:</string>
+	
+<!-- новые жесты -->
+	<string name="gesture_select_all">Виділити все</string>
+	<string name="gesture_select">Переключатель режима выделения (на раскладке должна быть клавиша Select)</string>
+	<string name="gesture_d_vr">Голосове введення</string>
+	<string name="gesture_space_quantity">Кількість пробілів залежить від довжини жесту\n</string>
+	<string name="gesture_to_start">На початок тексту</string>
+	<string name="gesture_to_end">В кінець тексту</string>
+	<string name="gesture_begin">На початок абзацу</string>
+	<string name="gesture_end">В кінець абзацу</string>
+	<string name="gesture_homestr">На початок рядка</string>
+	<string name="gesture_endstr">В кінець рядка</string>
+	<string name="gesture_mainmenu">Відкрити головне меню</string>
+	<string name="gesture_del">Видалити</string>
+	<string name="gesture_delword">Видалити слово перед курсором</string>
+	<string name="gesture_space_up">Догори від пробілу</string>
+	<string name="gesture_space_down">Донизу від пробілу\n(потрібна мінімум одна клавіша нижче пробілу)</string>
+	<string name="gesture_space_down_desc">Потрібна мінімум одна клавіша нижче пробілу</string>
+	<string name="gesture_popupchar1">Додаткові символи</string>
+	<string name="gesture_popupchar_str1">Рядок дод. символів</string>
+	<string name="gesture_popupchar_str1_desc">Для відкриття вікна додаткових символів для жесту "Додаткові символи" їх потрібно перерахувати тут</string>
+	<string name="gesture_cand_list">Список слів з автодоповнення</string>
+	<string name="gesture_cut">Вирізати</string>
+	<string name="gesture_copy">Копіювати</string>
+	<string name="gesture_paste">Вставити</string>
+	<string name="gesture_search_copy">Пошук скопійованого в браузері</string>
+	<string name="gesture_search_sel">Пошук виділенного в браузері</string>
+	<string name="gesture_trans_sel">Перекласти виділенне</string>
+	<string name="gesture_trans_copy">Перекласти скопійоване</string>
+	<string name="gesture_upcase">Символ в верхньому регистрі</string>
+	<string name="gesture_lowercase">Символ в нижньому регистрі</string>
+	<string name="gesture_long_text">Ввести написане по довгому натисканню</string>
+	<string name="share">Поділитися</string>
+	<string name="gesture_select_share">Поділитися виділенним</string>
+	<string name="send_share_create_list">Формується список придатних програм</string>
+				
+<!-- запуск приложений -->
+	<string name="runapp_favorite"><b>Обрані</b>\nкороткий натиск - запуск</string>
+	<string name="runapp_all"><b>Загальні</b>\nкороткий натиск - запуск,\nдовгий натиск - додати в Обрані</string>
+	<string name="runapp_rescaning">Пересканувати</string>
+	<string name="runapp_save_favorite">Зберегти Обрані</string>
+	<string name="runapp_favorite_cnt">Додатків в обраному: </string>
+			
+<!-- настройки главного меню -->
+	<string name="mainmenu_setting">Показ головного меню</string>
+	<string name="mainmenu_setting_desc">Які пункти меню відображати</string>
+	<string name="mainmenu_toast">Довге натискання на кнопці пункта меню -  видалити</string>
+	<string name="mainmenu_cb1">Видаляти одразу</string>
+			
+<!-- калькулятор -->
+	<string name="calc_menu_history">Історія обрахунків</string>
+	<string name="calc_menu_list">Лістинг программы</string>
+	<string name="calc_menu">Меню</string>
+	<string name="calc_setting">Налаштування калькулятора</string>
+	<string name="calc_corr_ind">Корегування вікна індикатора</string>
+	<string name="calc_corr_ind_desc">Висота вікна індикатора над клавіатурою, якщо вікно автодоповнення вимкнено</string>
+	<string name="calc_prog_empty">Пам\'ять програми пуста. Нічого виводити</string>
+	<string name="calc_save">Зберегти</string>
+	<string name="calc_load">Завантажити</string>
+	<string name="calc_save_prg">Зберегти програму</string>
+	<string name="calc_load_prg">Завантажити програму</string>
+	<string name="calc_load_prg_msg">Пам\'ять програми калькулятора не пуста.\nПерезаписати?</string>
+				
+<!-- поведение стрелок влево/вправо -->
+	<string name="arrow_key">Поведінка стрілок праворуч/ліворуч</string>
+	<string name="arrow_key_desc">Якщо обрано, то при досягненні кінця тексту, курсор переміщується на початок тексту, та навпаки</string>
+	
+<!-- Strings for popupKeyboard -->
+	<string name="pop_scr">Де показувати вікно натиснутих клавіш</string>
+	<string name="pop_scr_desc">Налаштування вікна натиснутих клавіш</string>
+	<string name="pop_scr_fon">Колір фону вікна</string>
+	<string name="pop_scr_txt">Колір текста вікна</string>
+	<string name="pop_scr_col_desc">Все цвета равны 0 - чёрный, 255 - белый</string>
+	<string name="pop_scr_fon_r">Червоний</string>
+	<string name="pop_scr_fon_g">Зелений</string>
+	<string name="pop_scr_fon_b">Синій</string>
+					
+<!-- Strings for popupKeyboard -->
+	<string name="popk_scr_cat">Виринаючі клавіатури</string>
+	<string name="popk_scr">(ЩЕ НЕ ПРАЦЮЄ)Рядки виринаючих клавіатур</string>
+	<string name="popk_scr_desc">Перерахунок слів для виринаючих клавіатур (якщо вони є в обраній розкладці)</string>
+	<string name="popk_s1">Рядок 1</string>
+	<string name="popk_s1_desc">Формат: #[Привіт Вася]#[mailto:]\nвиведе 2 кнопки (та, відповідно, введе текст після натиску на них) - Привіт Вася та mailto:</string>
+	<string name="popk_s_desc_other">Формат можна глянути вище</string>
+	<string name="popk_s2">Рядок 2</string>
+	<string name="popk_s3">Рядок 3</string>
+	<string name="popk_s4">Рядок 4</string>
+	<string name="popk_s5">Рядок 5</string>
+		
+  <string name="hotkey">Вибір папки Швидких клавіш</string>   
+    <string name="hotkey_cancel">Скасування вибору папки Швидких клавіш</string>   
+    
+    <string name="set_key_par_delay">Затримка після запису par.ini (в мс)</string>
+    <string name="set_key_par_delay_desc">Наприклад, якщо через раз висвічується прохання оцінити програму, просто збільшіть час затримки</string>
+    
+    <string name="set_key_symb_delay">Затримка перед введенням символу (в мс)</string>
+    <string name="set_key_symb_delay_desc">Якщо деякі символи не натискаються (або працюють кострубато), збільшіть значення</string>
+    
+<!-- оценка приложения -->
+    <string name="rate_title">Оцінка додатку</string>
+    <string name="rate_about">Будь ласка, оцініть додаток.</string>
+    <string name="rate_toast">Будьласка, оцініть програму (через налаштування)\nі це нагадування більше з\'являтися не буде.</string>
+    
+<!-- активность help -->
+    <string name="help">Допомога</string>
+    
+<!-- Как пользоваться клавиатурой -->
+    <string name="ann">Як користуватися клавіатурою (ru)</string>
+    <string name="ann_info">\n(на повільних пристроях може відкриватися довго)</string>
+    <string name="ann_desc">Прочитайте текст, і 99% питань зникне</string>
+    <string name="ann_btn_big">Збільшити</string>
+    <string name="ann_btn_small">Зменшити</string>
+
+<!-- Словари -->
+	<string name="dict">Словники</string>
+	<string name="dict_desc">Завантаження словників (без них автодоповнення не буде підказувати слова) та їх налаштування</string>
+	<string name="dict_load">Завантаження словників</string>
+	<string name="dict_load_desc">Без встановленого словника для конкретної мови, автодоповнення працювати НЕ буде</string>
+	<string name="dict_empty_dict">Створити пустий словник</string>
+	<string name="dict_empty_dict_desc">Два символа назви мови, щоб автодоповнення працювало. Слова добавляються в словник користувача</string>
+	<string name="student_dict">Словник, що самонавчається</string>
+	<string name="student_dict_desc">Після натискання слова з автодоповнення, частота його використання збільшується на одиницю. З часом найчастіше використані слова будуть завжди на екрані.</string>
+	<string name="student_ext_dict">Розширене навчання</string>
+	<string name="student_ext_dict_desc">Більш швидке навчання словника, но більше навантаження на процесор. Працює лише разом з попереднім налаштуванням.</string>
+									
+	<string name="set_enter_state">Клавіша Enter</string>
+	<string name="set_enter_state_desc">Чи міняти значок на Enter відповідно до контексту?</string>
+	<string name="set_ac_defkey">Слова за замовчуванням</string>
+    <string name="set_ac_defkey_desc">Слова у автодоповненні. Розділювач - пробіл. Якщо літер на клавіші декілька - вводиться перша.</string>
+	<string name="set_ac_new_defkey">Cтрока автодоповнення за замовчуванням змінилась. Вы бажаєте її змінити на нову (відмінити змінення неможливо)?</string>
+    <string name="set_market1">Оцініть додаток</string>
+    <string name="set_ac_space">Параметри додавання пробілу</string>
+    <string name="set_ac_space_desc">Додавати пробіл після введення слова з автодоповнення</string>
+
+    <string name="indicators">Індікатори</string>
+    <string name="set_counter">Розмір тексту</string>
+    <string name="set_counter_desc">Довжина тексту в ПОТОЧНОМУ полі вводу\nДля показу увімкніть автодоповнення.</string>
+    <string name="set_keycode">Натиснутий код</string>
+    <string name="set_keycode_desc">Для показу увімкніть автодоповнення.\nДокладніше читайте в \"Як користуватись клавіатурой\".</string>
+    <string name="set_longtap_keycode_help">Коротке натискання на элементі меню, вводить зазначене на ньому значення, довге натискання - копіює число в буфер обміну\n\n---\n\n</string>
+    
+  <string name="set_ch_keys_preview">Показ перегляду клавіш</string>
+  <string name="set_ch_keys_preview_desc">Вимкніть пункт, якщо не хочете бачити виринаючі вікна після натискання клавіш</string>
+    <string name="set_keyboard_height">Висота клавіатури</string>
+  <string name="set_key_height_portrait">Висота клавіш - портрет</string>
+  <string name="set_key_height_portrait_desc">Зміна висоти клавіш в портретному режимі</string>
+  <string name="set_key_height_landscape">Висота клавіш - ландшафт</string>
+  <string name="set_key_height_landscape_desc">Зміна висоти клавіш в ландшафтному режимі</string>
+    <string name="set_key_ac_height">Висота автодоповнення</string>
+    <string name="set_key_ac_height_desc"></string>
+    <string name="set_languages">Мови і розкладки</string>
+  <string name="set_languages_desc">Вибір мов для перемикання та розкладок клавіатур (можна змінити розкладку за замовчуванням)</string>
+  <string name="set_key_voice">Вібрація й звук</string>
+  <string name="set_key_voice_desc">Налаштування вібрації й звуку</string>
+  <string name="set_key_short_vibro">Вібрація при натисканні</string>
+  <string name="set_key_short_vibro_desc">Вибір вібрації при коротких натисканнях клавіш</string>
+  <string name="set_key_long_vibro">Вібрація при утриманні</string>
+  <string name="set_key_long_vibro_desc">Якщо увімкнено - пристрій вібрує при довгому натисненні клавіші</string>
+  <string name="set_key_repeat_vibro">Вібрація при повторах</string>
+  <string name="set_key_repeat_vibro_desc">Якщо увімкнено - вібрує при повторах клавіш (наприклад, при утриманні бекспейс)</string>
+  <string name="set_key_repeat_vibro_duration">Інтервал для повтору</string>
+  <string name="set_key_short_vibro_duration">Інтервал для натискання</string>
+  <string name="set_key_long_vibro_duration">Інтервал для утримання</string>
+  <string name="set_key_vibro_durations">Інтервали вібрації</string>
+  <string name="set_key_vibro_durations_desc">Налаштування інтервалів вібрації в мілісекундах</string>
+  <string name="set_key_vibro_in_silent">Вібро в режимі \"Беззвучний\"</string>
+  <string name="set_key_vibro_in_silent_desc">Якщо увімкнено - клавіші вибрують коли на пристрої увімкнено режим "без звуку"</string>  <string name="set_key_sounds">Звуковий супровід</string>
+  <string name="set_key_sounds_desc">Програвати системні звуки при натисненні на клавіші</string>
+  <string name="set_key_sounds_volume">Гучність звуків</string>
+    <string name="set_key_sounds_volume_desc">Гучність усіх звуків. Працює лише на декільких пристроях. На інших - гучність стандартна</string>
+  <string name="calibr_portrait">Вертикальна корекція - портрет</string>
+  <string name="calibr_landscape">Вертикальна корекція - ландшафт</string>
+  <string name="calibr_desc">Вертикальна корекція клавіш - для більш точного натискання клавіш</string>
+  <string name="calibr_input">Введіть текст:</string>
+  <string name="calibr_toggle_auto">Авто</string>
+  <string name="calibr_toggle_manual">Вручну</string>
+  <string name="calibr_save">"Ваша вертикальна корекція: %1$d.\nСистемне значення: %2$d\nВи бажаєте зберегти?"</string>
+  <string name="calibr_label">Вертикальна корекція:</string>
+  <string name="calibr_test_hint">Тест введення</string>
+  <string name="set_ac_font">Шрифт автодоповнення</string>
+  <string name="set_ac_font_desc">Шрифт панелі автодоповнення слів</string>
+  <string name="set_key_other">Автовведення</string>
+  <string name="set_key_other_desc">Налаштування автоматичного введення</string>
+  <string name="set_key_register">Перехід у верхній регістр</string>
+  <string name="set_key_spaces">Додавання пробілів</string>
+
+	<string name="set_key_del_spase_category">Видалення пробілу</string>
+	<string name="set_key_del_space">Видаляти пробіл перед символами</string>
+	<string name="set_key_del_space_desc">Вмикає видалення пробілу (якщо він є) перед деякими символами, що містяться в наступному рядку</string>
+    <string name="set_key_del_space_symbols">Символи для видалення пробілу</string>
+    <string name="set_key_del_space_symbols_desc">Видаляється пробіл (якщо він є) перед одним з цих символів. Натисніть для редагування.</string>
+
+  <string name="set_key_empty_uppercase">У порожніх полях</string>
+  <string name="set_key_empty_uppercase_desc">Якщо увімкнено - в порожньому текстовому полі вмикається верхній регістр</string>
+  <string name="set_key_auto_case">Автозміна регістру</string>
+  <string name="set_key_auto_case_desc">Автоматичний перехід у верхній регістр.</string>
+  <string name="set_key_auto_case_rules">Правила автозмін</string>
+  <string name="set_key_auto_case_rules_desc">Правила для переходу у верхній регістр</string>
+  <string name="set_key_sentence_upper">Після введення символів</string>
+  <string name="set_key_sentence_upper_desc">Вмикає автоматичний перехід у верхній регістр після деяких символів. Див. наступні налаштування</string>
+  <string name="set_key_sentence_ends">Символи зміни регістру</string>
+  <string name="set_key_sentence_ends_desc">Після введення одного з цих символів - перехід у верхній регістр. Натисніть для редагування</string>
+  <string name="set_key_sentence_space_end">Тільки після пробілів</string>
+  <string name="set_key_sentence_space_end_desc">Перехід у верхній регістр після одного з символів з попереднього пункту налаштувань і пробілу за ним</string>
+  <string name="set_key_space_sentence_end">Після введення символів</string>
+  <string name="set_key_space_sentence_end_desc">Вмикає додавання пробілів після деяких символів, перерахованих в наступному пункті налаштувань</string>
+  <string name="set_key_space_symbols">Символи додавання пробілів</string>
+  <string name="set_key_space_symbols_desc">Після введення одного з цих символів вставляється пробіл. Натисніть для редагування</string>
+  <string name="set_key_landscape_input">Повноекранний режим</string>
+  <string name="set_key_landscape_input_desc">Налаштування для введення в повноекранному режимі</string>
+  <string name="set_key_portrait_input_type">В портретному режимі</string>
+  <string name="set_key_portrait_input_type_desc">Вибір повноекранного редактора в портретному режимі</string>
+  <string name="set_key_landscape_input_type">У ландшафтному режимі</string>
+  <string name="set_key_landscape_input_type_desc">Вибір повноекранного редактора в ландшафтному режимі</string>
+  <string name="full_display_input_toast">Повноекранний режим працює не завжди - залежить від програми куди проводиться ввід</string>  <string name="set_key_landscape_input_settings">Налаштування редактора</string>
+  <string name="set_key_landscape_input_settings_desc">Налаштування шрифту для поля введення в повноекранному режимі</string>
+  <string name="set_select_layout">Вибір розкладки</string>
+  <string name="set_input_keyboard">Вибір методу введення</string>
+  <string name="set_key_skins">Скіни</string>
+  <string name="set_key_skins_desc">Різні варіанти оформлення для клавіатури</string>
+  <string name="set_key_fonts">Шрифти</string>
+  <string name="set_key_fonts_desc">Налаштування шрифтів для клавіш на клавіатурі</string>
+  <string name="set_key_font_first">Основний шрифт</string>
+  <string name="set_key_font_first_desc">Шрифт для літер</string>
+  <string name="set_key_font_second">Шрифт символів</string>
+  <string name="set_key_font_second_desc">Шрифт для додаткових символів</string>
+  <string name="set_key_font_label">Шрифт для іншого</string>
+  <string name="set_key_font_label_desc">Шрифт для текстів на клавішах (мова,Select,Copy та ін.)</string>
+  <string name="set_key_misc">Інші налаштування</string>
+  <string name="set_key_misc_desc">.. ще кілька налаштувань</string>
+  <string name="set_key_shift">Клавіша Shift</string>
+  <string name="set_key_appearance">Зовнішній вигляд</string>
+  <string name="set_key_appearance_desc">Налаштування зовнішнього вигляду клавіатури та повноекранного редактора (вибір скіна, додаткові інструменти,налаштування шрифтів, разміру символів і т.д.)</string>
+  <string name="set_key_clipbrd_size">Розмір буферу обміну</string>
+  <string name="set_key_clipbrd_size_desc">Максимальна кількість елементів у буфері обміну</string>
+  <string name="set_key_intervals">Інтервали клавіш</string>
+  <string name="set_key_intervals_desc">Затримка утримання і повтору клавіші</string>
+	<string name="set_key_tpl_path">Путь в шаблонах</string>
+	<string name="set_key_tpl_path_desc">Якщо зазначено, то в меню шаблонів та в деяких інших меню, показується путь к поточній папці</string>
+  <string name="set_key_save_pref">Зберегти налаштування</string>
+  <string name="set_key_save_pref_desc">В файл:</string>
+  <string name="set_key_load_pref">Завантажити налаштування</string>
+  <string name="set_key_load_pref_desc">З файлу:</string>
+  <string name="set_key_ac">Автодоповнення</string>
+  <string name="set_key_ac_desc">Налаштування для автодоповнення слів</string>
+  <string name="set_key_ac_place">Вікно автодоповнення</string>
+  <string name="set_key_ac_place_desc">Де показувати вікно автодоповнення?</string>
+  <string name="set_key_ac_place_0">Не показувати</string>
+  <string name="set_key_ac_place_1">Над клавіатурою</string>
+  <string name="set_key_ac_place_2">У статус-барі</string>
+
+  <string name="set_key_ac_autocorrect">Автовиправлення</string>
+  <string name="set_key_ac_autocorrect_desc">Після введення пробілу або іншого розділового знака - вставляє поточне виправлення</string>
+
+  <string name="set_key_gestures">Жести</string>
+  <string name="set_key_gestures_desc">Налаштування для жестів</string>
+  <string name="set_key_use_gestures">Увімкнути жести</string>
+  <string name="set_key_use_gestures_desc">Вмикає/вимикає всі жести</string>
+  <string name="set_key_gesture_left">Ліворуч</string>
+  <string name="set_key_gesture_right">Праворуч</string>
+  <string name="set_key_gesture_up">Догори</string>
+  <string name="set_key_gesture_down">Донизу</string>
+  <string name="set_key_gesture_space_left">Ліворуч від пробілу</string>
+  <string name="set_key_gesture_space_right">Праворуч від пробілу</string>
+    <string name="set_key_gesture_length">Довжина жесту</string>
+    <string name="set_key_gesture_length_desc">Діапазон 1-1000. Стандартно 100</string>
+    <string name="set_key_gesture_vel">Швидкість жесту</string>
+    <string name="set_key_gesture_vel_desc">Діапазон 1-1000. Стандартно 150</string>
+  
+  <string name="set_key_use_volumeKeys">Клавіші гучності</string>
+  <string name="set_key_use_volumeKeys_desc">Використовувати клавіші гучності для переміщення курсора</string>
+  <string name="vk_use_1">+ Ліворуч, - праворуч</string>
+  <string name="vk_use_2">- Ліворуч, + праворуч</string>
+
+  <string name="preview_show_0">Не відображати</string>
+  <string name="preview_show_1">Над натиснутими клавішами</string>
+  <string name="preview_show_2">По центру</string>
+  
+  	<string name="preview_size_win">Розмір віконця</string>
+	<string name="preview_size_win_desc">Розмір віконця натиснутих клавіш</string>
+	<string name="preview_size_0">Найменше</string>
+	<string name="preview_size_1">Невелике</string>
+	<string name="preview_size_2">Стандартне</string>
+	<string name="preview_size_3">Велике</string>
+	<string name="preview_size_4">Дуже велике</string>
+				
+  <string name="interval_long_press">Затримка утримання клавіші (мс)</string>
+  <string name="interval_first_repeat">Затримка першого повтору клавіші (мс)</string>
+  <string name="interval_next_repeat">Затримка наступного повтору клавіші (ms)</string>
+
+        
+    <string-array name="array_shift_vars">
+        <item>3 позиції (normal,shift,capslock)</item>
+        <item>2 позиції (normal,shift)</item>
+        <item>2 позиції (normal,capslock)</item>
+    </string-array>
+    <string-array name="screen_type_vars">
+        <item>Портрет та ландшафт</item>
+        <item>В портретному режимі</item>
+        <item>В ландшафтному режимі</item>
+    </string-array>
+    <string name="kbdact_back">Фон цього вікна</string>
+    <string-array name="vibro_short_type">
+        <item>Без вібрації</item>
+        <item>При відпусканні клавіші</item>
+        <item>При натисканні клавіші</item>
+    </string-array>
+        
+  <string name="es_title">Налаштування повноекранного редактора</string>
+  <string name="es_sample">Зразок</string>
+  <string name="es_sample_text">Ніколи не бійся робити те, що ти не вмієш. Не забувай, що ковчег був побудований аматором. Професіонали побудували Титанік</string>
+  <string name="es_font">Шрифт</string>
+  <string name="es_font_size">Розмір шрифту</string>
+  <string name="es_font_bold">Жирний</string>
+  <string name="es_font_italic">Курсив</string>
+  <string name="es_def_font">Стандартний розмір</string>
+
+    <string-array name="array_fonts">
+        <item>За замовчуванням</item>
+        <item>Droid serif</item>
+        <item>Monospace</item>
+    </string-array>
+
+        <string-array name="array_input_type">
+        <item>За замовчуванням</item>
+        <item>Завжди повноекранний</item>
+        <item>Завжди не повноекранний</item>
+    </string-array>
+
+  <string name="mm_setting">Меню</string>
+  <string name="mm">Головне меню</string>
+  <string name="mm_path">Поточний шлях:</string>
+    <string name="mm_delrec">Видалити запис після вставки</string>
+    <string name="mm_enter_end">Enter після вставки</string>
+  	<string name="mm_help_btn">Допомога</string>
+   	<string name="mm_synchronize">Синхронизация</string>
+  	<string name="mm_info">ℹ Якщо клавіш багато, то меню прокручується.\n(клавіші праворуч також).\n\nДовге натискання на елементі меню (в потрібних місцях) відкриває редактор елемента.\n\nЗ шаблонами и програмами калькулятора можливо виконувати додаткові файлові операції будь-яким файловим менеджером. Кожен шаблон (програма калькулятора) - це звичайний файл, де им\'я шаблона - названня файлу.\nШлях до папки шаблону чи програми калькулятора виводиться зверху вікна меню.</string>
+    <string name="mm_btn_size">Розмір тексту клавіш</string>
+	<string name="mm_btn_size_desc">Задає розмір текста клавіш (за замовчуванням 15)</string>
+  <string name="mm_btnoff_size">Розмір тексту службових клавіш</string>
+  <string name="mm_btnoff_size_desc">Задає розмір тексту службових клавіш (за замовчуванням 8)</string>
+  <string name="mm_templates">Шаблони</string>
+  <string name="mm_multiclipboard">Буфер обміну</string>
+  <string name="mm_settings">Налаштування jbak2 Keyboard</string>
+  <string name="mm_close">Закрити</string>
+  <string name="mm_home">Додому</string>
+  <string name="mm_reload_skin">Перезавантаження скіну</string>
+  <string name="mm_reload_skin_desk">\n(Відображається при використанні зовнішнього скіну)</string>
+  <string name="mm_method_sym">(Вже не використовується)\nМетод введення цифр</string>
+  <string name="mm_compil">Компіляція клавіатур</string>
+  <string name="mm_decompil">Декомпіляція клавіатур</string>
+  <string name="mm_runapp">Запуск додатків</string>
+  <string name="mm_ac_hide0">Відображати вікно автодоповнення\n(працює тільки якщо увімкнено над клавіатурою)</string>
+  <string name="mm_ac_hide1">Автодоповнення: Приховати</string>
+  <string name="mm_ac_hide2">Автодоповнення: Відобразити</string>
+	<string name="mm_translate_interfase">Мова перекладача</string>
+	<string name="mm_translate_interfase_browser">Два символи (ru, en та т.і.) мови інтерфейсу перекладача в браузері</string>
+	<string name="mm_notation">Сістеми зчислення</string>
+			
+	<string name="search">Пошук</string>
+  <string name="ok">Добре</string>
+  <string name="cancel">Скасувати</string>
+  <string name="yes">Так</string>
+  <string name="no">Ні</string>
+  <string name="empty">Пусто</string>
+	<string name="create">Створено</string>
+  <string name="save">Зберегти</string>
+  <string name="decompil_skin">Декомпліювати скін</string>
+  <string name="delete">Видалити</string>
+  <string name="delete_q">Видалити?</string>
+  <string name="def">Стандарт</string>
+  <string name="skin_not_found">Помилка.\nНе знайдено інстальований скін\nВикористовую скін за замовчуванням</string>
+  <string name="clear">Очистити</string>
+  <string name="clear_question">Очистити?</string>
+    <string name="honeycomb">Не підтримується  на вашій версії андроид</string>
+    <string name="not_work">Поки що не працює. </string>
+    
+  	<string name="sel_del">Видалити вибірково</string>
+  <string name="rewrite_question">Файл вже існує.\nПерезаписати?</string>
+  <string name="settings_saved">Налаштування збережені!</string>
+  <string name="add">Додано</string>
+  <string name="data_changed">Дані змінені.\nЗберегти?</string>
+  <string name="selection">Вибрати</string>
+  <string name="are_you_sure">Ви впевненні?</string>
+  
+  <string name="tpl_empty">Немає що видаляти</string>
+  <string name="tpl_new_template">Додати</string>
+  <string name="tpl_new_folder">"Нова папка"</string>
+  <string name="tpl_folder_name">Введіть назву папки</string>
+  <string name="tpl_name">Назва</string>
+  <string name="tpl_text">Текст</string>
+  <string name="tpl_text_calc_hint">Опис</string>
+  <string name="tpl_editor">Редактор шаблону</string>
+  <string name="tpl_save">Зберегти</string>
+  <string name="tpl_spec_options">Спец. інструкції</string>
+  <string name="tpl_fields_empty">Всі поля повинні бути заповнені!</string>
+  <string name="tpl_delete">Бажаєте видалити \"%s\"?</string>
+  <string name="tpl_unicode_app">Програма з переліком символів юнікод (UnicodePad)</string>
+    <string name="tpl_cb_inv">Інвертувати кнопки</string>
+    <string name="tpl_cb_right">Притиснути вправо</string>
+    
+    <string name="tpl_translate_menuname">Перекладач</string>
+    <string name="tpl_translate">Запис перекладача</string>
+    <string name="tpl_translate_in">Вихідна мова для перекладу (ru, en, es та т.і.)</string>
+    <string name="tpl_translate_out">Якою мовою перекладати (ru, en, es та т.і.)</string>
+  
+  <string name="clipboard_empty">Буфер обміна пустий.</string>
+  <string name="clipboard_clear">Бажаєте очистити буфер обміну?</string>
+
+<!-- List for menu with special template instructions -->    
+    <string-array name="tpl_spec_instructions">
+        <item><b>$select</b> - інструкція замінюється на текст поточного виділення</item>
+        <item><b>$selword</b> - якщо нічого не обрано - замінюється на слово під курсором, інакше - на текст, що виділено</item>
+        <item><b>$selline</b> - якщо нічого не обрано - замінюється на текст поточного абзацу, інакше - на текст, що виділено</item>
+        <item><b>$$</b> - замінюється на символ $ </item>
+        <item><b>$datetime</b> - вставляє поточну дату й час. Якщо курсор знаходиться в слові, воно замінюється</item>
+        <item><b>$sellowercase</b> - всі маленькі в виділеному</item>
+        <item><b>$selupcase</b> - ВСІ ВЕЛИКІ в виділеному</item>
+        <item><b>$selinsertword</b> - вставляє визначений символ чи слово між кожним символом у виділенному</item>
+        <item><b>$seltranslit</b> - змінює російські символи в визначеному на трансліт</item>
+		<item><b>$selVerseMode</b> - режим віршів - кожний перший символ рядка у виділеному тексті у верхньому регистрі</item>
+        <item><b>$selAsInTheSentences</b> - регістр букв у виділенному тексті як  у реченнях</item>
+        </string-array>
+    
+<!-- список символов разделения для специнструкции $insertsymbol -->
+  <string name="insertsymbol_title">Символ чи слово розділу</string>
+    <string-array name="tpl_insertsymbol">
+        <item><b>[ ]</b> - пробіл</item>
+        <item><b>[-]</b> - тире</item>
+        <item><b>[_]</b> - підкреслювання</item>
+        <item><b>[]</b> - своє значення (можливо вказувати фразу в дужках)</item>
+        </string-array>
+    <string name="insertsymbol_toast">Ця спецінструкція, можливо, буде працювати не скрізь або працювати хибно - все залежить від програми у яку здійснюється ввід</string>
+    
+<!-- список форматов для специнструкции $datetime -->
+  <string name="datetime_format_title">Формат дат та часу</string>
+    <string-array name="datetime_format">
+        <item><b>[]</b> - свій формат (усі формати вказані в Як користуватися клавіатурою)</item>
+        <item><b>[yyyy.MM.dd HH:mm:ss]</b> - дата та час (2016.12.31 14:56:35)</item>
+        <item><b>[dd.MM.yyyy HH::ss]</b> - дата та час (31.12.2016 14:56:35)</item>
+        <item><b>[dd.MM.yyyy]</b> - дата (31.12.2016)</item>
+        <item><b>[MM.dd.yyyy]</b> - дата (12.31.2016)</item>
+        <item><b>[yyyy.MM.dd]</b> - дата (2016.12.31)</item>
+        <item><b>[HH:mm]</b> - час без секунд</item>
+        <item><b>[HH:mm:ss]</b> - час зі секундами</item>
+        </string-array>
+    
+    <string name="helper_1">Клавіатура не увімкнена!</string>
+  <string name="helper_1_desc">Натисніть це повідомлення та виберіть</string>
+  <string name="helper_2">Клавіатура не активна!</string>
+  <string name="upd_new_vocab">Новий словник</string>
+  <string name="upd_vocab_version_update">Оновлення до версії</string>
+  <string name="upd_check">Перевірка оновлень ...</string>
+  <string name="upd_download">Завантаження...</string>
+  <string name="upd_unzip">Розпакування...</string>
+  <string name="upd_index">Індексація...</string>
+  <string name="upd_no_updates">На сервері відсутні оновлення</string>
+  <string name="upd_get_error">Помилка при перевірці оновлень</string>
+
+  <string name="about">Про додаток</string>
+  <string name="about_desc">Номер кольору, код символа, історія, тема на форумі на 4pda.ru, № версії та інше</string>
+  <string name="about_app">Програма:</string>
+  <string name="about_version">Версія:</string>
+  <string name="about_author">Автор:</string>
+  <string name="about_web">Тема на форумі: http://4pda.ru/forum/index.php?showtopic=638021\n(мій нік wolf3d2)\n</string>
+  <string name="about_author_desc">"Михайло Вязенкін (MWcorp)"</string>
+  <string name="about_other">Інше:</string>
+  <string name="about_other_desc">"Попередній автор:\nдо 0.97.7 - Юрій Бакунін\nЗроблено на основі jbak keyboard версії 0.97.7\n\nПереклад українською - Денис Манжос(4pda.ru - zdrweb), Stealth3001, TealcJaffa\nПереклад іспанською та англійською - Луїза Валеєва (4pda.ru - Luiza_Va)\nАвтор іконки додатку - myha781 (4pda.ru)\n Просто допомога - elizz69"</string>
+  <string name="about_keycode_button">Код символу, зручно при створенні своєї розкладки \n(програма UnicodePad)</string>
+  
+<!-- Strings for diary -->
+	<string name="diary">Щоденник (ru)</string>
+  <!-- Strings for desc_kbd -->
+	<string name="desc_kbd">Опис клавіатури</string>
+	
+<!-- Strings for plan -->
+	<string name="plan">План</string>
+	
+  <string name="kbd_name_qwerty">Клавіатура Qwerty</string>
+  <string name="kbd_name_mwcorp">Клавіатура вiд MWcorp</string>
+  <string name="smiles_MWcorp">Смайлики від MWcorp</string>    
+  <string name="kbd_psevdo_t9_mwcorp">Псевдо T9 вiд MWcorp</string>    
+  <string name="kbd_t9_mwcorp">T9 вiд MWcorp</string>    
+  <string name="kbd_name_qwerty_hyastan64">Вiд Hyastan64</string>    
+  <string name="kbd_name_qwerty_rusrespect">Вiд RusRespect</string>    
+    <string name="kbd_name_qwerty_eliz69">Вiд eliz69</string>    
+  <string name="kbd_name_round_pb">Для круглих годинників від Paul_Bort</string>    
+  <string name="kbd_name_wide">Широкі клавіші</string>
+  <string name="kbd_name_qwerty_tablet">Qwerty для планшетів</string>
+  <string name="kbd_name_sym_edit">Символи та редагування</string>
+  <string name="kbd_name_5_rows">5 рядків</string>
+  <string name="kbd_name_2_sides">Двостороння</string>
+  <string name="kbd_calc">Простий калькулятор</string>
+  <string name="kbd_calc_saent">Науковий калькулятор</string>
+  <string name="kbd_calc_prog">Програмований калькулятор</string>
+  <string name="kbd_landscape_mwcorp">Ландшафт від MWcorp v100\n(приклад всіх клавіш клавіатури)</string>    
+  <string name="kbd_name_dvorak">Дворак вiд Vladimyr</string>
+  
+  <string name="kbd_design_standard">Стандартний</string>
+  <string name="kbd_design_iphone">Псевдо iPhone</string>
+  <string name="kbd_design_ukraine">Зроблено в Україні</string>
+	<string name="kbd_design_ukraine_old">Старий Зроблено в Україні</string>
+  <string name="kbd_design_chokolate">Шоколад</string>
+	<string name="kbd_design_red">Червоно-синій</string>
+  <string name="kbd_design_htc">Псевдо HTC</string>
+	<string name="kbd_design_pink">Рожевий</string>
+	<string name="kbd_design_dark">Темний</string>
+	<string name="kbd_design_solid">Суцільний</string>
+	
+<!-- Names for designs of assets -->
+	<string name="design_eliz1">Кремовий</string>    
+	<string name="design_eliz2">Яблуко</string>    
+	<string name="design_eliz3">Коричневий</string>    
+	<string name="design_eliz4">Золото</string>    
+	<string name="design_eliz5">Віолет</string>    
+	<string name="design_eliz6">Дроп</string>    
+	<string name="design_schenee">Шоколад 2</string>    
+	<string name="design_thepop3250_1">Світлий</string>    
+	<string name="design_thepop3250_2">Голубий</string>    
+	<string name="design_thepop3250_3">Неон</string>    
+	<string name="design_rusrespect1">Ноутбук</string>    
+	<string name="design_keylifes1">Чорно-білий</string>    
+			
+  <string name="lang_symbol">Символьна клавіатура</string>
+  <string name="lang_symbol_shift">Дод. символьна клавіатура</string>
+  <string name="lang_edittext">Клавіатура правки тексту</string>
+ 	<string name="lang_edittext2">Клавіатура правки тексту MWcorp</string>   
+  <string name="lang_smiles">Клавіатура смайликів</string>
+  <string name="lang_numbers">Числова клавіатура</string>
+   	<string name="lang_calc">Калькулятор</string>   
+  <string name="lang_symbol_selector">Перемикач символьної та qwerty клавіатури</string>   
+  <string name="cmd_lang_change">Зміна мови</string>
+  <string name="cmd_left">Курсор ліворуч</string>
+  <string name="cmd_right">Курсор праворуч</string>
+  <string name="cmd_up">Курсор догори</string>
+  <string name="cmd_down">Курсор донизу</string>
+  <string name="cmd_none">Нічого не робити</string>
+  <string name="cmd_close">Закрити клавіатуру</string>
+  <string name="cmd_space">Пробіл</string>
+  <string name="menu_copy_all">Копіювати весь текст</string>
+  <string name="menu_copy_paragraph">Копіювати абзац</string>
+  <string name="menu_copy_word">Копіювати слово</string>
+  <string name="menu_copy">Скопійовано</string>
+
+	<string name="set_copy_msg">Повідомлення о копіюванні</string>
+ 	<string name="set_copy_msg_desc">Якщо означено, то при копіюванні виводиться повідомлення о копіюванні</string>
+  
+ </resources>
