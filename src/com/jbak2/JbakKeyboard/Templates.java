@@ -424,6 +424,18 @@ public class Templates
                         	}
                         	repl = out;
                 		break;
+                        case 10:
+                    		if (ServiceJbKbd.inst==null) 
+                    			return;
+                			repl = ServiceJbKbd.inst.getClipboardCharSequence().toString();
+//                        	if (repl.length()!=0) {
+//                        		if (ServiceJbKbd.inst!=null) {
+//                        			repl = ServiceJbKbd.inst.getClipboardCharSequence().toString();
+//                        		}
+//                        		repl=st.STR_NULL;
+//                        	}
+//                    		ServiceJbKbd.inst.processTextEditKey(st.TXT_ED_PASTE);
+                        	break;
                     }
                     if(repl==null)
                     {
@@ -1026,7 +1038,8 @@ public class Templates
     	"selinsertword",
     	"seltranslit",
     	"selVerseMode",
-    	"selAsInTheSentences"
+    	"selAsInTheSentences",
+    	"paste"
     	};
     File file;
     ArrayList<File> m_arFiles;

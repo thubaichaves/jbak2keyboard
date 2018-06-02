@@ -12,7 +12,6 @@ import com.jbak2.CustomGraphics.GradBack;
 import com.jbak2.JbakKeyboard.IKeyboard.KbdDesign;
 import com.jbak2.JbakKeyboard.st.IntEntry;
 
-import android.content.Context;
 import android.content.res.AssetManager;
 
 public class CustomKbdDesign

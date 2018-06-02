@@ -602,7 +602,7 @@ public class com_menu
 			
 			@Override
 			public int OnObserver(Object param1, Object param2) {
-				ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
+//				ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
 				switch((Integer)param1)
 				{
 					case R.string.menu_copy_all:
@@ -610,12 +610,10 @@ public class com_menu
                 		st.messageCopyClipboard();
 						break;
 					case R.string.menu_copy_word:
-						cm.setText(ci.getWordText());
-                		st.messageCopyClipboard();
+						st.copyText(c, ci.getWordText());
 						break;
 					case R.string.menu_copy_paragraph:
-						cm.setText(ci.getLineText());
-                		st.messageCopyClipboard();
+						st.copyText(c, ci.getLineText());
 						break;
 				}
 				menu.close();
@@ -642,7 +640,7 @@ public class com_menu
 			}
 		}, false);
     }
-    // показывает введённый код символа в разных системах счисления
+    /** показывает введённый код символа в разных системах счисления */
     public static void showNotationNumber(final Context c, String num)
     {
     	st.help = c.getString(R.string.set_longtap_keycode_help);
@@ -668,11 +666,14 @@ public class com_menu
                     int pos = ((Integer)param1).intValue();
                     if (pos > -1){
                     	try {
-                    		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
+//                    		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
+//                    		String s = menu.m_arItems.get(pos).text;
+//                    		s = s.substring(s.indexOf(":")+1).trim();
+//                    		cm.setText(s);
+//                    		st.messageCopyClipboard();
                     		String s = menu.m_arItems.get(pos).text;
                     		s = s.substring(s.indexOf(":")+1).trim();
-                    		cm.setText(s);
-                    		st.messageCopyClipboard();
+                    		st.copyText(c, s);
                     	} catch (Throwable e) {}
 
                     }

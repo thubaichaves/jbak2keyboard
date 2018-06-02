@@ -179,7 +179,6 @@
 	<string name="ac_color_addvocab">Add word</string>
 	<string name="ac_color_forcibly">Forced dictionary</string>
 	<string name="ac_color_keycode">Keypress code</string>
-	<string name="ac_color_counter">Keyboard counter</string>
 	<string name="ac_color_word">Words</string>
 	<string name="ac_color_arrowdown">Down arrow</string>
 	<string name="ac_color_calcmenu">Calculator menu</string>
@@ -614,7 +613,7 @@
     <string name="clear">Clear</string>
     <string name="clear_question">Clear?</string>
     <string name="honeycomb">Not supported for your version of Android</string>
-    <string name="not_work">Пока не работает.</string>
+    <string name="not_work">Does not work yet</string>
     
     <string name="sel_del">Delete selectively</string>
     <string name="rewrite_question">File already exists.\nDo you want to replace it?</string>
@@ -661,6 +660,7 @@
         <item><b>$seltranslit</b> - transliterate Russian language characters into Latin characters in the selection</item>
 		<item><b>$selVerseMode</b> - verse mode: each first character of the string in the selection will be capitalized</item>
         <item><b>$selAsInTheSentences</b> - letter case in the selection like in the sentences</item>
+        <item><b>$paste</b> - вставить текущее значение из буфера обмена</item>
         </string-array>
     
 <!-- список символов разделения для специнструкции $insertsymbol -->
@@ -714,7 +714,7 @@
 
 	<string name="about_author_desc">Michail Wyazenkin (MWcorp, 4pda - wolf3d2)\n Previous developer (until 0.97.7)\nJuriy Bakunin</string>
 	<string name="about_other">Other:</string>
-	<string name="about_other_desc">The application will be fully translated in a couple of months.\nTranslations:\ninto Spanish: Luiza Valeeva (4pda.ru: Luiza_Va)\ninto English: Luiza Valeeva\ninto Ukrainian: Denis Manzhos (4pda.ru: zdrweb), Stealth3001, TealcJaffa.\nCreator of the app icon: myha781 (4pda.ru)\nHelp: elizz69</string>
+	<string name="about_other_desc">The application will be fully translated in a couple of months.\nTranslations:\ninto Spanish: Luiza Valeeva (4pda.ru: Luiza_Va)\ninto English: Luiza Valeeva\ninto Ukrainian: Denis Manzhos (4pda.ru: zdrweb), Stealth3001, TealcJaffa.\nCreator of the app icon: myha781 (4pda.ru)\nHelp: elizz69, yergnoor</string>
     <string name="about_keycode_button">Character code (useful for creating your own layout \n(UnicodePad application)</string>
 
 <!-- Strings for diary -->
@@ -785,6 +785,8 @@
  	
  <!-- Names for gestures commands -->
  	<string name="cmd_lang_change">Change language</string>
+ 	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
+ 	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
  	<string name="cmd_left">Cursor to the left</string>
  	<string name="cmd_right">Cursor to the right</string>
  	<string name="cmd_up">Cursor up</string>

@@ -1,6 +1,5 @@
 package com.jbak2.JbakKeyboard;
 
-import java.util.List;
 import java.util.Locale;
 
 import com.jbak2.ctrl.Dlg;
@@ -17,7 +16,6 @@ import android.content.res.Configuration;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.os.Build;
 import android.os.Bundle;

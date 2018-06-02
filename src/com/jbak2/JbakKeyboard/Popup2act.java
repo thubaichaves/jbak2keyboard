@@ -3,7 +3,6 @@ package com.jbak2.JbakKeyboard;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -12,7 +11,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.JbakKeyboard.st;

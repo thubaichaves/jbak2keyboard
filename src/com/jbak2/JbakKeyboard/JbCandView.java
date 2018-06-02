@@ -32,7 +32,6 @@ import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.st.ArrayFuncAddSymbolsGest;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.words.TextTools;
-import com.jbak2.words.Words;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.IWords.WordEntry;
 

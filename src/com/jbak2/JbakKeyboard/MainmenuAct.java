@@ -2,25 +2,18 @@ package com.jbak2.JbakKeyboard;
 
 import java.util.ArrayList;
 
-import com.jbak2.JbakKeyboard.st.UniObserver;
 import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.Mainmenu;
-import com.jbak2.ctrl.ProgressOperation;
-import com.jbak2.words.UserWords.WordArray;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
 public class MainmenuAct extends Activity
 {

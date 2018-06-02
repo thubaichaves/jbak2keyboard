@@ -9,11 +9,13 @@ import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.SweepGradient;
+import android.text.ClipboardManager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -31,9 +33,10 @@ public class ColorPicker extends View implements View.OnTouchListener
 //		GlobDialog.inst.finish();
 //		return;
 //	}
+	/** jjjjj */
 	static boolean fl_color_picker = false;
 	EditText m_et = null;
-	SeekBar sb= null;
+	SeekBar sb = null;
 	TextView tv_example = null;
 	TextView tv_example_col = null;
 	int transparent = 255;
@@ -87,9 +90,9 @@ public class ColorPicker extends View implements View.OnTouchListener
 
 	private void init(Context context) 
 	{
-		// в наш пока скучающий метод init() добавляем
 		setOnTouchListener(this);
 		setDrawingCacheEnabled(true);
+
 //		setExampleText();
 		inst = this;
 	}
@@ -152,7 +155,6 @@ public class ColorPicker extends View implements View.OnTouchListener
 		// Вместо Math.min как вариант можно использовать getConfiguration,
 		// величину size можно умножать на какие-нибудь коэффициенты, 
 		// задавая размер View относительно размера экрана. Например так:
-
 //		switch (orient) {
 //		case Configuration.ORIENTATION_PORTRAIT:
 //			size = (int) (measureHeight * port);
@@ -352,6 +354,7 @@ public class ColorPicker extends View implements View.OnTouchListener
         tv_example_col.setBackgroundResource(R.drawable.textview__frame_style);
         tv_example_col.setTextColor(endrgb);
         tv_example_col.setId(1003);
+        tv_example_col.setTextSize(30);
         tv_example_col.setLayoutParams(tvexamlecolpar);
         tv_example_col.setText(st.STR_SPACE+"▇"+st.STR_SPACE);
         rl.addView(tv_example_col);
@@ -365,6 +368,14 @@ public class ColorPicker extends View implements View.OnTouchListener
         tvexamletxtpar.setMargins(10, 10, 5, 5);
 
         tv_example = new TextView(m_c);
+        tv_example.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				st.copyText(m_c, ((TextView)v).getText().toString());
+			}
+		});
+        tv_example.setTextSize(30);
 //        tv_example.setText();
 //        	tv_example.setTextColor(setExampleText());
         tv_example.setId(1004);
@@ -509,6 +520,7 @@ public class ColorPicker extends View implements View.OnTouchListener
         tv_example_col.setBackgroundResource(R.drawable.textview__frame_style);
         tv_example_col.setTextColor(endrgb);
         tv_example_col.setId(1003);
+        tv_example_col.setTextSize(30);
         tv_example_col.setLayoutParams(tvexamlecolpar);
         tv_example_col.setText(st.STR_SPACE+"▇"+st.STR_SPACE);
         rl.addView(tv_example_col);
@@ -525,6 +537,14 @@ public class ColorPicker extends View implements View.OnTouchListener
 //        tv_example.setText();
 //        	tv_example.setTextColor(setExampleText());
         tv_example.setId(1004);
+        tv_example.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				st.copyText(m_c, ((TextView)v).getText().toString());
+			}
+		});
+        tv_example.setTextSize(30);
         tv_example.setLayoutParams(tvexamletxtpar);
         setExampleText();
         rl.addView(tv_example);
@@ -650,5 +670,4 @@ public class ColorPicker extends View implements View.OnTouchListener
 			tv_example_col.setTextColor(endrgb);
 		
 	}
-
 }

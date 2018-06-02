@@ -8,7 +8,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.Resources.Theme;
 import android.text.ClipboardManager;
 /** Сервис для забора значений по таймеру */
 @SuppressWarnings("deprecation")
@@ -41,6 +40,8 @@ public class ClipbrdService extends SameThreadTimer
     }
     void checkString(String str)
     {
+    	if (str == null)
+    		return;
     	cancel();
         try{
             if(str.equals(m_sLastClipStr))

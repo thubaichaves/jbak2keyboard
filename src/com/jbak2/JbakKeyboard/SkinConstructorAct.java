@@ -283,7 +283,8 @@ public class SkinConstructorAct extends Activity
             return;
         case R.id.sc_edit:
         	st.hidekbd();
-        	arskinname.clear();
+        	if (arskinname!=null)
+        		arskinname.clear();
         	arskinname.add(this.getString(R.string.sc_create_new));
         	arskinname.add(this.getString(R.string.sc_skin_change));
         	File myFolder = new File(st.getSettingsPath()+"/skins");

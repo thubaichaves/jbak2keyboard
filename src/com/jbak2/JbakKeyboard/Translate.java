@@ -49,7 +49,10 @@ public class Translate
     	if (inst == null)
     		return;
         menu = new com_menu();
-       	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_SELECTED));
+        if  (mtype == 0)
+        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_SELECTED));
+        else if (mtype == 1)
+        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_COPYING));
         menu.m_state|=com_menu.STAT_TRANSLATE;
         ar = onReadFileAndSortArray();
         if (ar!=null)

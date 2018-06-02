@@ -18,7 +18,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup.LayoutParams;
 import android.widget.RelativeLayout;
 /** Редактирование шаблонов и просмотр элементов буфера обмена*/
 public class TplEditorActivity extends Activity

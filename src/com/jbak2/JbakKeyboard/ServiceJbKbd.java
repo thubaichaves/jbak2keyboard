@@ -66,11 +66,9 @@ import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.JbKbd.Replacement;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
 import com.jbak2.JbakKeyboard.Templates.CurInput;
-import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.Mainmenu;
-import com.jbak2.ctrl.Notif;
 import com.jbak2.ctrl.SameThreadTimer;
 import com.jbak2.words.Words;
 import com.jbak2.words.WordsService;
@@ -1298,7 +1296,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             st.kv().handleLangChange(true,true);
 
         }
-        else if (primaryCode == st.CMD_LANG_CHANGE_PREV_LANG)
+        else if (primaryCode == st.CMD_LANG_CHANGE_TWO_LANG)
         {
             st.kv().handleLangChange(false,false);
         }
@@ -1490,8 +1488,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 //    	st.sleep(m_delay_symb);
 
         ic.beginBatchEdit();
-//        ic.commitText(text, text.length());
-        ic.commitText(text, newpos);
+        // откоментил 01.06.18
+        // до этого была строчка ниже
+        ic.commitText(text, text.length()>0?1:0);
+//        ic.commitText(text, newpos);
         ic.endBatchEdit();
     }
 
@@ -1960,8 +1960,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             	selOff();
             	break;
             case st.TXT_ED_PASTE: // Paste
-            	ClipboardManager cm = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-            	CharSequence str = cm.getText();
+            	CharSequence str = getClipboardCharSequence();
             	int pos = Math.min(m_SelStart, m_SelEnd)+(str.length());
             	onText(str);
             	ic.setSelection(pos, pos);
@@ -3375,7 +3374,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     				+". "+ getString(R.string.calc_save),st.CMD_CALC_SAVE);
     		break;
     	case st.CMD_TRANSLATE_SELECTED:
-    		txt = getString(R.string.tpl_translate_menuname);
+    		txt = getString(R.string.gesture_trans_sel);
+    		break;
+    	case st.CMD_TRANSLATE_COPYING:
+    		txt = getString(R.string.gesture_trans_copy);
     		break;
     	}
     	return txt;
@@ -3628,5 +3630,12 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	if (kbd_show_ei!=null)
             st.curKbd().setImeOptions(inst.getResources(), kbd_show_ei.imeOptions);
+    }
+    public CharSequence getClipboardCharSequence()
+    {
+    	ClipboardManager cm = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+    	CharSequence str = cm.getText();
+
+    	return str;
     }
 }

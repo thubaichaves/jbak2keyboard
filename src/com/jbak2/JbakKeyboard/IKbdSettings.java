@@ -686,8 +686,8 @@ public interface IKbdSettings
     public static final int CMD_LANG_CHANGE = -20;
     /** Внутреняя команда - выбор языка из меню */    
     public static final int CMD_LANG_MENU = -21;
-    /** Внутреняя команда - переключение языка без вывода меню, переход к предыдущему языку */    
-    public static final int CMD_LANG_CHANGE_PREV_LANG = -22; 
+    /** Внутреняя команда - переключает между последними двумя языками */    
+    public static final int CMD_LANG_CHANGE_TWO_LANG = -22;
     /** Внутреняя команда - переключение языка без вывода меню, переход к следующему языку*/    
     public static final int CMD_LANG_CHANGE_NEXT_LANG = -23; 
     /** Внутреняя команда - компиляция клавиатур */    

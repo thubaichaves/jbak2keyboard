@@ -1,11 +1,10 @@
 package com.jbak2.JbakKeyboard;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
-import com.jbak2.JbakKeyboard.com_menu.Adapt;
-import com.jbak2.JbakKeyboard.com_menu.MenuEntry;
 import com.jbak2.JbakKeyboard.st.UniObserver;
 import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
@@ -20,18 +19,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.Gravity;
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.LinearLayout;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 @SuppressLint("NewApi")
@@ -43,7 +41,9 @@ public class EditUserVocab extends Activity
 	String titleEditBox = st.STR_NULL;
 	 // множитель для ид textview'ов слова и частоты
 	static int FACTOR = 2;
-	// цвет текста сигнализирующий что слово уже удалено
+	// цвета
+	int TEXT_COLOR_BASE = Color.WHITE;
+	int TEXT_COLOR_EDIT= Color.YELLOW;
 	int TEXT_COLOR_DEL = Color.RED;
 	int PADDING_LEFT = 5;
 	int PADDING_RIGHT = 3;
@@ -99,7 +99,6 @@ public class EditUserVocab extends Activity
         lang = userword.getTables();
         setCountWord(0);
         lv =(ListView)findViewById(R.id.euv_list);
-        initList();
 
         fl_changed = false;
 
@@ -109,8 +108,8 @@ public class EditUserVocab extends Activity
         	curlang = deflang;
         	cb_deflang.setChecked(true);
             btn_sellang.setText(getLangName(curlang));
-            createWordLayout(null);
-        	
+            createWordLayout();
+            initList();
         }
 
        	Ads.count_failed_load = 0;
@@ -143,6 +142,30 @@ public class EditUserVocab extends Activity
     		return;
         switch (view.getId())
         {
+        case R.id.euv_search:
+            final GlobDialog gd = new GlobDialog(st.c());
+            gd.set(R.string.search, R.string.ok, R.string.cancel);
+            gd.setObserver(new st.UniObserver()
+              {
+                  @Override
+                  public int OnObserver(Object param1, Object param2)
+                  {
+                      if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                      {
+                    	  search_txt = gd.ret_edittext_text.trim().toLowerCase();
+                    	  if (search_txt.isEmpty()) {
+                    		  createWordLayout();
+                    	  } else {
+                    		  userword.getAllWord(curlang);
+                    		  m_adapter.getFilter().filter(search_txt);
+                    	  }
+                      }
+                  	//userword.stopAddWord(false);
+                      return 0;
+                  }
+              });
+           	gd.showEdit(search_txt,0);
+        	return;
         case R.id.euv_cb2:
         	if (cb_noquery!=null){
         		
@@ -210,8 +233,8 @@ public class EditUserVocab extends Activity
                     } else
                     	cb_deflang.setChecked(true);
                     btn_sellang.setText(ars[pos]);
-                    createWordLayout(null);
-
+                    createWordLayout();
+                    initList();
                     return 0;
                 }
             });
@@ -219,30 +242,6 @@ public class EditUserVocab extends Activity
         case R.id.euv_help:
         	st.help(R.string.euv_help);
         	return;
-        case R.id.euv_search:
-        	st.toast(R.string.not_work);
-        	return;
-//            final GlobDialog gd = new GlobDialog(st.c());
-//            gd.set(R.string.search, R.string.ok, R.string.cancel);
-//            gd.setObserver(new st.UniObserver()
-//              {
-//                  @Override
-//                  public int OnObserver(Object param1, Object param2)
-//                  {
-//                      if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
-//                      {
-////                    	  search_txt = gd.ret_edittext_text.trim().toLowerCase();
-////                    	  m_adapter.getFilter().filter(search_txt);
-//                    	  search(gd.ret_edittext_text.trim().toLowerCase());
-//                    	  
-////                		  setWordAndFreq(tv,gd.ret_edittext_text.trim());
-//                      }
-//                  	//userword.stopAddWord(false);
-//                      return 0;
-//                  }
-//              });
-//           	gd.showEdit(search_txt,0);
-//        	return;
         }
     }
     public static String getLangName(String lng)
@@ -254,7 +253,7 @@ public class EditUserVocab extends Activity
     		return null;
     	return lng+" - "+out;
     }
-    public void createWordLayout(String search)
+    public void createWordLayout()
     {
 //    	if (ll==null)
 //    		return;
@@ -277,25 +276,9 @@ public class EditUserVocab extends Activity
         		btn_search.setVisibility(View.GONE);
     		return;
     	} else {
-    		int cnt = 0;
     		if (tv_cnt_word!=null)
     			tv_cnt_word.setVisibility(View.VISIBLE);
-//        	WordArray wa = null;
-        	for (int i=0;i<userword.arword.size();i++){
-        		if (search == null){
-        			//ll.addView(createrl(i));
-    				//createrl(i);
-        			cnt++;
-        		} else {
-        			search = search.toLowerCase();
-        			if (userword.arword.get(i).namenew.startsWith(search)){
-            			//ll.addView(createrl(i));
-        				//createrl(i);
-            			cnt++;
-        			}
-        		}
-        	}
-    		setCountWord(cnt);
+    		setCountWord(userword.arword.size());
     	}
         fl_changed = false;
     }
@@ -415,6 +398,7 @@ public class EditUserVocab extends Activity
         	if (GlobDialog.gbshow){
         		return true;
         	}
+        	((TextView)v).setTextColor(TEXT_COLOR_EDIT);
         	WordArray wa = null;
         	if (st.isEven(v.getId()))
     			wa = st.getWordArrayElementById(v.getId(), userword.arword);
@@ -426,7 +410,8 @@ public class EditUserVocab extends Activity
         	if (cb_noquery!=null&&cb_noquery.isChecked()){
         		fl = false;
         	}
-        	userword.deleteUserWord(((TextView)v).getText().toString(), curlang,false,(TextView)v,TEXT_COLOR_DEL, fl,wa);
+        	TextView tt = (TextView)v;
+        	userword.deleteUserWord(((TextView)v).getText().toString(), curlang,false,(TextView)v,new int[] {TEXT_COLOR_BASE,TEXT_COLOR_EDIT,TEXT_COLOR_DEL}, fl,wa);
         	return true;
         }
     };
@@ -564,13 +549,69 @@ public class EditUserVocab extends Activity
     {
     	finish();
     }
-    static class EuvAdapt extends ArrayAdapter<WordArray>
+    public void setTextViewColor(TextView tv, boolean col) {
+    	if (!col)
+    		tv.setTextColor(Color.WHITE);
+    	else
+    		tv.setTextColor(TEXT_COLOR_DEL);
+    }
+//    public void search(String search){
+//    	search=search.trim().toLowerCase();
+//    	if (search.isEmpty()) {
+//    		initList();
+//    		return;
+//    	}
+//    	RelativeLayout rl = null;
+//    	TextView tv = null;
+//    	String ttv = null;
+//    	WordArray wa = null;
+//    	int pos = 0;
+//    	int size = lv.getChildCount();
+//    	for (int i=0;i<lv.getChildCount();i++) {
+//    		rl = (RelativeLayout) lv.getChildAt(pos);
+//    		if (rl!=null){
+//    			tv = (TextView) rl.getChildAt(0);
+//    			if (tv==null)
+//    				continue;
+//    			wa = userword.arword.get(i);
+//    			if (!wa.namenew.startsWith(search)) {
+//    				userword.arword.remove(wa);
+//    			}
+//    		}
+//    	}
+//    	//initList();
+//        m_adapter.notifyDataSetChanged();
+//    }
+    public void initList(){
+        m_adapter = new EuvAdapt(inst,userword.arword);
+        lv.setAdapter(m_adapter);
+   }
+    static class EuvAdapt extends ArrayAdapter<WordArray> implements Filterable
     {
+    	private ArrayList<WordArray> filteredModelItemsArray;
+    	private Activity context;
+    	private ModelFilter filter;
+    	private LayoutInflater inflater;
+    	
     	ArrayList<WordArray> mwa = null;
         public EuvAdapt(Context context, ArrayList<WordArray> arword)
         {
             super(context,0);
             mwa = arword;
+
+//            this.mwa = new ArrayList<WordArray>();
+//            mwa.addAll(arword);
+            this.filteredModelItemsArray = new ArrayList<WordArray>();
+            filteredModelItemsArray.addAll(mwa);
+            //inflater = context.getLayoutInflater();
+            getFilter();        
+        }
+        @Override
+        public Filter getFilter() {
+            if (filter == null){
+                filter  = new ModelFilter();
+            }
+            return filter;
         }
         @Override
         public int getCount() 
@@ -611,7 +652,7 @@ public class EditUserVocab extends Activity
 	        lpr.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 	        
 			RelativeLayout.LayoutParams lpl = new RelativeLayout.LayoutParams(
-					RelativeLayout.LayoutParams.WRAP_CONTENT,
+					RelativeLayout.LayoutParams.MATCH_PARENT,
 					RelativeLayout.LayoutParams.WRAP_CONTENT
 					);
 	        lpl.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -634,42 +675,58 @@ public class EditUserVocab extends Activity
 
 			return rl;
 		}
+    
+   private class ModelFilter extends Filter
+    {
+
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            constraint = constraint.toString().toLowerCase();
+            FilterResults result = new FilterResults();
+            if(constraint.toString().length() > 0)
+            {
+                ArrayList<WordArray> filteredItems = new ArrayList<WordArray>();
+                WordArray wa = null;
+                String m = null;
+                for(int i = 0; i< mwa.size(); i++)
+                {
+                	wa = mwa.get(i);
+                    m = mwa.get(i).namenew;
+                    if(m.toLowerCase().startsWith(constraint.toString()))
+                        filteredItems.add(wa);
+                }
+                result.count = filteredItems.size();
+                result.values = filteredItems;
+            }
+            else
+            {
+                synchronized(this)
+                {
+                    result.values = mwa;
+                    result.count = mwa.size();
+                }
+            }
+            return result;
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+            filteredModelItemsArray = (ArrayList<WordArray>)results.values;
+            notifyDataSetChanged();
+            mwa.clear();
+            int siz = filteredModelItemsArray.size();
+            WordArray wa = null;
+            for(int i = 0; i< siz; i++) {
+                wa = filteredModelItemsArray.get(i);
+                mwa.add(wa);
+            }
+      	    inst.setCountWord(mwa.size());
+            notifyDataSetInvalidated();
+        }
+      }
     }
-    public void setTextViewColor(TextView tv, boolean col) {
-    	if (!col)
-    		tv.setTextColor(Color.WHITE);
-    	else
-    		tv.setTextColor(TEXT_COLOR_DEL);
-    }
-    public void search(String search){
-    	search=search.trim().toLowerCase();
-    	if (search.isEmpty()) {
-    		initList();
-    		return;
-    	}
-    	RelativeLayout rl = null;
-    	TextView tv = null;
-    	String ttv = null;
-    	WordArray wa = null;
-    	int pos = 0;
-    	int size = lv.getChildCount();
-    	for (int i=0;i<lv.getChildCount();i++) {
-    		rl = (RelativeLayout) lv.getChildAt(pos);
-    		if (rl!=null){
-    			tv = (TextView) rl.getChildAt(0);
-    			if (tv==null)
-    				continue;
-    			wa = userword.arword.get(i);
-    			if (!wa.namenew.startsWith(search)) {
-    				userword.arword.remove(wa);
-    			}
-    		}
-    	}
-    	//initList();
-        m_adapter.notifyDataSetChanged();
-    }
-    public void initList(){
-        m_adapter = new EuvAdapt(inst,userword.arword);
-        lv.setAdapter(m_adapter);
-   }
+
 }

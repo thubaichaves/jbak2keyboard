@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 import com.jbak2.JbakKeyboard.R;
 import com.jbak2.JbakKeyboard.st;
-import com.jbak2.JbakKeyboard.R.string;
-import com.jbak2.JbakKeyboard.st.KbdGesture;
 // класс для хранения сведений о пунктах главного меню
 public class Mainmenu {
 	// массив пунктов главного меню

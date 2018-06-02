@@ -502,6 +502,11 @@ public class GlobDialog  extends Activity
 //        m_view.setOnClickListener(m_clkListener);
         wm.addView(m_view, lp);
     }
+    /** ввод осуществляется одним из трёх видов
+     * hex=
+     * 0 - text
+     * 1 - decimal
+     * 2 - hex */
     public void showEdit(String txt, int hex)
     {
         WindowManager wm = (WindowManager)m_c.getSystemService(Service.WINDOW_SERVICE);

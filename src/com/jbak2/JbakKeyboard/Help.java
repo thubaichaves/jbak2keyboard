@@ -24,9 +24,12 @@ public class Help extends Activity
         if (st.help.length()>0){
        		et.setText(st.help);
         } else {
-        	LatinKey key = st.curKbd().getKeyByCode(-514);
-        	if (key!=null)
+        	JbKbd curkbd = st.curKbd();
+        	if (curkbd!=null) {
+        		LatinKey key = curkbd.getKeyByCode(-514);
+        		if (key!=null)
         		et.setText(key.help);
+        	}
         }
         st.hidekbd();
         // показ рекламы

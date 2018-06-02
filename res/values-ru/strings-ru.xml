@@ -179,7 +179,6 @@
 	<string name="ac_color_text">Цвет текста</string>
 	<string name="ac_color_addvocab">Добавить слово</string>
 	<string name="ac_color_keycode">Код нажатой клавиши</string>
-	<string name="ac_color_counter">Счётчик нажатий</string>
 	<string name="ac_color_forcibly">Принудительный словарь</string>
 	<string name="ac_color_word">Слова</string>
 	<string name="ac_color_arrowdown">Стрелка вниз</string>
@@ -646,6 +645,7 @@
         <item><b>$seltranslit</b> - изменяет русские символы в выделении на транслит</item>
         <item><b>$selVerseMode</b> - режим стихов - каждый первый символ строки в выделении в верхнем регистре</item>
         <item><b>$selAsInTheSentences</b> - регистр букв в выделении как в предложениях</item>
+        <item><b>$paste</b> - вставить текущее значение из буфера обмена</item>
         </string-array>
 
 <!-- список символов разделения для специнструкции $insertsymbol -->
@@ -692,7 +692,7 @@
 	<string name="about_author">Автор:</string>
 	<string name="about_author_desc">Михаил Вязенкин\n(MWcorp, 4pda - wolf3d2)\nПервый автор (до 0.97.7): Юрий Бакунин</string>
 	<string name="about_other">Прочее:</string>
-	<string name="about_other_desc">Переводы:\nИспанский: Луиза Валеева (4pda.ru: Luiza_Va)\nАнглийский: Луиза Валеева\nУкраинский: Денис Манжос (4pda.ru: zdrweb), Stealth3001, TealcJaffa.\nАвтор иконки приложения - myha781 (4pda.ru)\n Просто помощь - elizz69</string>
+	<string name="about_other_desc">Переводы:\nИспанский: Луиза Валеева (4pda.ru: Luiza_Va)\nАнглийский: Луиза Валеева\nУкраинский: Денис Манжос (4pda.ru: zdrweb), Stealth3001, TealcJaffa.\nАвтор иконки приложения - myha781 (4pda.ru)\n Просто помощь - elizz69, yergnoor</string>
 
 <!-- В других локалях этот текст не переводить! Какой там тест есть, тот и переводить -->
 	<string name="about_web">(Пролистайте до конца)\n\nТема обсуждения: http://4pda.ru/forum/index.php?showtopic=638021\nГруппа на одноклассниках:\nhttps://ok.ru/jbak2keyboard\n\nСделано на основе jbak keyboard версии 0.97.7</string>
@@ -763,6 +763,8 @@
  			    
  <!-- Names for gestures commands -->
  	<string name="cmd_lang_change">Смена языка</string>   
+ 	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
+ 	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
  	<string name="cmd_left">Курсор влево</string>   
  	<string name="cmd_right">Курсор вправо</string>   
  	<string name="cmd_up">Курсор вверх</string>   

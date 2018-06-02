@@ -1,6 +1,5 @@
 package com.jbak2.web;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import org.apache.http.protocol.HTTP;

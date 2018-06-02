@@ -18,11 +18,9 @@ package com.jbak2.JbakKeyboard;
 
 import java.lang.reflect.Field;
 
-import android.app.Service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.inputmethodservice.Keyboard;
@@ -33,16 +31,7 @@ import android.preference.PreferenceManager;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +39,6 @@ import com.jbak2.JbakKeyboard.IKeyboard.KbdDesign;
 import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureInfo;
-import com.jbak2.JbakKeyboard.st.ArrayFuncAddSymbolsGest;
 import com.jbak2.JbakKeyboard.st.KbdGesture;
 
 public class JbKbdView extends KeyboardView 
@@ -626,7 +614,7 @@ public class JbKbdView extends KeyboardView
             cl = st.arLangs[0].name;
         st.tempEnglishQwerty = false;
         int f = st.searchStr(cl, ls);
-        String newLang=st.defKbd().lang.name;;
+        String newLang=st.defKbd().lang.name;
         if (st.fl_qwerty_kbd){
             setLang(st.getCurLang());
         	st.fl_qwerty_kbd = false;

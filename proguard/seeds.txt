@@ -26,6 +26,8 @@ com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context)
 com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context,android.util.AttributeSet)
 com.jbak2.JbakKeyboard.ColorPicker: ColorPicker(android.content.Context,android.util.AttributeSet,int)
 com.jbak2.JbakKeyboard.ColorPicker$1: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ColorPicker$3: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.ColorPicker$4: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.Desc_act
 com.jbak2.JbakKeyboard.Desc_act: Desc_act()
 com.jbak2.JbakKeyboard.Desc_act: void onClick(android.view.View)

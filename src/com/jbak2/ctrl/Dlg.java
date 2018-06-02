@@ -1,23 +1,15 @@
 package com.jbak2.ctrl;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
-import android.database.Cursor;
 import android.view.View;
-import android.view.Window;
 import android.widget.ListAdapter;
 
 import com.jbak2.JbakKeyboard.R;
 import com.jbak2.JbakKeyboard.ServiceJbKbd;
-import com.jbak2.JbakKeyboard.TplEditorActivity;
-import com.jbak2.JbakKeyboard.Translate;
 import com.jbak2.JbakKeyboard.st;
-import com.jbak2.JbakKeyboard.R.string;
-import com.jbak2.JbakKeyboard.com_menu.MenuEntry;
 import com.jbak2.JbakKeyboard.st.UniObserver;
 
 /** Класс предоставляет функции для вывода различных диалогов */

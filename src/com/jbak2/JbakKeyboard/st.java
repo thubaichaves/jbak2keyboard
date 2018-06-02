@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
-import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -30,22 +29,15 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.text.format.Formatter;
+import android.text.ClipboardManager;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Service;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -53,10 +45,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.jbak2.CustomGraphics.GradBack;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
-import com.jbak2.JbakKeyboard.st.ArrayFuncAddSymbolsGest;
 import com.jbak2.ctrl.GlobDialog;
-import com.jbak2.ctrl.IntEditor;
-import com.jbak2.ctrl.Mainmenu;
 import com.jbak2.web.SearchGoogle;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.UserWords.WordArray;
@@ -1520,12 +1509,6 @@ public class st extends IKeyboard implements IKbdSettings
         Toast.makeText(c, txt, Toast.LENGTH_LONG).show();
    	}
     
-    public static void toastCopy()
-    {
-        if(android.os.Build.VERSION.SDK_INT <= 17)
-    		st.toast(R.string.menu_copy);
-
-    }
         public static void sleep(int ms)
         {
         	try {
@@ -2043,6 +2026,8 @@ public class st extends IKeyboard implements IKbdSettings
     	arGestures.add(new KbdGesture(R.string.gesture_popupchar1, GESTURE_ADDITIONAL_SYMBOL1));
     	arGestures.add(new KbdGesture(R.string.gesture_cand_list, GESTURE_AC_PLACE_LIST));
     	arGestures.add(new KbdGesture(R.string.cmd_lang_change, CMD_LANG_CHANGE));
+    	arGestures.add(new KbdGesture(R.string.cmd_lang_change_next, CMD_LANG_CHANGE_NEXT_LANG));
+    	arGestures.add(new KbdGesture(R.string.cmd_lang_change_two_lang, CMD_LANG_CHANGE_TWO_LANG));
     	arGestures.add(new KbdGesture(R.string.cmd_left, KeyEvent.KEYCODE_DPAD_LEFT));
     	arGestures.add(new KbdGesture(R.string.cmd_right, KeyEvent.KEYCODE_DPAD_RIGHT));
     	arGestures.add(new KbdGesture(R.string.cmd_up, KeyEvent.KEYCODE_DPAD_UP));
@@ -2241,6 +2226,8 @@ public class st extends IKeyboard implements IKbdSettings
  //2 - клавиатура не активна      
       public static int getRegisterKbd(Context c)
       {
+    	  if (c == null)
+    		  return 0;
           InputMethodManager imm = (InputMethodManager)c.getSystemService(Service.INPUT_METHOD_SERVICE);
           String pn = c.getPackageName();
           List<InputMethodInfo> imlist =  imm.getEnabledInputMethodList();
@@ -2300,5 +2287,10 @@ public class st extends IKeyboard implements IKbdSettings
      	}
      	return null;
      }
+ 	public static void copyText(Context c,String str) {
+		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
+		cm.setText(str);
+		st.messageCopyClipboard();
+	}
 
 }

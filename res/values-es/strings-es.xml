@@ -178,7 +178,6 @@
 	<string name="ac_color_addvocab">Añadir la palabra</string>
 	<string name="ac_color_forcibly">Diccionario forzado</string>
 	<string name="ac_color_keycode">Código de la tecla presionada</string>
-	<string name="ac_color_counter">Contador de presiones</string>
 	<string name="ac_color_word">Palabras</string>
 	<string name="ac_color_arrowdown">Flecha hacia abajo</string>
 	<string name="ac_color_calcmenu">Menú de la calculadora</string>
@@ -595,7 +594,7 @@
     <string name="clear">Limpiar</string>
     <string name="clear_question">Limpiar?</string>
     <string name="honeycomb">No es compatible con su versión de Android</string>
-    <string name="not_work">Пока не работает.</string>
+    <string name="not_work">No funciona aún</string>
     
     <string name="sel_del">Borrar de forma selectiva</string>
     <string name="rewrite_question">Archivo ya existe.\n¿Desea reemplazarlo?</string>
@@ -641,8 +640,10 @@
         <item><b>$selinsertword</b> - inserta un símbolo o una palabra seleccionada entre los símbolos en la selección</item>
         <item><b>$seltranslit</b> - translitera caracteres de idioma ruso en caracteres latinos en la selección</item>
 		<item><b>$selVerseMode</b> - modo verso: cada letra de la línea en la selección estará en mayúscula</item>
-        <item><b>$selAsInTheSentences</b> - tamaño de letras en la selección como en las sentencias</item>        </string-array>
-    
+        <item><b>$selAsInTheSentences</b> - tamaño de letras en la selección como en las sentencias</item>
+        <item><b>$paste</b> - вставить текущее значение из буфера обмена</item>
+        </string-array>
+        
 <!-- список символов разделения для специнструкции $insertsymbol -->
   <string name="insertsymbol_title">Símbolo o palabra de división</string>
     <string-array name="tpl_insertsymbol">
@@ -762,6 +763,8 @@
  	
  <!-- Names for gestures commands -->
  	<string name="cmd_lang_change">Cambio de idioma</string>   
+ 	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
+ 	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
  	<string name="cmd_left">Cursor a la izquierda</string>   
  	<string name="cmd_right">Cursor a la derecha</string>   
  	<string name="cmd_up">Cursor hacia arriba</string>   

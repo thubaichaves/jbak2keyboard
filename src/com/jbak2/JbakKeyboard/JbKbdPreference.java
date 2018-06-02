@@ -30,10 +30,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,7 +43,6 @@ import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.IntEditor;
 import com.jbak2.ctrl.Mail;
-import com.jbak2.words.WordsService;
 
 // в 2.28.11 переделан механизм просьбы оценить приложение и тд.
 @SuppressLint("NewApi")
@@ -509,6 +506,7 @@ public void checkStartIntent()
                     if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
                     {
                     	st.pref().edit().clear().commit();
+                    	System.exit(0);
                     	st.toast(R.string.ok);
                     }
                     return 0;
@@ -1331,6 +1329,7 @@ public void checkStartIntent()
                     else if(ret==1)
                     	if(!bSave)
                     	{
+                            System.exit(0);
                     		Toast.makeText(getApplicationContext(), R.string.reboot, Toast.LENGTH_LONG).show();                        
 // ребут телефона 
 // не забыть в манифесте добавить пермишн 

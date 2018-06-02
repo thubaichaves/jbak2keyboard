@@ -10,6 +10,7 @@ import com.jbak2.ctrl.GlobDialog;
 
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
@@ -401,17 +402,21 @@ public class UserWords {
 
 	boolean delWord(String word) {
 		if (isTableOpen())
-			return deleteUserWord(word.toLowerCase(), m_curTable, false, null, -1, true, null);
+			return deleteUserWord(word.toLowerCase(), m_curTable, false, null, new int[] {0,0,0}, true, null);
 		return false;
 	}
 
-	// удаляет слово из пользовательского словаря
-	// tv - textview для изменения цвета текста при 'Да'
-	// col - на какой цвет менять tv
-	// если col != -1, то цвет меняется
+	/** удаляет слово из пользовательского словаря
+	* tv - textview для изменения цвета текста при 'Да'
+	* col - массив изменения цветов у tv:
+	* col[0] - исходный цвет. Если = -1, то цвет не меняем
+	* col[1] - цвет удаляемого слова до его удаления
+	* col[2] - цвет удалённого слова
+	* если col.length=0, != -1, то цвет меняется
+	 */
 	public boolean deleteUserWord(final String word2, final String lng1, 
 			final boolean viewkbd, final TextView tv,
-			final int col, boolean bNoQuery, final WordArray wa) {
+			final int[] col, boolean bNoQuery, final WordArray wa) {
 		if (m_db == null) {
 			if (!open(WordsService.getVocabDir() + FILENAME))
 				return false;
@@ -430,15 +435,19 @@ public class UserWords {
 				if (word2.equalsIgnoreCase(user_word_bd)) {
 					delword = word2;
 					if (bNoQuery) {
+						if (tv!=null&col.length==2&col[1]!=0)
+							tv.setTextColor(col[1]);
 						GlobDialog gd = new GlobDialog(st.c());
 						gd.set(R.string.ac_del_word, R.string.yes, R.string.no);
 						gd.setObserver(new st.UniObserver() {
 							@Override
 							public int OnObserver(Object param1, Object param2) {
+								if (tv!=null&col.length==3&col[0]!=0)
+									tv.setTextColor(col[0]);
 								if (((Integer) param1).intValue() == AlertDialog.BUTTON_POSITIVE) {
 									m_db.execSQL("DELETE FROM " + lng1 + " WHERE " + C_WORD + " = \"" + word2 + "\";");
-									if (tv != null && col != -1)
-										tv.setTextColor(col);
+									if (tv!=null&col.length==3&col[2] != 0)
+										tv.setTextColor(col[2]);
 									if (viewkbd)
 										st.showkbd();
 									if (wa!=null)
@@ -456,8 +465,8 @@ public class UserWords {
 						gd.showAlert();
 					} else {
 						m_db.execSQL("DELETE FROM " + lng1 + " WHERE " + C_WORD + " = \"" + word2 + "\";");
-						if (tv != null && col != -1)
-							tv.setTextColor(col);
+						if (tv != null && col[2] != -1)
+							tv.setTextColor(col[2]);
 						if (viewkbd)
 							st.showkbd();
 						st.toast(R.string.ac_del_word_ok);
