@@ -17,10 +17,14 @@
 package com.jbak2.JbakKeyboard;
 
 import java.lang.reflect.Field;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.inputmethodservice.Keyboard;
@@ -31,6 +35,7 @@ import android.preference.PreferenceManager;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +45,9 @@ import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureInfo;
 import com.jbak2.JbakKeyboard.st.KbdGesture;
+import com.jbak2.CustomGraphics.draw;
 
+@SuppressLint("NewApi")
 public class JbKbdView extends KeyboardView 
 {
 	public PopupKeyboard m_pk = null;
@@ -153,6 +160,11 @@ public class JbKbdView extends KeyboardView
                 m_defBackground = getBackground();
             else
                 setBackgroundDrawable(m_defBackground);
+        }
+        if(st.kbd_back_pict.length()>0) {
+    		Drawable dr = Drawable.createFromPath(st.kbd_back_pict);
+			setBackground(dr);
+
         }
         Field[] af = KeyboardView.class.getDeclaredFields();
         String txtClr="mKeyTextColor";  
@@ -289,14 +301,14 @@ public class JbKbdView extends KeyboardView
             {
             }
         }
-        st.paint().setDefault(m_curDesign, clr);
-        st.paint().createFromSettings();
+        draw.paint().setDefault(m_curDesign, clr);
+        draw.paint().createFromSettings();
         setVerticalCorrection(m_vertCorr);
         m_popup = new PopupKeyWindow(getContext(),m_PreviewHeight,m_PreviewHeight);
         m_popup.m_bShowUnderKey = m_previewType==1;
         if(m_tpPreview==null)
         {
-            m_tpPreview = new TextPaint(st.paint().main);
+            m_tpPreview = new TextPaint(draw.paint().main);
         }
         m_tpPreview.setTextSize(m_PreviewTextSize);
     }
@@ -599,9 +611,9 @@ public class JbKbdView extends KeyboardView
     /** 
      * Смена языка
      * @param canUseMenu Если false - меню выбора языков не выводится
-     * @param nextLang следующий язык, false - предыдущий 
+     * @param nextLang 0 - следующий язык, 1 - предыдущий, 2- последние языки 
      */
-    public void handleLangChange(boolean canUseMenu,boolean nextLang)
+    public void handleLangChange(boolean canUseMenu,int nextLang)
     {
         String ls[]=st.getLangsArray(st.c());
         if(canUseMenu&&ls.length>3&&isUserInput())
@@ -613,28 +625,49 @@ public class JbKbdView extends KeyboardView
         if(st.tempEnglishQwerty)
             cl = st.arLangs[0].name;
         st.tempEnglishQwerty = false;
-        int f = st.searchStr(cl, ls);
+        int ff = st.searchStr(cl, ls);
         String newLang=st.defKbd().lang.name;
         if (st.fl_qwerty_kbd){
             setLang(st.getCurLang());
         	st.fl_qwerty_kbd = false;
         	return;
         }
-        if(nextLang)
+        switch (nextLang)
         {
-	        if(f==ls.length-1)
+        case 0:
+	        if(ff==ls.length-1)
 	            newLang = ls[0];
-	        else if(f<ls.length-1)
-	            newLang = ls[f+1];
-        }
-        else
-        {
-	        if(f==0)
+	        else if(ff<ls.length-1)
+	            newLang = ls[ff+1];
+        	break;
+        case 1:
+	        if(ff==0)
 	            newLang = ls[ls.length-1];
-	        else if(f<ls.length-1)
-	            newLang = ls[f-1];
+	        else if(ff<=ls.length-1)
+	            newLang = ls[ff-1];
+        	break;
+        case 2:
+	        if(ff==0)
+	            newLang = ls[ls.length-1];
+	        else if(ff<ls.length-1)
+	            newLang = ls[ff-1];
+        	break;
         }
         setLang(newLang);
+//        if(nextLang)
+//        {
+//	        if(f==ls.length-1)
+//	            newLang = ls[0];
+//	        else if(f<ls.length-1)
+//	            newLang = ls[f+1];
+//        }
+//        else
+//        {
+//	        if(f==0)
+//	            newLang = ls[ls.length-1];
+//	        else if(f<ls.length-1)
+//	            newLang = ls[f-1];
+//        }
     }
     void reload()
     {

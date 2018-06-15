@@ -136,7 +136,7 @@ public class GlobDialog  extends Activity
             	tv.setGravity(m_text_gravity);
             m_text_gravity = 0;
             tv.setMovementMethod(new ScrollingMovementMethod());
-            int h = st.getHeightDisplay();
+            int h = st.getHeightDisplay(null);
             if (h<=320)
             	tv.setMaxLines(10);
             else

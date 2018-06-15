@@ -13,6 +13,7 @@ import java.util.Vector;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import com.jbak2.CustomGraphics.draw;
 import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
 import com.jbak2.JbakKeyboard.IKeyboard.Lang;
 
@@ -33,6 +34,8 @@ public class CustomKeyboard extends JbKbd
 	public static int compil_metric = 0;
     public static final String KEYBOARD_FOLDER = "keyboards";
     public static final String A_ANDROID = "android:";
+    public static final String TYPE_LAYOUT_CALC = "calculator";
+    public static final String TYPE_LAYOUT_SCROLL = "scroll_layout";
     public static final String TAG_KEYBOARD = "Keyboard";
     public static final String VAL_PERCENT = "%p";
     public static final String VAL_PIXELS = "px";
@@ -331,16 +334,19 @@ public class CustomKeyboard extends JbKbd
             f = Keyboard.class.getDeclaredField(totalWidth);
             f.setAccessible(true);
             f.set(this, m_displayWidth);
+//            if (st.type_keyboard.contains(TYPE_LAYOUT_SCROLL)){
+//            	m_y = 300;
+//            }
             m_totalHeight.set(this, m_y-getVerticalGap());
             f = Keyboard.class.getDeclaredField(modKeys);
             f.setAccessible(true);
-            if (st.type_keyboard.contains("calculator")){
+            if (st.type_keyboard.contains(TYPE_LAYOUT_CALC)){
             	if (st.calc_fl_ind==false) {
             		ServiceJbKbd.inst.m_candView.setCalcInd(-10,0);
 //            		st.calc_fl_ind = true;
             	}
             }
-            if (old_kbd.contains("calculator")){
+            if (old_kbd.contains(TYPE_LAYOUT_CALC)){
         		ServiceJbKbd.inst.m_candView.restoreAc_place();
         		st.calc_fl_ind = false;
             }
@@ -407,7 +413,7 @@ public class CustomKeyboard extends JbKbd
             }
         }
         while (b<BA_ROW);
-        if (st.type_keyboard.contains("calculator")){
+        if (st.type_keyboard.contains(TYPE_LAYOUT_CALC)){
         	ServiceJbKbd.inst.m_candView.restoreAc_place();
         }
         return b;
@@ -435,13 +441,19 @@ public class CustomKeyboard extends JbKbd
                 setHorizontalGap(getSize(p.getAttributeValue(i),m_displayHeight,0,B_horizontalGap));
             else if(name.equals(A_typeKeyboard)){
                 st.type_keyboard =p.getAttributeValue(i);
-                if (st.type_keyboard.contains("calculator")){
+                if (st.type_keyboard.contains(TYPE_LAYOUT_CALC)){
                     if(m_os!=null)
                     {
                         m_os.writeByte(B_typeKeyboard);
-                        m_os.writeUTF("calculator");
+                        m_os.writeUTF(TYPE_LAYOUT_CALC);
                     }
-                	
+                }
+                if (st.type_keyboard.contains(TYPE_LAYOUT_SCROLL)){
+                    if(m_os!=null)
+                    {
+                        m_os.writeByte(B_typeKeyboard);
+                        m_os.writeUTF(TYPE_LAYOUT_SCROLL);
+                    }
                 }
             }
         }
@@ -735,6 +747,12 @@ public class CustomKeyboard extends JbKbd
     }
     final boolean parseKey(XmlPullParser p, List<Key> keys) throws IOException
     {
+    	if (st.type_keyboard.compareTo(TYPE_LAYOUT_SCROLL) == 0) {
+    		if (CustomKbdScroll.inst!=null)
+    			CustomKbdScroll.close();
+    		new CustomKbdScroll().show(null, false);
+    		return true;
+    	}
         LatinKey k = newKey();
         if(m_os!=null)
             m_os.writeByte(BA_KEY);
@@ -996,12 +1014,12 @@ public class CustomKeyboard extends JbKbd
             m_os.writeByte(B_keyIcon);
             m_os.writeUTF(att);
         }
-        if(att.equals("delete")) return st.paint().getBitmap(R.drawable.sym_keyboard_delete);
-        if(att.equals("done")) return st.paint().getBitmap(R.drawable.sym_keyboard_done);
-        if(att.equals("return")) return st.paint().getBitmap(R.drawable.sym_keyboard_return);
-        if(att.equals("shift")) return st.paint().getBitmap(R.drawable.sym_keyboard_shift);
-        if(att.equals("space")) return st.paint().getBitmap(R.drawable.sym_keyboard_space);    
-        if(att.equals("search")) return st.paint().getBitmap(R.drawable.sym_keyboard_search);    
+        if(att.equals("delete")) return draw.paint().getBitmap(R.drawable.sym_keyboard_delete);
+        if(att.equals("done")) return draw.paint().getBitmap(R.drawable.sym_keyboard_done);
+        if(att.equals("return")) return draw.paint().getBitmap(R.drawable.sym_keyboard_return);
+        if(att.equals("shift")) return draw.paint().getBitmap(R.drawable.sym_keyboard_shift);
+        if(att.equals("space")) return draw.paint().getBitmap(R.drawable.sym_keyboard_space);    
+        if(att.equals("search")) return draw.paint().getBitmap(R.drawable.sym_keyboard_search);    
         return null;
     }
     final String getStringDraw(String att) throws IOException
@@ -1021,7 +1039,7 @@ public class CustomKeyboard extends JbKbd
         {
             path = st.getSettingsPath()+KEYBOARD_FOLDER+st.STR_SLASH+att;
         }
-        return st.paint().getBitmap(path);
+        return draw.paint().getBitmap(path);
     }
     void setShiftKey(int index,Key key)
     {

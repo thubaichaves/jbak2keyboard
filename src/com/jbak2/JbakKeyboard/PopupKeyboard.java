@@ -193,11 +193,11 @@ public class PopupKeyboard
         	ll.measure(0, 0);
             llw = ll.getMeasuredWidth();//+ll.getPaddingLeft()+ll.getPaddingRight();
             int bw = btn.getMeasuredWidth();
-            int yy = st.getWidthDisplay();
+            int yy = st.getWidthDisplay(null);
             btn_w = btn.getMeasuredWidth();
 //            int len = llw+clw+btn_h+btn.getPaddingLeft()+btn.getPaddingRight();
             int len = llw+clw+btn_w+MARGIN;
-            if (len>=st.getWidthDisplay()){
+            if (len>=st.getWidthDisplay(null)){
 //            if (llw+clw+btn.getMeasuredWidth()>=st.getWidthDisplay()){
             	llleft.addView(ll);
                 ll = new LinearLayout(inst);

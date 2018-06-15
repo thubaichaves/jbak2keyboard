@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jbak2.CustomGraphics.GradBack;
+import com.jbak2.CustomGraphics.draw;
 import com.jbak2.JbakKeyboard.IKeyboard.Lang;
 import com.jbak2.JbakKeyboard.Templates.CurInput;
 import com.jbak2.ctrl.GlobDialog;
@@ -117,7 +118,7 @@ public class com_menu
         }
 //        setButtonKeyboardBackground(btn);
         btn.setHeight(st.kv().m_KeyHeight);
-        btn.setTextColor(st.paint().mainColor);
+        btn.setTextColor(draw.paint().mainColor);
         btn.setTextSize(st.mm_btn_size);
         if(st.has(m_state, STAT_TEMPLATES)||st.has(m_state, STAT_CLIPBOARD))
         {
@@ -146,7 +147,7 @@ public class com_menu
         btn.setOnClickListener(m_listener);
         return btn;
     }
-/** Обработчик нажатия кнопки меню */  
+/** НЕ ЮЗАЕТСЯ! Обработчик нажатия кнопки меню */  
     st.UniObserver m_lvObserver = new st.UniObserver()
     {
         @Override
@@ -419,7 +420,7 @@ public class com_menu
     }
 
     	TextView mm = ((TextView)m_MainView.findViewById(R.id.menuname));
-        mm.setTextColor(st.paint().mainColor);
+        mm.setTextColor(draw.paint().mainColor);
         m_MenuObserver = observer;
         ListView lv = (ListView)m_MainView.findViewById(R.id.com_menu_container);
         m_adapter = new Adapt(st.c(), this);

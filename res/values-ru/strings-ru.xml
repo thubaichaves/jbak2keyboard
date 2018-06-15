@@ -15,6 +15,25 @@
 	<string name="default_pref">Настройки по умолчанию</string>
 	<string name="msg_avtocorrect_and_addspace">Вы включили одновременно \"автоисправление\" и \"добавлять пробел после символов\" (в Автовводе).\n\nВместе они работают некорректно!</string>
 
+<!-- Title for file explorer-->
+    <string name="fi_title">Файловый менеджер</string>
+    <string name="fi_filter">Фильтр</string>
+    <string name="fi_filt1">Текущий фильтр:</string>
+    <string name="fi_filt2">Долгое нажатие на кнопку фильтра - включение/выключение фильтра</string>
+    <string name="fi_root">Корневая папка</string>
+    <string name="fi_folder_last">Последняя папка</string>
+    <string name="fi_folder_dowload">Загрузки</string>
+    <string name="fi_folder_pict">Картинки и видео</string>
+    <string name="fi_folder_emulated">emulated</string>
+    <string name="fi_not_open">Не могу открыть</string>
+    <string name="fi_done">Выполнено</string>
+        	
+	<string name="set_kbd_background">Фон клавиатуры</string>
+	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
+	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
+	<string name="set_kbd_background_alpha_desc">0 - кнопки полностью прозрачные, 10 - прозрачность из скина.</string>
+	<string name="cancel_kbd_background">Фон из скина</string>
+			
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
 	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
 	
@@ -537,6 +556,8 @@
         <item>В ландшафтном режиме</item>
     </string-array>
     <string name="kbdact_back">Фон этого окна</string>
+    <string name="kbdact_toast1">Долгое нажатие на кнопки вправо/влево, открывают список</string>
+    <string name="kbdact_error_open">Пока не всё подготовлено. Попробуйте немного позже</string>
     <string-array name="vibro_short_type">
         <item>Нет вибрации</item>
         <item>При отпускании клавиши</item>
@@ -764,6 +785,7 @@
  <!-- Names for gestures commands -->
  	<string name="cmd_lang_change">Смена языка</string>   
  	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
+ 	<string name="cmd_lang_change_prev">Смена языка без меню в обратном порядке</string>   
  	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
  	<string name="cmd_left">Курсор влево</string>   
  	<string name="cmd_right">Курсор вправо</string>   

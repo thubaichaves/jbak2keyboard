@@ -12,8 +12,10 @@ import android.text.TextPaint;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.ctrl.SameThreadTimer;
+import com.jbak2.CustomGraphics.draw;
 // показывает окно нажатой клавиши
 public class PopupKeyWindow
 {
@@ -136,13 +138,13 @@ public class PopupKeyWindow
             if(key==null)
                 return;
             canvas.drawRoundRect(m_bgRf, 8, 8, m_bgPaint);
-            st.paint().bitmapPreview.setColor(Color.BLACK);
-            st.paint().bitmapPreview.setStyle(Style.STROKE);
-            canvas.drawRoundRect(m_bgRf, 8, 8,st.paint().bitmapPreview);
-            st.paint().bitmapPreview.setStyle(Style.FILL);
+            draw.paint().bitmapPreview.setColor(Color.BLACK);
+            draw.paint().bitmapPreview.setStyle(Style.STROKE);
+            canvas.drawRoundRect(m_bgRf, 8, 8,draw.paint().bitmapPreview);
+            draw.paint().bitmapPreview.setStyle(Style.FILL);
             
 //            canvas.translate(0, 0-m_h/2);
-            st.kv().m_PreviewDrw.draw(canvas, st.paint().bitmapPreview);
+            st.kv().m_PreviewDrw.draw(canvas, draw.paint().bitmapPreview);
 //            key.m_kd.draw(canvas, m_pt);
         }
     }

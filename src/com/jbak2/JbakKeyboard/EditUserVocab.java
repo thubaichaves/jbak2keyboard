@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
+import com.jbak2.Dialog.Dlg;
 import com.jbak2.JbakKeyboard.st.UniObserver;
-import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.ProgressOperation;
 import com.jbak2.words.UserWords;

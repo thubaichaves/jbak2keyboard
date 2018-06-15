@@ -11,6 +11,7 @@ import android.graphics.drawable.shapes.RectShape;
 import android.inputmethodservice.Keyboard.Key;
 
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
+import com.jbak2.CustomGraphics.draw;
 
 /** Собственная картинка для клавиш. Генерируется на основе {@link Key#label}*/    
 class KeyDrw extends RectShape
@@ -60,7 +61,7 @@ class KeyDrw extends RectShape
     }
     final void useTextColor(Paint pt,boolean second)
     {
-        int c = st.paint().getColor(this, second);
+        int c = draw.paint().getColor(this, second);
         if(c!=st.DEF_COLOR)
             pt.setColor(c);
     }
@@ -109,7 +110,7 @@ class KeyDrw extends RectShape
             if(f>-1)
             {
                 txtSmall = lab.subSequence(0, f).toString();
-                bmpSmall = st.getBitmapByCmd(st.getCmdByLabel(txtSmall));
+                bmpSmall = draw.getBitmapByCmd(st.getCmdByLabel(txtSmall));
                 txtMain = lab.subSequence(f+1, lab.length()).toString();
             }
             else
@@ -128,8 +129,8 @@ class KeyDrw extends RectShape
     }
     final void drawFuncBackground(Canvas canvas)
     {
-        if(m_bFunc&&st.paint().funcBackDrawable!=null)
-            st.paint().funcBackDrawable.draw(canvas);
+        if(m_bFunc&&draw.paint().funcBackDrawable!=null)
+        	draw.paint().funcBackDrawable.draw(canvas);
     }
     static class DrwCache
     {
@@ -155,7 +156,7 @@ class KeyDrw extends RectShape
             return;
         m_c = new DrwCache();
 //      Rect rb = canvas.getClipBounds();
-        Paint p1 = st.paint().main;
+        Paint p1 = draw.paint().main;
         if(bmp!=null)
         {
 // Рисуем просто картинку, без текста (по центру)
@@ -185,15 +186,15 @@ class KeyDrw extends RectShape
         }
         if(m_bSmallLabel)
         {
-            p1 = st.paint().second;
+            p1 = draw.paint().second;
         }
 //Если текст длинее 1 символа - считаем меткой и рисуем с помощью JbKbdView.m_tpLabel 
         else if(txtMain.length()>1)
         {
-            p1 = st.paint().label;
+            p1 = draw.paint().label;
         }
 //canvas сдвинут к середине, вернём его в позицию 0,0           
-        Paint p2 = st.paint().second;
+        Paint p2 = draw.paint().second;
         if(txtMain.length()==1||m_bMultiCode)
         {
             m_c.mainLower = txtMain.toLowerCase();
@@ -227,14 +228,14 @@ class KeyDrw extends RectShape
         if(w1>rb.width()-4&&m_c.mainLower.length()>1)
         {
             m_c.isHalfSmallLabel = true;
-            p1 = st.paint().halfLabel;
+            p1 = draw.paint().halfLabel;
             w1 = (int) p1.measureText(m_c.mainLower);
         }
-        int fh = st.paint().padding.top+st.paint().padding.left+h1+h2+DELIM; // Полная высота
+        int fh = draw.paint().padding.top+draw.paint().padding.left+h1+h2+DELIM; // Полная высота
         if(fh>rb.height())
         {
             // Изображение основного текста и доп. символов не умещается в высоту
-            int x2 = rb.width()-st.paint().padding.right-w2;
+            int x2 = rb.width()-draw.paint().padding.right-w2;
             if(bmpSmall!=null)
             {
                 m_c.m_xSmall = x2;
@@ -247,8 +248,8 @@ class KeyDrw extends RectShape
             }
             if(txtMain!=null)
             {
-                m_c.m_xMainLower = horzX(st.paint().padding.left,rb.width()/2-w1/2,w1,rb.width()-st.paint().padding.right-w2);
-                m_c.m_yMainLower = rb.height()-st.paint().padding.bottom-d1;
+                m_c.m_xMainLower = horzX(draw.paint().padding.left,rb.width()/2-w1/2,w1,rb.width()-draw.paint().padding.right-w2);
+                m_c.m_yMainLower = rb.height()-draw.paint().padding.bottom-d1;
                 if(m_c.mainUpper.compareTo(m_c.mainLower)==0)
                 {
                     m_c.m_xMainUpper = m_c.m_xMainLower;
@@ -256,7 +257,7 @@ class KeyDrw extends RectShape
                 else
                 {
                     w1 = (int) p1.measureText(m_c.mainUpper);
-                    m_c.m_xMainUpper = horzX(st.paint().padding.left,rb.width()/2-w1/2,w1,rb.width()-st.paint().padding.right-w2);
+                    m_c.m_xMainUpper = horzX(draw.paint().padding.left,rb.width()/2-w1/2,w1,rb.width()-draw.paint().padding.right-w2);
                 }
                 m_c.m_yMainUpper = m_c.m_yMainLower;
             }
@@ -267,15 +268,15 @@ class KeyDrw extends RectShape
             if(bmpSmall!=null)
             {
                 m_c.m_xSmall = rb.width()/2-w2/2;
-                m_c.m_ySmall = st.paint().padding.top;
+                m_c.m_ySmall = draw.paint().padding.top;
             }
             else if(txtSmall!=null)
             {
                 m_c.m_xSmall = rb.width()/2-w2/2;
-                m_c.m_ySmall = st.paint().padding.top+a2;
+                m_c.m_ySmall = draw.paint().padding.top+a2;
             }
             int y = h2+DELIM+a1;
-            int dy = (rb.height()-st.paint().padding.bottom-y)/2;
+            int dy = (rb.height()-draw.paint().padding.bottom-y)/2;
             if(dy<4)
                 dy = 0;
             m_c.m_xMainLower = rb.width()/2-w1/2;
@@ -298,17 +299,17 @@ class KeyDrw extends RectShape
             buildCache();
         if(m_c==null&&!m_bPreview||txtMain==null&&bmp==null||JbKbdView.inst==null)
             return;
-        Paint p1 = st.paint().main;
+        Paint p1 = draw.paint().main;
         if(bmp!=null)
         {
 // Рисуем просто картинку, без текста (по центру)
             if(m_bPreview)
-                canvas.drawBitmap(bmp, getWidth()/2-bmp.getWidth()/2,getHeight()/2-bmp.getHeight()/2, st.paint().getBitmapPaint(this));
+                canvas.drawBitmap(bmp, getWidth()/2-bmp.getWidth()/2,getHeight()/2-bmp.getHeight()/2, draw.paint().getBitmapPaint(this));
             else
             {
                 canvas.translate(0-rb.width()/2, 0-rb.height()/2);
                 drawFuncBackground(canvas);
-                canvas.drawBitmap(bmp, m_c.m_xMainLower,m_c.m_yMainLower, st.paint().getBitmapPaint(this));
+                canvas.drawBitmap(bmp, m_c.m_xMainLower,m_c.m_yMainLower, draw.paint().getBitmapPaint(this));
             }
             return;
         }
@@ -342,33 +343,33 @@ class KeyDrw extends RectShape
 //Если текст длинее 1 символа - считаем меткой и рисуем с помощью JbKbdView.m_tpLabel 
         boolean bUp = JbKbdView.inst.isUpperCase(); 
         if(m_c.isHalfSmallLabel)
-            p1 = st.paint().halfLabel;
+            p1 = draw.paint().halfLabel;
         if(m_bSmallLabel)
         {
             bUp = false;
             if(!m_c.isHalfSmallLabel)
-                p1 = st.paint().second;
+                p1 = draw.paint().second;
         }
         else if(txtMain.length()>1)
         {
             if(!m_bMultiCode)
                 bUp = false;
             if(!m_c.isHalfSmallLabel)
-                p1 = st.paint().label;
+                p1 = draw.paint().label;
         }
         useTextColor(p1,false);
 //canvas сдвинут к середине, вернём его в позицию 0,0           
         canvas.translate(0-rb.width()/2, 0-rb.height()/2);
 // !!!
         drawFuncBackground(canvas);
-        Paint p2 = st.paint().second;
+        Paint p2 = draw.paint().second;
         useTextColor(p2,true);
         if(bmp!=null)
         {
-            canvas.drawBitmap(bmp, m_c.m_xMainLower, m_c.m_yMainLower, st.paint().getBitmapPaint(this));
+            canvas.drawBitmap(bmp, m_c.m_xMainLower, m_c.m_yMainLower, draw.paint().getBitmapPaint(this));
         }
         if(bmpSmall!=null)
-            canvas.drawBitmap(bmpSmall, m_c.m_xSmall, m_c.m_ySmall, st.paint().getBitmapPaint(this,true));
+            canvas.drawBitmap(bmpSmall, m_c.m_xSmall, m_c.m_ySmall, draw.paint().getBitmapPaint(this,true));
         else if(txtSmall!=null)
         {
             canvas.drawText(txtSmall,m_c.m_xSmall, m_c.m_ySmall, p2);

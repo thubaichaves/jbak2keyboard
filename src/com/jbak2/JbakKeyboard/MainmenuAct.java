@@ -2,7 +2,7 @@ package com.jbak2.JbakKeyboard;
 
 import java.util.ArrayList;
 
-import com.jbak2.ctrl.Dlg;
+import com.jbak2.Dialog.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.Mainmenu;
 

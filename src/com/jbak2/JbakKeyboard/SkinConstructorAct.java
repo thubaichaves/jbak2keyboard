@@ -26,8 +26,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
 
+import com.jbak2.Dialog.Dlg;
 import com.jbak2.JbakKeyboard.st.IntEntry;
-import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 
 public class SkinConstructorAct extends Activity

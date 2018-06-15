@@ -4,6 +4,12 @@
 <!-- 0 - Хелпер -->
     <Preference android:key="helper"/>
 
+<!-- прозрачность клавиатуры -->
+<!--     <Preference -->
+<!--         android:key="kbd_background_alpha" -->
+<!--         android:title="@string/set_kbd_background_alpha"  -->
+<!--         android:summary="@string/set_kbd_background_alpha_desc" /> -->
+
     <!-- мастер быстрых настроек -->
      <Preference
          android:key="quick_setting"
@@ -355,6 +361,18 @@
         android:key="ac_key_color"
         android:title="@string/ac_color_" 
         android:summary="@string/ac_color_desc" />
+
+<!-- фон клавиатуры -->
+    <Preference
+        android:key="kbd_background_pict"
+        android:title="@string/set_kbd_background" 
+        android:summary="@string/set_kbd_background_desc" />
+
+<!-- прозрачность клавиатуры -->
+<!--     <Preference -->
+<!--         android:key="kbd_background_alpha" -->
+<!--         android:title="@string/set_kbd_background_alpha"  -->
+<!--         android:summary="@string/set_kbd_background_alpha_desc" /> -->
 
 <!-- индикаторы -->
         <PreferenceCategory android:title="@string/indicators" >

@@ -2,7 +2,7 @@ package com.jbak2.JbakKeyboard;
 
 import java.io.File;
 
-import com.jbak2.ctrl.Dlg;
+import com.jbak2.Dialog.Dlg;
 
 import android.app.Activity;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -485,6 +485,7 @@ public class TplEditorActivity extends Activity
             {
                 Templates.inst.onDelete();
                 finish();
+
             }
         };
     }

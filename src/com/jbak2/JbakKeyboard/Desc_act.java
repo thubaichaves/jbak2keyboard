@@ -6,7 +6,7 @@ import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import com.jbak2.ctrl.Dlg;
+import com.jbak2.Dialog.Dlg;
 
 import android.app.Activity;
 import android.graphics.Color;

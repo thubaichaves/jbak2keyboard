@@ -17,9 +17,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
 import android.media.AudioManager;
 import android.net.Uri;
@@ -42,7 +39,6 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 
-import com.jbak2.CustomGraphics.GradBack;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
 import com.jbak2.ctrl.GlobDialog;
@@ -53,6 +49,11 @@ import com.jbak2.words.UserWords.WordArray;
 /** Класс содержит полезные статические переменные */
 public class st extends IKeyboard implements IKbdSettings
 {
+	public static int KBD_BACK_ALPHA_DEF = 10;
+	/** прозрачность скина клавиатуры. */
+	public static int kbd_back_alpha= KBD_BACK_ALPHA_DEF;
+	/** файл картинки фона клавиатуры. Имеет приоритет над m_kbdBackground */
+	public static String kbd_back_pict= st.STR_NULL;
 	// вызов клавиатуры из шторки
     public static boolean fl_show_kbd_notif= false;
 	// показывать ли сообщение о копировании
@@ -375,7 +376,7 @@ public class st extends IKeyboard implements IKbdSettings
 /** Код, который используется, если основной текст клавиши из нескольких букв*/    
     public static int KeySymbol = -201;
  // теги скинов. 
- // Используются в CustonDesign и конструкторе скинов	
+ /** Используются в CustonDesign и конструкторе скинов */	
  	public static String arDesignNames[] = new String[]{
              "KeyBackStartColor",
              "KeyBackEndColor",
@@ -499,8 +500,7 @@ public class st extends IKeyboard implements IKbdSettings
          	defvalue = defval;
          	resId_et = res_id_et;
          }
-         
-    	}
+   	}
 
 //--------------------------------------------------------------------------
     /** Универсальный обсервер. Содержит 2 параметра m_param1 и m_param2, которые вызываются и меняются в зависимости от контекста*/
@@ -561,10 +561,6 @@ public class st extends IKeyboard implements IKbdSettings
 			tmp.visibleText = art[1];
 		}
 		ar.add(tmp);
-    }
-    public static Drawable getBack()
-    {
-        return new GradBack(0xff000088, 0xff008800).setCorners(0, 0).setGap(0).setDrawPressedBackground(false).getStateDrawable();
     }
     /** Эквивалент вызова (val&flag)>0*/        
     public static final boolean has(int val,int flag)
@@ -917,6 +913,24 @@ public class st extends IKeyboard implements IKbdSettings
         }
         return true;
     }
+    static boolean runAct(Context c, Class<?>cls,String extraName, String extraVal)
+    {
+        try{
+            
+            c.getApplicationContext().startActivity(
+                    new Intent(Intent.ACTION_VIEW)
+                        .setComponent(new ComponentName(c,cls))
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra(extraName, extraVal)
+            );
+        }
+        catch(Throwable e)
+        {
+        	st.logEx(e);
+            return false;
+        }
+        return true;
+    }
 /** Заменяет спецсимволы в строке fn на _ , возвращает модифицированную строку */   
     public static final String normalizeFileName(String fn)
     {
@@ -1033,6 +1047,10 @@ public class st extends IKeyboard implements IKbdSettings
                 	ServiceJbKbd.inst.forceHide();
             	com_menu.close();
                 return runAct(JbKbdPreference.class);
+            case CMD_INPUT_KEYBOARD:
+                InputMethodManager imm = (InputMethodManager)c().getApplicationContext().getSystemService(Service.INPUT_METHOD_SERVICE);
+				imm.showInputMethodPicker();
+            break;
             case CMD_INPUT_METHOD:
             	if (ServiceJbKbd.inst.input_method==1)
             		ServiceJbKbd.inst.input_method=2;
@@ -1074,10 +1092,6 @@ public class st extends IKeyboard implements IKbdSettings
                 {
                 }
             	com_menu.close();
-            break;
-            case CMD_INPUT_KEYBOARD:
-                InputMethodManager imm = (InputMethodManager)c().getApplicationContext().getSystemService(Service.INPUT_METHOD_SERVICE);
-				imm.showInputMethodPicker();
             break;
         	// запуск активности помощи (android:help)
             case CMD_RUN_MAINMENU_SETTING:
@@ -1169,18 +1183,6 @@ public class st extends IKeyboard implements IKbdSettings
             return CMD_VOICE_RECOGNIZER;
         return 0;
     }
-/** Возвращает id иконки по команде*/    
-    static Bitmap getBitmapByCmd(int cmd)
-    {
-        int bid = 0;
-        switch (cmd)
-        {
-            case CMD_VOICE_RECOGNIZER: bid = R.drawable.vr_small_white;
-        }
-        if(bid!=0)
-            return BitmapFactory.decodeResource(st.c().getResources(), bid);
-        return null;
-    }
 //    gPref = null;
 //    public static final SharedPreferences pref()
 //    {
@@ -1209,12 +1211,6 @@ public class st extends IKeyboard implements IKbdSettings
     {
         if (ServiceJbKbd.inst != null)
    			ServiceJbKbd.inst.onSharedPreferenceChanged(pref(), null);
-    }
-    static final KeyboardPaints paint()
-    {
-        if(KeyboardPaints.inst==null)
-            return new KeyboardPaints();
-        return KeyboardPaints.inst;
     }
 // возвращает int с указанной системой счисления
  // radix - система счисления (2,8,10,16 и т.д.    
@@ -1271,6 +1267,26 @@ public class st extends IKeyboard implements IKbdSettings
     static final boolean isLandscape(Context c)
     {
         return c.getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT;
+    }
+    public static String strcol;
+    /** меняет исходный цвет на цвет с прозрачностью согласно установленной 
+     * настройки */
+    public static int getColorAlpha(int col)
+    {
+    	strcol = Integer.toHexString(col);
+    	if (strcol.length()==8) {
+        	int type = 0;
+        	switch (type) 
+        	{
+        	case 0: // как в скине
+        		break;
+        	case 1:// прозрачный
+        		String te = "22"+strcol.substring(2);
+        		col = Integer.parseInt(te,16);
+        		break;
+        	}
+    	}
+    	return col;
     }
     public static KbdDesign getSkinByPath(String path)
     {
@@ -1857,15 +1873,19 @@ public class st extends IKeyboard implements IKbdSettings
     {
         return value*screenDensity(c);
     }
-    public static int getWidthDisplay()
+    public static int getWidthDisplay(Context c)
     {
+    	if (c!=null)
+    		return c.getResources().getDisplayMetrics().heightPixels;
     	return c().getResources().getDisplayMetrics().widthPixels;
     }
-    public static int getHeightDisplay()
+    public static int getHeightDisplay(Context c)
     {
         // height текущего окна
         //int displayh = getResources().getConfiguration().screenHeightDp;
     	// width получаем также
+    	if (c!=null)
+    		return c.getResources().getDisplayMetrics().heightPixels;
     	return c().getResources().getDisplayMetrics().heightPixels;
     }
     public static int getOrientation(Context c)
@@ -1956,7 +1976,7 @@ public class st extends IKeyboard implements IKbdSettings
         }
         return installed; 
     }
-    // удаляет символы del_symb входящие в строку in
+    /** удаляет символы del_symb входящие в строку in */
     public static String getDelSpace(String in, String del_symb) 
     {
     	if (in.indexOf(del_symb)<=0)
@@ -2027,6 +2047,7 @@ public class st extends IKeyboard implements IKbdSettings
     	arGestures.add(new KbdGesture(R.string.gesture_cand_list, GESTURE_AC_PLACE_LIST));
     	arGestures.add(new KbdGesture(R.string.cmd_lang_change, CMD_LANG_CHANGE));
     	arGestures.add(new KbdGesture(R.string.cmd_lang_change_next, CMD_LANG_CHANGE_NEXT_LANG));
+    	arGestures.add(new KbdGesture(R.string.cmd_lang_change_prev, CMD_LANG_CHANGE_PREV_LANG));
     	arGestures.add(new KbdGesture(R.string.cmd_lang_change_two_lang, CMD_LANG_CHANGE_TWO_LANG));
     	arGestures.add(new KbdGesture(R.string.cmd_left, KeyEvent.KEYCODE_DPAD_LEFT));
     	arGestures.add(new KbdGesture(R.string.cmd_right, KeyEvent.KEYCODE_DPAD_RIGHT));
@@ -2291,6 +2312,10 @@ public class st extends IKeyboard implements IKbdSettings
 		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
 		cm.setText(str);
 		st.messageCopyClipboard();
+	}
+ 	/** выход из приложения с выгрузкой из памяти */
+	public static void exitApp() {
+        System.exit(0);
 	}
 
 }

@@ -37,8 +37,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jbak2.CustomGraphics.draw;
+import com.jbak2.Dialog.Dlg;
+import com.jbak2.Dialog.DlgFileExplorer;
 import com.jbak2.JbakKeyboard.UpdVocabActivity;
-import com.jbak2.ctrl.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.IntEditor;
@@ -151,6 +153,8 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
         pr.setSummary(pr.getSummary().toString()+'\n'+getBackupPath());
         pr = getPreferenceScreen().findPreference(st.PREF_KEY_LOAD);
         pr.setSummary(pr.getSummary().toString()+'\n'+getBackupPath());
+        setSummary(st.KBD_BACK_ALPHA, R.string.set_kbd_background_alpha_desc, strVal(p.getString(st.KBD_BACK_ALPHA,st.STR_NULL+st.KBD_BACK_ALPHA_DEF)));
+        setSummary(st.KBD_BACK_PICTURE, R.string.set_kbd_background_desc, strVal(p.getString(st.KBD_BACK_PICTURE,st.STR_NULL)));
         setSummary(st.PREF_KEY_CLIPBRD_SIZE, R.string.set_key_clipbrd_size_desc, strVal(p.getString(st.PREF_KEY_CLIPBRD_SIZE,DEF_SIZE_CLIPBRD )));
         setSummary(st.SET_STR_GESTURE_DOPSYMB, R.string.gesture_popupchar_str1_desc, strVal(p.getString(st.SET_STR_GESTURE_DOPSYMB,st.STR_NULL )));
         setSummary(st.SET_GESTURE_LENGTH, R.string.set_key_gesture_length_desc, strVal(p.getString(st.SET_GESTURE_LENGTH,"100" )));
@@ -432,7 +436,8 @@ public void checkStartIntent()
 //    }
     @SuppressWarnings("deprecation")
 	@Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) 
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, 
+    		Preference preference) 
     {
         inst = this;
         String k = preference.getKey();
@@ -442,32 +447,65 @@ public void checkStartIntent()
         	showAcHeight();
             return true;
         }
-        if("rate_application".equals(k))
+        else if("kbd_background_alpha".equals(k))
+        {
+        	showTransparensy();
+            return true;
+        }
+        else if("kbd_background_pict".equals(k))
+        {
+        	String txt = null;
+        	if (st.kbd_back_pict!=null&&st.kbd_back_pict.length()>0)
+        		txt = inst.getString(R.string.cancel_kbd_background);
+            new DlgFileExplorer(inst,
+            		DlgFileExplorer.PICTURE_EXT,
+            		null,
+            		txt,
+            		DlgFileExplorer.SELECT_FILE) {
+                @Override
+                public void onSelected(File file)
+                {
+                	if (file == null)
+                		st.kbd_back_pict = st.STR_NULL;
+                	else
+                    	st.kbd_back_pict = file.getAbsolutePath();
+                	st.pref().edit().putString(st.KBD_BACK_PICTURE, st.kbd_back_pict).commit();
+                	if (st.kv()!=null)
+                        st.kv().reloadSkin();
+                    SharedPreferences p = st.pref(st.c());
+                    setSummary(st.KBD_BACK_PICTURE, R.string.set_kbd_background_desc, strVal(st.pref(st.c()).getString(st.KBD_BACK_PICTURE,st.STR_NULL)));
+
+                }
+            }
+            .show();
+            return true;
+        }
+        else if("rate_application".equals(k))
         {
         	rate_app();
             return true;
         }
-        if("clipbrd_sync".equals(k))
+        else if("clipbrd_sync".equals(k))
         {
             st.runAct(ClipbrdSyncAct.class,c);
             return true;
         }
-        if("clipboard_size".equals(k))
+        else if("clipboard_size".equals(k))
         {
         	showClipboardSize();
             return true;
         }
-        if("ac_list_value".equals(k))
+        else if("ac_list_value".equals(k))
         {
         	showAcCountWord();
             return true;
         }
-        if("quick_setting".equals(k))
+        else if("quick_setting".equals(k))
         {
             st.runAct(Quick_setting_act.class,c);
             return true;
         }
-        if("skin_constructor".equals(k))
+        else if("skin_constructor".equals(k))
         {
             st.runAct(SkinConstructorAct.class,c);
             return true;
@@ -665,7 +703,7 @@ public void checkStartIntent()
                     new Intent(c,EditSetActivity.class)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     .putExtra(EditSetActivity.EXTRA_PREF_KEY, st.PREF_KEY_MAIN_FONT)
-                    .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, st.paint().getDefaultMain().toString())
+                    .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, draw.paint().getDefaultMain().toString())
                 );
             
         }
@@ -675,7 +713,7 @@ public void checkStartIntent()
                      new Intent(c,EditSetActivity.class)
                      .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                      .putExtra(EditSetActivity.EXTRA_PREF_KEY, st.PREF_KEY_SECOND_FONT)
-                     .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, st.paint().getDefaultSecond().toString())
+                     .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, draw.paint().getDefaultSecond().toString())
                  );
              
          }
@@ -685,7 +723,7 @@ public void checkStartIntent()
                      new Intent(c,EditSetActivity.class)
                      .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                      .putExtra(EditSetActivity.EXTRA_PREF_KEY, st.PREF_KEY_LABEL_FONT)
-                     .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, st.paint().getDefaultLabel().toString())
+                     .putExtra(EditSetActivity.EXTRA_DEFAULT_EDIT_SET, draw.paint().getDefaultLabel().toString())
                  );
              
          }
@@ -827,6 +865,10 @@ public void checkStartIntent()
                 break;
             }
         }
+        if(st.SET_GESTURE_LENGTH.equals(key))
+        {
+            setSummary(key, R.string.set_kbd_background_desc, st.STR_NULL);
+        }
 // вывод установленних значений под строкой настройки (не массивов!)
         if(st.PREF_KEY_CLIPBRD_SIZE.equals(key))
         {
@@ -835,6 +877,10 @@ public void checkStartIntent()
             	setValue(key,R.string.set_key_clipbrd_size_desc, DEF_SIZE_CLIPBRD);
             	
             }
+        }
+        if(st.KBD_BACK_ALPHA.equals(key))
+        {
+        	setValue(key,R.string.set_kbd_background_alpha_desc, st.STR_NULL+st.KBD_BACK_ALPHA_DEF);
         }
         if(st.PREF_AC_DEFKEY.equals(key))
         {
@@ -1138,6 +1184,58 @@ public void checkStartIntent()
         });
         Dlg.CustomDialog(inst, v, inst.getString(R.string.ok), inst.getString(R.string.cancel), null, obs);
     }
+    void showTransparensy()
+    {
+        final View v = inst.getLayoutInflater().inflate(R.layout.edit_intervals, null);
+        int max = 10,min = 0;
+        int steps[] = new int[]{1,1,1};
+        final SharedPreferences p = st.pref(inst);
+
+        ((TextView)v.findViewById(R.id.ei_title)).setText(R.string.set_kbd_background_alpha);
+
+        ((TextView)v.findViewById(R.id.interval1)).setVisibility(View.GONE);
+        final IntEditor ie = (IntEditor)v.findViewById(R.id.long_press);
+        ie.setMinAndMax(min, max);
+        ie.setValue(st.str2int(p.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),min,max,st.STR_ERROR));
+        ie.setSteps(steps);
+        
+        ((TextView)v.findViewById(R.id.interval2)).setVisibility(View.GONE);
+        ((IntEditor)v.findViewById(R.id.first_repeat)).setVisibility(View.GONE);
+        ((TextView)v.findViewById(R.id.interval3)).setVisibility(View.GONE);
+        ((IntEditor)v.findViewById(R.id.next_repeat)).setVisibility(View.GONE);
+
+        st.UniObserver obs = new st.UniObserver()
+        {
+            @Override
+            public int OnObserver(Object param1, Object param2)
+            {
+                if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                {
+                    IntEditor ie;
+                    Editor e = p.edit();
+                    ie = (IntEditor)v.findViewById(R.id.long_press);
+                    e.putString(st.KBD_BACK_ALPHA, st.STR_NULL+ie.getValue());
+                    e.commit();
+                    if(OwnKeyboardHandler.inst!=null)
+                        OwnKeyboardHandler.inst.loadFromSettings();
+                }
+                return 0;
+            }
+        };
+        final Button btn = (Button)v.findViewById(R.id.ei_btn_def);
+        btn.setVisibility(View.VISIBLE);
+        btn.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ie.setValue(st.KBD_BACK_ALPHA_DEF);
+                if(OwnKeyboardHandler.inst!=null)
+                    OwnKeyboardHandler.inst.loadFromSettings();
+            }
+        });
+        Dlg.CustomDialog(inst, v, inst.getString(R.string.ok), inst.getString(R.string.cancel), null, obs);
+    }
     void showAcCountWord()
     {
         final View v = getLayoutInflater().inflate(R.layout.edit_intervals, null);
@@ -1329,25 +1427,8 @@ public void checkStartIntent()
                     else if(ret==1)
                     	if(!bSave)
                     	{
-                            System.exit(0);
-                    		Toast.makeText(getApplicationContext(), R.string.reboot, Toast.LENGTH_LONG).show();                        
-// ребут телефона 
-// не забыть в манифесте добавить пермишн 
-// <uses-permission android:name="REBOOT"
-// и почитать архив в облаке onedrive
-// 
-//                        	PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);  
-//                        	pm.reboot("null");
-//                      	    st.sleep(1000);
-                        
-//                        st.ac_list_value = st.str2int(pref.getString(st.AC_LIST_VALUE, "20"),0,255,"Arrow down");
-//                        ServiceJbKbd.inst.onSharedPreferenceChanged(pref, null);
-////                        onSharedPreferenceChanged(pref, null);
-//                        ServiceJbKbd.inst.onCreate();
-
-// рестарт окна настроек
-//                        	finish();
-//                        	startActivity(getIntent());
+                    		st.exitApp();
+                    		//Toast.makeText(getApplicationContext(), R.string.reboot, Toast.LENGTH_LONG).show();                        
                     	} else{
                           Toast.makeText(getApplicationContext(), R.string.ok, 700).show();
                     	}

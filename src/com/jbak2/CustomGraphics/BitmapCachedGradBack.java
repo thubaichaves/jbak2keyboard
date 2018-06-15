@@ -26,6 +26,7 @@ public class BitmapCachedGradBack extends GradBack
     public BitmapCachedGradBack(int startColor, int endColor)
     {
         super(startColor, endColor);
+    	
     }
     @Override
     public RectShape clone() throws CloneNotSupportedException 

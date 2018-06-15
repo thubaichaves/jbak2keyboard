@@ -215,7 +215,7 @@ public class IKeyboard
 
     public static final int DEF_COLOR = GradBack.DEFAULT_COLOR;
     public static final int KBD_DESIGN_STANDARD = 4;
-    public static KbdDesign[] arDesign=
+    public static KbdDesign[] arDesign =
     {
         // Стандартный дизайн 
         new KbdDesign(R.string.kbd_design_standard, 
@@ -291,7 +291,11 @@ public class IKeyboard
     /** Класс для хранения оформлений клавиатур */
     public static class KbdDesign
     {
-/** Id drawable-ресурса для рисования кнопок */     
+/** временная переменная для задания прозрачности в цвете*/    	
+        String strcol;
+
+/** Id drawable-ресурса для рисования кнопок */
+    	
         public int drawResId;
 /** Id ресурса названия клавиатуры*/        
         public int nameResId;
@@ -330,6 +334,7 @@ public class IKeyboard
             nameResId = name; 
             this.path = CustomKbdDesign.ASSETS+fname;
         }
+    
         KbdDesign setKeysBackground(GradBack bg)
         {
             m_keyBackground = bg;
@@ -389,17 +394,27 @@ public class IKeyboard
     static KbdDesign skinHTCDesign()
     {
         return new KbdDesign(R.string.kbd_design_htc, 0, 0xff000000, 0, DF_BOLD)
-                    .setKeysBackground(new BitmapCachedGradBack(0xfff8f8f8, 0xffd8d4d8)
+                    .setKeysBackground(
+                    		new BitmapCachedGradBack(
+                    				st.getColorAlpha(0xfff8f8f8), 
+                    				st.getColorAlpha(0xffd8d4d8))
                     .setGap(3)
-                    .setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+                    .setStroke(new BitmapCachedGradBack(
+            				st.getColorAlpha(0xff605960), 
+            				st.getColorAlpha(0xff101418))
                     .setGap(2)))
                     .setKbdBackground(new BitmapCachedGradBack(0xffbdbebd, 0xff706e70).setCorners(0, 0)
                     .setGap(0))
                     .setFuncKeysDesign(new KbdDesign(0, 0, Color.WHITE, 0, 0)
+//                    .setKeysBackground(new BitmapCachedGradBack(st.setColorTransparency(0xff686868), st.setColorTransparency(0xff101418))
                     .setKeysBackground(
-                    new BitmapCachedGradBack(0xff686868,0xff404040)
+                    		new BitmapCachedGradBack(
+                    				st.getColorAlpha(0xff686868), 
+                    				st.getColorAlpha(0xff404040))
                     .setGap(3)
-                    .setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+                    .setStroke(new BitmapCachedGradBack(
+            				st.getColorAlpha(0xff605960), 
+            				st.getColorAlpha(0xff101418))
                     .setGap(2))
                     ));
     }
@@ -440,8 +455,8 @@ new BitmapCachedGradBack(0xff686868,0xff404040)
 // цвет квадрата фона клавиатуры
 // здесь же задаётся цвет текста простых кнопок
 new KbdDesign(R.string.kbd_design_dark, 0, Color.BLACK,drawable.dark_header, DF_BOLD)
-// цвет обычных клавиш (с градиентом)
 .setKeysBackground(new BitmapCachedGradBack(Color.WHITE, 0xff222222)
+		
 // Установка отступа краёв фона от прямоугольника, на котором фон отрисовывается
 .setGap(3)
 // Устанавливает обводку stroke, в виде еще одного объекта GradBack 

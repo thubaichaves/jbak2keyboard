@@ -245,8 +245,8 @@ public class ColorPicker extends View implements View.OnTouchListener
     	st.hidekbd();
     	wm = (WindowManager) c.getSystemService(Service.WINDOW_SERVICE);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.height = st.getHeightDisplay()-50;
-        lp.width = st.getWidthDisplay()-50;
+        lp.height = st.getHeightDisplay(null)-50;
+        lp.width = st.getWidthDisplay(null)-50;
 //        lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
         			|WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -257,7 +257,7 @@ public class ColorPicker extends View implements View.OnTouchListener
         lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
         lp.x = 0;
 //        lp.y = yPos;
-        lp.y = (st.getHeightDisplay()-50)/2;
+        lp.y = (st.getHeightDisplay(null)-50)/2;
 		
         if (st.isLandscape(c))
 			m_view = createLandscape(c);
@@ -411,7 +411,7 @@ public class ColorPicker extends View implements View.OnTouchListener
         sb.setOnSeekBarChangeListener(m_seekbarCngListener);
         rl.addView(sb);
         
-        int height = st.getHeightDisplay(); 
+        int height = st.getHeightDisplay(null); 
         RelativeLayout.LayoutParams bselpar = null;
         if (height>=400){
             bselpar = new RelativeLayout.LayoutParams(
@@ -577,7 +577,7 @@ public class ColorPicker extends View implements View.OnTouchListener
         sb.setOnSeekBarChangeListener(m_seekbarCngListener);
         rl.addView(sb);
         
-        int height = st.getHeightDisplay(); 
+        int height = st.getHeightDisplay(null); 
         RelativeLayout.LayoutParams bselpar = null;
         if (height>=400){
             bselpar = new RelativeLayout.LayoutParams(

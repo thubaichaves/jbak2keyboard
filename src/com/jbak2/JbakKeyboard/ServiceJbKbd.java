@@ -165,7 +165,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     public LatinKey thiskey;
     
 /** Место, в котором показано окно автодополнения */    
-    int m_acPlace = JbCandView.AC_PLACE_TITLE;
+    public int m_acPlace = JbCandView.AC_PLACE_TITLE;
     PopupKeyboard pk;
     /** Текущий просмотр кандидатов */    
     public JbCandView                 m_candView;
@@ -1293,16 +1293,20 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 //        }
         else if (primaryCode == st.CMD_LANG_CHANGE)
         {
-            st.kv().handleLangChange(true,true);
+            st.kv().handleLangChange(true,0);
 
-        }
-        else if (primaryCode == st.CMD_LANG_CHANGE_TWO_LANG)
-        {
-            st.kv().handleLangChange(false,false);
         }
         else if (primaryCode == st.CMD_LANG_CHANGE_NEXT_LANG)
         {
-            st.kv().handleLangChange(false,true);
+            st.kv().handleLangChange(false,0);
+        }
+        else if (primaryCode == st.CMD_LANG_CHANGE_PREV_LANG)
+        {
+            st.kv().handleLangChange(false,1);
+        }
+        else if (primaryCode == st.CMD_LANG_CHANGE_TWO_LANG)
+        {
+            st.kv().handleLangChange(false,2);
         }
 //        else if (primaryCode == st.CMD_LANG_CHANGE)
 //        {
@@ -2256,6 +2260,12 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	removeSharedPreferences();
     	VibroThread.getInstance(this).readSettings();
+        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
+            st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
+        }
+        if (st.KBD_BACK_PICTURE.equals(key) || key == null){
+        	st.kbd_back_pict = sharedPreferences.getString(st.KBD_BACK_PICTURE, st.STR_NULL);
+        }
         if (key==null||st.PREF_KEY_AC_AUTOCORRECT.equals(key))
         {
             m_acAutocorrect = sharedPreferences.getBoolean(st.PREF_KEY_AC_AUTOCORRECT, false);

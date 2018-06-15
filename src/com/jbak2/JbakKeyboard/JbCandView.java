@@ -823,10 +823,12 @@ public class JbCandView extends RelativeLayout
             wm.removeViewImmediate(this);
         }
         catch (Throwable e) {
+        	st.log("bbb");
+        	st.logEx(e);
         }
         fl_ac_show = false;
     }
-// нигде не используется    
+// юзается    
     public void hide()
     {
         hideFullView();

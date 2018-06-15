@@ -1,9 +1,14 @@
 package com.jbak2.JbakKeyboard;
 
-
 /** Константы для настроек клавиатуры */
 public interface IKbdSettings
 {
+	// последняя папка для файлового менеджера
+	public static final String FILE_EXPLORER_LAST_DIR= "fe_last_dir";
+	// прозрачность скина клавиатуры
+	public static final String KBD_BACK_ALPHA= "kbd_background_alpha";
+	// фоновая картинка клавиатуры
+	public static final String KBD_BACK_PICTURE= "kbd_background_pict";
 	// какой язык выводить по умолчанию в редактированиипользовательского 
 	// словаря
 	public static final String PREF_EUV_LANG_DEF= "euv_lang_def";
@@ -690,6 +695,8 @@ public interface IKbdSettings
     public static final int CMD_LANG_CHANGE_TWO_LANG = -22;
     /** Внутреняя команда - переключение языка без вывода меню, переход к следующему языку*/    
     public static final int CMD_LANG_CHANGE_NEXT_LANG = -23; 
+    /** Внутреняя команда - переключение языка без вывода меню, переход к предыдущему языку*/    
+    public static final int CMD_LANG_CHANGE_PREV_LANG = -24; 
     /** Внутреняя команда - компиляция клавиатур */    
     public static final int CMD_COMPILE_KEYBOARDS = -10000;
     /** Внутреняя команда - декомпиляция клавиатур */    
