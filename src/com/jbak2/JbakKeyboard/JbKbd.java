@@ -331,7 +331,11 @@ public class JbKbd extends Keyboard {
         	if(!st.has(flags, flag))
         		return false;
         	String t = longPress?longText:mainText;
-        	Templates.inst.processTemplate(t);
+        	if (Templates.inst == null) {
+        		new Templates(1,0).processTemplate(t);
+        		Templates.destroy();
+        	} else
+        		Templates.inst.processTemplate(t);
         	return true;
         }
         final boolean processUserKeyboard(boolean longPress)

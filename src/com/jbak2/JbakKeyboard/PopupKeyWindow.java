@@ -68,7 +68,7 @@ public class PopupKeyWindow
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
 		} else {
-			lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+			lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
 		}
         //lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
         lp.x = x;

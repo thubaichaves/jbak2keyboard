@@ -260,10 +260,14 @@ public class Words
     	if (arword==null)
     		return false;
     	if (arword.size()>0){
-    		for (WordEntry we:arword){
-    			if (we.word.compareToIgnoreCase(word) == 0&&!we.bword)
-    				return true;
-    		}
+    		try {
+        		for (WordEntry we:arword){
+        			if (we.word.compareToIgnoreCase(word) == 0&&!we.bword)
+        				return true;
+        		}
+    		} catch (Throwable e) {
+                return false;
+            }
     	}
     	return false;
     }
