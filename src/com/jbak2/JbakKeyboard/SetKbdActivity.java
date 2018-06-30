@@ -40,6 +40,7 @@ import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.ctrl.IntEditor;
 import com.jbak2.ctrl.IntEditor.OnChangeValue;
+import com.jbak2.perm.Perm;
 
 // зависоны при переключении скинов начались с версии 2.31.12 - чёт нахимичил
 /**
@@ -72,6 +73,11 @@ public class SetKbdActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		inst = this;
+        if (!Perm.checkPermission(inst)) {
+   			finish();
+   			st.runAct(Quick_setting_act.class,inst);
+        }
+
 		m_curAction = getIntent().getIntExtra(st.SET_INTENT_ACTION, st.SET_KEY_HEIGHT_PORTRAIT);
 		if (m_curAction == st.SET_KEY_CALIBRATE_PORTRAIT || m_curAction == st.SET_KEY_CALIBRATE_LANDSCAPE) {
 			initCalibrate();

@@ -745,19 +745,21 @@ public class com_menu
                 if(((Boolean)param2).booleanValue())
                 {
                     if (Translate.inst!=null){
-                        Intent in = new Intent(ServiceJbKbd.inst,TplEditorActivity.class)
-                                .putExtra(TplEditorActivity.EXTRA_CLIPBOARD_ENTRY, -2)
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        ServiceJbKbd.inst.startActivity(in);
+                    	st.runAct(TplEditorActivity.class,ServiceJbKbd.inst,TplEditorActivity. EXTRA_CLIPBOARD_ENTRY, -2);
+//                        Intent in = new Intent(ServiceJbKbd.inst,TplEditorActivity.class)
+//                                .putExtra(TplEditorActivity.EXTRA_CLIPBOARD_ENTRY, -2)
+//                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        ServiceJbKbd.inst.startActivity(in);
                         close();
                         return 0;
                     }
                 	posY = pos;
                     arcounter = 0;
-                    Intent in = new Intent(ServiceJbKbd.inst,TplEditorActivity.class)
-                        .putExtra(TplEditorActivity.EXTRA_CLIPBOARD_ENTRY, pos)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    ServiceJbKbd.inst.startActivity(in);
+                	st.runAct(TplEditorActivity.class,ServiceJbKbd.inst,TplEditorActivity. EXTRA_CLIPBOARD_ENTRY, pos);
+//                    Intent in = new Intent(ServiceJbKbd.inst,TplEditorActivity.class)
+//                        .putExtra(TplEditorActivity.EXTRA_CLIPBOARD_ENTRY, pos)
+//                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    ServiceJbKbd.inst.startActivity(in);
 //                    ServiceJbKbd.inst.m_candView.remove();
                     close();
                     return 0;

@@ -31,12 +31,15 @@ public class ClipbrdService extends SameThreadTimer
     }
     void checkClipboardString()
     {
-// проверяет изменился ли буфер, если нет то возврат    
+    	if (m_cm == null)
+    		return;
+// проверяет изменился ли буфер, если нет то возврат
         if(!m_cm.hasText())
         {
             return;
         }
-        checkString(m_cm.getText().toString());
+       	checkString(m_cm.getText().toString());
+        	
     }
     void checkString(String str)
     {

@@ -11,6 +11,7 @@
     android:id="@+id/qs_desc_kbd"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
     android:layout_alignParentRight="true"
     android:layout_gravity="center"
     android:onClick="onClick"
@@ -30,6 +31,15 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
     android:orientation="vertical" >
+    
+<Button
+    android:id="@+id/qs_ann_perm"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    android:onClick="onClick"
+    android:text="@string/qs_ann_perm"
+    android:textSize="12dp" />
     
 <TextView
     android:id="@+id/qs_about"

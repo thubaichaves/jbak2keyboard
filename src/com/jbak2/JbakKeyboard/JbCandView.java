@@ -12,6 +12,7 @@ import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -31,6 +32,7 @@ import com.jbak2.JbakKeyboard.EditSetActivity.EditSet;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.st.ArrayFuncAddSymbolsGest;
 import com.jbak2.ctrl.GlobDialog;
+import com.jbak2.perm.Perm;
 import com.jbak2.words.TextTools;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.IWords.WordEntry;
@@ -900,7 +902,12 @@ public class JbCandView extends RelativeLayout
                     |WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
                     ;
         lp.gravity = Gravity.LEFT|Gravity.TOP;
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        // тип окна не менять!
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+		}
         
 
 // автодоп в статус баре    	
@@ -913,13 +920,21 @@ public class JbCandView extends RelativeLayout
     	  tok = new Binder();
       if(tok!=null&&!bSystemAlert)
       {
-    	  lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+  			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+  		} else {
+  			lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+  		}
         	
     	  lp.token = tok;
         }
         lp.x = 0;
         lp.y = yPos;
         
+        if (!Perm.checkPermission(m_c)) {
+        	st.toastLong(R.string.perm_not_all_perm);
+        	return;
+        }
        	wm.addView(this, lp);
     }
 // задание параметров кнопок НЕ СЛОВ!

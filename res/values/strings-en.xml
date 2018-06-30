@@ -16,6 +16,12 @@
 	<string name="default_pref">Default settings</string>
 	<string name="msg_avtocorrect_and_addspace"> The \"Autocorrect\" and \"add a space after characters\" features have been enabled (in Autoinput).\n\nThey are not working properly together!</string>
 
+<!-- Title for permission-->
+	<string name="perm_expl1">There are no extraneous activities in the keyboard application, nothing is collected or stolen!\nThis is a standard system warning. For more details, see \“How to use the keyboard\” \n\nFor a proper work, the application requires some permissions,  WITHOUT ANY OF THEM, THE KEYBOARD WILL NOT WORK:\n\n- access to read and write to Internal Sorage (for the work of custom dictionary, templates, external layouts, skins and other stuff used in the keyboard).\n\n- window type \“On top of other windows\” (for the work of Autocomplete (word prediction), keystroke display and some dialog boxes).</string>
+	<string name="perm_expl2">For the work of Autocomplete (word predicition), keystroke display and some other windows (dialog boxes, keystroke display, etc), the program requires the window type permission  \“On top of other windows\”.</string>
+	<string name="perm_expl3">In case you, for some reason, have been denied permissions, and their request no longer appears,  then, permissions can be granted through the system settings of the Jbak2 keyboard application. The \"Permissions\" and \"On top of other windows\" items</string>	
+	<string name="perm_not_all_perm">Not all required permissions have been allowed</string>
+
 <!-- Title for file explorer-->
     <string name="fi_title">File explorer</string>
     <string name="fi_filter">Фильтр</string>
@@ -88,6 +94,7 @@
 <!-- Title for quick setting activity -->
 	<string name="qs_title">Quick settings wizard</string>
 	<string name="qs_ann">This professional keyboard is fully customizable and differs from most other keyboards.\nThis is a keyboard constructor with huge possibilities.\nFor this reason, the keyboard does not have predictive input and and Swype function.\n\nThe warning about a possible theft of passwords is a standard system message. For more information, see \"How to use the keyboard\".\n\nIf you have a device with a MIUI ROM, by default the autocomplete box (where you can see word suggestion) and the keypress pop-up feature will be turned off. To turn them on, read How to use the keyboard.</string>
+	<string name="qs_ann_perm">Viewer of the permission annotation</string>
 	<string name="qs_xiaomi">The Xiaomi manufacter has been detected: by default, some windows will not work on your device (Autocomplete, keystroke display,  some confirmation messages before actions, etc), be sure to read “How to use the keyboard”</string>
 	<string name="qs_btn1">Enable the jbak2 keyboard</string>
     <string name="qs_btn2">Activate the jbak2 keyboard</string>
@@ -580,7 +587,7 @@
         <item>Default</item>
         <item>Droid serif</item>
         <item>Monospace</item>
-    </string-array>
+        </string-array>
 
     <string-array name="array_input_type" tools:ignore="MissingTranslation">
         <item>By default</item>
@@ -754,7 +761,7 @@
     <string name="kbd_name_qwerty_hyastan64">Haystan64\'s keyboard</string>
     <string name="kbd_name_qwerty_rusrespect">from RusRespect</string>    
     <string name="kbd_name_qwerty_eliz69">from eliz69</string>    
-    <string name="kbd_name_round_pb">Keyboard for round face watches from Paul_Bort</string>    
+    <string name="kbd_name_round">Keyboard for round face watches</string>    
     <string name="kbd_psevdo_t9_mwcorp">Pseudo T9 from MWcorp</string>
     <string name="kbd_t9_mwcorp">T9 from MWcorp\n(It is required the Shift mode 3 to be activated (Settings-Other Settings-Shift))</string>
   	<string name="kbd_name_wide">Wide keys</string>

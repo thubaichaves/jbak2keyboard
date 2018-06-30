@@ -42,6 +42,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
 import com.jbak2.ctrl.GlobDialog;
+import com.jbak2.perm.Perm;
 import com.jbak2.web.SearchGoogle;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.UserWords.WordArray;
@@ -592,6 +593,11 @@ public class st extends IKeyboard implements IKbdSettings
         Log.e(TAG, Log.getStackTraceString(e));
         }
     }
+    static void log(String txt)
+    {
+        if(DEBUG)
+            Log.w(TAG, txt);
+    }
 /** Возвращает клавиатуру для языка с именем langName */    
     public static Keybrd getKeybrdForLangName(String langName)
     {
@@ -622,11 +628,6 @@ public class st extends IKeyboard implements IKbdSettings
         if(c!=null)
             Toast.makeText(c, "Lang not found:"+langName, Toast.LENGTH_LONG).show();
         return arKbd[0];
-    }
-    static void log(String txt)
-    {
-        if(DEBUG)
-            Log.w(TAG, txt);
     }
 /** Сохраняет текущий ресурс qwerty-клавиатуры, если редактирование происходит в qwerty */    
     public static void saveCurLang()
@@ -913,7 +914,7 @@ public class st extends IKeyboard implements IKbdSettings
         }
         return true;
     }
-    static boolean runAct(Context c, Class<?>cls,String extraName, String extraVal)
+    static boolean runAct(Class<?>cls, Context c, String extraName, String strVal)
     {
         try{
             
@@ -921,7 +922,25 @@ public class st extends IKeyboard implements IKbdSettings
                     new Intent(Intent.ACTION_VIEW)
                         .setComponent(new ComponentName(c,cls))
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        .putExtra(extraName, extraVal)
+                        .putExtra(extraName, strVal)
+            );
+        }
+        catch(Throwable e)
+        {
+        	st.logEx(e);
+            return false;
+        }
+        return true;
+    }
+    static boolean runAct(Class<?>cls, Context c, String extraName, int intVal)
+    {
+        try{
+            
+            c.getApplicationContext().startActivity(
+                    new Intent(Intent.ACTION_VIEW)
+                        .setComponent(new ComponentName(c,cls))
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .putExtra(extraName, intVal)
             );
         }
         catch(Throwable e)
@@ -1499,6 +1518,10 @@ public class st extends IKeyboard implements IKbdSettings
     {
         Toast.makeText(c, c.getString(id), 700).show();
    	}
+    public static void toast(Context c,String txt)
+    {
+        Toast.makeText(c, txt, 700).show();
+   	}
     public static void toast(boolean cr,Integer ...id)
     {
     	String out = st.STR_NULL;
@@ -1940,16 +1963,27 @@ public class st extends IKeyboard implements IKbdSettings
         }
     	return ret;
    	}
+    /** показывает окно GlobDialog на экране с одной кнопкой Ок */
     public static void help(int id_txt) 
     {
-    	help(st.c().getString(id_txt));
+    	help(st.c().getString(id_txt), st.c());
     }
-    // показывает окно GlobDialog на экране с одной кнопкой Ок
+    /** показывает окно GlobDialog на экране с одной кнопкой Ок */
+    public static void help(int id_txt, Context c) 
+    {
+    	help(c.getString(id_txt), c);
+    }
+    /** показывает окно GlobDialog на экране с одной кнопкой Ок */
     public static void help(String txt) 
+    {
+    	help(txt, st.c());
+    }
+    /** показывает окно GlobDialog на экране с одной кнопкой Ок */
+    public static void help(String txt, Context c) 
     {
     	if (GlobDialog.fl_help)
     		return;
-        GlobDialog gd = new GlobDialog(st.c());
+        GlobDialog gd = new GlobDialog(c);
         gd.setGravityText(Gravity.LEFT|Gravity.TOP);
         gd.set(txt, R.string.ok, 0);
         gd.fl_help=true;
@@ -2005,6 +2039,11 @@ public class st extends IKeyboard implements IKbdSettings
     // аналог вызова метода runsetkbd из jbkPreferences для настройки высоты клавиатуры
     public static void runSetKbd(Context c, int action)
     {
+        if (!Perm.checkPermission(c)) {
+   			st.runAct(Quick_setting_act.class,c);
+   			return;
+        }
+
         try{
 //        	if (registerKbd() < 2) {
 //        		st.toast(getString(R.string.kbd_warning));

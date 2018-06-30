@@ -16,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 
+import com.jbak2.Dialog.Dlg;
 import com.jbak2.JbakKeyboard.IKeyboard.Lang;
 import com.jbak2.ctrl.GlobDialog;
 
@@ -59,6 +60,14 @@ public class LangSetActivity extends Activity
         setContentView(v);
         Ads.show(this,1);
         super.onCreate(savedInstanceState);
+        Intent in = getIntent();
+        if (in!=null) {
+        	int help = in.getIntExtra(Quick_setting_act.EXXTRA_HELP, 0);
+        	if (help == 1)
+        		Dlg.helpDialog(inst, inst.getString(R.string.qs_btn3_help));
+            	//st.help(R.string.qs_btn3_help, inst);
+        }
+        
 	}
     @Override
     public void onBackPressed() {

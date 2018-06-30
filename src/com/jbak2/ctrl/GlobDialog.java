@@ -2,8 +2,10 @@ package com.jbak2.ctrl;
 
 import java.util.ArrayList;
 
+import com.jbak2.JbakKeyboard.R;
 import com.jbak2.JbakKeyboard.ServiceJbKbd;
 import com.jbak2.JbakKeyboard.st;
+import com.jbak2.perm.Perm;
 
 import android.R.drawable;
 import android.annotation.SuppressLint;
@@ -14,6 +16,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.text.method.DigitsKeyListener;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
@@ -478,9 +481,12 @@ public class GlobDialog  extends Activity
     {
         WindowManager wm = (WindowManager)m_c.getSystemService(Service.WINDOW_SERVICE);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        // тип окна не менять!
-        lp.type = WindowManager.LayoutParams.TYPE_PHONE;
-        //lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+     // тип окна не менять!
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+		}
         lp.gravity = Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL;
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -498,8 +504,13 @@ public class GlobDialog  extends Activity
         	lp.y = pos_y;
         Layout(lp);
         m_view = createView();
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+    		if (!Perm.checkPermission(m_c)) {
+    			st.toastLong(R.string.perm_not_all_perm);
+    			return;
+    		}
+        }
         gbshow = true;
-//        m_view.setOnClickListener(m_clkListener);
         wm.addView(m_view, lp);
     }
     /** ввод осуществляется одним из трёх видов
@@ -512,8 +523,11 @@ public class GlobDialog  extends Activity
         WindowManager wm = (WindowManager)m_c.getSystemService(Service.WINDOW_SERVICE);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         // тип окна не менять!
-        lp.type = WindowManager.LayoutParams.TYPE_PHONE;
-       	//lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+		}
         lp.gravity = Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL;
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -524,6 +538,10 @@ public class GlobDialog  extends Activity
         lp.dimAmount = (float) 0.2;
         Layout(lp);
         m_view = createViewEdit(txt,hex);
+        if (!Perm.checkPermission(m_c)) {
+        	st.toastLong(R.string.perm_not_all_perm);
+        	return;
+        }
         wm.addView(m_view, lp);
         gbshow = true;
         if (st.fl_pref_act==false){

@@ -1,11 +1,13 @@
 package com.jbak2.JbakKeyboard;
 
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.os.Build;
 import android.graphics.PixelFormat;
 import android.graphics.RectF;
 import android.text.TextPaint;
@@ -15,6 +17,7 @@ import android.view.WindowManager;
 
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.ctrl.SameThreadTimer;
+import com.jbak2.perm.Perm;
 import com.jbak2.CustomGraphics.draw;
 // показывает окно нажатой клавиши
 public class PopupKeyWindow
@@ -62,9 +65,18 @@ public class PopupKeyWindow
                     |WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
                     ;
         lp.gravity = Gravity.LEFT|Gravity.TOP;
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			lp.type = WindowManager.LayoutParams.TYPE_PHONE;
+		}
+        //lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
         lp.x = x;
         lp.y = y;
+//        if (!Perm.checkPermission(m_c)) {
+//        	st.toastLong(R.string.perm_not_all_perm);
+//        	return;
+//        }
         m_wm.addView(m_view, lp);
     }
     public void show(JbKbdView v,LatinKey key,boolean bLong)

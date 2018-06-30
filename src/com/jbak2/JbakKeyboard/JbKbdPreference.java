@@ -45,6 +45,7 @@ import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.IntEditor;
 import com.jbak2.ctrl.Mail;
+import com.jbak2.perm.Perm;
 
 // в 2.28.11 переделан механизм просьбы оценить приложение и тд.
 @SuppressLint("NewApi")
@@ -96,6 +97,10 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
     {
 		st.fl_pref_act = true;
         inst = this;
+        if (!Perm.checkPermission(inst)) {
+   			finish();
+   			st.runAct(Quick_setting_act.class,inst);
+        }
         checkCrash();
 		androidDefaultUEH = Thread.getDefaultUncaughtExceptionHandler();
 		Thread.setDefaultUncaughtExceptionHandler(new UncaughtExceptionHandler() {
@@ -258,7 +263,8 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
        			ini.setParam(ini.VERSION_CODE, vers);
        	} else {
        		if (st.getRegisterKbd(inst)!=2){
-       			st.runAct(Quick_setting_act.class,inst);
+       			if (Quick_setting_act.inst==null)
+       				st.runAct(Quick_setting_act.class,inst);
        		}
        	}
 //       	if (timeini+TIME_MONTH<=cur_time) {
@@ -440,6 +446,11 @@ public void checkStartIntent()
     		Preference preference) 
     {
         inst = this;
+        if (!Perm.checkPermission(inst)) {
+   			st.runAct(Quick_setting_act.class,inst);
+   			return true;
+        }
+
         String k = preference.getKey();
         Context c = this;
         if("pref_ac_height".equals(k))
@@ -1686,27 +1697,44 @@ public void checkStartIntent()
  		} catch(Throwable e)
  		{
  		}
-         GlobDialog gd = new GlobDialog(st.c());
-         gd.set(R.string.crash_question, R.string.yes, R.string.no);
-         gd.setObserver(new st.UniObserver()
-         {
-             @Override
-             public int OnObserver(Object param1, Object param2)
-             {
-                 if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
-                 {
-                  	if (file_crash!=null){
-                 		Mail.sendFeedback(inst, file_crash);
-                 	}
-                 }
-              	if (file_crash!=null){
-                	file_crash.delete();
-             		file_crash=null;
-             	}
-                 return 0;
-             }
-         });
-         gd.showAlert();
+ 		Dlg.yesNoDialog(inst, inst.getString(R.string.crash_question), new st.UniObserver() {
+			
+			@Override
+			public int OnObserver(Object param1, Object param2) {
+                if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                {
+                 	if (file_crash!=null){
+                		Mail.sendFeedback(inst, file_crash);
+                	}
+                }
+             	if (file_crash!=null){
+               	file_crash.delete();
+            		file_crash=null;
+            	}
+				return 0;
+			}
+		});
+//         GlobDialog gd = new GlobDialog(st.c());
+//         gd.set(R.string.crash_question, R.string.yes, R.string.no);
+//         gd.setObserver(new st.UniObserver()
+//         {
+//             @Override
+//             public int OnObserver(Object param1, Object param2)
+//             {
+//                 if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+//                 {
+//                  	if (file_crash!=null){
+//                 		Mail.sendFeedback(inst, file_crash);
+//                 	}
+//                 }
+//              	if (file_crash!=null){
+//                	file_crash.delete();
+//             		file_crash=null;
+//             	}
+//                 return 0;
+//             }
+//         });
+//         gd.showAlert();
 
  		return true;
  	}

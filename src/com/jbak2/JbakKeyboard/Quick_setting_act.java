@@ -1,17 +1,21 @@
 package com.jbak2.JbakKeyboard;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import com.jbak2.Dialog.Dlg;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
+import com.jbak2.perm.Perm;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -25,6 +29,8 @@ import android.widget.Button;
 
 public class Quick_setting_act extends Activity
 {
+	public static String EXXTRA_HELP = "qs_exxtra_help";
+	boolean bperm = false;
 	static Quick_setting_act inst;
 	static IniFile ini = null;
 	int step = 0;
@@ -37,12 +43,49 @@ public class Quick_setting_act extends Activity
         //st.fl_pref_act = true;
         Button btn = (Button) inst.findViewById(R.id.qs_desc_kbd);
         btn.setText(getString(R.string.ann)+getString(R.string.ann_info));
+		btn = (Button)inst.findViewById(R.id.qs_ann_perm);
+		btn.setVisibility(View.GONE);
         GlobDialog.gbshow = false;
 		ini = new IniFile(inst);
         showHintButton();
-        if (Build.MANUFACTURER.toUpperCase().contains("XIAOMI"))
-        	Dlg.helpDialog(inst, inst.getString(R.string.qs_xiaomi));
-
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+			btn.setVisibility(View.VISIBLE);
+        if (!Perm.checkPermission(inst)) {
+    		String str = inst.getString(R.string.perm_expl1);
+    		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+    			str+=st.STR_CR+st.STR_CR+inst.getString(R.string.perm_expl3);
+        	Dlg.helpDialog(inst, str, new st.UniObserver() {
+				
+				@Override
+				public int OnObserver(Object param1, Object param2) {
+		            String[] perms = Perm.getPermissionStartArray();
+		            Perm.requestPermission(inst, perms, Perm.RPC);
+					return 0;
+				}
+			});
+        }
+	}
+    @Override
+    protected void onDestroy()
+    {
+        inst = null;
+        super.onDestroy();
+    }
+	@TargetApi(Build.VERSION_CODES.M)
+	@Override
+    public void onRequestPermissionsResult(int requestCode, String[] perm, int[] grantResults ) {
+    	super.onRequestPermissionsResult(requestCode, perm, grantResults);
+        //Log.d( TAG, "Permissions granted: " + permissions.toString() + " " + grantResults.toString() );
+		ArrayList<String> al = new ArrayList<String>();
+    	for (int i=0;i<grantResults.length;i++) {
+    		if (grantResults[i] != PackageManager.PERMISSION_GRANTED)
+    			al.add(perm[i]);
+    	}
+    	if (al.size()>0) {
+        	String[] ss = new String[al.size()];
+        	ss =al.toArray(ss);
+        	Perm.postRequestPermission(inst,ss);
+    	}
 	}
     public void onClick(View view) 
     {
@@ -50,13 +93,27 @@ public class Quick_setting_act extends Activity
     		GlobDialog.inst.finish();
     		return;
     	}
-    		
-        switch (view.getId())
+    	int id = view.getId();
+    	if (id == R.id.qs_ann_perm) {
+    		String str = inst.getString(R.string.perm_expl1);
+    		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
+    			str+=st.STR_CR+st.STR_CR+inst.getString(R.string.perm_expl3);
+        	Dlg.helpDialog(inst, str);
+    		return;
+    	}
+    	else if (id == R.id.qs_desc_kbd) {
+        	st.desc_act_ini(1);
+        	st.runAct(Desc_act.class,inst);
+    		return;
+    	}
+    	
+    	if (!Perm.checkPermission(inst)) {
+            if( !Perm.requestPermission(inst, Perm.getPermissionStartArray(), Perm.RPC)) {
+            	return;
+            }
+    	}
+        switch (id)
         {
-        case R.id.qs_desc_kbd:
-        	st.desc_file_input = st.FILE_INPUT_FOR_VIEW;
-            st.runAct(Desc_act.class, inst);
-            return;
         case R.id.qs_btn1:
             startActivity(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS));
             break;
@@ -125,20 +182,8 @@ public class Quick_setting_act extends Activity
             });
         	break;
         case R.id.qs_btn3:
-            GlobDialog gd = new GlobDialog(st.c());
-            gd.setGravityText(Gravity.LEFT|Gravity.TOP);
-            gd.set(R.string.qs_btn3_help, R.string.ok, 0);
-            gd.setObserver(new st.UniObserver()
-            {
-                @Override
-                public int OnObserver(Object param1, Object param2)
-                {
-                    return 0;
-                }
-            });
-            gd.showAlert();
-        	
-            st.runAct(LangSetActivity.class,inst);
+//        	st.help(R.string.qs_btn3_help, inst);
+            st.runAct(LangSetActivity.class,inst,EXXTRA_HELP,1);
             break;
         case R.id.qs_btn3_1:
         	if (st.getOrientation(inst)==Configuration.ORIENTATION_PORTRAIT)

@@ -15,6 +15,12 @@
 	<string name="default_pref">Ajustes predeterminados</string>
 	<string name="msg_avtocorrect_and_addspace">Las funciones de \"Autocorrector\" y \"Agregar espacio después de caracteres\" (en Entrada automática) han sido habilitadas.\n\nJuntas, ellas no funcionan de manera correcta!</string>
 
+<!-- Title for permission-->
+	<string name="perm_expl1">No hay acciones no autorizadas en el teclado, nada es recolectado o robado!\nEste es un mensaje estandard de sistema. Para más detalles ver \“Cómo usar el teclado\” \n\nPara un uso correcto la applicación requiere algunos permisos,  SIN ALGUNO DE ELLOS EL TECLADO NO FUNCIONARÁ:\n\n- acceso a leer y escribir en el almacenamiento interno (para el funcionamiento del diccionario de usuario, plantillas, disposiciones externas, apariencias y otro item del teclado).\n\n- tipo de ventana \“Encima de otras ventanas\” (para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y otros cuadros de diálogo).</string>
+	<string name="perm_expl2"> Para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y algunas otras ventanas (cuadros de diálogo,visualización de teclas pulsadas, etc), el programa requiere el acceso al tipo de ventana \“Encima de otras ventanas\”.</string>
+    <string name="perm_expl3">En caso que por alguna razón se hayan denegado permisos, y su solicitud ya no aparece, los permisos pueden ser dados a través de los ajustes de sistema del teclado Jbak2. Los párrafos \"Permisos\" y \"Encima de otras ventanas\"</string>
+	<string name="perm_not_all_perm">No todos los permisos requeridos han sido dados</string> 
+
 <!-- Title for file explorer-->
     <string name="fi_title">Файловый менеджер</string>
     <string name="fi_filter">Фильтр</string>
@@ -87,7 +93,8 @@
 <!-- Title for quick setting activity -->
     <string name="qs_title">Asistente de configuración rápida</string>
 	<string name="qs_ann">Este teclado es profesional, totalmente configurable y se diferencia de la mayoría de los teclados.\nEste teclado es constructor con enormes oportunidades.\nPor tanto el teclado no tiene ni texto predictivo, ni función Swype.\n\nAlerta sobre el posible robo de contraseñas es un mensaje estándar de sistema. Lea más sobre ello en \"Cómo usar el teclado\".\n\nSi tiene un dispositivo con una rom MIUI, por  defecto la ventana de autocompletado (donde puede ver palabras sugeridas) y las ventanas emergentes con teclas pulsadas estarán desactivadas. Para activarlas, lea \"Cómo usar el teclado"\.</string>
-    <string name="qs_xiaomi">El fabricante Xiaomi  ha sido detectado: por defecto,  algunas ventanas no funcionarán en su dispositivo  (Autocompletado, visualización de las teclas pulsadas, algunos mensajes de confirmación antes de ejecutar alguna acción, etc.), asegúrese de leer "Cómo usar el teclado"</string>
+	<string name="qs_ann_perm">Visor de la anotación de permisos</string>
+	<string name="qs_xiaomi">El fabricante Xiaomi  ha sido detectado: por defecto,  algunas ventanas no funcionarán en su dispositivo  (Autocompletado, visualización de las teclas pulsadas, algunos mensajes de confirmación antes de ejecutar alguna acción, etc.), asegúrese de leer "Cómo usar el teclado"</string>
 	<string name="qs_btn1">Habilita el teclado jbak2</string>
     <string name="qs_btn2">Activa el teclado jbak2</string>
     <string name="qs_sel_lang">Seleccionar el idioma de la aplicación</string>
@@ -735,7 +742,7 @@
     <string name="kbd_name_qwerty_hyastan64">Qwerty de Haystan64</string>    
     <string name="kbd_name_qwerty_rusrespect">Qwerty de RusRespect</string>    
     <string name="kbd_name_qwerty_eliz69">Qwerty de  eliz69</string>    
-    <string name="kbd_name_round_pb">Teclado para los relojes redondos de Paul_Bort</string>    
+    <string name="kbd_name_round">Teclado para los relojes redondos</string>    
     <string name="kbd_name_qwerty_tablet">Qwerty para tablets</string>
 	<string name="kbd_name_wide">Teclas anchas</string>
 	<string name="kbd_name_sym_edit">Símbolos y redacción</string>

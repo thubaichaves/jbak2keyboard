@@ -70,6 +70,7 @@ import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.Mainmenu;
 import com.jbak2.ctrl.SameThreadTimer;
+import com.jbak2.perm.Perm;
 import com.jbak2.words.Words;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.IWords.WordEntry;
@@ -320,9 +321,11 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	if (com_menu.inst!=null){
     		com_menu.close();
-    		//if (!st.fl_pref_act)
-    			//com_menu.closeTplAndTrans();
     	}
+        if (!Perm.checkPermission(inst)) {
+   			st.runAct(Quick_setting_act.class,inst);
+   			return;
+        }
     	
 //    	if (TplEditorActivity.inst==null)
 //    		com_menu.closeTplAndTrans();
@@ -410,29 +413,12 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		return false;
     	fl_newvers = false;
         // оценивалось ли приложение?
-    	param = ini.getParamValue(ini.RATE_APP);
-    	if (param!=null&&param.compareToIgnoreCase(st.STR_ZERO) == 0){
-    		curtime = new Date().getTime();
-    		initime = 0;
-        	param = ini.getParamValue(ini.START_TIME);
-    		if (param == null)
-    			initime = curtime;
-    		else {
-    			try {
-    				initime=Long.parseLong(param);
-    			} catch (NumberFormatException e){
-    				initime=curtime;;
-    			}
-    		}
-    		if (ini.RATE_FIRST_TIME+initime<=curtime){
-    			st.toastLong(R.string.rate_toast);
-    			ini.setParam(ini.START_TIME, st.STR_NULL+(long)(curtime+ini.RATE_NEGATIVE_TIME));
-    		}
-    	}
-
+    	checkRate(ini);
     	param = ini.getParamValue(ini.VERSION_CODE);
-    	if (param == null)
-    		return false;
+    	if (param == null) {
+            ini.setParam(ini.VERSION_CODE, st.getAppVersionCode(inst));
+            return false;
+    	}
     	if (st.getAppVersionCode(inst).compareToIgnoreCase(param)==0)
     		return false;
     	acGone();
@@ -462,6 +448,33 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         ini.setParam(ini.VERSION_CODE, st.getAppVersionCode(inst));
     	fl_newvers = true;
     	return true;
+    }
+    public void checkRate(IniFile ini)
+    {
+		curtime = new Date().getTime();
+    	param = ini.getParamValue(ini.RATE_APP);
+    	if (param == null) {
+    		ini.setParam(ini.RATE_APP, st.STR_ZERO);
+    		return;
+    	}
+    	if (param.compareToIgnoreCase(st.STR_ZERO) == 0){
+    		initime = 0;
+        	param = ini.getParamValue(ini.START_TIME);
+    		if (param == null) {
+        		ini.setParam(ini.START_TIME, st.STR_NULL+curtime);
+    			initime = curtime;
+    		}else {
+    			try {
+    				initime=Long.parseLong(param);
+    			} catch (NumberFormatException e){
+    				initime=curtime;;
+    			}
+    		}
+    		if (ini.RATE_FIRST_TIME+initime<=curtime){
+    			st.toastLong(R.string.rate_toast);
+    			ini.setParam(ini.START_TIME, st.STR_NULL+(long)(curtime+ini.RATE_NEGATIVE_TIME));
+    		}
+    	}
     }
     // показывает автодополнение
     public void acVisible()

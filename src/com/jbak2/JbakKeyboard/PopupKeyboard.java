@@ -9,6 +9,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard.Key;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -481,7 +482,12 @@ public class PopupKeyboard
     	RelativeLayout.LayoutParams btnpar = new RelativeLayout.LayoutParams(
 	    		  LayoutParams.WRAP_CONTENT , LayoutParams.WRAP_CONTENT);
 
-		lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+		} else {
+			lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+		}
+		//lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
     	CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
         int ypos = inst.getResources().getDisplayMetrics().heightPixels;
         int xpos = inst.getResources().getDisplayMetrics().widthPixels;

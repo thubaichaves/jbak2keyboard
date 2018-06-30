@@ -1,6 +1,7 @@
 package com.jbak2.JbakKeyboard;
 
 import com.jbak2.ctrl.IntEditor;
+import com.jbak2.perm.Perm;
 
 import android.app.Activity;
 import android.view.View;
@@ -20,6 +21,10 @@ public class ClipbrdSyncAct extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.clipbrd_sync_act);
         inst = this;
+        if (!Perm.checkPermission(inst)) {
+   			finish();
+   			st.runAct(Quick_setting_act.class,inst);
+        }
         CheckBox cb = (CheckBox) findViewById(R.id.cs_cb1);
         cb.setChecked(st.fl_clipbrd_btn_sync_show);
         cb.setOnClickListener(new OnClickListener()

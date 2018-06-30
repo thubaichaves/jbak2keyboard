@@ -2,8 +2,6 @@ package com.jbak2.web;
 
 import java.net.URLEncoder;
 
-import org.apache.http.protocol.HTTP;
-
 import com.jbak2.JbakKeyboard.ServiceJbKbd;
 import com.jbak2.JbakKeyboard.st;
 import android.annotation.SuppressLint;
@@ -38,7 +36,7 @@ public class SearchGoogle
     		return;
     	String enc;
 		try {
-			enc = URLEncoder.encode(sel.toString(), HTTP.UTF_8);
+			enc = URLEncoder.encode(sel.toString(),"UTF-8");
 		} catch (Throwable e) {
 			enc = null;
 		}
