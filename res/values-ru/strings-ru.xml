@@ -2,7 +2,7 @@
 <resources>
 <!-- Title for Latin keyboard  -->
     <string name="ime_name">jbak2 Keyboard</string>
-    <string name="ime_settings">Настройки jbak2 Keyboard</string>
+    <string name="ime_settings">Настройки</string>
     <string name="pref_keys">Настройки клавиш и автодополнения</string>    
 	<string name="pref_keys_desc">Высота и вертикальная коррекция клавиш и автодополнения</string>    
     <string name="msg_begin">Больше не выводить</string>   
@@ -37,12 +37,15 @@
 	<string name="set_kbd_background">Фон клавиатуры</string>
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc">0 - кнопки полностью прозрачные, 10 - прозрачность из скина.</string>
+	<string name="set_kbd_background_alpha_desc">0 - кнопки полностью прозрачные, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 			
+<!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
 	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
-	
+	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
+	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
+			
 	<string name="pref_one_start_text">(текст прокручивается)\n\nПрочитать Как пользоваться клавиатурой? (на маломощных устройствах текст может очень долго открываться)\n\nДанная клавиатура является профессиональной, полностью настриваемой и отличается от большинства клавиатур.\nПоэтому в ней отсутствует предиктивный ввод и свайп.\nИзначально клавиатура настроена по принципу \"включил и работай\".\nПеред индивидуальной настройкой сперва прочтите этот текст - в нём собраны ответы практически на любые Ваши вопросы.</string>
     <string name="transparency">Прозрачность:</string>
     
@@ -609,7 +612,12 @@
 	<string name="mm_translate_interfase">Язык переводчика</string>
 	<string name="mm_translate_interfase_browser">Два символа (ru, en и т.д.) языка интерфейса переводчика в браузере</string>
 	<string name="mm_notation">Системы счисления</string>
-				
+	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
+
+<!-- notation number  -->
+	<string name="notation_name">Какая базовая система счисления у числа</string>
+	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+								
 	<string name="search">Поиск</string>
 	<string name="ok">Ok</string>
 	<string name="cancel">Отмена</string>
@@ -767,18 +775,18 @@
 	<string name="kbd_design_solid">Сплошной</string>
 			
 <!-- Names for designs of assets -->
-	<string name="design_eliz1">Кремовый</string>    
-	<string name="design_eliz2">Яблоко</string>    
-	<string name="design_eliz3">Коричневый</string>    
-	<string name="design_eliz4">Золото</string>    
-	<string name="design_eliz5">Виолет</string>    
-	<string name="design_eliz6">Дроп</string>    
-	<string name="design_schenee">Шоколад 2</string>    
+	<string name="design_eliz1">Кремовый by elizz69</string>    
+	<string name="design_eliz2">Яблоко by elizz69</string>    
+	<string name="design_eliz3">Коричневый by elizz69</string>    
+	<string name="design_eliz4">Золото by elizz69</string>    
+	<string name="design_eliz5">Виолет by elizz69</string>    
+	<string name="design_eliz6">Дроп by elizz69</string>    
+	<string name="design_schenee">Шоколад by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Светлый</string>    
 	<string name="design_thepop3250_2">Голубой</string>    
 	<string name="design_thepop3250_3">Неон</string>    
 	<string name="design_rusrespect1">Ноутбук</string>    
-	<string name="design_keylifes1">Чёрно-белый</string>    
+	<string name="design_keylifes1">Чёрно-белый by keyslifes</string>    
 						
 	<string name="lang_symbol">Символьная клавиатура</string>   
  	<string name="lang_symbol_shift">Доп. символьная клавиатура</string>   

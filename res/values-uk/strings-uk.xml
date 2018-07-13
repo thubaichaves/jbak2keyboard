@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="ime_name">jbak2 Клавіатура</string>
-  <string name="ime_settings">Налаштування jbak2 Keyboard</string>
+  <string name="ime_settings">Налаштування</string>
   <string name="pref_keys">Налаштування клавіш і автодоповнення</string>
   <string name="pref_keys_desc">Висота та вертикальна корекція клавіш і автодоповнення</string>
   <string name="label_go_key">Йти</string>
@@ -43,8 +43,11 @@
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 			
-	<string name="set_show_kbd_notif">Визов зі шторки</string>
-	<string name="set_show_kbd_notif_desc">Визов клавіатури через сповіщення в  шторці. Необхідно у деяких місцях</string>
+<!-- Title for show keyboard notification-->
+	<string name="set_show_kbd_notif">Вызов из шторки</string>
+	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
+	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
     
 <!-- Title for small keyboard-->
     <string name="pref_mini_kbd_screen">Маленька клавіатура (поки що beta)</string>
@@ -607,7 +610,12 @@
 	<string name="mm_translate_interfase">Мова перекладача</string>
 	<string name="mm_translate_interfase_browser">Два символи (ru, en та т.і.) мови інтерфейсу перекладача в браузері</string>
 	<string name="mm_notation">Сістеми зчислення</string>
-			
+	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
+
+<!-- notation number  -->
+	<string name="notation_name">Какая базовая система счисления у числа</string>
+	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+	
 	<string name="search">Пошук</string>
   <string name="ok">Добре</string>
   <string name="cancel">Скасувати</string>
@@ -760,18 +768,18 @@
 	<string name="kbd_design_solid">Суцільний</string>
 	
 <!-- Names for designs of assets -->
-	<string name="design_eliz1">Кремовий</string>    
-	<string name="design_eliz2">Яблуко</string>    
-	<string name="design_eliz3">Коричневий</string>    
-	<string name="design_eliz4">Золото</string>    
-	<string name="design_eliz5">Віолет</string>    
-	<string name="design_eliz6">Дроп</string>    
-	<string name="design_schenee">Шоколад 2</string>    
+	<string name="design_eliz1">Кремовий by elizz69</string>    
+	<string name="design_eliz2">Яблуко by elizz69</string>    
+	<string name="design_eliz3">Коричневий by elizz69</string>    
+	<string name="design_eliz4">Золото by elizz69</string>    
+	<string name="design_eliz5">Віолет by elizz69</string>    
+	<string name="design_eliz6">Дроп by elizz69</string>    
+	<string name="design_schenee">Шоколад by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Світлий</string>    
 	<string name="design_thepop3250_2">Голубий</string>    
 	<string name="design_thepop3250_3">Неон</string>    
 	<string name="design_rusrespect1">Ноутбук</string>    
-	<string name="design_keylifes1">Чорно-білий</string>    
+	<string name="design_keylifes1">Чорно-білий by keyslifes</string>    
 			
   <string name="lang_symbol">Символьна клавіатура</string>
   <string name="lang_symbol_shift">Дод. символьна клавіатура</string>

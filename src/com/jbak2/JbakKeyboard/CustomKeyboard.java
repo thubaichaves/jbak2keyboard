@@ -1015,6 +1015,7 @@ public class CustomKeyboard extends JbKbd
             m_os.writeUTF(att);
         }
         if(att.equals("delete")) return draw.paint().getBitmap(R.drawable.sym_keyboard_delete);
+        if(att.equals("forward_del")) return draw.paint().getBitmap(R.drawable.sym_keyboard_forward_del);
         if(att.equals("done")) return draw.paint().getBitmap(R.drawable.sym_keyboard_done);
         if(att.equals("return")) return draw.paint().getBitmap(R.drawable.sym_keyboard_return);
         if(att.equals("shift")) return draw.paint().getBitmap(R.drawable.sym_keyboard_shift);

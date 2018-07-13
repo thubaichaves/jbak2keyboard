@@ -60,10 +60,11 @@ public class PopupKeyWindow
         lp.height = m_h;
         lp.format = PixelFormat.TRANSLUCENT;
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                    |WindowManager.LayoutParams.FLAG_FULLSCREEN
-                    |WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                    |WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
-                    ;
+                |WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                |WindowManager.LayoutParams.FLAG_FULLSCREEN
+                |WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                |WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR
+                ;
         lp.gravity = Gravity.LEFT|Gravity.TOP;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 			lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;

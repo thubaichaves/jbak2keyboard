@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Vector;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Service;
@@ -40,10 +41,14 @@ import android.inputmethodservice.ExtractEditText;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
+import android.inputmethodservice.AbstractInputMethodService.AbstractInputMethodImpl;
+import android.inputmethodservice.InputMethodService.InputMethodImpl;
 import android.media.AudioManager;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.SystemClock;
 import android.text.ClipboardManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -69,6 +74,7 @@ import com.jbak2.JbakKeyboard.Templates.CurInput;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.ctrl.IniFile;
 import com.jbak2.ctrl.Mainmenu;
+import com.jbak2.ctrl.Notif;
 import com.jbak2.ctrl.SameThreadTimer;
 import com.jbak2.perm.Perm;
 import com.jbak2.words.Words;
@@ -81,7 +87,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 {
 	/** слово до срабатывания компаратора */
 	String old_word = null;
-	//Notif notif = null;
+	Notif notif = null;
 	InputConnection mIc = null;
 	Mainmenu mmenu = null;
 	EditorInfo kbd_show_ei = null;
@@ -326,7 +332,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
    			st.runAct(Quick_setting_act.class,inst);
    			return;
         }
-    	
+        JbKbdView kv = st.kv();
+        if (kv!=null)
+        	kv.reloadSkin();
+        
 //    	if (TplEditorActivity.inst==null)
 //    		com_menu.closeTplAndTrans();
     	isNewVersion();
@@ -1645,7 +1654,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	final com_menu menu = new com_menu();
     	menu.close_menu=false;
-    	menu.textMenuButton(textMenuName(st.CMD_MAIN_MENU));
+    	menu.setMenuname(textMenuName(st.CMD_MAIN_MENU));
         st.UniObserver onMenu = new st.UniObserver()
         {
             public int OnObserver(Object param1, Object param2)
@@ -1698,7 +1707,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     public void onCalcMenu()
     {
     	com_menu menu = new com_menu();
-    	menu.textMenuButton(textMenuName(st.CMD_CALC));
+    	menu.setMenuname(textMenuName(st.CMD_CALC));
         st.UniObserver onMenu = new st.UniObserver()
         {
             public int OnObserver(Object param1, Object param2)
@@ -2273,9 +2282,9 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	removeSharedPreferences();
     	VibroThread.getInstance(this).readSettings();
-        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
-            st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
-        }
+//        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
+//            st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
+//        }
         if (st.KBD_BACK_PICTURE.equals(key) || key == null){
         	st.kbd_back_pict = sharedPreferences.getString(st.KBD_BACK_PICTURE, st.STR_NULL);
         }
@@ -2536,20 +2545,20 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 
     	st.desc_fl_not_input = sharedPreferences.getBoolean(st.PREF_VIEW_DESC, false);
     	
-//    	st.fl_show_kbd_notif = sharedPreferences.getBoolean(st.PREF_SHOW_KBD_NOTIF, false);
-//    	if (st.fl_show_kbd_notif){
-//    		if (notif!=null&&notif.mact!= null){
-//    			notif.dismiss(Notif.NOTIFY_ID);
-//    			notif = null;
-//    		}
-//            notif = new Notif(inst);
-//			notif.createNotif();
-//    	} else {
-//    		if (notif.mact!= null){
-//    			notif.dismiss(Notif.NOTIFY_ID);
-//    			notif = null;
-//    		}
-//    	}
+    	st.fl_show_kbd_notif = sharedPreferences.getBoolean(st.PREF_SHOW_KBD_NOTIF, false);
+    	if (st.fl_show_kbd_notif){
+    		if (notif!=null&&notif.mact!= null){
+    			notif.dismiss(Notif.NOTIFY_ID);
+    			notif = null;
+    		}
+            notif = new Notif(inst);
+			notif.createNotif();
+    	} else {
+    		if (notif.mact!= null){
+    			notif.dismiss(Notif.NOTIFY_ID);
+    			notif = null;
+    		}
+    	}
         st.gesture_min_length = st.str2int(sharedPreferences.getString(st.SET_GESTURE_LENGTH, "100"),1,1000,"Gesture length");
         st.gesture_velocity = st.str2int(sharedPreferences.getString(st.SET_GESTURE_VELOCITY, "150"),1,1000,"Gesture velocity");
 // читаем свои жесты
@@ -3661,4 +3670,19 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 
     	return str;
     }
+    @Override
+    public AbstractInputMethodImpl onCreateInputMethodInterface() {
+    	return new MyInputMethodImpl();
+    }
+    public IBinder mToken;
+    public class MyInputMethodImpl extends InputMethodImpl {
+    	@Override
+    	public void attachToken(IBinder token) {
+    		super.attachToken(token);
+    		if (mToken == null) {
+    			mToken = token;
+    		}
+    	}
+    }
+
 }

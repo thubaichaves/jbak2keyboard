@@ -513,6 +513,8 @@ public interface IKbdSettings
     public static final int CMD_SEARCH_COPYING = -615;
     /** внутренняя команда - запуск редактора словаря пользователя */    
     public static final int CMD_EDIT_USER_VOCAB = -616;
+    /** внутренняя команда - показать скопированное число в разных системах счисления */    
+    public static final int CMD_SHOW_COPY_NUMBER_ANY_NOTATION = -617;
 
     /** стартовое число для посылки кейкодов клавиш по формуле 0-KEYCODE_CODE-посылаемый_код */
     // занимает промежуток кодов -5000 - -7000

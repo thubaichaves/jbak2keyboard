@@ -93,6 +93,7 @@ public class Mainmenu {
     	ar.add(new Mainmenu(R.string.gesture_search_sel, st.CMD_SEARCH_SELECTED));
     	ar.add(new Mainmenu(R.string.gesture_search_copy, st.CMD_SEARCH_COPYING));
     	ar.add(new Mainmenu(R.string.euv_actname, st.CMD_EDIT_USER_VOCAB));
+    	ar.add(new Mainmenu(R.string.mm_copy_notation, st.CMD_SHOW_COPY_NUMBER_ANY_NOTATION));
 
     	return ar;
     }

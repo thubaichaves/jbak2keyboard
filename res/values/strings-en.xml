@@ -2,7 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- Title for Latin keyboard  -->
     <string name="ime_name">jbak2 Keyboard </string>
-    <string name="ime_settings">jbak2 Keyboard settings</string>
+    <string name="ime_settings">Settings</string>
     <string name="pref_keys">Key settings and Autocomplete</string>
     <string name="pref_keys_desc">Key height, vertical adjustment and Autocomplete</string>
     <string name="msg_begin">Do not show this again</string>   
@@ -41,8 +41,11 @@
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
+<!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
 	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
+	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
 	
 <!-- Title for small keyboard-->
     <string name="pref_mini_kbd_screen">Small keyboard (still in beta)</string>
@@ -624,7 +627,12 @@
 	<string name="mm_translate_interfase">Translator interface language</string>
 	<string name="mm_translate_interfase_browser">Two letter code (ru, en, etc) of the translator interface language in a browser</string>
 	<string name="mm_notation">Notation</string>
-				
+	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
+
+<!-- notation number  -->
+	<string name="notation_name">Какая базовая система счисления у числа</string>
+	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+		
 	<string name="search">Search</string>
 	<string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -788,19 +796,22 @@
 	<string name="kbd_design_solid">Solid</string>
 	
 <!-- Names for designs of assets -->
-	<string name="design_eliz1">Cream</string>    
-	<string name="design_eliz2">Apple</string>    
-	<string name="design_eliz3">Brown</string>    
-	<string name="design_eliz4">Gold</string>    
-	<string name="design_eliz5">Violet</string>    
-	<string name="design_eliz6">Drop</string>    
-	<string name="design_schenee">Chocolate 2</string>    
+	<string name="design_eliz1">Cream by elizz69</string>    
+	<string name="design_eliz2">Apple by elizz69</string>    
+	<string name="design_eliz3">Brown by elizz69</string>    
+	<string name="design_eliz4">Gold by elizz69</string>    
+	<string name="design_eliz5">Violet by elizz69</string>    
+	<string name="design_eliz6">Drop by elizz69</string>    
+	<string name="design_schenee">Chocolate by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Light</string>    
 	<string name="design_thepop3250_2">Blue</string>    
 	<string name="design_thepop3250_3">Neon</string>    
 	<string name="design_rusrespect1">Notebook</string>    
-	<string name="design_keylifes1">Black and white</string>    
-			
+	<string name="design_keylifes1">Black and white by keyslifes</string>    
+	<string name="design_newportstyle">NewPortStyle by jenibek</string>    
+	<string name="design_nad1">Blue_and_gray by Надежда Ф</string>    
+	<string name="design_nad2">Brown_pink_yellow by Надежда Ф</string>    
+						
 <!-- Names for languages -->
  	<string name="lang_symbol">Character keyboard</string>
  	<string name="lang_symbol_shift">Special character keyboard</string>

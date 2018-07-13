@@ -7,6 +7,7 @@
 <!-- прозрачность клавиатуры -->
 <!--     <Preference -->
 <!--         android:key="kbd_background_alpha" -->
+<!-- 	    android:defaultValue="10" -->
 <!--         android:title="@string/set_kbd_background_alpha"  -->
 <!--         android:summary="@string/set_kbd_background_alpha_desc" /> -->
 
@@ -652,11 +653,11 @@
             android:title="@string/set_key_tpl_path" />
 
       <!--  Вызывать клавиатуру через шторку-->
-<!--         <CheckBoxPreference -->
-<!--             android:defaultValue="false" -->
-<!--             android:key="show_kbd_notif" -->
-<!--             android:summary="@string/set_show_kbd_notif_desc" -->
-<!--             android:title="@string/set_show_kbd_notif" /> -->
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_kbd_notif"
+            android:summary="@string/set_show_kbd_notif_desc"
+            android:title="@string/set_show_kbd_notif" />
 
         <Preference
             android:key="intervals"

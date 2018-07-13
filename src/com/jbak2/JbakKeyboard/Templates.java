@@ -600,12 +600,12 @@ public class Templates
     	if (Templates.inst == null)
     		return;
         if (rejim == 1) {
-        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TPL));
+        	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_TPL));
         }
         else if (rejim == 2&&type == 1)
-        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_SAVE));
+        	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_SAVE));
         else if (rejim == 2&&type == 2)
-        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_LOAD));
+        	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_LOAD));
         if (rejim == 1&&st.fiks_tpl.length()>0&&st.fl_fiks_tpl) {
         	m_curDir = new File(st.fiks_tpl);
         	st.fl_fiks_tpl = false;

@@ -654,7 +654,7 @@ public class CustomKbdScroll
     	str[3]= "16x: "+st.num2str(num, 16);
     	final com_menu menu = new com_menu();
         menu.m_state = STAT_KEYCODE_NOTATION;
-    	menu.textMenuButton(st.getStr(R.string.mm_notation));
+    	menu.setMenuname(st.getStr(R.string.mm_notation));
     	for(int i=0;i<str.length;i++)
     	{
     		menu.add(str[i],i);
@@ -805,7 +805,7 @@ public class CustomKbdScroll
     {
     	st.help = st.STR_NULL;
         com_menu menu = new com_menu();
-    	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_HISTORY));
+    	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_HISTORY));
         menu.m_state = STAT_CALC_HISTORY;
         int pos = 0;
         boolean bbb = false;

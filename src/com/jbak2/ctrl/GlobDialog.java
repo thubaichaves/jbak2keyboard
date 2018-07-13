@@ -491,8 +491,9 @@ public class GlobDialog  extends Activity
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.format = PixelFormat.TRANSLUCENT;
-//        lp.flags = WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|
-        lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+        //lp.flags = WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN|
+        lp.flags = 
+        		WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
     			|WindowManager.LayoutParams.FLAG_FULLSCREEN
                 |WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
                 |WindowManager.LayoutParams.FLAG_LAYOUT_INSET_DECOR

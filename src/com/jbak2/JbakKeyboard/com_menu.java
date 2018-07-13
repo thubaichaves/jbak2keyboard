@@ -87,6 +87,7 @@ public class com_menu
     {
         inst = this;
         m_MainView = ServiceJbKbd.inst.getLayoutInflater().inflate(R.layout.com_menu, null);
+        setMenunameSize(0);
     }
 /** Устанавливает фон ненажатой кнопки, соответствующий текущему оформлению клавиатуры*/    
 //    void setButtonKeyboardBackground(View btn)
@@ -387,10 +388,22 @@ public class com_menu
         }
         
     };
-    void textMenuButton(String txt)
+    /** заголовок менюшки */
+    void setMenuname(String txt)
     {
     	TextView mm = ((TextView)m_MainView.findViewById(R.id.menuname));
    		mm.setText(txt);
+    }
+    /** размер текста названия меню.
+     * @param  size - если 0, то дефолтное значение (10)*/
+    void setMenunameSize(int size)
+    {
+    	TextView mm = ((TextView)m_MainView.findViewById(R.id.menuname));
+    	if (mm==null)
+    		return;
+    	if (size == 0)
+    		size = 10;
+   		mm.setTextSize(size);
         
     }
     
@@ -641,18 +654,96 @@ public class com_menu
 			}
 		}, false);
     }
+    /** пытается определить исходную систему счисления и выдать варианты в клаве*/
+    public static void showNotationNumber()
+    {
+    	if (ServiceJbKbd.inst==null)
+    		return;
+    	CharSequence cs = ServiceJbKbd.inst.getClipboardCharSequence();
+    	if (cs==null)
+    		return;
+    	final String num =cs.toString().trim().toLowerCase();
+    	if (!num.matches("[&x#0-9a-f]+")) {    	
+    		st.toastLong(R.string.notation_not_number);
+    		return;
+    	}
+//    	else if (num.matches("[0-1]+")) {
+//    		st.toast("aaa");
+//    	}
+    	else if (num.length()>=10) {
+    		try {
+    			int regex = 10;
+    			String ss = num;
+    			if (ss.startsWith("0x")) {
+    				ss = ss.substring(2);
+    				regex = 16;
+    			}
+    			else if (ss.startsWith("#")) {
+    				ss = ss.substring(1);
+    				regex = 16;
+    			}
+    			else if (ss.startsWith("&")) {
+    				ss = ss.substring(1);
+    				regex = 16;
+    			}
+    			int iii = Integer.parseInt(ss,regex);
+    		} catch (Throwable e){
+        		st.toast(R.string.notation_not_number);
+    			return;
+    		}
+    	}
+    	final com_menu menu = new com_menu();
+    	menu.setMenuname(ServiceJbKbd.inst.getString(R.string.notation_name)+" ("+num+")?:");
+    	menu.setMenunameSize(20);
+    	menu.add("2x", 0);
+    	menu.add("8x", 1);
+    	menu.add("10x", 2);
+    	menu.add("16x", 3);
+    	st.UniObserver obs = new st.UniObserver() {
+			
+			@Override
+			public int OnObserver(Object param1, Object param2) {
+				String str = st.STR_NULL;
+//		    	// система счисления для определения
+		    	int radix = 10;
+	    		str = num;
+
+		    	switch (((Integer)param1).intValue())
+		    	{
+		    	case 0:
+		    		radix = 2;
+		    		break;
+		    	case 1:
+		    		radix = 8;
+		    		break;
+		    	case 2:
+		    		radix = 10;
+		    		break;
+		    	case 3:
+		    		radix = 16;
+		    		break;
+		    	}
+		    	int out = st.parseInt(str, radix);
+		    	com_menu.close();
+		    	showNotationNumber(ServiceJbKbd.inst,st.STR_NULL+out);
+				return 0;
+			}
+		};
+    	menu.show(obs, false);
+    }
+    
     /** показывает введённый код символа в разных системах счисления */
-    public static void showNotationNumber(final Context c, String num)
+    public static void showNotationNumber(final Context c, String dexnum)
     {
     	st.help = c.getString(R.string.set_longtap_keycode_help);
     	final String str[] = new String[4];
-    	str[0]= " 2x: "+st.num2str(num, 2);
-    	str[1]= " 8x: "+st.num2str(num, 8);
-    	str[2]= "10x: "+st.num2str(num, 10);
-    	str[3]= "16x: "+st.num2str(num, 16);
+    	str[0]= " 2x: "+st.num2str(dexnum, 2);
+    	str[1]= " 8x: "+st.num2str(dexnum, 8);
+    	str[2]= "10x: "+st.num2str(dexnum, 10);
+    	str[3]= "16x: "+st.num2str(dexnum, 16);
     	final com_menu menu = new com_menu();
         menu.m_state = STAT_KEYCODE_NOTATION;
-    	menu.textMenuButton(st.getStr(R.string.mm_notation));
+    	menu.setMenuname(st.getStr(R.string.mm_notation));
     	for(int i=0;i<str.length;i++)
     	{
     		menu.add(str[i],i);
@@ -667,11 +758,6 @@ public class com_menu
                     int pos = ((Integer)param1).intValue();
                     if (pos > -1){
                     	try {
-//                    		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
-//                    		String s = menu.m_arItems.get(pos).text;
-//                    		s = s.substring(s.indexOf(":")+1).trim();
-//                    		cm.setText(s);
-//                    		st.messageCopyClipboard();
                     		String s = menu.m_arItems.get(pos).text;
                     		s = s.substring(s.indexOf(":")+1).trim();
                     		st.copyText(c, s);
@@ -703,7 +789,7 @@ public class com_menu
         }
     	st.help = st.STR_NULL;
         final com_menu menu = new com_menu();
-    	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_CLIPBOARD));
+    	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_CLIPBOARD));
         menu.m_state = STAT_CLIPBOARD;
         int pos = 0;
         long date = -1;
@@ -805,7 +891,7 @@ public class com_menu
     {
     	st.help = st.STR_NULL;
         com_menu menu = new com_menu();
-    	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_HISTORY));
+    	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_CALC_HISTORY));
         menu.m_state = STAT_CALC_HISTORY;
         int pos = 0;
         boolean bbb = false;

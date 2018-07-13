@@ -40,8 +40,11 @@
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
+<!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
 	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
+	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
     
 <!-- Title for small keyboard-->
     <string name="pref_mini_kbd_screen">Teclado pequeño(todavía en fase beta)</string>
@@ -605,9 +608,14 @@
 	<string name="mm_translate_interfase">Idioma de la interfaz del traductor</string>
 	<string name="mm_translate_interfase_browser">idioma de la interfaz del traductor (código de dos letras: ru, en, etc) en un navegador</string>
 	<string name="mm_notation">Системы счисления</string>
-				
+	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
+
+<!-- notation number  -->
+	<string name="notation_name">Какая базовая система счисления у числа</string>
+	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+	
 	<string name="search">Búsqueda</string>
-		<string name="ok">OK</string>
+	<string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
@@ -767,18 +775,18 @@
 	<string name="kbd_design_solid">Sólido</string>
 	
 <!-- Names for designs of assets -->
-	<string name="design_eliz1">Crema</string>    
-	<string name="design_eliz2">Manzana</string>    
-	<string name="design_eliz3">Café</string>    
-	<string name="design_eliz4">Oro</string>    
-	<string name="design_eliz5">Violeta</string>    
-	<string name="design_eliz6">Gota</string>    
-	<string name="design_schenee">Chocolate 2</string>    
+	<string name="design_eliz1">Crema by elizz69</string>    
+	<string name="design_eliz2">Manzana by elizz69</string>    
+	<string name="design_eliz3">Café by elizz69</string>    
+	<string name="design_eliz4">Oro by elizz69</string>    
+	<string name="design_eliz5">Violeta by elizz69</string>    
+	<string name="design_eliz6">Gota by elizz69</string>    
+	<string name="design_schenee">Chocolate by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Claro</string>    
 	<string name="design_thepop3250_2">Azul</string>    
 	<string name="design_thepop3250_3">Neón</string>    
 	<string name="design_rusrespect1">Notebook</string>    
-	<string name="design_keylifes1">En blanco y negro</string>    
+	<string name="design_keylifes1">En blanco y negro by keyslifes</string>    
 			
  	<string name="lang_symbol">Teclado de símbolos</string>   
  	<string name="lang_symbol_shift">Teclado de símbolos adicionales</string>   

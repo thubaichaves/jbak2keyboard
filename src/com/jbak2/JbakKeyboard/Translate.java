@@ -50,9 +50,9 @@ public class Translate
     		return;
         menu = new com_menu();
         if  (mtype == 0)
-        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_SELECTED));
+        	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_SELECTED));
         else if (mtype == 1)
-        	menu.textMenuButton(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_COPYING));
+        	menu.setMenuname(ServiceJbKbd.inst.textMenuName(st.CMD_TRANSLATE_COPYING));
         menu.m_state|=com_menu.STAT_TRANSLATE;
         ar = onReadFileAndSortArray();
         if (ar!=null)

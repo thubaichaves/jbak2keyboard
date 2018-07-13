@@ -253,21 +253,45 @@ public class Words
 // возвращает список слов
         return ar;
     }
+    int arpos = 0;
+    int arlen = 0;
+	WordEntry mwe = null;
     /** проверяет, есть ли слово в текущей выборке в словаре*/
     boolean isWordExist(String word){
     	if (word==null)
     		return false;
     	if (arword==null)
     		return false;
-    	if (arword.size()>0){
-    		try {
-        		for (WordEntry we:arword){
-        			if (we.word.compareToIgnoreCase(word) == 0&&!we.bword)
-        				return true;
-        		}
-    		} catch (Throwable e) {
-                return false;
-            }
+    	arlen = arword.size();
+    	if (arlen>0){
+    		arpos = 0;
+    		while (arpos<arlen) {
+    	    	if (arword==null)
+    	    		return false;
+    	    	try {
+        	    	arlen = arword.size();
+        		} catch (Throwable e) {
+                    return false;
+                }
+    	    	if (arpos>=arlen)
+    	    		return false;
+    	    	try {
+        	    	mwe = arword.get(arpos);
+        		} catch (Throwable e) {
+                    return false;
+                }
+    			if (mwe.word.compareToIgnoreCase(word) == 0&&!mwe.bword)
+    				return true;
+    			arpos++;
+    		}
+//    		try {
+//        		for (WordEntry we:arword){
+//        			if (we.word.compareToIgnoreCase(word) == 0&&!we.bword)
+//        				return true;
+//        		}
+//    		} catch (Throwable e) {
+//                return false;
+//            }
     	}
     	return false;
     }

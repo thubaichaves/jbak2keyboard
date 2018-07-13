@@ -460,7 +460,7 @@ public void checkStartIntent()
         }
         else if("kbd_background_alpha".equals(k))
         {
-        	showTransparensy();
+        	showAlpha();
             return true;
         }
         else if("kbd_background_pict".equals(k))
@@ -1195,10 +1195,10 @@ public void checkStartIntent()
         });
         Dlg.CustomDialog(inst, v, inst.getString(R.string.ok), inst.getString(R.string.cancel), null, obs);
     }
-    void showTransparensy()
+    void showAlpha()
     {
         final View v = inst.getLayoutInflater().inflate(R.layout.edit_intervals, null);
-        int max = 10,min = 0;
+        int max = 10,min = 1;
         int steps[] = new int[]{1,1,1};
         final SharedPreferences p = st.pref(inst);
 

@@ -59,7 +59,17 @@ public class IniFile {
 	public void setFilename(String fn) {
 		m_fn = fn;
 	}
-	// создаем файл с первоначальными параметрами
+//	public boolean create()
+//	{
+//    	ini = new IniFile(inst);
+//    	ini.setFilename(st.getSettingsPath()+ini.PAR_INI);
+//    	if (!ini.isFileExist())
+//    		ini.create(st.getSettingsPath(), ini.PAR_INI);
+//    	if (!ini.isFileExist())
+//    		return false;
+//		return true;
+//	}
+	/** создаем файл с первоначальными параметрами */
 	public boolean create(String path, String filename) {
 // не обработано, пока не решил - нужно ли... Посмотрим на реакцию юзеров		
 //		public static final String DESC_BEGIN = "desc_begin";

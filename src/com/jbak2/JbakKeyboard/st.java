@@ -961,10 +961,13 @@ public class st extends IKeyboard implements IKbdSettings
     	Context c = st.c();
         switch(action)
         {
+        	case CMD_SHOW_COPY_NUMBER_ANY_NOTATION:
+        		com_menu.showNotationNumber();
+        		return true;
         	case st.CMD_EDIT_USER_VOCAB:
                 st.runAct(EditUserVocab.class,c);
             	com_menu.close();
-            break;
+            	break;
         	case st.CMD_HEIGHT_KEYBOARD:
         		st.hidekbd();
         		if (st.isLandscape(c))
@@ -1287,26 +1290,41 @@ public class st extends IKeyboard implements IKbdSettings
     {
         return c.getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT;
     }
-    public static String strcol;
-    /** меняет исходный цвет на цвет с прозрачностью согласно установленной 
-     * настройки */
-    public static int getColorAlpha(int col)
-    {
-    	strcol = Integer.toHexString(col);
-    	if (strcol.length()==8) {
-        	int type = 0;
-        	switch (type) 
-        	{
-        	case 0: // как в скине
-        		break;
-        	case 1:// прозрачный
-        		String te = "22"+strcol.substring(2);
-        		col = Integer.parseInt(te,16);
-        		break;
-        	}
-    	}
-    	return col;
-    }
+//    public static String strcol;
+//    public static String stralpha;
+//    public static String strte;
+//    /** меняет исходный цвет на цвет с прозрачностью согласно установленной 
+//     * настройки */
+//    public static int getColorAlpha(int col)
+//    {
+//    	strcol = Integer.toHexString(col);
+//    	if (strcol.length()==8) {
+//        	stralpha = strcol.substring(0, 2);
+//        	switch (kbd_back_alpha) 
+//        	{
+//        	case 10: // как в скине
+//        	//case 0: // как в скине
+//        		break;
+//        	default:// прозрачный
+//        		int  alp = 0;
+//        		try {
+//        			alp = Integer.parseInt(stralpha,16);
+//        		} catch (Throwable e){
+//        		}
+////        		if (alp==255)
+////        			return col;
+//        		alp = alp/10*kbd_back_alpha;
+//        		if (alp == 0)
+//        			strte = "00";
+//        		else
+//        			strte = Integer.toHexString(alp);
+//        		strte += strcol.substring(2);
+//        		col = st.parseInt(strte,16);
+//        		break;
+//        	}
+//    	}
+//    	return col;
+//    }
     public static KbdDesign getSkinByPath(String path)
     {
     	boolean fl = false;
@@ -1569,6 +1587,7 @@ public class st extends IKeyboard implements IKbdSettings
         	}  
             return i1;    	        
        	}
+        /**  преобразует исходную строку в число в заданной в radix системе счисления*/
         public static int str2hex(String sss, int radix)
         {
         	boolean bbb = true;

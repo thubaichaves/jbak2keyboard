@@ -13,6 +13,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 
@@ -24,98 +25,113 @@ public class Notif
 	final public static int NOTIFY_ALL = 0;
 	final public static int NOTIFY_ID = 1;
 	NotificationManager notificationManager = null;
-	
+	NotifReceiver recv = null;	
 	public Notif(ServiceJbKbd act) {
 		mact = act;
 	}
 	@SuppressLint("NewApi")
 	public void createNotif()
 	{
-		ClipboardManager cl= (ClipboardManager) mact.getSystemService(mact.CLIPBOARD_SERVICE);
-		ClipData clip = cl.getPrimaryClip();
-		String str = st.STR_NULL;
-		if (clip != null)
-			str = clip.getItemAt(0).getText().toString();
-//        Intent in = new Intent(Intent.ACTION_SEND)
-//        .setAction(Intent.ACTION_SEND)
-//        .setComponent(new ComponentName(mact, MainActivity.class))
-//        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//        .putExtra(Intent.EXTRA_TEXT, str)
-//        .setType("text/plain");
-		
-		//Intent in = new Intent(mact, ServiceJbKbd.class);
-		
-//        Intent in = new Intent();
-//        in.setAction(Intent.ACTION_SEND);
-//        in.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        in.putExtra(Intent.EXTRA_TEXT, "bbbb");
-//        in.setType("text/plain");
-//        in.setComponent(new ComponentName(mact, ShowKeyboard.class));
-//        in.setClipData(clip);
+        String ns = Context.NOTIFICATION_SERVICE;
+        NotificationManager mNotificationManager = (NotificationManager) mact.getSystemService(ns);
 
-        //mact.startActivity(in);
-//        Intent sendIntent = new Intent();
-//        sendIntent.setAction(Intent.ACTION_SEND);
-//        sendIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        sendIntent.putExtra(Intent.EXTRA_TEXT, "bbb");
-//        sendIntent.setType("text/plain");
-        //mact.startActivity(sendIntent);
-        
+        // TODO: clean this up?
+        recv = new NotifReceiver(mact);
+        final IntentFilter pFilter = new IntentFilter(ACTION_SHOW);
+        mact.registerReceiver(recv, pFilter);
+
+        notificationManager =
+                (NotificationManager) mact.getSystemService(Context.NOTIFICATION_SERVICE);
+        CharSequence text = "Keyboard notification enabled.";
+        long when = System.currentTimeMillis();
+
 		Intent settingIntent =  new Intent(mact, JbKbdPreference.class);
 	    PendingIntent settingPendingIntent = PendingIntent.getActivity(mact,
                 0, settingIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT);
 
-		Intent showIntent =  new Intent(mact, ServiceJbKbd.class);
-	    PendingIntent showPendingIntent = PendingIntent.getActivity(mact,
-                0, showIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-
-	    Intent mainIntent = new Intent();
-	    mainIntent.setAction(ACTION_SHOW);
-	    mainIntent.putExtra("com.jbak2.JbakKeyboard.broadcast.Message", "bbb");
-	    mainIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-	    mact.sendBroadcast(mainIntent);        
-        PendingIntent contentIntent = PendingIntent.getActivity(mact,
-                0, mainIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-
+	    Intent notificationIntent = new Intent(ACTION_SHOW);
+        PendingIntent contentIntent = PendingIntent.getBroadcast(mact.getApplicationContext(), 1, notificationIntent, 0);
+        //PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
         Resources res = mact.getResources();
-		
-        // до версии Android 8.0 API 26
-        Notification.Builder builder = new Notification.Builder(mact);
-
-        builder.setContentIntent(contentIntent)
-                // обязательные настройки
-                .setSmallIcon(R.drawable.icon)
-                //.setContentTitle(res.getString(R.string.notifytitle)) // Заголовок уведомления
-                .setContentTitle(res.getString(R.string.ime_name))
-                //.setContentText(res.getString(R.string.notifytext))
-                .setContentText("Show keyboard") // Текст уведомления
-                // необязательные настройки
-             // большая картинка
+        Notification notification = new Notification.Builder(mact.getApplicationContext())
                 .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
-             // текст в строке состояния
-                .setTicker(res.getString(R.string.ime_name)) 
-                //.setTicker("Последнее китайское предупреждение!")
-                .setWhen(System.currentTimeMillis())
-                .addAction(R.drawable.save, res.getString(R.string.ime_settings),
+        		.setAutoCancel(false) //Make this notification automatically dismissed when the user touches it -> false.
+                .setTicker(text)
+                .setContentTitle(mact.getString(R.string.set_show_kbd_notif_title))
+                .setContentText(mact.getString(R.string.set_show_kbd_notif_body))
+                .setWhen(when)
+                .setSmallIcon(R.drawable.sym_keyboard_done)
+                .setContentIntent(contentIntent)
+                
+//                .addAction(R.drawable.icon, "show kbd", showPendingIntent)
+                .addAction(R.drawable.icon, res.getString(R.string.ime_settings),
                 		settingPendingIntent)
-                .addAction(R.drawable.icon, "show kbd",
-                		showPendingIntent)
+                
+                // должен быть последней строкой билдера
+                .getNotification();
 
-                //.setAutoCancel(true);
-                .setAutoCancel(false); // автоматически закрыть уведомление после нажатия
+        
+        notification.flags |= Notification.FLAG_ONGOING_EVENT | Notification.FLAG_NO_CLEAR;
 
-        notificationManager =
-                (NotificationManager) mact.getSystemService(Context.NOTIFICATION_SERVICE);
-		// Альтернативный вариант
-		// NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        notificationManager.notify(NOTIFY_ID, builder.build());		
+        
+        mNotificationManager.notify(NOTIFY_ID, notification);
+
+
+		
+//		Intent settingIntent =  new Intent(mact, JbKbdPreference.class);
+//	    PendingIntent settingPendingIntent = PendingIntent.getActivity(mact,
+//                0, settingIntent,
+//                PendingIntent.FLAG_CANCEL_CURRENT);
+//
+//		Intent showIntent =  new Intent(mact, ServiceJbKbd.class);
+//	    PendingIntent showPendingIntent = PendingIntent.getActivity(mact,
+//                0, showIntent,
+//                PendingIntent.FLAG_CANCEL_CURRENT);
+//
+//	    Intent mainIntent = new Intent();
+//	    mainIntent.setAction(ACTION_SHOW);
+//	    mainIntent.putExtra("com.jbak2.JbakKeyboard.broadcast.Message", "bbb");
+//	    mainIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+//	    mact.sendBroadcast(mainIntent);        
+//        PendingIntent contentIntent = PendingIntent.getActivity(mact,
+//                0, mainIntent,
+//                PendingIntent.FLAG_CANCEL_CURRENT);
+//
+//        Resources res = mact.getResources();
+//		
+//        // до версии Android 8.0 API 26
+//        Notification.Builder builder = new Notification.Builder(mact);
+//
+//        builder.setContentIntent(contentIntent)
+//                // обязательные настройки
+//                .setSmallIcon(R.drawable.icon)
+//                //.setContentTitle(res.getString(R.string.notifytitle)) // Заголовок уведомления
+//                .setContentTitle(res.getString(R.string.ime_name))
+//                //.setContentText(res.getString(R.string.notifytext))
+//                .setContentText("Show keyboard") // Текст уведомления
+//                // необязательные настройки
+//             // большая картинка
+//                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.icon))
+//             // текст в строке состояния
+//                .setTicker(res.getString(R.string.ime_name)) 
+//                //.setTicker("Последнее китайское предупреждение!")
+//                .setWhen(System.currentTimeMillis())
+//                .addAction(R.drawable.save, res.getString(R.string.ime_settings),
+//                		settingPendingIntent)
+//                .addAction(R.drawable.icon, "show kbd",
+//                		showPendingIntent)
+//
+//                //.setAutoCancel(true);
+//                .setAutoCancel(false); // автоматически закрыть уведомление после нажатия
+
 	}
 	
 	public void dismiss(int id)
 	{
+		if (recv!=null)
+            mact.unregisterReceiver(recv);
+
 		if (notificationManager==null)
 			return;
 		// если id = 0, то удаляем все уведомления программы

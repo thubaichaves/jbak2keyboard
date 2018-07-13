@@ -287,6 +287,9 @@ public class IKeyboard
         new KbdDesign(R.string.design_eliz5,"violet2.skin"),
         new KbdDesign(R.string.design_eliz6,"drop.skin"),
         new KbdDesign(R.string.design_schenee,"Chocolate.skin"),
+        new KbdDesign(R.string.design_newportstyle,"NewPortStyle.skin"),
+        new KbdDesign(R.string.design_nad1,"Blue_and_gray.skin"),
+        new KbdDesign(R.string.design_nad2,"Brown&pink&yellow.skin"),
         };
 //*****************************************************************    
     /** Класс для хранения оформлений клавиатур */
@@ -397,12 +400,12 @@ public class IKeyboard
         return new KbdDesign(R.string.kbd_design_htc, 0, 0xff000000, 0, DF_BOLD)
                     .setKeysBackground(
                     		new BitmapCachedGradBack(
-                    				st.getColorAlpha(0xfff8f8f8), 
-                    				st.getColorAlpha(0xffd8d4d8))
+                    				0xfff8f8f8, 
+                    				0xffd8d4d8)
                     .setGap(3)
                     .setStroke(new BitmapCachedGradBack(
-            				st.getColorAlpha(0xff605960), 
-            				st.getColorAlpha(0xff101418))
+            				0xff605960, 
+            				0xff101418)
                     .setGap(2)))
                     .setKbdBackground(new BitmapCachedGradBack(0xffbdbebd, 0xff706e70).setCorners(0, 0)
                     .setGap(0))
@@ -410,12 +413,12 @@ public class IKeyboard
 //                    .setKeysBackground(new BitmapCachedGradBack(st.setColorTransparency(0xff686868), st.setColorTransparency(0xff101418))
                     .setKeysBackground(
                     		new BitmapCachedGradBack(
-                    				st.getColorAlpha(0xff686868), 
-                    				st.getColorAlpha(0xff404040))
+                    				0xff686868, 
+                    				0xff404040)
                     .setGap(3)
                     .setStroke(new BitmapCachedGradBack(
-            				st.getColorAlpha(0xff605960), 
-            				st.getColorAlpha(0xff101418))
+            				0xff605960, 
+            				0xff101418)
                     .setGap(2))
                     ));
     }
