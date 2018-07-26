@@ -103,7 +103,7 @@ public class JbKbdView extends KeyboardView
         init();
     }
 /** Возвращает текущую клавиатуру типа {@link JbKbd}*/    
-    final JbKbd getCurKeyboard()
+    public final JbKbd getCurKeyboard()
     {
         return (JbKbd) getKeyboard();
     }
@@ -123,6 +123,7 @@ public class JbKbdView extends KeyboardView
     Drawable m_defBackground;
     String m_designPath;
     OwnKeyboardHandler m_handler;
+    Drawable dr = null;
 /** Инициализация. Берутся значения приватных переменных для задания размера шрифта */    
     void init()
     {
@@ -162,9 +163,17 @@ public class JbKbdView extends KeyboardView
                 setBackgroundDrawable(m_defBackground);
         }
         if(st.kbd_back_pict.length()>0) {
-    		Drawable dr = Drawable.createFromPath(st.kbd_back_pict);
-			setBackground(dr);
-
+        	try {
+        		//int bbb = Integer.valueOf("huk");
+        		dr = Drawable.createFromPath(st.kbd_back_pict);
+    			setBackground(dr);
+			} catch (Throwable e) {
+				st.kbd_back_pict=st.STR_NULL;
+		    	if (ServiceJbKbd.inst!=null) {
+		    		st.pref(ServiceJbKbd.inst).edit().putString(st.KBD_BACK_PICTURE,st.STR_NULL).commit();
+		    		st.toastLong(R.string.set_kbd_background_error);
+		    	}
+			}
         }
         Field[] af = KeyboardView.class.getDeclaredFields();
         String txtClr="mKeyTextColor";  

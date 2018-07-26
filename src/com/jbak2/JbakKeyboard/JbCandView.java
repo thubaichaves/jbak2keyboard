@@ -146,7 +146,7 @@ public class JbCandView extends RelativeLayout
     public static final int AC_PLACE_KEYBOARD = 1;
     public static final int AC_PLACE_TITLE = 2;
     public static final int AC_PLACE_CURSOR_POS = 3;
-    int m_place = AC_PLACE_NONE;
+    public int m_place = AC_PLACE_NONE;
 //    String m_texts[] = DEF_WORDS;
     String m_texts[];
     String m_defkey[];

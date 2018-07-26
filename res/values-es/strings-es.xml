@@ -15,6 +15,9 @@
 	<string name="default_pref">Ajustes predeterminados</string>
 	<string name="msg_avtocorrect_and_addspace">Las funciones de \"Autocorrector\" y \"Agregar espacio después de caracteres\" (en Entrada automática) han sido habilitadas.\n\nJuntas, ellas no funcionan de manera correcta!</string>
 
+<!-- Title for new version-->
+	<string name="nv_upload">Después de cada actualización, el teclado debe ser detenido de los servicios en ejecución, de lo contrario su comportamiento será impredecible.</string>
+
 <!-- Title for permission-->
 	<string name="perm_expl1">No hay acciones no autorizadas en el teclado, nada es recolectado o robado!\nEste es un mensaje estandard de sistema. Para más detalles ver \“Cómo usar el teclado\” \n\nPara un uso correcto la applicación requiere algunos permisos,  SIN ALGUNO DE ELLOS EL TECLADO NO FUNCIONARÁ:\n\n- acceso a leer y escribir en el almacenamiento interno (para el funcionamiento del diccionario de usuario, plantillas, disposiciones externas, apariencias y otro item del teclado).\n\n- tipo de ventana \“Encima de otras ventanas\” (para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y otros cuadros de diálogo).</string>
 	<string name="perm_expl2"> Para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y algunas otras ventanas (cuadros de diálogo,visualización de teclas pulsadas, etc), el programa requiere el acceso al tipo de ventana \“Encima de otras ventanas\”.</string>
@@ -36,13 +39,14 @@
     
 	<string name="set_kbd_background">Фон клавиатуры</string>
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
+	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
 <!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
-	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Иногда необходимо</string>
 	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
 	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
     
@@ -620,6 +624,7 @@
     <string name="yes">Sí</string>
     <string name="no">No</string>
 	<string name="empty">Vacío</string>
+	<string name="unload">Detener</string>
 	<string name="create">Создано</string>
 	<string name="save">Guardar</string>
 	<string name="decompil_skin">Descompilar el archivo del tema</string>

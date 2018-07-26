@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.jbak2.ctrl.GlobDialog;
+import com.jbak2.Dialog.DlgPopupWnd;
 import com.jbak2.JbakKeyboard.st;
 
 // класс для вывода активности маленькой клавиатуры второй версии
@@ -109,10 +111,10 @@ public class Popup2act extends Activity
     		return;
     	}
     	if (fl_changed) {
-            GlobDialog gd = new GlobDialog(st.c());
-            gd.setPositionOnKeyboard(true);
-            gd.set(R.string.data_changed, R.string.yes, R.string.no);
-            gd.setObserver(new st.UniObserver()
+        	final DlgPopupWnd dpw = new DlgPopupWnd(st.c());
+        	dpw.setGravityText(Gravity.CENTER_HORIZONTAL);
+        	dpw.set(R.string.data_changed, R.string.yes, R.string.no);
+        	dpw.setObserver(new st.UniObserver()
             {
                 @Override
                 public int OnObserver(Object param1, Object param2)
@@ -129,13 +131,42 @@ public class Popup2act extends Activity
                    		st.pref().edit().putString(st.PREF_KEY_PC2_BTNOFF_BG, btnoff_bg.getText().toString().trim()).commit();
                    		st.pref().edit().putString(st.PREF_KEY_PC2_BTNOFF_TCOL, btnoff_tc.getText().toString().trim()).commit();
                    		finish();
-                    }
-                    if (ServiceJbKbd.inst!=null&&ServiceJbKbd.inst.isInputViewShown())
-                    	st.showkbd();
+                   		showKbdAndAdditionalSymbol();
+                    } else
+                   		showKbdAndAdditionalSymbol();
+                	dpw.dismiss();
                     return 0;
                 }
             });
-            gd.showAlert();
+        	dpw.show(0);
+
+//    		GlobDialog gd = new GlobDialog(st.c());
+//            gd.setPositionOnKeyboard(true);
+//            gd.set(R.string.data_changed, R.string.yes, R.string.no);
+//            gd.setObserver(new st.UniObserver()
+//            {
+//                @Override
+//                public int OnObserver(Object param1, Object param2)
+//                {
+//                    if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+//                    {
+//                		st.pref().edit().putString(st.SET_STR_GESTURE_DOPSYMB, str_add.getText().toString().trim()).commit();
+//                		st.pref().edit().putString(st.PREF_KEY_PC2_WIN_BG, win_bg.getText().toString().trim()).commit();
+//                		st.pref().edit().putBoolean(st.PREF_KEY_PC2_WIN_FIX, cb1.isChecked()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_SIZE, btn_size.getText().toString().trim()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_BG, btn_bg.getText().toString().trim()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_TCOL, btn_tc.getText().toString().trim()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTNOFF_SIZE, btnoff_size.getText().toString().trim()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTNOFF_BG, btnoff_bg.getText().toString().trim()).commit();
+//                   		st.pref().edit().putString(st.PREF_KEY_PC2_BTNOFF_TCOL, btnoff_tc.getText().toString().trim()).commit();
+//                   		finish();
+//                    }
+//                    if (ServiceJbKbd.inst!=null&&ServiceJbKbd.inst.isInputViewShown())
+//                    	st.showkbd();
+//                    return 0;
+//                }
+//            });
+//            gd.showAlert();
     	} else {
     		super.onBackPressed();
     		st.showkbd();
@@ -143,6 +174,12 @@ public class Popup2act extends Activity
     	ColorPicker.inst.fl_color_picker = false;
     	finish();
      }
+    public void showKbdAndAdditionalSymbol() {
+        if (ServiceJbKbd.inst!=null&&ServiceJbKbd.inst.isInputViewShown()) {
+        	st.showkbd();
+        	st.popupAdditional(1);
+        }
+    }
     
 //    public void onClickCB(View view) 
 //    {

@@ -1,6 +1,11 @@
-package com.jbak2.JbakKeyboard;
+package com.jbak2.receiver;
 
 import java.util.ArrayList;
+
+import com.jbak2.JbakKeyboard.R;
+import com.jbak2.JbakKeyboard.ServiceJbKbd;
+import com.jbak2.JbakKeyboard.st;
+import com.jbak2.JbakKeyboard.R.string;
 
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;

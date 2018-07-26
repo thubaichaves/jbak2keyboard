@@ -659,7 +659,7 @@ public class com_menu
     {
     	if (ServiceJbKbd.inst==null)
     		return;
-    	CharSequence cs = ServiceJbKbd.inst.getClipboardCharSequence();
+    	CharSequence cs = st.getClipboardCharSequence();
     	if (cs==null)
     		return;
     	final String num =cs.toString().trim().toLowerCase();

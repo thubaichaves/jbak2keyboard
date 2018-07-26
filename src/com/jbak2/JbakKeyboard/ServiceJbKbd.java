@@ -31,6 +31,8 @@ import java.util.Vector;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Service;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.AssetManager;
@@ -41,13 +43,10 @@ import android.inputmethodservice.ExtractEditText;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.inputmethodservice.AbstractInputMethodService.AbstractInputMethodImpl;
-import android.inputmethodservice.InputMethodService.InputMethodImpl;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.text.ClipboardManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -65,6 +64,7 @@ import com.google.android.voiceime.VoiceRecognitionTrigger;
 import com.jbak2.JbakKeyboard.com_menu;
 import com.jbak2.JbakKeyboard.st;
 import com.jbak2.CustomGraphics.BitmapCachedGradBack;
+import com.jbak2.Dialog.DlgPopupWnd;
 import com.jbak2.JbakKeyboard.EditSetActivity.EditSet;
 import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
@@ -77,6 +77,8 @@ import com.jbak2.ctrl.Mainmenu;
 import com.jbak2.ctrl.Notif;
 import com.jbak2.ctrl.SameThreadTimer;
 import com.jbak2.perm.Perm;
+import com.jbak2.receiver.ClipbrdService;
+import com.jbak2.receiver.ClipbrdSyncService;
 import com.jbak2.words.Words;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.IWords.WordEntry;
@@ -289,6 +291,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         if(Quick_setting_act.inst!=null)
         	Quick_setting_act.inst.showHintButton();
         super.onDestroy();
+        st.exitApp();
     }
 
     /** Стартует ввод */
@@ -430,28 +433,47 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	}
     	if (st.getAppVersionCode(inst).compareToIgnoreCase(param)==0)
     		return false;
-    	acGone();
-        GlobDialog gd = new GlobDialog(inst);
-        gd.setGravityText(Gravity.LEFT|Gravity.TOP);
-        gd.set(getTextNewVersion(), R.string.ok, 0);
-        gd.fl_help=true;
-        gd.fl_back_key = true;
-        gd.setObserver(new st.UniObserver()
+    	final DlgPopupWnd dpw = new DlgPopupWnd(inst);
+    	dpw.setGravityText(Gravity.LEFT|Gravity.TOP);
+    	String str = inst.getString(R.string.nv_upload)+st.STR_CR+st.STR_CR
+    			+getTextNewVersion(); 
+    	dpw.set(str, R.string.no, R.string.unload);
+    	dpw.setObserver(new st.UniObserver()
         {
             @Override
             public int OnObserver(Object param1, Object param2)
             {
-            	GlobDialog.fl_help = false;
-    	    	fl_newvers = false;
-    	        if (JbKbdView.inst != null)
-    	        	reinitKeyboardView();
-
-           		processCaseAndCandidates();
+                if(((Integer)param1).intValue()==AlertDialog.BUTTON_NEUTRAL)
+                {
+                	st.exitApp();
+                }
+            	dpw.dismiss();
                 return 0;
             }
         });
-        gd.showAlert();
+    	dpw.show(0);
 
+//    	acGone();
+//        GlobDialog gd = new GlobDialog(inst);
+//        gd.setGravityText(Gravity.LEFT|Gravity.TOP);
+//        gd.set(getTextNewVersion(), R.string.ok, 0);
+//        gd.fl_help=true;
+//        gd.fl_back_key = true;
+//        gd.setObserver(new st.UniObserver()
+//        {
+//            @Override
+//            public int OnObserver(Object param1, Object param2)
+//            {
+//            	GlobDialog.fl_help = false;
+//    	    	fl_newvers = false;
+//    	        if (JbKbdView.inst != null)
+//    	        	reinitKeyboardView();
+//
+//           		processCaseAndCandidates();
+//                return 0;
+//            }
+//        });
+//        gd.showAlert();
 
 
         ini.setParam(ini.VERSION_CODE, st.getAppVersionCode(inst));
@@ -659,7 +681,11 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
         super.onBindInput();
     };
-
+    @Override
+    public void onUnbindInput()
+    {
+        super.onUnbindInput();
+    };
     /** Закрытие поля ввода */
     @Override
     public void onFinishInput()
@@ -926,6 +952,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 	    		return true;
 	    	}
     		return false;
+    	}
+		else if (DlgPopupWnd.inst!=null){
+			DlgPopupWnd.inst.dismiss();
+    		return true;
     	}
         if (keyCode == KeyEvent.KEYCODE_BACK)
         {
@@ -1743,7 +1773,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         menu.show(onMenu, false);
     }
 
-    void onVoiceRecognition(final ArrayList<String> ar)
+    public void onVoiceRecognition(final ArrayList<String> ar)
     {
         if (ar == null)
         {
@@ -1986,7 +2016,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             	selOff();
             	break;
             case st.TXT_ED_PASTE: // Paste
-            	CharSequence str = getClipboardCharSequence();
+            	CharSequence str = st.getClipboardCharSequence();
             	int pos = Math.min(m_SelStart, m_SelEnd)+(str.length());
             	onText(str);
             	ic.setSelection(pos, pos);
@@ -2211,7 +2241,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         }
     }
 
-    void forceHide()
+    public void forceHide()
     {
     	if (st.fl_ac_list_view) {
     		m_candView.ViewCandList();
@@ -2546,6 +2576,9 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	st.desc_fl_not_input = sharedPreferences.getBoolean(st.PREF_VIEW_DESC, false);
     	
     	st.fl_show_kbd_notif = sharedPreferences.getBoolean(st.PREF_SHOW_KBD_NOTIF, false);
+		if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+			st.fl_show_kbd_notif = false;
+		}
     	if (st.fl_show_kbd_notif){
     		if (notif!=null&&notif.mact!= null){
     			notif.dismiss(Notif.NOTIFY_ID);
@@ -3662,13 +3695,6 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	if (kbd_show_ei!=null)
             st.curKbd().setImeOptions(inst.getResources(), kbd_show_ei.imeOptions);
-    }
-    public CharSequence getClipboardCharSequence()
-    {
-    	ClipboardManager cm = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
-    	CharSequence str = cm.getText();
-
-    	return str;
     }
     @Override
     public AbstractInputMethodImpl onCreateInputMethodInterface() {

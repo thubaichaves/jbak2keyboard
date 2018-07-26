@@ -134,7 +134,7 @@ public class Stor extends SQLiteOpenHelper
         }
         return true;
     }
-    Cursor getClipboardCursor()
+    public Cursor getClipboardCursor()
     {
         try
         {
@@ -162,7 +162,7 @@ public class Stor extends SQLiteOpenHelper
         return runSql("DELETE FROM "+TABLE_CLIPBOARD);
     }
 /** Удаляет строки, совпадающие с txt, проверяет */ 
-    boolean checkClipboardString(String txt)
+    public boolean checkClipboardString(String txt)
     {
     	
         long date = 0;

@@ -28,8 +28,9 @@ public class Translate
     // переменная для хранения первоначальной записи при редактировании записи :)
     // если null, значит запись новая
     public static String old_record= null;
-    // type = 0 - перевести выделенное
-    // 1 - перевести скопированное
+    
+    /** type = 0 - перевести выделенное
+        1 - перевести скопированное */
     Translate(int type)
     {
     	mtype = type;
@@ -79,8 +80,7 @@ public class Translate
                     	sel = ic.getSelectedText(0);
                 		break;
                 	case 1:
-                    	ClipboardManager cm = (ClipboardManager)ServiceJbKbd.inst.getSystemService(Service.CLIPBOARD_SERVICE);
-                    	sel = cm.getText();
+                    	sel = st.getClipboardCharSequence();
                 		break;
                 	}
                 	if (sel == null)

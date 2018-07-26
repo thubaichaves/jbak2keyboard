@@ -47,6 +47,14 @@ public class Quick_setting_act extends Activity
 		btn.setVisibility(View.GONE);
         GlobDialog.gbshow = false;
 		ini = new IniFile(inst);
+		ini = new IniFile(inst);
+    	ini.setFilename(st.getSettingsPath()+ini.PAR_INI);
+		if (!ini.isFileExist()){
+			if (!ini.create(st.getSettingsPath(), ini.PAR_INI))
+				ini = null;
+		}
+		if(ini!=null)
+			readQuickSetting(ini);
         showHintButton();
 		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M)
 			btn.setVisibility(View.VISIBLE);
@@ -114,10 +122,10 @@ public class Quick_setting_act extends Activity
     	}
         switch (id)
         {
-        case R.id.qs_btn1:
+        case R.id.qs_enable_kbd:
             startActivity(new Intent(Settings.ACTION_INPUT_METHOD_SETTINGS));
             break;
-        case R.id.qs_btn2:
+        case R.id.qs_activate_kbd:
             InputMethodManager imm = (InputMethodManager)getSystemService(Service.INPUT_METHOD_SERVICE);
             imm.showInputMethodPicker();
             break;
@@ -145,7 +153,7 @@ public class Quick_setting_act extends Activity
                 public int OnObserver(Object param1, Object param2)
                 {
                 	int pos = ((Integer)param1).intValue();
-                	String lang = "default";
+                	String lang = App.DEF;
             		st.qs_ar[3]=pos;
                 	switch (pos)
                 	{
@@ -157,7 +165,8 @@ public class Quick_setting_act extends Activity
                 		st.qs_ar[3]=0;
                 		break;
                 	}
-        			if (lang.equals("default")) {
+                	saveQuickSetting();
+        			if (lang.equals(App.DEF)) {
         				lang=getResources().getConfiguration().locale.getCountry();
         				}
         			Locale locale = new Locale(lang);
@@ -181,21 +190,21 @@ public class Quick_setting_act extends Activity
                 }
             });
         	break;
-        case R.id.qs_btn3:
+        case R.id.qs_sel_layout:
 //        	st.help(R.string.qs_btn3_help, inst);
             st.runAct(LangSetActivity.class,inst,EXXTRA_HELP,1);
             break;
-        case R.id.qs_btn3_1:
+        case R.id.qs_height_kbd:
         	if (st.getOrientation(inst)==Configuration.ORIENTATION_PORTRAIT)
         		st.runSetKbd(inst,st.SET_KEY_HEIGHT_PORTRAIT);
         	else
             	st.runSetKbd(inst,st.SET_KEY_HEIGHT_LANDSCAPE);
             break;
-        case R.id.qs_btn4:
+        case R.id.qs_sel_skin:
             CustomKbdDesign.loadCustomSkins();
             runSetKbd(st.SET_SELECT_SKIN);
             break;
-        case R.id.qs_btn5:
+        case R.id.qs_where_ac_show:
         	String[] ars = new String[3];
         	ars[0] = inst.getString(R.string.set_key_ac_place_0);
         	ars[1] = inst.getString(R.string.set_key_ac_place_1);
@@ -242,7 +251,7 @@ public class Quick_setting_act extends Activity
         	break;
         case R.id.qs_save:
         	endMsg();
-        	save();
+        	saveQuickSetting();
 //        	if (JbKbdPreference.inst!=null){
 //        		if (JbKbdPreference.path.isEmpty())
 //        			JbKbdPreference.path=st.getSettingsPath()+st.INI_PAR_INI;
@@ -273,7 +282,7 @@ public class Quick_setting_act extends Activity
 
 		}
     	Button btn = null;
-    	btn = (Button) findViewById(R.id.qs_btn2);
+    	btn = (Button) findViewById(R.id.qs_activate_kbd);
     	if (btn!=null){
     		if (step <1){
     			btn.setText(st.STR_NULL);
@@ -303,7 +312,7 @@ public class Quick_setting_act extends Activity
     			btn.setClickable(true);
     		}
     	}
-    	btn = (Button) findViewById(R.id.qs_btn3);
+    	btn = (Button) findViewById(R.id.qs_sel_layout);
     	if (btn!=null){
     		if (step <2){
     			btn.setText(st.STR_NULL);
@@ -315,7 +324,7 @@ public class Quick_setting_act extends Activity
     			btn.setClickable(true);
     		}
     	}
-    	btn = (Button) findViewById(R.id.qs_btn3_1);
+    	btn = (Button) findViewById(R.id.qs_height_kbd);
     	if (btn!=null){
     		if (step <2||st.qs_ar[0]!=1){
     			btn.setText(st.STR_NULL);
@@ -327,7 +336,7 @@ public class Quick_setting_act extends Activity
     			btn.setClickable(true);
     		}
     	}
-    	btn = (Button) findViewById(R.id.qs_btn4);
+    	btn = (Button) findViewById(R.id.qs_sel_skin);
     	if (btn!=null){
     		if (step <2||st.qs_ar[4]!=1){
     			btn.setText(st.STR_NULL);
@@ -339,7 +348,7 @@ public class Quick_setting_act extends Activity
     			btn.setClickable(true);
     		}
     	}
-    	btn = (Button) findViewById(R.id.qs_btn5);
+    	btn = (Button) findViewById(R.id.qs_where_ac_show);
     	if (btn!=null){
     		if (step <2||st.qs_ar[1]!=1){
     			btn.setText(st.STR_NULL);
@@ -393,7 +402,7 @@ public class Quick_setting_act extends Activity
         		endMsg();
         	} else
                 finish();
-        	save();
+        	saveQuickSetting();
 
         }
     }
@@ -438,7 +447,7 @@ public class Quick_setting_act extends Activity
 	        });
 	        gd1.showAlert();
       }
-      public static void save()
+      public static void saveQuickSetting()
       {
       	if (ini==null)
     		ini = new IniFile(inst);
@@ -452,5 +461,25 @@ public class Quick_setting_act extends Activity
 				+st.STR_COMMA+st.qs_ar[4]
 				);
      }
-
+      public static void readQuickSetting(IniFile ini)
+      {
+    	  if (ini==null)
+    		  return;
+  		String par = ini.getParamValue(ini.QUICK_SETTING);
+  		if (par != null) {
+  			String[] ar = par.split(st.STR_COMMA);
+  			int zn = 0;
+  			for (int i=0;i<st.qs_ar.length;i++){
+  				st.qs_ar[i]=0;
+  				try{
+  					zn = Integer.valueOf(ar[i]);
+  					st.qs_ar[i]=zn;
+  				} catch (Throwable e){
+  					zn = 0;
+  					st.qs_ar[i]=zn;
+  				}
+  			}
+  		}
+    	  
+      }
 }

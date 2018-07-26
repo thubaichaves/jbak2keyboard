@@ -10,6 +10,7 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.jbak2.Dialog.DlgPopupWnd;
 import com.jbak2.JbakKeyboard.st;
 import com.jbak2.ctrl.GlobDialog;
 
@@ -193,10 +194,10 @@ public class AcColorAct extends Activity
     		return;
     	}
     	if (fl_changed) {
-            GlobDialog gd = new GlobDialog(st.c());
-            gd.setPositionOnKeyboard(true);
-            gd.set(R.string.data_changed, R.string.yes, R.string.no);
-            gd.setObserver(new st.UniObserver()
+    		final DlgPopupWnd dpw = new DlgPopupWnd(st.c());
+            //gd.setPositionOnKeyboard(true);
+    		dpw.set(R.string.data_changed, R.string.yes, R.string.no);
+    		dpw.setObserver(new st.UniObserver()
             {
                 @Override
                 public int OnObserver(Object param1, Object param2)
@@ -220,12 +221,14 @@ public class AcColorAct extends Activity
                         st.pref(st.c()).edit().putString(st.AC_COL_CALCMENU_T, et14.getEditableText().toString().trim()).commit();
                         st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_BG, et15.getEditableText().toString().trim()).commit();
                         st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_T, et16.getEditableText().toString().trim()).commit();
-                   		finish();
+                        dpw.dismiss();
+                        finish();
                     }
                     return 0;
                 }
             });
-            gd.showAlert();
+    		dpw.show(0);
+            //gd.showAlert();
     	} else
     		super.onBackPressed();
     	finish();

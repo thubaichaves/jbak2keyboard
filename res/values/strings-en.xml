@@ -16,6 +16,9 @@
 	<string name="default_pref">Default settings</string>
 	<string name="msg_avtocorrect_and_addspace"> The \"Autocorrect\" and \"add a space after characters\" features have been enabled (in Autoinput).\n\nThey are not working properly together!</string>
 
+<!-- Title for new version-->
+	<string name="nv_upload">After each update, the keyboard needs to be unloaded from memory, otherwise its behavior will be unpredictable.</string>
+
 <!-- Title for permission-->
 	<string name="perm_expl1">There are no extraneous activities in the keyboard application, nothing is collected or stolen!\nThis is a standard system warning. For more details, see \“How to use the keyboard\” \n\nFor a proper work, the application requires some permissions,  WITHOUT ANY OF THEM, THE KEYBOARD WILL NOT WORK:\n\n- access to read and write to Internal Sorage (for the work of custom dictionary, templates, external layouts, skins and other stuff used in the keyboard).\n\n- window type \“On top of other windows\” (for the work of Autocomplete (word prediction), keystroke display and some dialog boxes).</string>
 	<string name="perm_expl2">For the work of Autocomplete (word predicition), keystroke display and some other windows (dialog boxes, keystroke display, etc), the program requires the window type permission  \“On top of other windows\”.</string>
@@ -37,13 +40,14 @@
     	
 	<string name="set_kbd_background">Фон клавиатуры</string>
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
+	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
 <!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
-	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Иногда необходимо</string>
 	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
 	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
 	
@@ -639,6 +643,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
 	<string name="empty">Empty</string>
+	<string name="unload">Unload</string>
 	<string name="create">Create</string>
 	<string name="save">Save</string>
 	<string name="decompil_skin">Decompile skin</string>
@@ -802,6 +807,9 @@
 	<string name="design_eliz4">Gold by elizz69</string>    
 	<string name="design_eliz5">Violet by elizz69</string>    
 	<string name="design_eliz6">Drop by elizz69</string>    
+	<string name="design_eliz7">Cherry by elizz69</string>    
+	<string name="design_eliz8">Grey_2 by elizz69</string>    
+	<string name="design_eliz9">MD_blue by elizz69</string>    
 	<string name="design_schenee">Chocolate by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Light</string>    
 	<string name="design_thepop3250_2">Blue</string>    

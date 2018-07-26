@@ -47,6 +47,18 @@ public class Templates
                 m_rootDir = null;
         }
         m_curDir = m_rootDir;
+        if (rejim == 1&&st.fiks_tpl.length()>0) {
+        	m_curDir = new File(st.fiks_tpl);
+        	st.fl_fiks_tpl = false;
+        }
+        else if (rejim == 2&&st.fiks_calc.length()>0) {
+        	m_curDir = new File(st.fiks_calc);
+        }
+        if(!m_curDir.exists())
+        {
+            if(!m_curDir.mkdirs())
+            	m_curDir = m_rootDir;
+        }
     }
 /** Устанавливает редактирования папки шаблонов - для запуска {@link TplEditorActivity}*/    
     void setEditFolder(boolean bSet)
@@ -427,7 +439,7 @@ public class Templates
                         case 10:
                     		if (ServiceJbKbd.inst==null) 
                     			return;
-                			repl = ServiceJbKbd.inst.getClipboardCharSequence().toString();
+                			repl = st.getClipboardCharSequence().toString();
 //                        	if (repl.length()!=0) {
 //                        		if (ServiceJbKbd.inst!=null) {
 //                        			repl = ServiceJbKbd.inst.getClipboardCharSequence().toString();
@@ -1005,10 +1017,10 @@ public class Templates
     public static int rejim = 1;
     public static String FOLDER_TEMPLATES = "templates";
     public static String FOLDER_CALC = "calc";
- // тип
-    // 0 - шаблоны
-    // 1 - запись программы
-    // 2 - загрузить программу
+ /** тип
+    * 0 - шаблоны
+    * 1 - запись программы
+    * 2 - загрузить программу */
     public static int type = 0;
     public static String template_path = FOLDER_TEMPLATES;
     File file1;

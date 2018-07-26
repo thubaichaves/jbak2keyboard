@@ -1,7 +1,8 @@
-package com.jbak2.ctrl;
+package com.jbak2.receiver;
 
 import com.jbak2.JbakKeyboard.ServiceJbKbd;
 import com.jbak2.JbakKeyboard.st;
+import com.jbak2.ctrl.Notif;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,7 +14,7 @@ public class NotifReceiver extends BroadcastReceiver {
 	static final String TAG = "jbKbd2";
     private ServiceJbKbd mIME;
 
-	NotifReceiver(ServiceJbKbd ime) {
+	public NotifReceiver(ServiceJbKbd ime) {
 	 	super();
     	mIME = ime;
 		Log.i(TAG, "NotificationReceiver created, ime=" + mIME);

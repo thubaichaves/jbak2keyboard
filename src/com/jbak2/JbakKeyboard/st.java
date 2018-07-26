@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Vector;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -26,7 +28,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.text.ClipboardManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
 import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.perm.Perm;
+import com.jbak2.receiver.ClipbrdSyncService;
 import com.jbak2.web.SearchGoogle;
 import com.jbak2.words.WordsService;
 import com.jbak2.words.UserWords.WordArray;
@@ -73,12 +75,12 @@ public class st extends IKeyboard implements IKbdSettings
     public static String lang_desckbd = STR_3TIRE;
 	// менять ли изображение на ентер в зависимости от контекста 
     public static boolean fl_enter_state = false;
-	// мастер быстрых настроек. Значения (1 или 0)
+	/** мастер быстрых настроек. Значения (1 или 0)
 	// 0 -выбор раскладки 
 	// 1 -выбор скина
 	// 2 -где показывать автодоп
     // 3 - язык программы
-    // 4 - высота клавиатуры
+    // 4 - высота клавиатуры */
 	public static int[] qs_ar = new int[] {0,0,0,0,0};
 	
 	// key sound effect
@@ -884,7 +886,7 @@ public class st extends IKeyboard implements IKbdSettings
         return -1;
     }
 /** Возвращает коннект к БД или создаёт новый */    
-    static Stor stor()
+    public static Stor stor()
     {
         if(Stor.inst!=null)
             return Stor.inst;
@@ -1684,7 +1686,7 @@ public class st extends IKeyboard implements IKbdSettings
            	}
             return sss;    	        
        	}
-     // выводит строки popupcharacter для жестов доп. символы
+     /** выводит строки popupcharacter для жестов доп. символы */
         public static void popupAdditional(int num)
         {
         	CharSequence out=st.STR_NULL;
@@ -2274,7 +2276,7 @@ public class st extends IKeyboard implements IKbdSettings
 			out = "en";
     	return out;
     }
-    // возвращает строку с номером текущей версии
+    /** возвращает строку с номером текущей версии */
     public static String getAppVersionCode(Context c)
     {
 		try {
@@ -2283,7 +2285,7 @@ public class st extends IKeyboard implements IKbdSettings
 		} catch (Throwable e) {}
 		return st.STR_ZERO;
     }
-    // возвращает строку с названием текущей версии
+    /** возвращает строку с названием текущей версии */
     public static String getAppVersionName(Context c)
     {
 		try {
@@ -2291,6 +2293,7 @@ public class st extends IKeyboard implements IKbdSettings
 		} catch (NameNotFoundException e) {}
 		return st.STR_ZERO;
     }
+    /** возвращает имя пакета */
     public static String getPackageName(Context c)
     {
 		try {
@@ -2366,9 +2369,29 @@ public class st extends IKeyboard implements IKbdSettings
      	}
      	return null;
      }
+     public static CharSequence getClipboardCharSequence()
+     {
+ 		if (ServiceJbKbd.inst!=null)
+ 			return st.getClipboardCharSequence(ServiceJbKbd.inst);
+     	return null;
+     }
+     public static CharSequence getClipboardCharSequence(Context c)
+     {
+     	ClipboardManager cm = (ClipboardManager)c.getSystemService(c.CLIPBOARD_SERVICE);
+        ClipData clip = cm.getPrimaryClip();
+        if (clip==null)
+        	return null;
+        if (clip.getItemCount()<1)
+        	return null;
+     	CharSequence str = clip.getItemAt(0).getText();
+
+     	return str;
+     }
  	public static void copyText(Context c,String str) {
 		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
-		cm.setText(str);
+        ClipData clip = ClipData.newPlainText("label", str);
+        cm.setPrimaryClip(clip); 
+		//cm.setText(str);
 		st.messageCopyClipboard();
 	}
  	/** выход из приложения с выгрузкой из памяти */

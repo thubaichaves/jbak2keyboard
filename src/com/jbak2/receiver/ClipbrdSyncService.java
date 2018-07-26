@@ -1,4 +1,4 @@
-package com.jbak2.JbakKeyboard;
+package com.jbak2.receiver;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
+
+import com.jbak2.JbakKeyboard.R;
+import com.jbak2.JbakKeyboard.st;
+import com.jbak2.JbakKeyboard.R.string;
 import com.jbak2.ctrl.SameThreadTimer;
 
 import android.content.BroadcastReceiver;
@@ -25,7 +29,7 @@ public class ClipbrdSyncService extends SameThreadTimer
 	public static String SAVEDIR = "save_clipboard";
 	int KILOBYTE = 1024;
 	int cnt = 0;
-	static ClipbrdSyncService inst;
+	public static ClipbrdSyncService inst;
     Timer m_timer;
 
     public ClipbrdSyncService(Context c) {

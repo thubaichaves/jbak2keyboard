@@ -53,7 +53,7 @@
     android:textSize="13sp" />
 
 <Button 
-    android:id="@+id/qs_btn1"
+    android:id="@+id/qs_enable_kbd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"
@@ -61,7 +61,7 @@
 	/> 
 
 <Button 
-    android:id="@+id/qs_btn2"
+    android:id="@+id/qs_activate_kbd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"
@@ -77,7 +77,7 @@
 	/> 
 
 <Button 
-    android:id="@+id/qs_btn3"
+    android:id="@+id/qs_sel_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"
@@ -85,7 +85,7 @@
 	/> 
 
 <Button 
-    android:id="@+id/qs_btn3_1"
+    android:id="@+id/qs_height_kbd"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"
@@ -93,7 +93,7 @@
 	/> 
 
 <Button 
-    android:id="@+id/qs_btn4"
+    android:id="@+id/qs_sel_skin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"
@@ -101,7 +101,7 @@
 	/> 
 
 <Button 
-    android:id="@+id/qs_btn5"
+    android:id="@+id/qs_where_ac_show"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="onClick"

@@ -14,6 +14,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -220,21 +221,22 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
 				timeini=cur_time;;
 			}
 		}
-		par = ini.getParamValue(ini.QUICK_SETTING);
-		if (par != null) {
-			String[] ar = par.split(st.STR_COMMA);
-			int zn = 0;
-			for (int i=0;i<st.qs_ar.length;i++){
-				st.qs_ar[i]=0;
-				try{
-					zn = Integer.valueOf(ar[1]);
-					st.qs_ar[i]=zn;
-				} catch (Throwable e){
-					zn = 0;
-					st.qs_ar[i]=zn;
-				}
-			}
-		}
+		Quick_setting_act.readQuickSetting(ini);
+//		par = ini.getParamValue(ini.QUICK_SETTING);
+//		if (par != null) {
+//			String[] ar = par.split(st.STR_COMMA);
+//			int zn = 0;
+//			for (int i=0;i<st.qs_ar.length;i++){
+//				st.qs_ar[i]=0;
+//				try{
+//					zn = Integer.valueOf(ar[1]);
+//					st.qs_ar[i]=zn;
+//				} catch (Throwable e){
+//					zn = 0;
+//					st.qs_ar[i]=zn;
+//				}
+//			}
+//		}
 		par = ini.getParamValue(ini.RATE_APP);
 		if (par == null)
 			rate_app = 0;
@@ -314,11 +316,11 @@ public void checkStartIntent()
         	st.stor().saveClipboardString(txt, 0);
     		int currentapiVersion = android.os.Build.VERSION.SDK_INT;
     		if (currentapiVersion >= android.os.Build.VERSION_CODES.HONEYCOMB){
-    		     android.content.ClipboardManager clipboard =  (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE); 
+    		     ClipboardManager clipboard =  (ClipboardManager) getSystemService(CLIPBOARD_SERVICE); 
     		        ClipData clip = ClipData.newPlainText("label", txt);
     		        clipboard.setPrimaryClip(clip); 
     		} else{
-    		    android.text.ClipboardManager clipboard = (android.text.ClipboardManager)getSystemService(CLIPBOARD_SERVICE); 
+    		    ClipboardManager clipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE); 
     		    clipboard.setText(txt);
     		}
     		st.toast(getString(R.string.menu_copy));
@@ -457,6 +459,13 @@ public void checkStartIntent()
         {
         	showAcHeight();
             return true;
+        }
+        else if("show_kbd_notif".equals(k))
+        {
+    		if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+    			st.toast(inst, R.string.honeycomb);
+                return false;
+    		}
         }
         else if("kbd_background_alpha".equals(k))
         {

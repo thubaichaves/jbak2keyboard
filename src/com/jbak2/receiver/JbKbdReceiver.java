@@ -1,4 +1,4 @@
-package com.jbak2.JbakKeyboard;
+package com.jbak2.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;

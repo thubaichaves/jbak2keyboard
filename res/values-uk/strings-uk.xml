@@ -18,6 +18,9 @@
 	<string name="default_pref">Налаштування за замовчуванням</string>
 	<string name="msg_avtocorrect_and_addspace">Ви увімкнули  одночасно \"автовиправлення\" та \"додавати пробіл після символів\" (в Автовводі).\n\nРазом вони працюють некоректно!</string>
 
+<!-- Title for new version-->
+	<string name="nv_upload">После каждого обновления, клавиатуру требуется выгружать из памяти, иначе её поведение будет непредсказуемо.</string>
+
 <!-- Title for permission-->
 	<string name="perm_expl1">Ніяких сторонніх дій в клавіатурі не проводиться і нічого не збирається і не крадеться!\пце стандартне попередження системи. Детальніше про це, читайте в Як користуватися клавіатурою\n\пДля повноцінної роботи клавіатури, потрібні деякі дозволи,  БЕЗ ЯКОГО АБО З НИХ, КЛАВІАТУРА ПРАЦЮВАТИ НЕ БУДЕ:\n\n - доступ на читання і запис до внутрішнього сховища - для роботи користувальницького словника, шаблонів, зовнішніх розкладок, скінів та іншого використовуваного в клавіатурі.\n\n - тип вікна Зверху всіх вікон - для роботи автодополнения (підказки слів), показ натиснутих клавіш і деяких діалогів.</string>
 	<string name="perm_expl2">Для роботи автодоповнення (підказки слів), показ натиснутих клавіш та деяких інших вікон (діалоги, показ натиснутих клавіш та інші), програмі потрібен дозвіл на тип вікна Зверху всіх вікон</string>
@@ -39,13 +42,14 @@
     
 	<string name="set_kbd_background">Фон клавиатуры</string>
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
+	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
 	<string name="set_kbd_background_alpha_desc"></string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 			
 <!-- Title for show keyboard notification-->
 	<string name="set_show_kbd_notif">Вызов из шторки</string>
-	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Необходимо в некоторых местах</string>
+	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Иногда необходимо</string>
 	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
 	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
     
@@ -104,7 +108,7 @@
 	<string name="qs_btn1">Увімкнути jbak2 keyboard</string>
     <string name="qs_btn2">Активувати jbak2 keyboard</string>
     <string name="qs_sel_lang">Обрати мову програми</string>
-    <string name="qs_sel_lang_def">Сістемна</string>
+    <string name="qs_sel_lang_def">Системна</string>
     <string name="qs_btn3">Обрати мови та розкладки</string>
     <string name="qs_btn3_help">Позначте потрібні мови.\nДалі, навпроти кожної мови знаходяться клавіша \"Обрати розкладку\". Натисніть її.\nВідкриється екран вибору розкладок. Клавішами \"стрілка праворуч\" та \"стрілка ліворуч\" розкладки перелистуються.\nПісля вибору потрібної не забудьте натиснути клавішу \"Зберегти\".\nПовторіть цю операцію для кожної обраної мови.</string>
     <string name="qs_btn3_1">Висота клавіатури</string>
@@ -622,7 +626,8 @@
   <string name="yes">Так</string>
   <string name="no">Ні</string>
   <string name="empty">Пусто</string>
-	<string name="create">Створено</string>
+	<string name="unload">Выгрузить</string>
+  	<string name="create">Створено</string>
   <string name="save">Зберегти</string>
   <string name="decompil_skin">Декомпліювати скін</string>
   <string name="delete">Видалити</string>

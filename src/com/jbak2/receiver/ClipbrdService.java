@@ -1,18 +1,32 @@
-package com.jbak2.JbakKeyboard;
+package com.jbak2.receiver;
 
 import java.util.Timer;
+
+import com.jbak2.JbakKeyboard.st;
 import com.jbak2.ctrl.SameThreadTimer;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.text.ClipboardManager;
+
 /** Сервис для забора значений по таймеру */
-@SuppressWarnings("deprecation")
 public class ClipbrdService extends SameThreadTimer 
 {
+    ClipData.Item m_item=null;
+    CharSequence cm_str = null;
+    String m_sLastClipStr;
+/** Интервал взятия значений из буфера обмена в милисекундах */ 
+    public static final int CLIPBRD_INTERVAL = 5000;
+    ClipboardManager m_cm;
+    Timer m_timer;
+	public static ClipbrdService inst;
+	ClipData clip = null;
+	Context m_c = null;
+	
     public ClipbrdService(Context c) {
 		super(CLIPBRD_INTERVAL, CLIPBRD_INTERVAL);
         inst = this;
@@ -21,9 +35,9 @@ public class ClipbrdService extends SameThreadTimer
         filt.addAction(Intent.ACTION_SCREEN_ON);
         filt.addAction(Intent.ACTION_SCREEN_OFF);
         c.registerReceiver(m_recv, filt);
+        m_c = c;
         start();
 	}
-	static ClipbrdService inst;
     public void delete(Context c)
     {
         inst = null;
@@ -34,11 +48,24 @@ public class ClipbrdService extends SameThreadTimer
     	if (m_cm == null)
     		return;
 // проверяет изменился ли буфер, если нет то возврат
-        if(!m_cm.hasText())
+        if(!m_cm.hasPrimaryClip())
         {
             return;
         }
-       	checkString(m_cm.getText().toString());
+//        try {
+			clip = m_cm.getPrimaryClip();
+	        if (clip.getItemCount()>0) {
+	        	m_item = clip.getItemAt(0);
+	        	if (m_item==null) 
+	        		return;
+	        	cm_str = m_item.getText();
+	        	if (cm_str==null)
+	        		return;
+	        	checkString(cm_str.toString());
+	        }
+//		} catch (Throwable e) {
+//			return;
+//		}
         	
     }
     void checkString(String str)
@@ -76,11 +103,6 @@ public class ClipbrdService extends SameThreadTimer
             }
         }
     };
-    String m_sLastClipStr;
-/** Интервал взятия значений из буфера обмена в милисекундах */ 
-    public static final int CLIPBRD_INTERVAL = 5000;
-    ClipboardManager m_cm;
-    Timer m_timer;
 	@Override
 	public void onTimer(SameThreadTimer timer) {
 		checkClipboardString();

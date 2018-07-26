@@ -11,7 +11,7 @@ public class App extends Application {
 	private SharedPreferences preferences;
 	private Locale locale;
 	private String lang;
-	private String DEF = "default";
+	public static String DEF = "default";
 	@Override
 	public void onCreate() {
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
