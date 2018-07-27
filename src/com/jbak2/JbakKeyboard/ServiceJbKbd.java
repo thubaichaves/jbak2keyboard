@@ -525,7 +525,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	String out = st.STR_NULL;
     	String line = st.STR_NULL;
     	InputStream is;
-    	int cnt =0;
+    	int cnt = 0;
     	try {
 	        is = getAssets().open(st.FILE_DIARY);
 

@@ -184,13 +184,21 @@ public class DlgPopupWnd  extends Activity
 				dismiss();
 			}
 		});
-        //pw.showAsDropDown(st.kv(), 0, yoff);
-        pw.showAtLocation(st.kv(), wnd_gravity, 0, 0);    
+        try {
+            //pw.showAsDropDown(st.kv(), 0, yoff);
+            pw.showAtLocation(st.kv(), wnd_gravity, 0, 0);    
+		} catch (Throwable e) {
+			dismiss();
+		}
+
     }
     public void dismiss()
     {
     	if (pw!=null){
-    		pw.dismiss();
+    		try {
+        		pw.dismiss();
+			} catch (Throwable e) {
+			}
     		pw=null;
 
     	}
