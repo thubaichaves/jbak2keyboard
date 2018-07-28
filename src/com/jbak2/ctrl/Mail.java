@@ -52,12 +52,12 @@ public class Mail
 
 		String subj = null;
 		if(crash==null)
-			subj = "О "+getAppNameAndVersion(c);
+			subj = "О "+st.getAppNameAndVersion(c);
 		else
-			subj = "Crash report "+getAppNameAndVersion(c);
+			subj = "Crash report "+st.getAppNameAndVersion(c);
 		emailIntent.putExtra(Intent.EXTRA_SUBJECT, subj);
 		emailIntent.putExtra(Intent.EXTRA_TEXT, info.toString());
-		c.startActivity(Intent.createChooser(emailIntent, "Crash report "+getAppNameAndVersion(c)));
+		c.startActivity(Intent.createChooser(emailIntent, "Crash report "+st.getAppNameAndVersion(c)));
 	}
     public static String strFile(File f)
     {
@@ -74,10 +74,5 @@ public class Mail
 		}
 		return s;
     }
-	public static String getAppNameAndVersion(Context c)
-	{
-		return c.getString(R.string.ime_name)+" "
-				+st.getAppVersionName(c)+"("+st.getAppVersionCode(c)+")";
-	}
 
 }

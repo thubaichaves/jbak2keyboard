@@ -727,7 +727,7 @@
 	
     <!-- Strings for about dialog -->
 	<string name="about">Прочее</string>
-	<string name="about_desc">Другие программы, номер цвета, коды символов, история, тема обсуждения на 4pda.ru, № версии и прочее</string>
+	<string name="about_desc">Другие программы, коды символов (таблица символов), история, тема обсуждения на 4pda.ru, группа на одноклассниках, № версии и прочее</string>
 	<string name="about_app">Программа:</string>
 	<string name="about_version">Версия:</string>
 	<string name="about_author">Автор:</string>
@@ -738,7 +738,7 @@
 <!-- В других локалях этот текст не переводить! Какой там тест есть, тот и переводить -->
 	<string name="about_web">(Пролистайте до конца)\n\nТема обсуждения: http://4pda.ru/forum/index.php?showtopic=638021\nГруппа на одноклассниках:\nhttps://ok.ru/jbak2keyboard\n\nСделано на основе jbak keyboard версии 0.97.7</string>
 
-	<string name="about_keycode_button">Код символа, удобно при создании своей раскладки \n(приложение UnicodePad)</string>
+	<string name="about_keycode_button">Код символа, удобно при создании своей раскладки или для жеста Дополнительные символы\n(приложение UnicodePad)</string>
     
 <!-- Strings for diary -->
 	<string name="diary">История версий</string>

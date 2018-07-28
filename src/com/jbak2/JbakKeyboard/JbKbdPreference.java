@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.Thread.UncaughtExceptionHandler;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
@@ -48,7 +49,6 @@ import com.jbak2.ctrl.IntEditor;
 import com.jbak2.ctrl.Mail;
 import com.jbak2.perm.Perm;
 
-// в 2.28.11 переделан механизм просьбы оценить приложение и тд.
 @SuppressLint("NewApi")
 public class JbKbdPreference extends PreferenceActivity implements OnSharedPreferenceChangeListener
 {
@@ -113,7 +113,7 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
 			}
 		});
 		// просто вызываем ошибку, чтобы сработал фидбек
-//        int bbb = Integer.valueOf("huk");
+        //int bbb = Integer.valueOf("huk");
 // для инфы мне		
 //		String sss = "brand:"+Build.DISPLAY.BRAND
 //		+"\nCODENAME: " + Build.VERSION.CODENAME
@@ -1658,9 +1658,23 @@ public void checkStartIntent()
      }
      public boolean strToFile(String s,File f)
      {
+		// выводим дату последнего редактирования
+		String dt = "dd.MM.yyyy HH:mm";
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat(dt);
+			dt = sdf.format(new Date());
+			dt = "Report created "+dt+st.STR_CR;
+			dt += "in App: "+st.getAppNameAndVersion(inst)+st.STR_CR+st.STR_CR;
+		} catch (Throwable e) {
+			dt = null;
+		}
+
      	try{
+     		
      		f.delete();
      		FileOutputStream fout = new FileOutputStream(f);
+     		if (dt!=null)
+     			fout.write(dt.getBytes());
      		fout.write(s.getBytes());
      		fout.close();
      		return true;
@@ -1723,28 +1737,6 @@ public void checkStartIntent()
 				return 0;
 			}
 		});
-//         GlobDialog gd = new GlobDialog(st.c());
-//         gd.set(R.string.crash_question, R.string.yes, R.string.no);
-//         gd.setObserver(new st.UniObserver()
-//         {
-//             @Override
-//             public int OnObserver(Object param1, Object param2)
-//             {
-//                 if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
-//                 {
-//                  	if (file_crash!=null){
-//                 		Mail.sendFeedback(inst, file_crash);
-//                 	}
-//                 }
-//              	if (file_crash!=null){
-//                	file_crash.delete();
-//             		file_crash=null;
-//             	}
-//                 return 0;
-//             }
-//         });
-//         gd.showAlert();
-
  		return true;
  	}
 	public void setLangApp()

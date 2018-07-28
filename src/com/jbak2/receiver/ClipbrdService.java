@@ -52,8 +52,10 @@ public class ClipbrdService extends SameThreadTimer
         {
             return;
         }
-//        try {
+        try {
 			clip = m_cm.getPrimaryClip();
+			if (clip==null)
+				return;
 	        if (clip.getItemCount()>0) {
 	        	m_item = clip.getItemAt(0);
 	        	if (m_item==null) 
@@ -63,9 +65,10 @@ public class ClipbrdService extends SameThreadTimer
 	        		return;
 	        	checkString(cm_str.toString());
 	        }
-//		} catch (Throwable e) {
-//			return;
-//		}
+
+		} catch (Throwable e) {
+			return;
+		}
         	
     }
     void checkString(String str)

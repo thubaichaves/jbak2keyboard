@@ -935,7 +935,11 @@ public class JbCandView extends RelativeLayout
         	st.toastLong(R.string.perm_not_all_perm);
         	return;
         }
-       	wm.addView(this, lp);
+        try {
+           	wm.addView(this, lp);
+		} catch (Throwable e) {
+		}
+
     }
 // задание параметров кнопок НЕ СЛОВ!
 // для слов подсказок отдельно в createtextview    

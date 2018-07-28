@@ -415,10 +415,11 @@ public class Desc_act extends Activity
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        String str_data = new String(buffer);
-		et.setBackgroundColor(Color.WHITE);
-        et.setText(str_data);
+        if (buffer!=null) {
+            String str_data = new String(buffer);
+    		et.setBackgroundColor(Color.WHITE);
+            et.setText(str_data);
+        }
         if (searchviewpanel){
         	hideSearchPanel();
         }

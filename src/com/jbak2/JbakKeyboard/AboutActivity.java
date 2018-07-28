@@ -21,7 +21,8 @@ public class AboutActivity extends Activity
         View v = getLayoutInflater().inflate(R.layout.about, null);
         v.setBackgroundDrawable(new ColorsGradientBack().setCorners(0, 0).setGap(0).getStateDrawable());
         try{
-            String vers = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+//            String vers = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            String vers = st.getAppVersionName(inst)+" ("+st.getAppVersionCode(inst)+")";
             String app = getString(R.string.about_version)+st.STR_SPACE+vers+st.STR_CR
                            +getString(R.string.about_web); 
             ((TextView)v.findViewById(R.id.version)).setText(app);

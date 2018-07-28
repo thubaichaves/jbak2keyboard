@@ -51,7 +51,7 @@ public class com_menu
     public static final int STAT_TRANSLATE = 0x000004;
     public static final int STAT_KEYCODE_NOTATION = 0x000005;
 
-    static com_menu inst; 
+    static com_menu inst;
     protected static final int[] PRESSED_STATE_SET = {android.R.attr.state_pressed};
     protected static final int[] EMPTY_STATE_SET = {};
 /** Класс, хранящий информацию об элементе меню */  
@@ -372,9 +372,13 @@ public class com_menu
             MenuEntry me = (MenuEntry)v.getTag();
             if(m_MenuObserver!=null)
             {
-                m_MenuObserver.OnObserver(new Integer(me.id), new Boolean(false));
-//                if (close_menu)
-//                	close();
+            	try {
+                    m_MenuObserver.OnObserver(new Integer(me.id), new Boolean(false));
+//                  if (close_menu)
+//                  	close();
+
+				} catch (Throwable e) {
+				}
             }
         }
     };

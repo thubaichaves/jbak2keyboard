@@ -2293,8 +2293,13 @@ public class st extends IKeyboard implements IKbdSettings
 		} catch (NameNotFoundException e) {}
 		return st.STR_ZERO;
     }
+	public static String getAppNameAndVersion(Context c)
+	{
+		return c.getString(R.string.ime_name)+" "
+				+st.getAppVersionName(c)+"("+st.getAppVersionCode(c)+")";
+	}
     /** возвращает имя пакета */
-    public static String getPackageName(Context c)
+    public static String getAppPackageName(Context c)
     {
 		try {
 				return st.STR_NULL+c.getPackageManager().getPackageInfo(c.getPackageName(), 0).packageName;
