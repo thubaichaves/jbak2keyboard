@@ -52,6 +52,9 @@ import com.jbak2.words.UserWords.WordArray;
 /** Класс содержит полезные статические переменные */
 public class st extends IKeyboard implements IKbdSettings
 {
+	// если true, то при нажатии символа-разделителя в автодоте, исходное слово
+	// не заменяется, а этот символ добавляется в позиции курсора
+    public static boolean fl_ac_separator_symbol = false;
 	public static int KBD_BACK_ALPHA_DEF = 10;
 	/** прозрачность скина клавиатуры. */
 	public static int kbd_back_alpha= KBD_BACK_ALPHA_DEF;
@@ -1292,43 +1295,48 @@ public class st extends IKeyboard implements IKbdSettings
     {
         return c.getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT;
     }
-//    public static String strcol;
-//    public static String stralpha;
-//    public static String strte;
-//    /** меняет исходный цвет на цвет с прозрачностью согласно установленной 
-//     * настройки */
-//    public static int getColorAlpha(int col)
-//    {
-//    	strcol = Integer.toHexString(col);
-//    	if (strcol.length()==8) {
-//        	stralpha = strcol.substring(0, 2);
-//        	switch (kbd_back_alpha) 
-//        	{
-//        	case 10: // как в скине
-//        	//case 0: // как в скине
-//        		break;
-//        	default:// прозрачный
-//        		int  alp = 0;
-//        		try {
-//        			alp = Integer.parseInt(stralpha,16);
-//        		} catch (Throwable e){
-//        		}
-////        		if (alp==255)
-////        			return col;
-//        		alp = alp/10*kbd_back_alpha;
-//        		if (alp == 0)
-//        			strte = "00";
-//        		else
-//        			strte = Integer.toHexString(alp);
-//        		strte += strcol.substring(2);
-//        		col = st.parseInt(strte,16);
-//        		break;
-//        	}
-//    	}
-//    	return col;
-//    }
+    public static String strcol;
+    public static String stralpha;
+    public static String strte;
+    /** меняет исходный цвет на цвет с прозрачностью согласно установленной 
+     * настройки */
+    public static int getSkinColorAlpha(int col)
+    {
+    	strcol = Integer.toHexString(col);
+    	if (strcol.length()==8) {
+        	stralpha = strcol.substring(0, 2);
+        	switch (kbd_back_alpha) 
+        	{
+        	case 0:
+        		strte = "00"+strcol.substring(2);
+        		col = st.parseInt(strte,16);
+        		break;
+        	case 10: // как в скине
+        		break;
+        	default:// прозрачный
+        		int  alp = 0;
+        		try {
+        			alp = Integer.parseInt(stralpha,16);
+        		} catch (Throwable e){
+        		}
+//        		if (alp==255)
+//        			return col;
+        		alp = alp/10*kbd_back_alpha;
+        		if (alp == 0)
+        			strte = "00";
+        		else
+        			strte = Integer.toHexString(alp);
+        		strte += strcol.substring(2);
+        		col = st.parseInt(strte,16);
+        		break;
+        	}
+    	}
+    	return col;
+    }
     public static KbdDesign getSkinByPath(String path)
     {
+    	if (IKeyboard.arDesign==null)
+    		IKeyboard.setDesignDefault();
     	boolean fl = false;
     	if (path.startsWith(CustomKbdDesign.ASSETS))
     		fl = true;
@@ -2064,7 +2072,29 @@ public class st extends IKeyboard implements IKbdSettings
    			st.runAct(Quick_setting_act.class,c);
    			return;
         }
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      	  int orient = st.getOrientation(c);
+      	  // акция для портрета или ландшафта?
+      	  int orient_def = Configuration.ORIENTATION_PORTRAIT;
+      	  int actOrient = orient_def;
+      	  switch (action)
+      	  {
+      	  case st.SET_KEY_HEIGHT_PORTRAIT:
+      	  case st.SET_KEY_CALIBRATE_PORTRAIT:
+      		  if (orient != Configuration.ORIENTATION_PORTRAIT) {
+      			  st.toast(R.string.set_key_height_portrait_toast);
+      			  return;
+      		  }
+      		  break;
+      	  case st.SET_KEY_HEIGHT_LANDSCAPE:
+      	  case st.SET_KEY_CALIBRATE_LANDSCAPE:
+      		  if (orient != Configuration.ORIENTATION_LANDSCAPE) {
+      			  st.toast(R.string.set_key_height_landscape_toast);
+      			  return;
+      		  }
+      		  break;
+      	  }
+        }
         try{
 //        	if (registerKbd() < 2) {
 //        		st.toast(getString(R.string.kbd_warning));

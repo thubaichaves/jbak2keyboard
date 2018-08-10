@@ -19,10 +19,13 @@ import com.jbak2.JbakKeyboard.IKeyboard.Lang;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.inputmethodservice.Keyboard;
+import android.os.Build;
 import android.util.DisplayMetrics;
 import android.util.Xml;
+import android.view.WindowManager;
 
 public class CustomKeyboard extends JbKbd
 {
@@ -138,6 +141,7 @@ public class CustomKeyboard extends JbKbd
     DisplayMetrics m_dm;
     Field m_totalHeight;
     static DataOutputStream m_os = null;
+    
     public CustomKeyboard(Context context,Keybrd kbd)
     {
         super(context, kbd);

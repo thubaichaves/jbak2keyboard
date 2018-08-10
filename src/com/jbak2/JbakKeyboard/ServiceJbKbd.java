@@ -1032,7 +1032,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             m_textBeforeCursor.deleteCharAt(0);
     }
     /** Helper to send a character to the editor as raw key events. */
-    private void sendKey(int keyCode)
+    void sendKey(int keyCode)
     {
         processChar((char)keyCode);
 // задержка перед вводом в систему символа
@@ -1086,7 +1086,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     			else
     				keyDownUp(KeyEvent.KEYCODE_ENTER);
     		} else {
-//    			sendKeyChar((char) keyCode);
+    			//sendKeyChar((char) keyCode);
     			getCurrentInputConnection().commitText(String.valueOf((char) keyCode), 1);
     			//setTextAfterSetText(keyCode);
     		}
@@ -2312,11 +2312,15 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	removeSharedPreferences();
     	VibroThread.getInstance(this).readSettings();
-//        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
-//            st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
-//        }
+        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
+            st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
+        }
         if (st.KBD_BACK_PICTURE.equals(key) || key == null){
         	st.kbd_back_pict = sharedPreferences.getString(st.KBD_BACK_PICTURE, st.STR_NULL);
+        }
+        if (key==null||st.PREF_AC_REPLACE_SEPARATOR_SYMBOL.equals(key))
+        {
+            st.fl_ac_separator_symbol = sharedPreferences.getBoolean(st.PREF_AC_REPLACE_SEPARATOR_SYMBOL, false);
         }
         if (key==null||st.PREF_KEY_AC_AUTOCORRECT.equals(key))
         {
@@ -3217,6 +3221,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             		}
                 }
             	if (b){
+        			st.sleep(100);
                     keyDownUp(KeyEvent.KEYCODE_DEL);
             		st.fl_delsymb = true;
             	}

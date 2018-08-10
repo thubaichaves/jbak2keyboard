@@ -512,10 +512,9 @@ public class TplEditorActivity extends Activity
         else if(m_clipbrdDate!=null)
         	com_menu.inst.showClipboard(false);                    
     };
- // менюшка "символ для разделения" для специнструкции
-// выводит отдельный список для указанной ниже инструкции     
-// нигде не используется. временно бросил.     
-    void insertSymbol()
+ /** менюшка "символ для добавления или удаления" для специнструкции
+// выводит отдельный список для указанной ниже инструкции */     
+    void insertOrDeleteSymbol()
     {
         int rlist = R.layout.tpl_instr_list;
         final ArrayAdapter<String> ar = new ArrayAdapter<String>(this, 
@@ -531,7 +530,7 @@ public class TplEditorActivity extends Activity
                 if(which>=0)
                 {
                     String txt = "="+ar.getItem(which);
-                    int f = txt.indexOf(' ');
+                    int f = txt.indexOf(" - ");
                     if(f>0)
                         txt = txt.substring(0,f);
                     int s = m_edText.getSelectionStart();
@@ -604,7 +603,9 @@ public class TplEditorActivity extends Activity
 					if (which == 4 )
 						datetimeFormat();
 					else if (which == 7 )
-						insertSymbol();
+						insertOrDeleteSymbol();
+					else if (which == 8 )
+						insertOrDeleteSymbol();
                     else
                     	// показываем клавиатуру
                     	ServiceJbKbd.inst.forceShow();

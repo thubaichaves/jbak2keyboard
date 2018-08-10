@@ -90,8 +90,10 @@ public class JbKbdView extends KeyboardView
     int m_PreviewHeight=0;
     public static int defaultVertCorr = -15;
     KeyboardGesture m_gd;
-    static KbdDesign g_lastLoadedDesign=st.arDesign[st.KBD_DESIGN_STANDARD];
-    KbdDesign m_curDesign = g_lastLoadedDesign;
+//    static KbdDesign g_lastLoadedDesign=st.arDesign[st.KBD_DESIGN_STANDARD];
+//    KbdDesign m_curDesign = g_lastLoadedDesign;
+    static KbdDesign g_lastLoadedDesign= null;
+    KbdDesign m_curDesign = null;
     static Field g_vertCorrectionField;
     public JbKbdView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -130,6 +132,11 @@ public class JbKbdView extends KeyboardView
         inst = this;
     	if (m_pk==null)
     		m_pk = new PopupKeyboard(inst.getContext());
+    	if (IKeyboard.arDesign==null)
+    		IKeyboard.setDesignDefault();
+        g_lastLoadedDesign= st.arDesign[st.KBD_DESIGN_STANDARD];
+        m_curDesign = g_lastLoadedDesign;
+
         m_vibro = VibroThread.getInstance(getContext());
         String path = st.pref().getString(st.PREF_KEY_KBD_SKIN_PATH, st.STR_NULL+st.KBD_DESIGN_STANDARD);
         KbdDesign d = st.getSkinByPath(path);

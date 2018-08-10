@@ -275,7 +275,8 @@ public class Templates
      	}
         return st.STR_NULL;
     }
-/** Выполняет шаблон s в текущем сервисе */ 
+/** Выполняет шаблон s в текущем сервисе 
+ * (тут же обрабатываются и специнструкции) */ 
     @SuppressWarnings("deprecation")
 	void processTemplate(String s)
     {
@@ -367,11 +368,13 @@ public class Templates
                         case 5:
                         	repl =repl.toUpperCase();
                 		break;
-                        case 6:
 // разделение символом
+                        case 6:
                         	if (repl!=null&&repl.length()>0){
                         		
                         		String str = st.rowInParentheses(s);
+                        		if (str.isEmpty())
+                        			return;
                         		String repl1 = st.STR_NULL;
                         		for (int i1=0;i1<repl.length();i1++) {
                         			repl1 += repl.charAt(i1)+ str;
@@ -380,10 +383,26 @@ public class Templates
                         	}
                 		break;
                         case 7:
+                        	if (repl!=null&&repl.length()>0){
+                        		String str = st.rowInParentheses(s);
+                        		if (str.isEmpty())
+                        			return;
+                        		int ind = -1;
+                        		do
+                        		{
+                        			ind = repl.indexOf(str);
+                        			if (ind>-1)
+                        				repl = repl.substring(0,ind)+repl.substring(ind+str.length());
+                                }while(ind>-1);
+
+                        		//repl = repl1.substring(0, repl1.length() - str.length());
+                        	}
+                		break;
+                        case 8:
                         	repl = Translit.toTranslit(repl);
                 		break;
                 		// режим стихов
-                        case 8:
+                        case 9:
                         	out = st.STR_NULL;
                         	fl = false;
                         	sy = st.STR_NULL;
@@ -407,7 +426,7 @@ public class Templates
                         	repl = out;
                 		break;
                 		// как в предложениях
-                        case 9:
+                        case 10:
                         	if (ServiceJbKbd.inst==null)
                         		return;
                         	out = st.STR_NULL;
@@ -436,7 +455,7 @@ public class Templates
                         	}
                         	repl = out;
                 		break;
-                        case 10:
+                        case 11:
                     		if (ServiceJbKbd.inst==null) 
                     			return;
                 			repl = st.getClipboardCharSequence().toString();
@@ -1048,6 +1067,7 @@ public class Templates
     	"sellowercase",
     	"selupcase",
     	"selinsertword",
+    	"selDeleteWord",
     	"seltranslit",
     	"selVerseMode",
     	"selAsInTheSentences",

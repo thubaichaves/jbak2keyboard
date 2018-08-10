@@ -3,6 +3,8 @@ package com.jbak2.JbakKeyboard;
 /** Константы для настроек клавиатуры */
 public interface IKbdSettings
 {
+	//
+	public static final String PREF_AC_REPLACE_SEPARATOR_SYMBOL= "ac_replace_separator_symbol";
 	// последняя папка для файлового менеджера
 	public static final String FILE_EXPLORER_LAST_DIR= "fe_last_dir";
 	// прозрачность скина клавиатуры
@@ -371,6 +373,7 @@ public interface IKbdSettings
     public static final int SET_KEY_HEIGHT_LANDSCAPE =2;
 /** Вызывает настройку переключения языков */    
     public static final int SET_LANGUAGES_SELECTION =3;
+    // НИГДЕ НЕ ИСПОЛЬЗУЕТСЯ!!!
 /** Вызывает настройку клавиш*/    
     public static final int SET_KEYS =4;
 /** Вызывает настройку вида клавиатуры (обычный, для планешета...)*/    

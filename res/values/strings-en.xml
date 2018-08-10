@@ -42,7 +42,7 @@
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
 	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc"></string>
+	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
 <!-- Title for show keyboard notification-->
@@ -236,6 +236,8 @@
 
 	<string name="ac_place_arrow_down">Down Arrow from the Autocomplete box</string>
 	<string name="ac_place_arrow_down_desc">If checked, \"Down Arrow\" is not showing in Autocomplete. It is possible to use a gesture instead of it</string>
+	<string name="ac_place_separator_symb">Нажатие разделителя</string>
+	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
 	<string name="ac_list_value">Number of words</string>
 	<string name="ac_list_value_desc">Number of words in the drop-down list. The higher value is chosen, the slower will be the process</string>
 	<string name="ac_del_word">Delete the word?</string>
@@ -408,8 +410,10 @@
     <string name="set_keyboard_height">Keyboard height</string>
     <string name="set_key_height_portrait">Key height in portrait mode</string>
     <string name="set_key_height_portrait_desc">Change key height for the qwerty keyboard in portrait mode </string>
+    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
     <string name="set_key_height_landscape">Key height in landscape mode</string>
     <string name="set_key_height_landscape_desc">Change key height for the qwerty keyboard in landscape mode </string>
+    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
     <string name="set_key_ac_height">Autocomplete height</string>
     <string name="set_key_ac_height_desc"></string>
     
@@ -698,6 +702,7 @@
         <item><b>$sellowercase</b> - convert all letters to lowercase in the selection </item>
         <item><b>$selupcase</b> - convert all letters to uppercase in the selection</item>
         <item><b>$selinsertword</b> - insert selected character or word between symbols in the selection</item>
+        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
         <item><b>$seltranslit</b> - transliterate Russian language characters into Latin characters in the selection</item>
 		<item><b>$selVerseMode</b> - verse mode: each first character of the string in the selection will be capitalized</item>
         <item><b>$selAsInTheSentences</b> - letter case in the selection like in the sentences</item>
@@ -705,7 +710,7 @@
         </string-array>
     
 <!-- список символов разделения для специнструкции $insertsymbol -->
-  <string name="insertsymbol_title">Symbol or word division</string>
+  <string name="insertsymbol_title">Symbol or word</string>
     <string-array name="tpl_insertsymbol">
         <item><b>[ ]</b> - space</item>
         <item><b>[-]</b> - dash</item>

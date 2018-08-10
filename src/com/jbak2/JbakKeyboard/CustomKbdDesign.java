@@ -57,6 +57,18 @@ public class CustomKbdDesign
                 {
                     int dec = -1;
                     dec = processStringInt(m_val);
+                    switch (index)
+                    {
+                    case IntEntry.KeyBackStartColor:
+                    case IntEntry.KeyBackEndColor:
+                    case IntEntry.KeyStrokeStartColor:
+                    case IntEntry.KeyStrokeEndColor:
+                    case IntEntry.SpecKeyBackStartColor:
+                    case IntEntry.SpecKeyBackEndColor:
+                    case IntEntry.SpecKeyStrokeStartColor:
+                    case IntEntry.SpecKeyStrokeEndColor:
+                    	dec = st.getSkinColorAlpha(dec);
+                    }
                     arValues.add(new IntEntry(index,dec));
                 }
                 ++line;
@@ -233,6 +245,8 @@ public class CustomKbdDesign
     }
     static String loadCustomSkins()
     {
+    	if (IKeyboard.arDesign==null)
+    		IKeyboard.setDesignDefault();
         String err = st.STR_NULL;
         try{
             String path = st.getSettingsPath()+FOLDER_SKINS;  

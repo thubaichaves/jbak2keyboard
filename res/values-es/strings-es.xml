@@ -41,7 +41,7 @@
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
 	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc"></string>
+	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 	
 <!-- Title for show keyboard notification-->
@@ -219,6 +219,8 @@
 <!-- активность popup2act -->
 	<string name="ac_place_arrow_down">Flecha hacia abajo del autocompletado</string>
 	<string name="ac_place_arrow_down_desc">Si está seleccionado, \"flecha hacia abajo\" no se muestra en el autocompletado. Se puede usar un gesto en vez de ella</string>
+	<string name="ac_place_separator_symb">Нажатие разделителя</string>
+	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
 	<string name="ac_list_value">Cantidad de palabras</string>
 	<string name="ac_list_value_desc">Cantidad de palabras en la lista desplegable. Mientras más alto sea el valor, más lento será el proceso</string>
 	<string name="ac_del_word">Eliminar la palabra?</string>
@@ -396,8 +398,10 @@
     <string name="set_keyboard_height">Altura del teclado</string>
     <string name="set_key_height_portrait">Altura de las teclas en modo retrato</string>
     <string name="set_key_height_portrait_desc">Cambio de altura de las teclas en modo retrato </string>
+    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
     <string name="set_key_height_landscape">Altura de las teclas en modo paisaje</string>
     <string name="set_key_height_landscape_desc">Cambio de altura de las teclas en modo paisaje</string>
+    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
     <string name="set_key_ac_height">Altura del autocompletado</string>
     <string name="set_key_ac_height_desc"></string>
     
@@ -679,6 +683,7 @@
         <item><b>$sellowercase</b> - convertir todas las letras a minúsculas en la selección</item>
         <item><b>$selupcase</b> - convertir todas las letras a mayúsculas en la selección</item>
         <item><b>$selinsertword</b> - inserta un símbolo o una palabra seleccionada entre los símbolos en la selección</item>
+        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
         <item><b>$seltranslit</b> - translitera caracteres de idioma ruso en caracteres latinos en la selección</item>
 		<item><b>$selVerseMode</b> - modo verso: cada letra de la línea en la selección estará en mayúscula</item>
         <item><b>$selAsInTheSentences</b> - tamaño de letras en la selección como en las sentencias</item>
@@ -686,7 +691,7 @@
         </string-array>
         
 <!-- список символов разделения для специнструкции $insertsymbol -->
-  <string name="insertsymbol_title">Símbolo o palabra de división</string>
+  <string name="insertsymbol_title">Símbolo o palabra</string>
     <string-array name="tpl_insertsymbol">
         <item><b>[ ]</b> - espacio</item>
         <item><b>[-]</b> - guión</item>

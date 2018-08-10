@@ -41,7 +41,7 @@
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
 	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc">0 - кнопки полностью прозрачные, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
+	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 			
 <!-- Title for show keyboard notification-->
@@ -237,6 +237,8 @@
 	
 	<string name="ac_place_arrow_down">Стрелка вниз из автодополнения</string>
 	<string name="ac_place_arrow_down_desc">Если отмечено, \"стрелка вниз\" в автодополнении не показывается. Вместо неё можно использовать жест</string>
+	<string name="ac_place_separator_symb">Нажатие разделителя</string>
+	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
 	<string name="ac_list_value">Количество слов</string>
 	<string name="ac_list_value_desc">Количество слов в выпадающем списке. Больше значение - медленнее работа</string>
 	<string name="ac_del_word">Удалить слово?</string>
@@ -399,8 +401,10 @@
     <string name="set_keyboard_height">Высота клавиатуры</string>
     <string name="set_key_height_portrait">Высота клавиш - портрет</string>
     <string name="set_key_height_portrait_desc">Изменение высоты клавиш в портретном режиме </string>
+    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
     <string name="set_key_height_landscape">Высота клавиш - ландшафт</string>
     <string name="set_key_height_landscape_desc">Изменение высоты клавиш в ландшафтном режиме</string>
+    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
     <string name="set_key_ac_height">Высота автодополнения</string>
     <string name="set_key_ac_height_desc"></string>
     
@@ -683,6 +687,7 @@
         <item><b>$sellowercase</b> - все строчные в выделении</item>
         <item><b>$selupcase</b> - ВСЕ ПРОПИСНЫЕ в выделении</item>
         <item><b>$selinsertword</b> - вставляет указанный символ или слово между каждым символом в выделении</item>
+        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
         <item><b>$seltranslit</b> - изменяет русские символы в выделении на транслит</item>
         <item><b>$selVerseMode</b> - режим стихов - каждый первый символ строки в выделении в верхнем регистре</item>
         <item><b>$selAsInTheSentences</b> - регистр букв в выделении как в предложениях</item>
@@ -690,7 +695,7 @@
         </string-array>
 
 <!-- список символов разделения для специнструкции $insertsymbol -->
-  <string name="insertsymbol_title">Символ или слово разделения</string>
+  <string name="insertsymbol_title">Символ или слово</string>
     <string-array name="tpl_insertsymbol">
         <item><b>[ ]</b> - пробел</item>
         <item><b>[-]</b> - тире</item>

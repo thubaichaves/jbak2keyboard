@@ -1207,7 +1207,7 @@ public void checkStartIntent()
     void showAlpha()
     {
         final View v = inst.getLayoutInflater().inflate(R.layout.edit_intervals, null);
-        int max = 10,min = 1;
+        int max = 10,min = 0;
         int steps[] = new int[]{1,1,1};
         final SharedPreferences p = st.pref(inst);
 
@@ -1234,6 +1234,7 @@ public void checkStartIntent()
                     IntEditor ie;
                     Editor e = p.edit();
                     ie = (IntEditor)v.findViewById(R.id.long_press);
+                	st.arDesign = null;
                     e.putString(st.KBD_BACK_ALPHA, st.STR_NULL+ie.getValue());
                     e.commit();
                     if(OwnKeyboardHandler.inst!=null)
@@ -1250,6 +1251,7 @@ public void checkStartIntent()
             public void onClick(View v)
             {
                 ie.setValue(st.KBD_BACK_ALPHA_DEF);
+            	st.arDesign = null;
                 if(OwnKeyboardHandler.inst!=null)
                     OwnKeyboardHandler.inst.loadFromSettings();
             }

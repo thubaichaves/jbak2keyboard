@@ -44,7 +44,7 @@
 	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
 	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
 	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc"></string>
+	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
 	<string name="cancel_kbd_background">Фон из скина</string>
 			
 <!-- Title for show keyboard notification-->
@@ -222,6 +222,8 @@
 <!-- активность popup2act -->
 	<string name="ac_place_arrow_down">Стрілка донизу з автодоповнення</string>
 	<string name="ac_place_arrow_down_desc">Якщо відзначено, \"стрілка донизу\" в автодоповненні не показується. Замість неї можна використовувати жест</string>
+	<string name="ac_place_separator_symb">Нажатие разделителя</string>
+	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
 	<string name="ac_list_value">Кількість слів</string>
 	<string name="ac_list_value_desc">Кількість слів в випадаючому списку. Менше значення - швидше робота</string>
 	<string name="ac_del_word">Видалити слово?</string>
@@ -406,9 +408,11 @@
     <string name="set_keyboard_height">Висота клавіатури</string>
   <string name="set_key_height_portrait">Висота клавіш - портрет</string>
   <string name="set_key_height_portrait_desc">Зміна висоти клавіш в портретному режимі</string>
+    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
   <string name="set_key_height_landscape">Висота клавіш - ландшафт</string>
   <string name="set_key_height_landscape_desc">Зміна висоти клавіш в ландшафтному режимі</string>
-    <string name="set_key_ac_height">Висота автодоповнення</string>
+    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
+  <string name="set_key_ac_height">Висота автодоповнення</string>
     <string name="set_key_ac_height_desc"></string>
     <string name="set_languages">Мови і розкладки</string>
   <string name="set_languages_desc">Вибір мов для перемикання та розкладок клавіатур (можна змінити розкладку за замовчуванням)</string>
@@ -681,6 +685,7 @@
         <item><b>$sellowercase</b> - всі маленькі в виділеному</item>
         <item><b>$selupcase</b> - ВСІ ВЕЛИКІ в виділеному</item>
         <item><b>$selinsertword</b> - вставляє визначений символ чи слово між кожним символом у виділенному</item>
+        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
         <item><b>$seltranslit</b> - змінює російські символи в визначеному на трансліт</item>
 		<item><b>$selVerseMode</b> - режим віршів - кожний перший символ рядка у виділеному тексті у верхньому регистрі</item>
         <item><b>$selAsInTheSentences</b> - регістр букв у виділенному тексті як  у реченнях</item>
@@ -688,7 +693,7 @@
         </string-array>
     
 <!-- список символов разделения для специнструкции $insertsymbol -->
-  <string name="insertsymbol_title">Символ чи слово розділу</string>
+  <string name="insertsymbol_title">Символ чи слово</string>
     <string-array name="tpl_insertsymbol">
         <item><b>[ ]</b> - пробіл</item>
         <item><b>[-]</b> - тире</item>

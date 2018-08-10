@@ -48,6 +48,7 @@ import com.jbak2.perm.Perm;
  * qwerty-слоя
  */
 public class SetKbdActivity extends Activity {
+	static boolean show_kbd_land= false;
 	/** Текущий экземпляр класса */
 	static SetKbdActivity inst;
 	int m_curAction;
@@ -108,10 +109,12 @@ public class SetKbdActivity extends Activity {
 		ibprev.setOnClickListener(m_clkNextPrevListener);
 		ibnext.setOnLongClickListener(m_clkLongListener);
 		ibprev.setOnLongClickListener(m_clkLongListener);
+		show_kbd_land= false;
 		if (m_curAction == st.SET_KEY_HEIGHT_LANDSCAPE) {
 			st.qs_ar[4] = 1;
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			setTitle(R.string.set_key_height_landscape);
+			show_kbd_land= true;
 			st.setQwertyKeyboard(true);
 		} else if (m_curAction == st.SET_KEY_HEIGHT_PORTRAIT) {
 			st.qs_ar[4] = 1;
@@ -216,6 +219,7 @@ public class SetKbdActivity extends Activity {
 				}
 			});
 		}
+		
 		setContentView(m_MainView);
 		setContentView(m_MainView);
 	}
@@ -277,6 +281,7 @@ public class SetKbdActivity extends Activity {
 		if (ServiceJbKbd.inst != null)
 			ServiceJbKbd.inst.reinitKeyboardView();
 		BitmapCachedGradBack.clearAllCache();
+		show_kbd_land= false;
 		super.onBackPressed();
 		if (!st.fl_pref_act)
 			st.showkbd();

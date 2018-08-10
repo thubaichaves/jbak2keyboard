@@ -2,6 +2,7 @@ package com.jbak2.JbakKeyboard;
 
 import java.io.File;
 import java.util.Locale;
+import java.util.Vector;
 
 import android.R.drawable;
 import android.content.Context;
@@ -10,6 +11,7 @@ import android.os.Environment;
 
 import com.jbak2.CustomGraphics.BitmapCachedGradBack;
 import com.jbak2.CustomGraphics.GradBack;
+import com.jbak2.JbakKeyboard.IKeyboard.KbdDesign;
 
 
 public class IKeyboard
@@ -393,8 +395,8 @@ public class IKeyboard
     }
     static GradBack skinIPhoneKey()
     {
-        GradBack stroke = new BitmapCachedGradBack(0xff8c929a,0xff2c2f32).setGap(4);
-        return new BitmapCachedGradBack(Color.WHITE, 0xffC1C1C1)
+        GradBack stroke = new BitmapCachedGradBack(st.getSkinColorAlpha(0xff8c929a),st.getSkinColorAlpha(0xff2c2f32)).setGap(4);
+        return new BitmapCachedGradBack(st.getSkinColorAlpha(Color.WHITE), st.getSkinColorAlpha(0xffC1C1C1))
             .setGap(6).setShadowColor(GradBack.DEFAULT_COLOR)
             .setStroke(stroke);
     }
@@ -403,12 +405,12 @@ public class IKeyboard
         return new KbdDesign(R.string.kbd_design_htc, 0, 0xff000000, 0, DF_BOLD)
                     .setKeysBackground(
                     		new BitmapCachedGradBack(
-                    				0xfff8f8f8, 
-                    				0xffd8d4d8)
+                    				st.getSkinColorAlpha(0xfff8f8f8), 
+                    				st.getSkinColorAlpha(0xffd8d4d8))
                     .setGap(3)
                     .setStroke(new BitmapCachedGradBack(
-            				0xff605960, 
-            				0xff101418)
+                    		st.getSkinColorAlpha(0xff605960), 
+                    		st.getSkinColorAlpha(0xff101418))
                     .setGap(2)))
                     .setKbdBackground(new BitmapCachedGradBack(0xffbdbebd, 0xff706e70).setCorners(0, 0)
                     .setGap(0))
@@ -416,12 +418,12 @@ public class IKeyboard
 //                    .setKeysBackground(new BitmapCachedGradBack(st.setColorTransparency(0xff686868), st.setColorTransparency(0xff101418))
                     .setKeysBackground(
                     		new BitmapCachedGradBack(
-                    				0xff686868, 
-                    				0xff404040)
+                    				st.getSkinColorAlpha(0xff686868), 
+                    				st.getSkinColorAlpha(0xff404040))
                     .setGap(3)
                     .setStroke(new BitmapCachedGradBack(
-            				0xff605960, 
-            				0xff101418)
+                    		st.getSkinColorAlpha(0xff605960), 
+                    		st.getSkinColorAlpha(0xff101418))
                     .setGap(2))
                     ));
     }
@@ -433,16 +435,18 @@ public class IKeyboard
 // здесь же задаётся цвет текста простых кнопок
 new KbdDesign(R.string.kbd_design_pink, 0, Color.BLUE,0, DF_BOLD)
 // цвет обычных клавиш (с градиентом)
-.setKeysBackground(new BitmapCachedGradBack(Color.WHITE, Color.MAGENTA)
+.setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(Color.WHITE), 
+		st.getSkinColorAlpha(Color.MAGENTA))
 // Установка отступа краёв фона от прямоугольника, на котором фон отрисовывается
 .setGap(2)
 // Устанавливает обводку stroke, в виде еще одного объекта GradBack 
 //Необходимо правильно задать отступ (gap) для нового объекта, с учетом того, 
 // что сверху будет нарисован текущий объект	
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(1)))
 
-.setKbdBackground(new BitmapCachedGradBack(0xffaabbcc, 0xffabdccd)
+.setKbdBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(0xffaabbcc), 0xffabdccd)
 // радиус скругления углов
 .setCorners(0, 0)
 //Установка отступа краёв фона от прямоугольника, на котором фон отрисовывается
@@ -450,9 +454,11 @@ new KbdDesign(R.string.kbd_design_pink, 0, Color.BLUE,0, DF_BOLD)
 // функциональные клавиши
 .setFuncKeysDesign(new KbdDesign(0, 0, Color.WHITE, 0, 0)
 .setKeysBackground(
-new BitmapCachedGradBack(0xff686868,0xff404040)
+new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
+		st.getSkinColorAlpha(0xff404040))
 .setGap(1)
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(2)
 )));
     }
@@ -462,14 +468,16 @@ new BitmapCachedGradBack(0xff686868,0xff404040)
 // цвет квадрата фона клавиатуры
 // здесь же задаётся цвет текста простых кнопок
 new KbdDesign(R.string.kbd_design_dark, 0, Color.BLACK,drawable.dark_header, DF_BOLD)
-.setKeysBackground(new BitmapCachedGradBack(Color.WHITE, 0xff222222)
+.setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(Color.WHITE), 
+		st.getSkinColorAlpha(0xff222222))
 		
 // Установка отступа краёв фона от прямоугольника, на котором фон отрисовывается
 .setGap(3)
 // Устанавливает обводку stroke, в виде еще одного объекта GradBack 
 //Необходимо правильно задать отступ (gap) для нового объекта, с учетом того, 
 // что сверху будет нарисован текущий объект	
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(2)))
 
 .setKbdBackground(new BitmapCachedGradBack(0xffeeeeee, 0xffffffff)
@@ -480,9 +488,11 @@ new KbdDesign(R.string.kbd_design_dark, 0, Color.BLACK,drawable.dark_header, DF_
 // функциональные клавиши
 .setFuncKeysDesign(new KbdDesign(0, 0, Color.WHITE, 0, 0)
 .setKeysBackground(
-new BitmapCachedGradBack(0xff686868,0xff404040)
+new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
+		st.getSkinColorAlpha(0xff404040))
 .setGap(3)
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(2)
 )));
     }
@@ -493,13 +503,15 @@ new BitmapCachedGradBack(0xff686868,0xff404040)
 // здесь же задаётся цвет текста простых кнопок
 new KbdDesign(R.string.kbd_design_solid, 0, Color.BLACK,0, DF_BOLD)
 // цвет обычных клавиш (с градиентом)
-.setKeysBackground(new BitmapCachedGradBack(Color.WHITE, 0xff999999)
+.setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(Color.WHITE), 
+		st.getSkinColorAlpha(0xff999999))
 // Установка отступа между клавишами одного ряда
 .setGap(0)
 // Устанавливает обводку stroke, в виде еще одного объекта GradBack 
 //Необходимо правильно задать отступ (gap) для нового объекта, с учетом того, 
 // что сверху будет нарисован текущий объект	
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(0)))
 
 .setKbdBackground(new BitmapCachedGradBack(0xffaabbcc, 0xffabdccd)
@@ -510,9 +522,11 @@ new KbdDesign(R.string.kbd_design_solid, 0, Color.BLACK,0, DF_BOLD)
 // функциональные клавиши
 .setFuncKeysDesign(new KbdDesign(0, 0, Color.WHITE, 0, 0)
 .setKeysBackground(
-new BitmapCachedGradBack(0xff686868,0xff404040)
+new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
+		st.getSkinColorAlpha(0xff404040))
 .setGap(0)
-.setStroke(new BitmapCachedGradBack(0xff605960,0xff101418)
+.setStroke(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff605960),
+		st.getSkinColorAlpha(0xff101418))
 .setGap(0)
 )));
     }
@@ -691,7 +705,90 @@ new BitmapCachedGradBack(0xff686868,0xff404040)
         arLangs = al;
         return lng;
     }
-
+    public static void setDesignDefault()
+    {
+    	arDesign = null;
+    	arDesign = new KbdDesign[]
+        {
+                // Стандартный дизайн 
+                new KbdDesign(R.string.kbd_design_standard, 
+                              0, 
+                              Color.WHITE,
+                              0,
+                              0),
+                // iPhone
+                new KbdDesign(R.string.kbd_design_iphone, 
+                              0, 
+                              Color.BLACK,
+                              0,
+                              DF_BOLD|DF_BIG_GAP)
+                            .setKeysBackground(skinIPhoneKey())
+                            .setKbdBackground(new BitmapCachedGradBack(0xff9199a3,0xff444e5c).setCorners(0, 0).setGap(0))
+                            ,
+               // Украина
+               new KbdDesign(R.string.kbd_design_ukraine, 
+                       		0, 
+                       		Color.LTGRAY,
+                       		0,
+                       		DF_BOLD)
+                          	.setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff060a6c), st.getSkinColorAlpha(0xff1199af)).setGradType(GradBack.GRADIENT_TYPE_SWEEP))
+                           	.setKbdBackground(new BitmapCachedGradBack(Color.CYAN, Color.YELLOW).setGap(0).setCorners(0, 0))
+                                  	,
+              // Старая Украина 
+                new KbdDesign(R.string.kbd_design_ukraine_old, 
+                0, 
+          		Color.YELLOW,
+           		0,
+          		DF_BOLD)
+              	.setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff060a6c), st.getSkinColorAlpha(0xff1199af)).setGradType(GradBack.GRADIENT_TYPE_SWEEP))
+              	.setKbdBackground(new BitmapCachedGradBack(Color.CYAN, Color.YELLOW).setGap(0).setCorners(0, 0))
+                                    	,
+               // скины из функций
+               skinHTCDesign(),
+               skinMagentaDesign(),
+               skinDarkDesign(),
+               skinSolidDesign(),
+               // Шоколад
+               new KbdDesign(R.string.kbd_design_chokolate, 
+                             0, 
+                             0xffffffc0,
+                             0,
+                             DF_BOLD)
+                     .setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff75412b), 
+                    		 st.getSkinColorAlpha(0xffc16643)).setGradType(GradBack.GRADIENT_TYPE_SWEEP))
+                     .setKbdBackground(new BitmapCachedGradBack(0xff400000, GradBack.DEFAULT_COLOR).setGap(0).setCorners(0, 0))
+                         ,
+               // красно-синий    	
+              new KbdDesign(R.string.kbd_design_red, 
+                        0, 
+                        Color.WHITE,
+                        0,
+                        0)
+                .setKeysBackground(new BitmapCachedGradBack(st.getSkinColorAlpha(0xff800000), 
+                		st.getSkinColorAlpha(0xffc00000)).setGradType(GradBack.GRADIENT_TYPE_SWEEP))
+                .setKbdBackground(new BitmapCachedGradBack(0xff000000,0xff00bbff).setCorners(0, 0).setGap(0))
+                ,
+                // из assets
+                new KbdDesign(R.string.design_keylifes1,"blackandwhite.skin"),
+                new KbdDesign(R.string.design_thepop3250_1,"thepop3250_1.skin"),
+                new KbdDesign(R.string.design_thepop3250_2,"blue.skin"),
+                new KbdDesign(R.string.design_thepop3250_3,"neon.skin"),
+                new KbdDesign(R.string.design_rusrespect1,"Notebook-2_by_RusRespect.skin"),
+                new KbdDesign(R.string.design_eliz1,"cream_2.skin"),
+                new KbdDesign(R.string.design_eliz2,"apple.skin"),
+                new KbdDesign(R.string.design_eliz3,"brown_1.skin"),
+                new KbdDesign(R.string.design_eliz4,"gold.skin"),
+                new KbdDesign(R.string.design_eliz5,"violet2.skin"),
+                new KbdDesign(R.string.design_eliz6,"drop.skin"),
+                new KbdDesign(R.string.design_eliz7,"cherry.skin"),
+                new KbdDesign(R.string.design_eliz8,"grey_2.skin"),
+                new KbdDesign(R.string.design_eliz9,"md_blue.skin"),
+                new KbdDesign(R.string.design_schenee,"Chocolate.skin"),
+                new KbdDesign(R.string.design_newportstyle,"NewPortStyle.skin"),
+                new KbdDesign(R.string.design_nad1,"Blue_and_gray.skin"),
+                new KbdDesign(R.string.design_nad2,"Brown&pink&yellow.skin"),
+        };
+    }
 }
 
 //// Рожденный в СССР    	

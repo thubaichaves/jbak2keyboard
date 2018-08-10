@@ -643,14 +643,23 @@ public class JbCandView extends RelativeLayout
 // нажатие на слово из автодополнения
                 if(ci==null) {
                 	word_on_click = ((TextView)v).getText().toString();
-//                    ServiceJbKbd.inst.setWord(((TextView)v).getText().toString(),false);
+                	if (st.fl_ac_separator_symbol) {
+                		if (word_on_click.length()==1
+                			&&!Character.isLetterOrDigit(word_on_click.charAt(0))
+                			) {
+                			ServiceJbKbd.inst.onKey(word_on_click.charAt(0), new int[] {});
+                			return;
+                		}
+                	}
+                		
+//                      ServiceJbKbd.inst.setWord(((TextView)v).getText().toString(),false);
                     ServiceJbKbd.inst.setWord(word_on_click,false);
-// увеличение  частоты использования слова в пользовательском словаре если включен интеллектуальный ввод
+//увеличение  частоты использования слова в пользовательском словаре если включен интеллектуальный ввод
                     if (st.student_dict) {
                    		st.freq_dict = 1;
                       	WordsService.command(WordsService.CMD_SAVE_WORD, word_on_click.trim(), ServiceJbKbd.inst);
 //                      	WordsService.command(WordsService.CMD_SAVE_WORD, ((TextView)v).getText().toString().trim(), ServiceJbKbd.inst);
-                                          }
+                    }
                 }
                 else
                     ServiceJbKbd.inst.setCompletionInfo(ci);

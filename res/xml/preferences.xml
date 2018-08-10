@@ -183,7 +183,13 @@
             	android:summary="@string/ac_place_arrow_down_desc"
             	android:title="@string/ac_place_arrow_down" />
 
-            <CheckBoxPreference
+        <CheckBoxPreference
+            	android:defaultValue="false"
+            	android:key="ac_replace_separator_symbol"
+            	android:summary="@string/ac_place_separator_symb_desc"
+            	android:title="@string/ac_place_separator_symb" />
+
+        <CheckBoxPreference
             	android:defaultValue="true"
             	android:key="ac_space"
             	android:summary="@string/set_ac_space_desc"
@@ -370,10 +376,11 @@
         android:summary="@string/set_kbd_background_desc" />
 
 <!-- прозрачность клавиатуры -->
-<!--     <Preference -->
-<!--         android:key="kbd_background_alpha" -->
-<!--         android:title="@string/set_kbd_background_alpha"  -->
-<!--         android:summary="@string/set_kbd_background_alpha_desc" /> -->
+    <Preference
+        android:key="kbd_background_alpha"
+	    android:defaultValue="10"
+        android:title="@string/set_kbd_background_alpha" 
+        android:summary="@string/set_kbd_background_alpha_desc" />
 
 <!-- индикаторы -->
         <PreferenceCategory android:title="@string/indicators" >

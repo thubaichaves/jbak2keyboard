@@ -75,6 +75,8 @@ public class ClipbrdService extends SameThreadTimer
     {
     	if (str == null)
     		return;
+    	if (str.isEmpty())
+    		return;
     	cancel();
         try{
             if(str.equals(m_sLastClipStr))
