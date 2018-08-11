@@ -2314,6 +2314,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	VibroThread.getInstance(this).readSettings();
         if (st.KBD_BACK_ALPHA.equals(key) || key == null){
             st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
+            st.setDesignDefault();
         }
         if (st.KBD_BACK_PICTURE.equals(key) || key == null){
         	st.kbd_back_pict = sharedPreferences.getString(st.KBD_BACK_PICTURE, st.STR_NULL);
