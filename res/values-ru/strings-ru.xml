@@ -296,7 +296,11 @@
 	<string name="share">Поделиться</string>
 	<string name="gesture_select_share">Поделиться выделенным</string>
 	<string name="send_share_create_list">Формируется список подходящих программ</string>
-						
+	<string name="gesture_selector_edittext">Переключатель раскладки редактирования и qwerty клавиатуры</string>
+	<string name="gesture_selector_calc">Переключатель раскладки калькулятора и qwerty клавиатуры</string>
+	<string name="gesture_selector_smile">Переключатель раскладки смайликов и qwerty клавиатуры</string>
+	<string name="gesture_selector_num">Переключатель числовой раскладки и qwerty клавиатуры</string>
+										
 <!-- запуск приложений -->
 	<string name="runapp_favorite"><b>Избранное</b>\nкороткое нажатие на текст- запуск</string>
 	<string name="runapp_all"><b>Общее</b>\nнажатие - запуск,\nдлинное нажатие - добавить в избранное</string>

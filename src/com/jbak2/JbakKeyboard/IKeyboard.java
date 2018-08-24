@@ -325,6 +325,7 @@ public class IKeyboard
         GradBack m_kbdBackground=null;
 /** Отдельное оформление для функциональных клавиш (цвет текста, фон, обводка) */        
         KbdDesign m_kbdFuncKeys =null;
+        
         public KbdDesign(int name,int drawable,int textColor,int backDrawable,int flags)
         {
             nameResId = name; 
@@ -598,10 +599,12 @@ new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
             }
             return name;
         }
-   // возвращает виртуальные языки (в программе они в конце списка и их невозможно выбрать)
+   /** возвращает виртуальные языки (в программе они в конце списка и 
+    * их невозможно выбрать) */
         final boolean isVirtualLang()
         {
-            return lang==LANG_SYM||lang==LANG_SMIL||lang==LANG_SYM1||lang==LANG_EDIT||lang==LANG_NUM||lang==LANG_CALC;
+            return lang==LANG_SYM||lang==LANG_SMIL||lang==LANG_SYM1
+            		||lang==LANG_EDIT||lang==LANG_NUM||lang==LANG_CALC;
         }
     }
 //*****************************************************************    
@@ -785,6 +788,7 @@ new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
                 new KbdDesign(R.string.design_eliz9,"md_blue.skin"),
                 new KbdDesign(R.string.design_schenee,"Chocolate.skin"),
                 new KbdDesign(R.string.design_newportstyle,"NewPortStyle.skin"),
+                new KbdDesign(R.string.design_glamor,"glamor.skin"),
                 new KbdDesign(R.string.design_nad1,"Blue_and_gray.skin"),
                 new KbdDesign(R.string.design_nad2,"Brown&pink&yellow.skin"),
         };

@@ -320,10 +320,7 @@ public class CustomKbdScroll
                     gd.showAlert();
                     return;
                 case R.id.close:
-                	st.fl_fiks_tpl = true;
-                	st.fl_fiks_calc = true;
                     close();
-                    closeTplAndTrans();
                 	return;
                 case R.id.help:
                		st.help += st.c().getString(R.string.mm_info);

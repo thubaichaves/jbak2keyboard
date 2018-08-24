@@ -16,8 +16,12 @@ import android.content.Context;
 public class IniFile {
     // срок (2 недели) перед первым выскакиванием просьбы оценить
 	public long RATE_FIRST_TIME= 1000l*3600l*24l*14l;
+	// для тестирования
+//	public long RATE_FIRST_TIME= 1000l*300l;
     // время ожидания до повторной просьбы оценить, если юзер нажал Нет на просьбе
 	public long RATE_NEGATIVE_TIME= 1000l*1200l;
+	// для тестирования
+//	public long RATE_NEGATIVE_TIME= 1000l*120l;
 	// массив параметров
 	public ArrayList<iniParam> par = new ArrayList<iniParam>();
 	// переданный контекст

@@ -18,7 +18,7 @@ public class Help extends Activity
         setContentView(R.layout.help);
 // для вывода любой справки, нужно перед вызовом этой активности задать строку в
 // st.help, которая при выходе из активности обнуляется.
-// если строка не задана, то вызывается клавиша с кодом -514
+// если строка не задана, то вызывается клавиша с кодом st.CMD_HELP
         et = (EditText)findViewById(R.id.help_et1);
         et.setText(st.STR_NULL);
         if (st.help.length()>0){
@@ -26,9 +26,13 @@ public class Help extends Activity
         } else {
         	JbKbd curkbd = st.curKbd();
         	if (curkbd!=null) {
-        		LatinKey key = curkbd.getKeyByCode(-514);
+        		LatinKey key = curkbd.getKeyByCode(st.CMD_HELP);
         		if (key!=null)
-        		et.setText(key.help);
+        			et.setText(key.help);
+        		else 
+        			key = curkbd.getKeyByLongCode(st.CMD_HELP);
+        		if (key!=null)
+        			et.setText(key.help);
         	}
         }
         st.hidekbd();

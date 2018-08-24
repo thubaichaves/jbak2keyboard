@@ -294,7 +294,12 @@
 	<string name="share">Compartir</string>
 	<string name="gesture_select_share">Compartir texto seleccionado</string>
 	<string name="send_share_create_list">Preparando la lista de aplicaciones apropiadas</string>
-				
+
+	<string name="gesture_selector_edittext">Cambio entre el teclado de edición y el teclado qwerty </string>
+  	<string name="gesture_selector_calc">Cambio entre el calculador y el teclado qwerty</string>
+   	<string name="gesture_selector_smile">Cambio entre el teclado de emoticones y el teclado qwerty</string>
+    <string name="gesture_selector_num">Cambio entre el teclado numérico y el teclado qwerty</string>
+    			
 <!-- запуск приложений -->
 	<string name="runapp_favorite"><b>Favoritos</b>\npulsación corta: ejecutar la aplicación</string>
 	<string name="runapp_all">pulsación corta: ejecutar la aplicación,\n pulsación larga: añadir en favoritos</string>
@@ -798,7 +803,7 @@
 	<string name="design_rusrespect1">Notebook</string>    
 	<string name="design_keylifes1">En blanco y negro by keyslifes</string>    
 			
- 	<string name="lang_symbol">Teclado de símbolos</string>   
+	<string name="lang_symbol">Teclado de símbolos</string>   
  	<string name="lang_symbol_shift">Teclado de símbolos adicionales</string>   
  	<string name="lang_edittext">Teclado de edición</string>   
  	<string name="lang_edittext2">Teclado de edición MWcorp</string>   

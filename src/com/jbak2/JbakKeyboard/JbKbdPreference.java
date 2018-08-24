@@ -52,7 +52,12 @@ import com.jbak2.perm.Perm;
 @SuppressLint("NewApi")
 public class JbKbdPreference extends PreferenceActivity implements OnSharedPreferenceChangeListener
 {
-	File file_crash;
+//	/**  время момента нажатия кнопки Да для оценки приложения */
+//	long rateStart = 0;
+//    long rateLen = 0;
+//    String rateapp = null;
+
+    File file_crash;
 	private static final int MAX_STACK_STRING = 8192;
 	private static final String CAUSED_BY = "caused by";
 	public static final String SAVE_CRASH = "/save_crash.txt";
@@ -127,7 +132,8 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
 		cur_time = new Date().getTime();
 		ini = null;
 		preOper();
-    
+//		rateStart = 0;
+		
 // основной конструктор
 // вывод установленных значений
 //        inst = this;
@@ -293,6 +299,38 @@ public class JbKbdPreference extends PreferenceActivity implements OnSharedPrefe
     	
 //		st.fl_pref_act = true;
 		super.onResume();
+//		if (rateStart!=0) {
+//			st.toast("rateStart!=0\n");
+//			try {
+//				if (ini!=null) {
+//					rateLen = new Date().getTime();
+//					rateapp = ini.getParamValue(ini.RATE_APP);
+//					if (rateapp == null) {
+//						st.toast("rateapp==null");
+//						ini.setParam(ini.RATE_APP, st.STR_ZERO);
+//						rateStart = 0;
+//					} else {
+//						st.toast("rateapp!=null");
+//						// если приложение уже оценивалось, то длительность времени
+//						// проведенного в маркете не проверяем, а сразу пишем
+//						if (rateapp.compareTo(st.STR_ONE)==0) {
+//			 	           	ini.setParam(ini.RATE_APP, st.STR_ONE);
+//			 	           rateStart = 0;
+//						}
+//						// время потраченное на оценку - если больше текущего,
+//						// то пишем в RATE_APP
+//						else if ((long)(rateStart+15000) >= rateLen+15000) {
+//				 	           	ini.setParam(ini.RATE_APP, st.STR_ONE);
+//				 	           rateStart = 0;
+//						}
+//					}
+//					
+//				}
+//			} catch (Throwable e) {
+//				rateStart = 0;
+//			}
+//		}
+
         Ads.show(this,1);
 
 // основной код        
@@ -1572,12 +1610,21 @@ public void checkStartIntent()
  	      alertDialogBuilder
  	          // Set dialog message
  	          .setMessage(getString(R.string.rate_about))
- 	                  .setCancelable(false)
+ 	                  .setCancelable(true)
  	    	          .setNegativeButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
  	    	 	            public void onClick(DialogInterface dialog, int id) {
  	    	 	            	if (ini==null)
  	    	 	            		return;
- 	    	 	            	ini.setParam(ini.RATE_APP, st.STR_ONE);
+ 	    	 	            	// не делать оценку проведённого времени в маркете
+ 	    	 	            	// гугл может это воспринять как повторное вымогательство
+ 	    	 	            	// отзыва
+// 	    	 	            	try {
+// 	 	    	 	            	rateStart = new Date().getTime();
+//								} catch (Throwable e) {
+//								}
+
+ 	    	 	              ini.setParam(ini.RATE_APP, st.STR_ONE);
+
 // 	    	  	              saveIniParam(st.INI_RATE_APP,st.STR_ONE);
 // 	    	 	              saveIniParam("rate_start_time",st.STR_ZERO);
  	    	 	            	
@@ -1593,7 +1640,9 @@ public void checkStartIntent()
  	            public void onClick(DialogInterface dialog, int id) {
 //	 	            	saveIniParam(START_TIME,st.STR_NULL+(long)(cur_time+TIME_NEGATIVE_MONTH));
 //	 	 	            saveIniParam(st.INI_RATE_APP,st.STR_ZERO);
-	 	            	dialog.cancel();
+
+// 	            	rateStart = 0;	
+ 	            	dialog.cancel();
  	            }
  	          });
  	      AlertDialog alertDialog = alertDialogBuilder.create(); // Create alert dialog

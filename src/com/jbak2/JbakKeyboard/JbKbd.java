@@ -35,6 +35,7 @@ public class JbKbd extends Keyboard {
     public Keybrd kbd;
     ArrayList<Replacement> arReplacement = new ArrayList<Replacement>();
     ArrayList<Replacement> tempReplace = new ArrayList<Replacement>();
+    
     public JbKbd(Context context, Keybrd kbd) {
         super(context, kbd.resId);
         this.kbd = kbd;
@@ -96,8 +97,6 @@ public class JbKbd extends Keyboard {
  */
     void setImeOptions(Resources res, int options) {
 // я добавил, чтоб изображение на ентере менялось
-// закоментил, ибо при использовании ентер
-// теряет статус specKey (разобраться)
     	if (st.fl_enter_state){
         	LatinKey key = st.kv().getKeyByCode(10);
             if (key!=null)
@@ -178,6 +177,20 @@ public class JbKbd extends Keyboard {
         }
         return null;
     }
+    LatinKey getKeyByLongCode(int code)
+    {
+        List<Key> ar = getKeys();
+        for(Iterator<Key>it = ar.iterator();it.hasNext();)
+        {
+        	LatinKey k = (LatinKey) it.next();
+            if(k.longCode!=0)
+            {
+                if(k.longCode==code)
+                    return (LatinKey)k;
+            }
+        }
+        return null;
+    }
     LatinKey getKeyByRegistry(int code)
     {
         List<Key> ar = getKeys();
@@ -211,7 +224,8 @@ public class JbKbd extends Keyboard {
     }
 
 /** Собственный класс клавиш. Отнаследован от системного. <br>
- * При создании клавиши, если метка содержит разделитель \n - рисуется собственная картинка через {@link KeyDrw} 
+ * При создании клавиши, если метка содержит разделитель 
+ * \n - рисуется собственная картинка через {@link KeyDrw} 
  */
     static class LatinKey extends Keyboard.Key 
     {

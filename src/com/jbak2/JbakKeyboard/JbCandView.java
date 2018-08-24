@@ -1675,7 +1675,7 @@ public class JbCandView extends RelativeLayout
      	}
      	if (text == 50) {
      		calcRegX = Double.valueOf(calc_ind);
-    		calcRegX = Math.pow(calcRegX,calcRegY);
+    		calcRegX = Math.pow(calcRegY,calcRegX);
      		setCalcRegRotation();
      		calc_ind=String.valueOf(calcRegX);
      		calc_rez=true;

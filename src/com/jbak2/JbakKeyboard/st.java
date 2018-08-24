@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -131,6 +132,8 @@ public class st extends IKeyboard implements IKbdSettings
 	public static boolean fl_pref_act = false;
 // строка для запуска интента для маркета
 	public static String RUN_MARKET_STRING = "https://play.google.com/store/apps/details?id=";
+// строка имени пакета google play
+	public static String APP_GOOGLE_PLAY_PACKAGE= "com.android.vending";
 // слова в автодополнении по умолчанию
 	public static String AC_DEF_WORD = "$[-500,Menu] ! @ ? ; : , .";
 // последнее состояние шифта
@@ -739,6 +742,19 @@ public class st extends IKeyboard implements IKbdSettings
     /** Обработчик операции */  
         UniObserver m_obs;
     }
+    /**  возвращает значение int, какая клава сейчас запущена
+     * 0 - никакая,
+     * 1 - qwerty, 2 - не qwerty*/
+    public static int isQwertyKeyboard()
+    {
+        JbKbd jk = st.curKbd();
+        if (jk==null)
+        	return 0;
+        Keybrd kbd = jk.kbd;
+        if (isQwertyKeyboard(kbd))
+        	return 1;
+        return 2;
+    }
     public static boolean isQwertyKeyboard(Keybrd k)
     {
         return !k.lang.isVirtualLang();
@@ -759,14 +775,12 @@ public class st extends IKeyboard implements IKbdSettings
     {
     	st.type_kbd = 3;
 
-    	boolean m_def_window=true;
     	JbKbdView.inst.setKeyboard(loadKeyboard(getKeybrdForLangName(LANG_EDITTEXT)));
 
     }
 /** Установка клавиатуры смайликов */
     public static void setSmilesKeyboard()
     {
-    	boolean m_def_window=true;
         JbKbdView.inst.setKeyboard(loadKeyboard(getKeybrdForLangName(LANG_SMILE)));
     }
     /** Установка цифровой клавиатуры */
@@ -964,6 +978,7 @@ public class st extends IKeyboard implements IKbdSettings
     static boolean kbdCommand(int action)
     {
     	Context c = st.c();
+    	int qwerty_kbd = isQwertyKeyboard();
         switch(action)
         {
         	case CMD_SHOW_COPY_NUMBER_ANY_NOTATION:
@@ -1138,7 +1153,7 @@ public class st extends IKeyboard implements IKbdSettings
             break;
             // запуск раскладки редактирования            
             case CMD_RUN_KBD_EDIT:
-                st.setTextEditKeyboard();
+                	st.setTextEditKeyboard();
             break;
             // запуск раскладки смайликов            
             case CMD_RUN_KBD_SMILE:
@@ -1155,6 +1170,50 @@ public class st extends IKeyboard implements IKbdSettings
             	com_menu.close();
 //            	tpl.setDir(2,1);
                 st.setCalcKeyboard();
+            break;
+            case GESTURE_SELECTOR_EDITTEXT_QWERTY:
+            	switch(qwerty_kbd)
+            	{
+            	case 1:
+                	st.setTextEditKeyboard();
+                	break;
+            	case 2:
+            		st.setQwertyKeyboard();
+            		break;
+            	}
+            break;
+            case GESTURE_SELECTOR_CALC_QWERTY:
+            	switch(qwerty_kbd)
+            	{
+            	case 1:
+                	st.setCalcKeyboard();
+                	break;
+            	case 2:
+            		st.setQwertyKeyboard();
+            		break;
+            	}
+            break;
+            case GESTURE_SELECTOR_SMILE_QWERTY:
+            	switch(qwerty_kbd)
+            	{
+            	case 1:
+                	st.setSmilesKeyboard();;
+                	break;
+            	case 2:
+            		st.setQwertyKeyboard();
+            		break;
+            	}
+            break;
+            case GESTURE_SELECTOR_NUM_QWERTY:
+            	switch(qwerty_kbd)
+            	{
+            	case 1:
+                	st.setNumberKeyboard();
+                	break;
+            	case 2:
+            		st.setQwertyKeyboard();
+            		break;
+            	}
             break;
             case CMD_CALC_HISTORY: return com_menu.showCalcHistory();
             case CMD_CALC_LIST: return com_menu.showCalcList();
@@ -2027,13 +2086,16 @@ public class st extends IKeyboard implements IKbdSettings
         });
         gd.showAlert();
     }
-    // установлен ли пакет packageName на гаджете
+    /** установлен ли пакет packageName на гаджете */
     public static boolean isAppInstalled(Context c, String packageName) {
         PackageManager pm = c.getPackageManager();
         boolean installed = false;
         try {
-           pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-           installed = true;
+        	pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+        	ApplicationInfo  ai = pm.getApplicationInfo(packageName,0);
+        	if (ai==null)
+                return false;
+           installed = ai.enabled;
         } catch (PackageManager.NameNotFoundException e) {
            installed = false;
         }
@@ -2165,10 +2227,10 @@ public class st extends IKeyboard implements IKbdSettings
     	arGestures.add(new KbdGesture(R.string.gesture_endstr, TXT_ED_END_STR));
     	arGestures.add(new KbdGesture(R.string.gesture_mainmenu, CMD_MAIN_MENU));
     	arGestures.add(new KbdGesture(R.string.gesture_d_vr, CMD_VOICE_RECOGNIZER));
-    	arGestures.add(new KbdGesture(R.string.lang_calc, CMD_CALC));
-    	arGestures.add(new KbdGesture(R.string.lang_edittext, CMD_RUN_KBD_EDIT));
-    	arGestures.add(new KbdGesture(R.string.lang_smiles, CMD_RUN_KBD_SMILE));
-    	arGestures.add(new KbdGesture(R.string.lang_numbers, CMD_RUN_KBD_NUM));
+    	arGestures.add(new KbdGesture(R.string.gesture_selector_calc, GESTURE_SELECTOR_CALC_QWERTY));
+    	arGestures.add(new KbdGesture(R.string.gesture_selector_edittext, GESTURE_SELECTOR_EDITTEXT_QWERTY));
+    	arGestures.add(new KbdGesture(R.string.gesture_selector_smile, GESTURE_SELECTOR_SMILE_QWERTY));
+    	arGestures.add(new KbdGesture(R.string.gesture_selector_num, GESTURE_SELECTOR_NUM_QWERTY));
     	arGestures.add(new KbdGesture(R.string.lang_symbol_selector, CMD_RUN_KBD_SYMBOL));
     	arGestures.add(new KbdGesture(R.string.gesture_cut, TXT_ED_CUT));
     	arGestures.add(new KbdGesture(R.string.gesture_copy, TXT_ED_COPY));

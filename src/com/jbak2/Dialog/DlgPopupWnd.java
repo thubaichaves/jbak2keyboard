@@ -6,6 +6,7 @@ import com.jbak2.JbakKeyboard.JbCandView;
 import com.jbak2.JbakKeyboard.R;
 import com.jbak2.JbakKeyboard.ServiceJbKbd;
 import com.jbak2.JbakKeyboard.st;
+import com.jbak2.ctrl.GlobDialog;
 import com.jbak2.perm.Perm;
 
 import android.R.drawable;
@@ -32,7 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 /** диалог на клавиатуре */
-public class DlgPopupWnd  extends Activity 
+public class DlgPopupWnd
 {
 	int MARGIN = 10;
 	int yoff = 0;
@@ -66,6 +67,12 @@ public class DlgPopupWnd  extends Activity
             }
         }
     };
+//    @Override
+//    public void onDestroy() 
+//    {
+//    	dismiss();
+//   		super.onDestroy();
+//    }
     public View createView()
     {
         LinearLayout ll = new LinearLayout(m_c);
@@ -194,6 +201,7 @@ public class DlgPopupWnd  extends Activity
     }
     public void dismiss()
     {
+    	//st.toast("bb");
     	if (pw!=null){
     		try {
         		pw.dismiss();

@@ -754,7 +754,7 @@ public class CustomKeyboard extends JbKbd
     	if (st.type_keyboard.compareTo(TYPE_LAYOUT_SCROLL) == 0) {
     		if (CustomKbdScroll.inst!=null)
     			CustomKbdScroll.close();
-    		new CustomKbdScroll().show(null, false);
+    		new CustomKbdScroll().showCalcHistory();//show(null, false);
     		return true;
     	}
         LatinKey k = newKey();

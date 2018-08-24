@@ -22,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -87,6 +88,8 @@ import com.jbak2.words.IWords.WordEntry;
 @SuppressLint("NewApi")
 public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnKeyboardActionListener, OnSharedPreferenceChangeListener
 {
+	/**  наличие на устройстве гугл маркета*/
+	boolean googleplayexist = false;
 	/** слово до срабатывания компаратора */
 	String old_word = null;
 	Notif notif = null;
@@ -425,7 +428,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		return false;
     	fl_newvers = false;
         // оценивалось ли приложение?
-    	checkRate(ini);
+    	checkRate();
     	param = ini.getParamValue(ini.VERSION_CODE);
     	if (param == null) {
             ini.setParam(ini.VERSION_CODE, st.getAppVersionCode(inst));
@@ -433,7 +436,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	}
     	if (st.getAppVersionCode(inst).compareToIgnoreCase(param)==0)
     		return false;
-    	final DlgPopupWnd dpw = new DlgPopupWnd(inst);
+    	 DlgPopupWnd dpw = new DlgPopupWnd(inst);
     	dpw.setGravityText(Gravity.LEFT|Gravity.TOP);
     	String str = inst.getString(R.string.nv_upload)+st.STR_CR+st.STR_CR
     			+getTextNewVersion(); 
@@ -447,41 +450,22 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
                 {
                 	st.exitApp();
                 }
-            	dpw.dismiss();
+            	//dpw.dismiss();
                 return 0;
             }
         });
     	dpw.show(0);
 
-//    	acGone();
-//        GlobDialog gd = new GlobDialog(inst);
-//        gd.setGravityText(Gravity.LEFT|Gravity.TOP);
-//        gd.set(getTextNewVersion(), R.string.ok, 0);
-//        gd.fl_help=true;
-//        gd.fl_back_key = true;
-//        gd.setObserver(new st.UniObserver()
-//        {
-//            @Override
-//            public int OnObserver(Object param1, Object param2)
-//            {
-//            	GlobDialog.fl_help = false;
-//    	    	fl_newvers = false;
-//    	        if (JbKbdView.inst != null)
-//    	        	reinitKeyboardView();
-//
-//           		processCaseAndCandidates();
-//                return 0;
-//            }
-//        });
-//        gd.showAlert();
 
 
         ini.setParam(ini.VERSION_CODE, st.getAppVersionCode(inst));
     	fl_newvers = true;
     	return true;
     }
-    public void checkRate(IniFile ini)
+    public void checkRate()
     {
+    	if (ini==null)
+    		return;
 		curtime = new Date().getTime();
     	param = ini.getParamValue(ini.RATE_APP);
     	if (param == null) {
@@ -492,7 +476,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		initime = 0;
         	param = ini.getParamValue(ini.START_TIME);
     		if (param == null) {
-        		ini.setParam(ini.START_TIME, st.STR_NULL+curtime);
+        		ini.setParam(ini.START_TIME, st.STR_NULL+(long)(curtime+ini.RATE_FIRST_TIME));
     			initime = curtime;
     		}else {
     			try {
@@ -501,9 +485,23 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     				initime=curtime;;
     			}
     		}
-    		if (ini.RATE_FIRST_TIME+initime<=curtime){
-    			st.toastLong(R.string.rate_toast);
-    			ini.setParam(ini.START_TIME, st.STR_NULL+(long)(curtime+ini.RATE_NEGATIVE_TIME));
+//    		String scurtime = "dd.MM.yyyy HH:mm:ss";
+//    		Date dt = new Date();
+//    		dt.setTime(curtime);
+//    		SimpleDateFormat sdf = new SimpleDateFormat(scurtime);
+//    		scurtime = sdf.format(dt);
+//    		String spartime= "dd.MM.yyyy HH:mm:ss";
+//    		dt = new Date();
+//    		dt.setTime((long)(initime));
+//    		sdf = new SimpleDateFormat(spartime);
+//    		scurtime = scurtime;
+//    		spartime = sdf.format(dt);
+
+    		if ((initime)<=curtime){
+    			if (googleplayexist) {
+        			st.toastLong(R.string.rate_toast);
+        			ini.setParam(ini.START_TIME, st.STR_NULL+(long)(curtime+ini.RATE_NEGATIVE_TIME));
+    			}
     		}
     	}
     }
@@ -606,10 +604,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     }
     public final String getCurQwertyLang()
     {
-        JbKbd k = st.curKbd();
-        if(k==null)
+        JbKbd ck = st.curKbd();
+        if(ck==null)
             return null;
-        return st.isQwertyKeyboard(k.kbd)?k.kbd.lang.name:st.getCurLang();
+        return st.isQwertyKeyboard(ck.kbd)?ck.kbd.lang.name:st.getCurLang();
     }
     final void openWords()
     {
@@ -624,6 +622,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     @Override
     public void onStartInput(EditorInfo attribute, boolean restarting)
     {
+    	googleplayexist = st.isAppInstalled(inst, st.APP_GOOGLE_PLAY_PACKAGE);
+    	//st.toast(inst, "gp= "+googleplayexist);
         if(m_candView!=null)
             showCandView(true);
         if (attribute.initialSelStart < 0 && attribute.initialSelEnd < 0&&attribute.imeOptions==0)

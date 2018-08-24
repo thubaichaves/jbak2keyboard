@@ -297,7 +297,12 @@
 	<string name="share">Поділитися</string>
 	<string name="gesture_select_share">Поділитися виділенним</string>
 	<string name="send_share_create_list">Формується список придатних програм</string>
-				
+
+	<string name="gesture_selector_edittext">Переключатель раскладки редактирования и qwerty клавиатуры</string>
+	<string name="gesture_selector_calc">Переключатель раскладки калькулятора и qwerty клавиатуры</string>
+	<string name="gesture_selector_smile">Переключатель раскладки смайликов и qwerty клавиатуры</string>
+	<string name="gesture_selector_num">Переключатель числовой раскладки и qwerty клавиатуры</string>
+			
 <!-- запуск приложений -->
 	<string name="runapp_favorite"><b>Обрані</b>\nкороткий натиск - запуск</string>
 	<string name="runapp_all"><b>Загальні</b>\nкороткий натиск - запуск,\nдовгий натиск - додати в Обрані</string>
@@ -791,7 +796,7 @@
 	<string name="design_rusrespect1">Ноутбук</string>    
 	<string name="design_keylifes1">Чорно-білий by keyslifes</string>    
 			
-  <string name="lang_symbol">Символьна клавіатура</string>
+	<string name="lang_symbol">Символьна клавіатура</string>
   <string name="lang_symbol_shift">Дод. символьна клавіатура</string>
   <string name="lang_edittext">Клавіатура правки тексту</string>
  	<string name="lang_edittext2">Клавіатура правки тексту MWcorp</string>   

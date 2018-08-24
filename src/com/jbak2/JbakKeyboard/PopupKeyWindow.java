@@ -97,6 +97,7 @@ public class PopupKeyWindow
         addView(xoff, yoff);
         if(m_tm!=null)
             m_tm.cancel();
+        // длительность показа окна
         m_tm = new SameThreadTimer(300,0)
         {
             @Override

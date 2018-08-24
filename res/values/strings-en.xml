@@ -294,7 +294,12 @@
 	<string name="share">Share</string>
 	<string name="gesture_select_share">Share selected text</string>
 	<string name="send_share_create_list">Making a list of appropriate applications</string>
-	
+
+	<string name="gesture_selector_edittext">Switch between the TextEdit and qwerty keyboard</string>
+  	<string name="gesture_selector_calc">Switch between the calculator and qwerty keyboard</string>
+   	<string name="gesture_selector_smile">Switch between the emoji and qwerty keyboard</string>
+    <string name="gesture_selector_num">Switch between the numeric and qwerty keyboard</string>
+			
 <!-- запуск приложений -->
 	<string name="runapp_favorite"><b>Favorites</b>\npress on text: launch the application</string>
 	<string name="runapp_all"><b>All</b>\nshort keypress: launch the application,\nlong keypress: add to Favorites</string>
@@ -363,7 +368,7 @@
 <!-- оценка приложения -->
     <string name="rate_title">Application evaluation</string>
     <string name="rate_about">Please, rate this app.</string>
-	<string name="rate_toast">Please, rate this app (via settings),\nand this message will never be shown again.</string>    
+    <string name="rate_toast">Please, rate this app (via settings),\nand this message will never be shown again.</string>    
 <!-- Как пользоваться клавиатурой -->
     <string name="ann">How to use the keyboard</string>
 	<string name="ann_info">\n(it can take a long time to open on low-power devices)</string>
@@ -822,6 +827,7 @@
 	<string name="design_rusrespect1">Notebook</string>    
 	<string name="design_keylifes1">Black and white by keyslifes</string>    
 	<string name="design_newportstyle">NewPortStyle by jenibek</string>    
+	<string name="design_glamor">Glamor by jenibek</string>    
 	<string name="design_nad1">Blue_and_gray by Надежда Ф</string>    
 	<string name="design_nad2">Brown_pink_yellow by Надежда Ф</string>    
 						

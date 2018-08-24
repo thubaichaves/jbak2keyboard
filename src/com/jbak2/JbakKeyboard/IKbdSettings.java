@@ -518,6 +518,13 @@ public interface IKbdSettings
     public static final int CMD_EDIT_USER_VOCAB = -616;
     /** внутренняя команда - показать скопированное число в разных системах счисления */    
     public static final int CMD_SHOW_COPY_NUMBER_ANY_NOTATION = -617;
+    
+    /** переключатели раскладок для жестов */    
+    public static final int GESTURE_SELECTOR_CALC_QWERTY = -618;
+    public static final int GESTURE_SELECTOR_EDITTEXT_QWERTY = -619;
+    public static final int GESTURE_SELECTOR_SMILE_QWERTY = -620;
+    public static final int GESTURE_SELECTOR_NUM_QWERTY = -621;
+
 
     /** стартовое число для посылки кейкодов клавиш по формуле 0-KEYCODE_CODE-посылаемый_код */
     // занимает промежуток кодов -5000 - -7000

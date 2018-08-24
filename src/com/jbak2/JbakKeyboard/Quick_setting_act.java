@@ -428,24 +428,50 @@ public class Quick_setting_act extends Activity
       	if (GlobDialog.gbshow){
     		return;
     	}
-	        GlobDialog gd1 = new GlobDialog(inst);
-	        gd1.setGravityText(Gravity.LEFT|Gravity.TOP);
-	        gd1.set(R.string.qs_end_msg, R.string.no, R.string.yes);
-	        gd1.setObserver(new st.UniObserver()
-	        {
-	            @Override
-	            public int OnObserver(Object param1, Object param2)
-	            {
-	               	finish();
-	                if(((Integer)param1).intValue()==AlertDialog.BUTTON_NEUTRAL)
-	                {
-	                   	st.desc_act_ini(1);
-	                  	st.runAct(Desc_act.class, inst);
-	                }
-	                return 0;
-	            }
-	        });
-	        gd1.showAlert();
+//      	st.UniObserver obs = new st.UniObserver() {
+//			
+//			@Override
+//			public int OnObserver(Object param1, Object param2) {
+//               	finish();
+//                if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+//                {
+//                   	st.desc_act_ini(1);
+//                  	st.runAct(Desc_act.class, inst);
+//                }
+//				return 0;
+//			}
+//		};
+      	Dlg.yesNoDialog(inst, inst.getString(R.string.qs_end_msg), new st.UniObserver() {
+			
+			@Override
+			public int OnObserver(Object param1, Object param2) {
+               	finish();
+                if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                {
+                   	st.desc_act_ini(1);
+                  	st.runAct(Desc_act.class, inst);
+                }
+				return 0;
+			}
+		});
+//	        GlobDialog gd1 = new GlobDialog(inst);
+//	        gd1.setGravityText(Gravity.LEFT|Gravity.TOP);
+//	        gd1.set(R.string.qs_end_msg, R.string.no, R.string.yes);
+//	        gd1.setObserver(new st.UniObserver()
+//	        {
+//	            @Override
+//	            public int OnObserver(Object param1, Object param2)
+//	            {
+//	               	finish();
+//	                if(((Integer)param1).intValue()==AlertDialog.BUTTON_NEUTRAL)
+//	                {
+//	                   	st.desc_act_ini(1);
+//	                  	st.runAct(Desc_act.class, inst);
+//	                }
+//	                return 0;
+//	            }
+//	        });
+//	        gd1.showAlert();
       }
       public static void saveQuickSetting()
       {
