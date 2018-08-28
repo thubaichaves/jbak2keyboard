@@ -354,6 +354,7 @@
     <string name="rate_title">Evaluación de la aplicación</string>
     <string name="rate_about">Por favor, evalúa la aplicación</string>
     <string name="rate_toast">Por favor, evalúa esta aplicación (a través de los ajustes),\ny este mensaje no volverá a aparecer.</string>
+    <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
     
 <!-- активность help -->
     <string name="help">Soporte</string>
@@ -632,7 +633,8 @@
     <string name="cancel">Cancelar</string>
     <string name="yes">Sí</string>
     <string name="no">No</string>
-	<string name="empty">Vacío</string>
+	<string name="later">Más tarde</string>
+    <string name="empty">Vacío</string>
 	<string name="unload">Detener</string>
 	<string name="create">Создано</string>
 	<string name="save">Guardar</string>

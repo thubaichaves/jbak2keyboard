@@ -369,6 +369,8 @@
     <string name="rate_title">Application evaluation</string>
     <string name="rate_about">Please, rate this app.</string>
     <string name="rate_toast">Please, rate this app (via settings),\nand this message will never be shown again.</string>    
+    <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
+    
 <!-- Как пользоваться клавиатурой -->
     <string name="ann">How to use the keyboard</string>
 	<string name="ann_info">\n(it can take a long time to open on low-power devices)</string>
@@ -651,7 +653,8 @@
     <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-	<string name="empty">Empty</string>
+	<string name="later">Later</string>
+    <string name="empty">Empty</string>
 	<string name="unload">Unload</string>
 	<string name="create">Create</string>
 	<string name="save">Save</string>

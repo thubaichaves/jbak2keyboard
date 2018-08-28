@@ -369,6 +369,7 @@
     <string name="rate_title">Оцінка додатку</string>
     <string name="rate_about">Будь ласка, оцініть додаток.</string>
     <string name="rate_toast">Будьласка, оцініть програму (через налаштування)\nі це нагадування більше з\'являтися не буде.</string>
+    <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
     
 <!-- активность help -->
     <string name="help">Допомога</string>
@@ -634,6 +635,7 @@
   <string name="cancel">Скасувати</string>
   <string name="yes">Так</string>
   <string name="no">Ні</string>
+	<string name="later">Позже</string>
   <string name="empty">Пусто</string>
 	<string name="unload">Выгрузить</string>
   	<string name="create">Створено</string>
