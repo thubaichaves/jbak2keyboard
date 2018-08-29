@@ -514,12 +514,15 @@ public class ServiceJbKbd extends InputMethodService
             	// yes
 				if (((Integer) param1).intValue() == AlertDialog.BUTTON_NEUTRAL) {
 					inifile.setParam(inifile.RATE_APP, st.STR_ONE);
-
- 	 	              Uri uri = Uri.parse(st.RUN_MARKET_STRING + getPackageName()); // Go to Android market
- 	 	              Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
- 	 	              if (goToMarket.resolveActivity(getPackageManager()) != null) {
- 	 	            	  inst.startActivity(goToMarket);
- 	 	              }
+					try {
+	 	 	              Uri uri = Uri.parse(st.RUN_MARKET_STRING + getPackageName()); // Go to Android market
+	 	 	              Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+	 	 	              if (goToMarket.resolveActivity(getPackageManager()) != null) {
+	 	 	            	  inst.startActivity(goToMarket);
+	 	 	              }
+					} catch (Throwable e) {
+						st.toast(st.STR_ERROR);
+					}
 				}
 				else {
 					// no
