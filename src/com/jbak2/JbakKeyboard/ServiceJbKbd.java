@@ -518,7 +518,7 @@ public class ServiceJbKbd extends InputMethodService
  	 	              Uri uri = Uri.parse(st.RUN_MARKET_STRING + getPackageName()); // Go to Android market
  	 	              Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
  	 	              if (goToMarket.resolveActivity(getPackageManager()) != null) {
- 	 	            	  startActivity(goToMarket);
+ 	 	            	  inst.startActivity(goToMarket);
  	 	              }
 				}
 				else {
