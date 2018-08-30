@@ -12,7 +12,7 @@ import java.util.Scanner;
 import com.jbak2.JbakKeyboard.st;
 import android.content.Context;
 
-// обработка своего .ini файла с доп параметрами
+/** обработка своего .ini файла с доп параметрами */
 public class IniFile {
     // срок (2 недели) перед первым выскакиванием просьбы оценить
 	public long RATE_FIRST_TIME= 1000l*3600l*24l*14l;

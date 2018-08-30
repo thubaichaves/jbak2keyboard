@@ -159,6 +159,7 @@ public class DlgPopupWnd
         		));
         return b;
     }
+    /** гравитация текста окна */
     public void setGravityText(int gravity)
     {
     	m_text_gravity = gravity;
@@ -166,8 +167,20 @@ public class DlgPopupWnd
     /** Позиция окна - если wnd_gravity = 0, то по умолчанию = Gravity.CENTER */
 	public void show(int wnd_gravity)
     {
-        // высота клавы
-        yoff = 0-st.kv().getCurKeyboard().getHeight();
+        // высота клавы, если ошибка, то возврат
+		// НЕ УДАЛЯТЬ! - значение yoff используется в createView
+		try {
+	        yoff = 0-st.kv().getCurKeyboard().getHeight();
+		} catch (Throwable e) {
+			dismiss();
+			return;
+		}
+
+		if (yoff > -10) {
+			dismiss();
+			return;
+		}
+			
         int cvh = 0;
         if (ServiceJbKbd.inst!=null
         		&ServiceJbKbd.inst.m_acPlace == JbCandView.AC_PLACE_KEYBOARD
