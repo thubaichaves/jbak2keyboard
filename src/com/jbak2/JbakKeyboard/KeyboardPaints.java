@@ -267,7 +267,7 @@ public class KeyboardPaints
 *@param val Значение для перевода
 *@return
  */
-    public static final float pixelToPerc(Context c,boolean bPortrait,float val)
+    public static final float getPixelToPerc(Context c,boolean bPortrait,float val)
     {
         float sh = getScreen(c, bPortrait);
         return val/sh;
@@ -279,7 +279,7 @@ public class KeyboardPaints
     *@param bEven true - вернуть четное значение
     *@return Размер в пикселях
      */
-        public static int percToPixel(Context c,boolean bPortrait,float val,boolean bEven)
+        public static int getPercToPixel(Context c,boolean bPortrait,float val,boolean bEven)
         {
             float sh = getScreen(c, bPortrait);
             float ret = val*sh;
@@ -312,13 +312,13 @@ public class KeyboardPaints
         switch(type)
         {
             case VAL_KEY_HEIGHT_PORTRAIT:
-                return percToPixel(c, true,p.getFloat(st.PREF_KEY_HEIGHT_PORTRAIT_PERC, getDefValue(type)),true);
+                return getPercToPixel(c, true,p.getFloat(st.PREF_KEY_HEIGHT_PORTRAIT_PERC, getDefValue(type)),true);
             case VAL_KEY_HEIGHT_LANDSCAPE:
-                return percToPixel(c, false,p.getFloat(st.PREF_KEY_HEIGHT_LANDSCAPE_PERC, getDefValue(type)),true);
+                return getPercToPixel(c, false,p.getFloat(st.PREF_KEY_HEIGHT_LANDSCAPE_PERC, getDefValue(type)),true);
             case VAL_TEXT_SIZE_MAIN:
             case VAL_TEXT_SIZE_SYMBOL:
             case VAL_TEXT_SIZE_LABEL:
-                return percToPixel(c, true,getDefValue(type),false);
+                return getPercToPixel(c, true,getDefValue(type),false);
         }
         return 0;
     }

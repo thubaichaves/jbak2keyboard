@@ -204,10 +204,14 @@ public class Desc_act extends Activity
 			@Override
 			public void onFocusChange(View v, boolean hasFocus)
 			{
-				if (hasFocus){
-					et_search.setBackgroundResource(R.drawable.edittext_back_focus_style);
-				}else 
-					et_search.setBackgroundResource(R.drawable.edittext_back_notfocus_style);
+				try {
+					if (hasFocus){
+						et_search.setBackgroundResource(R.drawable.edittext_back_focus_style);
+					}else 
+						et_search.setBackgroundResource(R.drawable.edittext_back_notfocus_style);
+				} catch (Throwable e) {
+				}
+
 			}
 		});
     	st.showkbd(et_search);

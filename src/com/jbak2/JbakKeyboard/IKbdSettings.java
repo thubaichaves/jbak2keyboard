@@ -156,14 +156,15 @@ public interface IKbdSettings
     public static final String PREF_KEY_LAST_LANG = "lastLng";
     /** @deprecated Ключ, int, хранящий высоту клавиш в портретном режиме */    
     public static final String PREF_KEY_HEIGHT_PORTRAIT = "kh";
-    /** Ключ, float, хранящий высоту клавиш в портретном режиме */    
-    public static final String PREF_AC_PLACE_HEIGHT_PORTRAIT_PERC = "kh_p";
+    /** Ключ, int, хранящий положение клавиатуры в портретном режиме */    
+    public static final String PREF_KEYBOARD_POS_PORT = "kbd_pos_p";
+    /** Ключ, int, хранящий положение клавиатуры в ландшафтном режиме */    
+    public static final String PREF_KEYBOARD_POS_LAND = "kbd_pos_l";
     /** Ключ, float, хранящий высоту клавиш в портретном режиме */    
     public static final String PREF_KEY_HEIGHT_PORTRAIT_PERC = "kh_p";
 /** @deprecated Ключ, int, хранящий высоту клавиш в ландшафтном режиме */    
     public static final String PREF_KEY_HEIGHT_LANDSCAPE = "khl";
     public static final String PREF_KEY_HEIGHT_LANDSCAPE_PERC = "kh_l";
-    public static final String PREF_AC_PLACE_HEIGHT_LANDSCAPE_PERC = "kh_l";
 /** Ключ, int, хранящий высоту клавиш по умолчанию, на всякий случай */    
     public static final String PREF_KEY_DEF_HEIGHT = "dh";
 /** Ключ, String, хранящий порядок переключения языков */    
@@ -525,6 +526,8 @@ public interface IKbdSettings
     public static final int GESTURE_SELECTOR_SMILE_QWERTY = -620;
     public static final int GESTURE_SELECTOR_NUM_QWERTY = -621;
 
+    /** внутренняя команда - временное отключение словаря */    
+    public static final int CMD_TEMP_STOP_DICT = -622;
 
     /** стартовое число для посылки кейкодов клавиш по формуле 0-KEYCODE_CODE-посылаемый_код */
     // занимает промежуток кодов -5000 - -7000

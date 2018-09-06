@@ -62,9 +62,14 @@ public class DlgPopupWnd
         @Override
         public void onClick(View v)
         {
-            if(m_obs!=null&&m_obs.OnObserver(Integer.valueOf(v.getId()), this)!=NO_FINISH){
+        	try {
+                if(m_obs!=null&&m_obs.OnObserver(Integer.valueOf(v.getId()), this)!=NO_FINISH){
+                	dismiss();
+                }
+			} catch (Throwable e) {
             	dismiss();
-            }
+			}
+
         }
     };
 //    @Override
@@ -175,12 +180,6 @@ public class DlgPopupWnd
 			dismiss();
 			return;
 		}
-
-		if (yoff > -10) {
-			dismiss();
-			return;
-		}
-			
         int cvh = 0;
         if (ServiceJbKbd.inst!=null
         		&ServiceJbKbd.inst.m_acPlace == JbCandView.AC_PLACE_KEYBOARD

@@ -569,37 +569,37 @@ public class PopupKeyboard
             	continue;
         	}
         	
-        	TextView btn = new TextView(inst);
-        	btn.setTextSize(st.btn_size);
-        	btn.setBackgroundColor(st.btn_bg);
-        	btn.setTextColor(st.btn_tc);
-        	btn.setId(id);
+        	TextView tv = new TextView(inst);
+        	tv.setTextSize(st.btn_size);
+        	tv.setBackgroundColor(st.btn_bg);
+        	tv.setTextColor(st.btn_tc);
+        	tv.setId(id);
         	st.setElementSpecFormatAddSymbol(st.ar_asg,txt[i],id);
         	ar = st.getElementSpecFormatSymbol(st.ar_asg, id);
         	if (ar!=null){
-        		btn.setText(ar.visibleText+st.STR_SPACE);
+        		tv.setText(ar.visibleText+st.STR_SPACE);
         		Drawable img = inst.getResources().getDrawable( R.drawable.bullet_red);
         		img.setBounds( 0, 0, 15, 15 );
-        		btn.setCompoundDrawables( img, null, null, null );
-        		btn.setCompoundDrawablePadding(2);
+        		tv.setCompoundDrawables( img, null, null, null );
+        		tv.setCompoundDrawablePadding(2);
         	} else
-        		btn.setText(st.STR_SPACE+st.STR_SPACE+txt[i]+st.STR_SPACE+st.STR_SPACE);
+        		tv.setText(st.STR_SPACE+st.STR_SPACE+txt[i]+st.STR_SPACE+st.STR_SPACE);
         	id++;
-        	btn.setOnClickListener(new OnClickListener() {
+        	tv.setOnClickListener(new OnClickListener() {
         	@Override
         		public void onClick(View v) 
         		{
-					ArrayFuncAddSymbolsGest el = st.getElementSpecFormatSymbol(st.ar_asg, v.getId());
-        			if (!pc2_block) 
-        				close();
-					if (el!=null){
-						if (ServiceJbKbd.inst!=null)
-							ServiceJbKbd.inst.processKey(el.code);
-        			} else
-        				new Templates(1,0).processTemplate(((TextView)v).getText().toString().trim());
+				ArrayFuncAddSymbolsGest el = st.getElementSpecFormatSymbol(st.ar_asg, v.getId());
+    			if (!pc2_block) 
+    				close();
+				if (el!=null){
+					if (ServiceJbKbd.inst!=null)
+						ServiceJbKbd.inst.processKey(el.code);
+    			} else
+    				new Templates(1,0).processTemplate(((TextView)v).getText().toString().trim());
         		}
     		});
-        	btn.setOnTouchListener(new View.OnTouchListener() {
+        	tv.setOnTouchListener(new View.OnTouchListener() {
 				
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
@@ -616,21 +616,21 @@ public class PopupKeyboard
 					return false;
 				}
 			});
-        	btn.setGravity(Gravity.CENTER);
-        	btn.setMaxLines(1);
-        	btn.setTransformationMethod(null);
-        	btn.setLayoutParams(btnpar);
+        	tv.setGravity(Gravity.CENTER);
+        	tv.setMaxLines(1);
+        	tv.setTransformationMethod(null);
+        	tv.setLayoutParams(btnpar);
         	
-            btn.measure(0, 0);
+        	tv.measure(0, 0);
             close.measure(0, 0);
             ll.measure(0, 0);
             int llcnt = ll.getMeasuredWidth();
-            if (llcnt+btn.getMeasuredWidth()+MARGIN>ll_btn_width){
+            if (llcnt+tv.getMeasuredWidth()+MARGIN>ll_btn_width){
         		llrow.addView(ll, llrowpar);
                 ll = new LinearLayout(inst);
                 ll.setOrientation(LinearLayout.HORIZONTAL);
         	}
-        	ll.addView(btn, llpar);
+        	ll.addView(tv, llpar);
         }
         if (ll.getChildCount() > 0)
     		llrow.addView(ll, llrowpar);

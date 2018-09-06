@@ -9,6 +9,18 @@
 	  android:id="@+id/kbd_set_controls"
 	  android:orientation="vertical"
     >  
+
+ <TextView
+     android:id="@+id/key_height_txt"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+     android:layout_marginBottom="10px"
+     android:layout_marginTop="10px"
+     android:gravity="left"
+     android:visibility="gone" 
+     android:text="@string/set_key_height" />
+
 <LinearLayout 
 	  android:layout_width="fill_parent"
 	  android:layout_height="wrap_content" 
@@ -34,6 +46,46 @@
 	  />  
     
 </LinearLayout>
+
+ <TextView
+     android:id="@+id/kbd_pos_txt"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentLeft="true"
+     android:layout_marginBottom="10px"
+     android:layout_marginTop="10px"
+     android:gravity="left"
+     android:visibility="gone" 
+     android:text="@string/set_kbd_horiz"
+     />
+
+<LinearLayout 
+	  android:id="@+id/set_kbd_pos"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content" 
+	  android:gravity="right"
+	  android:orientation="horizontal"
+     android:visibility="gone" 
+    >
+
+    <Button
+        android:id="@+id/default_kbd_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left" 
+  	    android:text="@string/def" 
+        />
+
+	<com.jbak2.ctrl.IntEditor
+	  android:id="@+id/kbd_pos"
+	  android:layout_gravity="center_horizontal"
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content" 
+ 	  android:layout_alignParentTop="true"
+	  />  
+    
+</LinearLayout>
+
 <RelativeLayout 
 	  android:id="@+id/select_kbd"	
 	  android:layout_width="fill_parent"

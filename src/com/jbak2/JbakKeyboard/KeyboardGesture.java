@@ -27,6 +27,10 @@ public class KeyboardGesture extends GestureDetector
             m_kv = kv;
             return this;
         }
+		@Override
+		public boolean onDoubleTap(MotionEvent e) {
+			return super.onDoubleTap(e);
+		}
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
         {

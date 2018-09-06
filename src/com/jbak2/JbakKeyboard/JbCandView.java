@@ -444,7 +444,8 @@ public class JbCandView extends RelativeLayout
         if(wd.compareType==TextTools.COMPARE_TYPE_NONE&&st.calc_fl_ind == false)
         {
        		m_addVocab.setText(wd.word);
-       		m_addVocab.setVisibility(View.VISIBLE);
+      	    if (!st.fl_temp_stop_dict)
+      	    	m_addVocab.setVisibility(View.VISIBLE);
         	--sz;
         }
         else
@@ -476,7 +477,13 @@ public class JbCandView extends RelativeLayout
         if (ServiceJbKbd.inst.m_ac_defkey == null)
        		ServiceJbKbd.inst.onCreate();
         m_defkey=ServiceJbKbd.inst.m_ac_defkey.split(st.STR_SPACE);
-        m_texts = words==null?m_defkey:words;
+    	  if (st.fl_temp_stop_dict) {
+    		  m_texts = m_defkey;
+    		  m_addVocab.setVisibility(View.GONE);
+    	  } else {
+    	        m_texts = words==null?m_defkey:words;
+    	  }
+
         if(m_ll==null) {
 //        	ServiceJbKbd.inst.createNewCandView();
         	return;
@@ -2208,13 +2215,8 @@ public class JbCandView extends RelativeLayout
     // преобразует кнопку в функциональную или пишет на ней текст
 	public void setTexAndFuncKey(TextView tv, String txt, int id)
     {
-//		if (tv.getText().toString().startsWith(st.STR_PREFIX)){
 		if (txt.startsWith(st.STR_PREFIX)){
 			id++;
-//			ArrayFuncAddSymbolsGest ar = st.getElementSpecFormatSymbol(arFuncKey, id);
-//        	if (ar==null){
-//            	tv.setId(id);
-//        	}
         	st.setElementSpecFormatAddSymbol(arFuncKey,txt,id);
         	ArrayFuncAddSymbolsGest ar = st.getElementSpecFormatSymbol(arFuncKey, id);
         	if (ar!=null){

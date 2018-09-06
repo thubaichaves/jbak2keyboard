@@ -77,6 +77,7 @@ public class Mainmenu {
     	ar.add(new Mainmenu(R.string.mm_settings, st.CMD_PREFERENCES));
     	ar.add(new Mainmenu(R.string.lang_calc, st.CMD_CALC));
     	ar.add(new Mainmenu(R.string.mm_ac_hide0, st.CMD_AC_HIDE));
+    	ar.add(new Mainmenu(R.string.mm_stop_dict0, st.CMD_TEMP_STOP_DICT));
     	ar.add(new Mainmenu(R.string.set_keyboard_height, st.CMD_HEIGHT_KEYBOARD));
 //    	ar.add(new Mainmenu(R.string.lang_calc, st.CMD_INPUT_METHOD));
     	ar.add(new Mainmenu(R.string.set_input_keyboard, st.CMD_INPUT_KEYBOARD));

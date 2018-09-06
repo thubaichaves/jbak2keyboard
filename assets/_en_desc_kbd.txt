@@ -61,7 +61,7 @@ SHIFT key
 Other Settings 
 Input method
 Copying
-Calculator. Programmable calculator
+CALCULATOR. PROGRAMMABLE CALCULATOR
 Text size in the current entry field (red box in Autocomplete)
 Keypress code (red box in Autocomplete)
 Special instructions in templates
@@ -289,7 +289,7 @@ COPYING
 If nothing is selected, by pressing the Copy button, the keyboard will suggest you to select \"Copy all\", 
 \"Copy word\", \"Copy paragraph\". (If such copying is possible).
 
-CALCULATOR
+CALCULATOR. PROGRAMMABLE CALCULATOR
 General
 The keyboard has built-in three kinds of calculator: simple, scientific and programmable.
 

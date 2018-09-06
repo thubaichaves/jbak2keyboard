@@ -3,7 +3,7 @@
     <string name="ime_name">Teclado Jbak2</string>
     <string name="ime_settings">Ajustes del teclado Jbak2</string>
     <string name="pref_keys">Configuración de teclas y de autocompletado</string>    
-	<string name="pref_keys_desc">Altura y corrección vertical de teclas y de autocompletado</string>    
+	<string name="pref_keys_desc">Высота, горизонтальное смещение клавиатуры и вертикальная коррекция клавиш и автодополнения</string>    
     <string name="msg_begin">NO mostrar más este mensaje</string>   
 	<string name="kbd_warning">¡Primero, inicia y activa el teclado!\n(el primer párrafo de Ajustes)</string>
 	<string name="jbak2layout">Disposiciones personalizadas</string>
@@ -354,8 +354,8 @@
     <string name="rate_title">Evaluación de la aplicación</string>
     <string name="rate_about">Por favor, evalúa la aplicación</string>
     <string name="rate_toast">Por favor, evalúa esta aplicación (a través de los ajustes),\ny este mensaje no volverá a aparecer.</string>
-    <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
-    
+	<string name="rate_query">¿Le gusta el teclado?\nPor favor, evalúe la aplicación,y esta pregunta no volverá a aparecer.</string>
+	    
 <!-- активность help -->
     <string name="help">Soporte</string>
     
@@ -399,11 +399,13 @@
     <string name="set_keycode_desc">Activa el autocompletado para visualizar.\nMás detalles en\"Cómo usar el teclado\".</string>
     <string name="set_longtap_keycode_help">Короткое нажатие на элементе меню, вводит указанное на нём значение, долгое нажатие - копирует число в буфер обмена\n\n---\n\n</string>
     
+    <string name="set_key_height">Высота клавиш</string>
+    <string name="set_kbd_horiz">Горизонтальное смещение клавиатуры</string>
     <string name="set_ch_keys_preview">Muestra del indicador de teclas</string>
     <string name="set_ch_keys_preview_desc">Quite el ajuste, si no quiere ver las ventanas emergentes con teclas pulsadas</string>
     <string name="set_keyboard_height">Altura del teclado</string>
-    <string name="set_key_height_portrait">Altura de las teclas en modo retrato</string>
-    <string name="set_key_height_portrait_desc">Cambio de altura de las teclas en modo retrato </string>
+    <string name="set_key_height_portrait">Высота и смещение - портрет</string>
+    <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
     <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
     <string name="set_key_height_landscape">Altura de las teclas en modo paisaje</string>
     <string name="set_key_height_landscape_desc">Cambio de altura de las teclas en modo paisaje</string>
@@ -623,7 +625,10 @@
 	<string name="mm_translate_interfase_browser">idioma de la interfaz del traductor (código de dos letras: ru, en, etc) en un navegador</string>
 	<string name="mm_notation">Системы счисления</string>
 	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
-
+	<string name="mm_stop_dict0">Временное отключение словаря (показывается только строка по умолчанию)</string>
+	<string name="mm_stop_dict1">Словарь: Работает</string>
+	<string name="mm_stop_dict2">Словарь: Отключен</string>
+	
 <!-- notation number  -->
 	<string name="notation_name">Какая базовая система счисления у числа</string>
 	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>

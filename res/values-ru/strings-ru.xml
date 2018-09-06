@@ -4,7 +4,7 @@
     <string name="ime_name">jbak2 Keyboard</string>
     <string name="ime_settings">Настройки</string>
     <string name="pref_keys">Настройки клавиш и автодополнения</string>    
-	<string name="pref_keys_desc">Высота и вертикальная коррекция клавиш и автодополнения</string>    
+	<string name="pref_keys_desc">Высота, горизонтальное смещение клавиатуры и вертикальная коррекция клавиш и автодополнения</string>    
     <string name="msg_begin">Больше не выводить</string>   
 	<string name="kbd_warning">Сперва включите и активируйте клавиатуру!\n(первый пункт настроек)</string>
 	<string name="jbak2layout">Раскладки от пользователей</string>
@@ -357,7 +357,7 @@
 <!-- оценка приложения -->
     <string name="rate_title">Оценка приложения</string>
     <string name="rate_about">Пожалуйста, оцените приложение.</string>
-    <string name="rate_toast">Пожалуйста, оцените приложение (через настройки)\nи это сообщение больше появляться не будет.</string>
+    <string name="rate_toast">Пожалуйста, оцените приложение (ОБЯЗАТЕЛЬНО ИЗ НАСТРОЕК)\nи это сообщение больше появляться не будет.</string>
     <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
     
 <!-- Как пользоваться клавиатурой -->
@@ -401,14 +401,16 @@
     <string name="set_keycode_desc">Для показа включите автодополнение.\nПодробнее читайте в \"Как пользоваться клавиатурой\".</string>
     <string name="set_longtap_keycode_help">Короткое нажатие на элементе меню, вводит указанное на нём значение, долгое нажатие - копирует число в буфер обмена\n\n---\n\n</string>
     
+    <string name="set_key_height">Высота клавиш</string>
+    <string name="set_kbd_horiz">Горизонтальное смещение клавиатуры</string>
     <string name="set_ch_keys_preview">Показ просмотра клавиш</string>
     <string name="set_ch_keys_preview_desc">Отключите настройку, если не хотите видеть всплывающие окна с нажимаемыми клавишами</string>
     <string name="set_keyboard_height">Высота клавиатуры</string>
-    <string name="set_key_height_portrait">Высота клавиш - портрет</string>
-    <string name="set_key_height_portrait_desc">Изменение высоты клавиш в портретном режиме </string>
+    <string name="set_key_height_portrait">Высота и смещение - портрет</string>
+    <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
     <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
-    <string name="set_key_height_landscape">Высота клавиш - ландшафт</string>
-    <string name="set_key_height_landscape_desc">Изменение высоты клавиш в ландшафтном режиме</string>
+    <string name="set_key_height_landscape">Высота и смещение - ландшафт</string>
+    <string name="set_key_height_landscape_desc">Изменение высоты и смещения клавиатуры в ландшафтном режиме</string>
     <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
     <string name="set_key_ac_height">Высота автодополнения</string>
     <string name="set_key_ac_height_desc"></string>
@@ -626,7 +628,10 @@
 	<string name="mm_translate_interfase_browser">Два символа (ru, en и т.д.) языка интерфейса переводчика в браузере</string>
 	<string name="mm_notation">Системы счисления</string>
 	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
-
+	<string name="mm_stop_dict0">Временное отключение словаря (показывается только строка по умолчанию)</string>
+	<string name="mm_stop_dict1">Словарь: Работает</string>
+	<string name="mm_stop_dict2">Словарь: Отключен</string>
+		
 <!-- notation number  -->
 	<string name="notation_name">Какая базовая система счисления у числа</string>
 	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
@@ -637,7 +642,7 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
 	<string name="later">Позже</string>
-	<string name="empty">Пусто</string>
+    <string name="empty">Пусто</string>
 	<string name="unload">Выгрузить</string>
 	<string name="create">Создано</string>
 	<string name="save">Сохранить</string>

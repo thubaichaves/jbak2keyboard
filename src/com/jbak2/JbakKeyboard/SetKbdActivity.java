@@ -1,10 +1,20 @@
 package com.jbak2.JbakKeyboard;
 
 import java.io.FileOutputStream;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Vector;
+
+import com.jbak2.CustomGraphics.BitmapCachedGradBack;
+import com.jbak2.CustomGraphics.GradBack;
+import com.jbak2.CustomGraphics.draw;
+import com.jbak2.Dialog.Dlg;
+import com.jbak2.JbakKeyboard.IKeyboard.KbdDesign;
+import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
+import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
+import com.jbak2.ctrl.IntEditor;
+import com.jbak2.ctrl.IntEditor.OnChangeValue;
+import com.jbak2.perm.Perm;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -28,19 +38,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.jbak2.CustomGraphics.BitmapCachedGradBack;
-import com.jbak2.CustomGraphics.GradBack;
-import com.jbak2.CustomGraphics.draw;
-import com.jbak2.Dialog.Dlg;
-import com.jbak2.JbakKeyboard.IKeyboard.KbdDesign;
-import com.jbak2.JbakKeyboard.IKeyboard.Keybrd;
-import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
-import com.jbak2.ctrl.IntEditor;
-import com.jbak2.ctrl.IntEditor.OnChangeValue;
-import com.jbak2.perm.Perm;
 
 // зависоны при переключении скинов начались с версии 2.31.12 - чёт нахимичил
 /**
@@ -78,7 +78,7 @@ public class SetKbdActivity extends Activity {
    			finish();
    			st.runAct(Quick_setting_act.class,inst);
         }
-
+        
 		m_curAction = getIntent().getIntExtra(st.SET_INTENT_ACTION, st.SET_KEY_HEIGHT_PORTRAIT);
 		if (m_curAction == st.SET_KEY_CALIBRATE_PORTRAIT || m_curAction == st.SET_KEY_CALIBRATE_LANDSCAPE) {
 			initCalibrate();
@@ -196,6 +196,8 @@ public class SetKbdActivity extends Activity {
 		getWindow().addFlags(flags);
 		m_kbd.setOnKeyboardActionListener(m_kbdListener);
 		if (m_curAction == st.SET_KEY_HEIGHT_PORTRAIT || m_curAction == st.SET_KEY_HEIGHT_LANDSCAPE) {
+			// высота клавиш
+			((TextView) m_MainView.findViewById(R.id.key_height_txt)).setVisibility(View.VISIBLE);
 			final IntEditor sb = (IntEditor) m_MainView.findViewById(R.id.key_height);
 			sb.setSteps(new int[] { 2, 4, 8 });
 			sb.setMinAndMax(20, 200);
@@ -215,7 +217,36 @@ public class SetKbdActivity extends Activity {
 					float def = KeyboardPaints.getDefValue(
 							m_curAction == st.SET_KEY_HEIGHT_PORTRAIT ? KeyboardPaints.VAL_KEY_HEIGHT_PORTRAIT
 									: KeyboardPaints.VAL_KEY_HEIGHT_LANDSCAPE);
-					sb.setValue(KeyboardPaints.percToPixel(inst, true, def, true));
+					sb.setValue(KeyboardPaints.getPercToPixel(inst, true, def, true));
+				}
+			});
+			// горизонтальное положение клавиатуры
+			((TextView) m_MainView.findViewById(R.id.kbd_pos_txt)).setVisibility(View.VISIBLE);
+			((LinearLayout) m_MainView.findViewById(R.id.set_kbd_pos)).setVisibility(View.VISIBLE);
+
+			final IntEditor kp = (IntEditor) m_MainView.findViewById(R.id.kbd_pos);
+			kp.setSteps(new int[] { 1, 5, 10 });
+			kp.setMinAndMax(-200, 200);
+			int val1 = m_curAction == st.SET_KEY_HEIGHT_PORTRAIT ? st.kbd_horiz_port
+							: st.kbd_horiz_land;
+			kp.setOnChangeValue(new IntEditor.OnChangeValue() {
+				@Override
+				public void onChangeIntValue(IntEditor edit) {
+					boolean bPort = m_curAction == st.SET_KEY_HEIGHT_PORTRAIT;
+					String pname = bPort ? st.PREF_KEYBOARD_POS_PORT : st.PREF_KEYBOARD_POS_LAND;
+					st.pref().edit().putInt(pname, edit.getValue()).commit();
+					m_kbd.setX(edit.getValue());
+					m_kbd.reload();
+				}
+			});
+			kp.setValue(val1);
+			((Button) m_MainView.findViewById(R.id.default_kbd_pos)).setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+//					float def = KeyboardPaints.getDefValue(
+//							m_curAction == st.SET_KEY_HEIGHT_PORTRAIT ? KeyboardPaints.VAL_KEY_HEIGHT_PORTRAIT
+//									: KeyboardPaints.VAL_KEY_HEIGHT_LANDSCAPE);
+					kp.setValue(0);
 				}
 			});
 		}
@@ -246,7 +277,7 @@ public class SetKbdActivity extends Activity {
 	void changeKeyHeight(int height) {
 		boolean bPort = m_curAction == st.SET_KEY_HEIGHT_PORTRAIT;
 		String pname = bPort ? st.PREF_KEY_HEIGHT_PORTRAIT_PERC : st.PREF_KEY_HEIGHT_LANDSCAPE_PERC;
-		st.pref().edit().putFloat(pname, KeyboardPaints.pixelToPerc(this, bPort, height)).commit();
+		st.pref().edit().putFloat(pname, KeyboardPaints.getPixelToPerc(this, bPort, height)).commit();
 		m_kbd.m_KeyHeight = height;
 		m_kbd.reload();
 	}

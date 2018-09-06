@@ -69,19 +69,28 @@ public class MainmenuAct extends Activity
         	if (cb1.isChecked()){
         		deleteItem(v);
         	} else {
-                GlobDialog gd = new GlobDialog(inst);
-                gd.set(R.string.delete_q, R.string.yes, R.string.no);
-                gd.setObserver(new st.UniObserver()
-                {
-                    @Override
-                    public int OnObserver(Object param1, Object param2)
-                    {
+        		Dlg.yesNoDialog(inst, inst.getString(R.string.delete_q), new st.UniObserver() {
+					
+					@Override
+					public int OnObserver(Object param1, Object param2) {
                         if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
                         	deleteItem(v);
-                      	return 0;
-                    }
-                });
-                gd.showAlert();
+						return 0;
+					}
+				});
+//                GlobDialog gd = new GlobDialog(inst);
+//                gd.set(R.string.delete_q, R.string.yes, R.string.no);
+//                gd.setObserver(new st.UniObserver()
+//                {
+//                    @Override
+//                    public int OnObserver(Object param1, Object param2)
+//                    {
+//                        if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+//                        	deleteItem(v);
+//                      	return 0;
+//                    }
+//                });
+//                gd.showAlert();
         		
         	}
         	return true;

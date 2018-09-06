@@ -44,6 +44,7 @@ import android.view.inputmethod.InputMethodManager;
 import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.JbakKeyboard.KeyboardGesture.GestureHisList;
 import com.jbak2.ctrl.GlobDialog;
+import com.jbak2.ctrl.Mainmenu;
 import com.jbak2.perm.Perm;
 import com.jbak2.receiver.ClipbrdSyncService;
 import com.jbak2.web.SearchGoogle;
@@ -53,6 +54,9 @@ import com.jbak2.words.UserWords.WordArray;
 /** Класс содержит полезные статические переменные */
 public class st extends IKeyboard implements IKbdSettings
 {
+	// горизонтальное смещение клавиатуры
+	public static int kbd_horiz_port = 0;
+	public static int kbd_horiz_land = 0;
 	// если true, то при нажатии символа-разделителя в автодоте, исходное слово
 	// не заменяется, а этот символ добавляется в позиции курсора
     public static boolean fl_ac_separator_symbol = false;
@@ -177,6 +181,8 @@ public class st extends IKeyboard implements IKbdSettings
 	
 // принудительное чтение из словаря	
 	public static boolean fl_suggest_dict = false;
+// временное отключение словаря
+	public static boolean fl_temp_stop_dict = false;
 // какое freq ставить при добавлении нового слова
 	public static int freq_dict = 500000;
 // интеллектуальный ввод
@@ -432,7 +438,7 @@ public class st extends IKeyboard implements IKbdSettings
  	    public int id = 0;
  	    public int code = 0;
  	    public String visibleText = st.STR_NULL;
-
+ 	    
  	    public ArrayFuncAddSymbolsGest(int  _id,int _code,String _visibleText)
         {
  	    	id = _id;
@@ -537,7 +543,8 @@ public class st extends IKeyboard implements IKbdSettings
     /** Пользовательский параметр 2 */  
         public Object m_param2;
     }
-    // возвращает элемент массива для функциональных клавиш или null
+    /** возвращает элемент массива для функциональных клавиш 
+     * в маленькой клавиатуре и дефолтной строки автодопа или null */
     public static ArrayFuncAddSymbolsGest getElementSpecFormatSymbol(ArrayList<ArrayFuncAddSymbolsGest> ar,int id)
     {
     	for (ArrayFuncAddSymbolsGest elem:ar){
@@ -546,7 +553,7 @@ public class st extends IKeyboard implements IKbdSettings
     	}
     	return null;
     }
-    // устанавливает в массив ar новое значение для функциональных клавиш
+    /** устанавливает в массив ar новое значение для функциональных клавиш */
     public static void setElementSpecFormatAddSymbol(ArrayList<ArrayFuncAddSymbolsGest> ar, String txt, int id)
     {
     	if (!txt.startsWith(st.STR_PREFIX))
@@ -822,6 +829,7 @@ public class st extends IKeyboard implements IKbdSettings
         JbKbdView.inst.setKeyboard(loadKeyboard(cur));
         saveCurLang();
     }
+    
     static JbKbd loadKeyboard(Keybrd k)
     {
         KeySymbol = -201;
@@ -870,6 +878,18 @@ public class st extends IKeyboard implements IKbdSettings
 
     			
     	return ret;
+    }
+    /** горизонтальное смещение клавиатуры 
+     * в зависимости от текущей ориентации*/
+    public static int getKbdHorizontalBias()
+    {
+    	if (ServiceJbKbd.inst==null)
+    		return 0;
+
+    	if (isLandscape(ServiceJbKbd.inst))
+    		return st.kbd_horiz_land;
+    	else
+    		return st.kbd_horiz_port;
     }
 /** Возвращает строку по умолчанию для переключения языков <br>
  * По умолчанию - язык текущей локали+английский, если нет языка текущей локали - то только английский
@@ -1245,6 +1265,13 @@ public class st extends IKeyboard implements IKbdSettings
                     ServiceJbKbd.inst.viewAcPlace();
             	com_menu.close();
             break;
+            case CMD_TEMP_STOP_DICT:
+            	if (st.fl_temp_stop_dict)
+            		st.fl_temp_stop_dict = false;
+            	else
+            		st.fl_temp_stop_dict = true;
+            	com_menu.close();
+            break;
             default: 
                 if(ServiceJbKbd.inst!=null)
                     ServiceJbKbd.inst.processKey(action);
@@ -1458,13 +1485,13 @@ public class st extends IKeyboard implements IKbdSettings
         {
             int ph = pref.getInt(st.PREF_KEY_HEIGHT_PORTRAIT,0);
             ped.remove(st.PREF_KEY_HEIGHT_PORTRAIT);
-            ped.putFloat(st.PREF_KEY_HEIGHT_PORTRAIT_PERC, KeyboardPaints.pixelToPerc(c, true,ph));
+            ped.putFloat(st.PREF_KEY_HEIGHT_PORTRAIT_PERC, KeyboardPaints.getPixelToPerc(c, true,ph));
         }
         if(pref.contains(st.PREF_KEY_HEIGHT_LANDSCAPE))
         {
             int ph = pref.getInt(st.PREF_KEY_HEIGHT_LANDSCAPE,0);
             ped.remove(st.PREF_KEY_HEIGHT_LANDSCAPE);
-            ped.putFloat(st.PREF_KEY_HEIGHT_LANDSCAPE_PERC, KeyboardPaints.pixelToPerc(c,false, ph));
+            ped.putFloat(st.PREF_KEY_HEIGHT_LANDSCAPE_PERC, KeyboardPaints.getPixelToPerc(c,false, ph));
         }
 // 0.92 - 0.93 Меняет тип вибрации (было вкл/выкл , стало - выкл/при нажатии/при отпускании)         
         if(pref.contains(st.PREF_KEY_VIBRO_SHORT_KEY))
@@ -2236,6 +2263,7 @@ public class st extends IKeyboard implements IKbdSettings
     	arGestures.add(new KbdGesture(R.string.gesture_copy, TXT_ED_COPY));
     	arGestures.add(new KbdGesture(R.string.gesture_paste, TXT_ED_PASTE));
     	arGestures.add(new KbdGesture(R.string.mm_ac_hide0, CMD_AC_HIDE));
+    	arGestures.add(new KbdGesture(R.string.mm_stop_dict0, CMD_TEMP_STOP_DICT));
     	arGestures.add(new KbdGesture(R.string.set_keyboard_height, CMD_HEIGHT_KEYBOARD));
     	arGestures.add(new KbdGesture(R.string.gesture_upcase, CMD_SYMBOL_UP_CASE));
     	arGestures.add(new KbdGesture(R.string.gesture_lowercase, CMD_SYMBOL_LOWER_CASE));

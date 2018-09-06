@@ -205,7 +205,7 @@ public class EditSetActivity extends Activity
                 float fs = Float.valueOf(ar[2]);
                 if(fs<1&&fs>=0)
                 {
-                    fontSize = KeyboardPaints.percToPixel(st.c(),true, fs,false);
+                    fontSize = KeyboardPaints.getPercToPixel(st.c(),true, fs,false);
                     return 1;
                 }
                 else
@@ -222,7 +222,7 @@ public class EditSetActivity extends Activity
         {
             return new StringBuffer().append(typefaceToInt(typeface)).append(';')
                                        .append(style).append(';')
-                                       .append(KeyboardPaints.pixelToPerc(st.c(),true,fontSize)).toString();
+                                       .append(KeyboardPaints.getPixelToPerc(st.c(),true,fontSize)).toString();
         }
         void save(SharedPreferences pref,String prefKey)
         {

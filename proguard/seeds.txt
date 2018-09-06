@@ -1,78 +1,3 @@
-android.support.v7.app.ActionBar$LayoutParams
-android.support.v7.app.ActionBar$LayoutParams: ActionBar$LayoutParams(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.ActionMenuItemView
-android.support.v7.internal.view.menu.ActionMenuItemView: ActionMenuItemView(android.content.Context)
-android.support.v7.internal.view.menu.ActionMenuItemView: ActionMenuItemView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.ActionMenuItemView: ActionMenuItemView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.view.menu.ActionMenuItemView: void onClick(android.view.View)
-android.support.v7.internal.view.menu.ActionMenuPresenter$SavedState
-android.support.v7.internal.view.menu.ActionMenuPresenter$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.internal.view.menu.ActionMenuView
-android.support.v7.internal.view.menu.ActionMenuView: ActionMenuView(android.content.Context)
-android.support.v7.internal.view.menu.ActionMenuView: ActionMenuView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.ActionMenuView$LayoutParams
-android.support.v7.internal.view.menu.ActionMenuView$LayoutParams: ActionMenuView$LayoutParams(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.ExpandedMenuView
-android.support.v7.internal.view.menu.ExpandedMenuView: ExpandedMenuView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.ListMenuItemView
-android.support.v7.internal.view.menu.ListMenuItemView: ListMenuItemView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.view.menu.ListMenuItemView: ListMenuItemView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.view.menu.MenuDialogHelper: void onClick(android.content.DialogInterface,int)
-android.support.v7.internal.widget.AbsActionBarView: AbsActionBarView(android.content.Context)
-android.support.v7.internal.widget.AbsActionBarView: AbsActionBarView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.AbsActionBarView: AbsActionBarView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.widget.AbsSpinnerICS$SavedState
-android.support.v7.internal.widget.AbsSpinnerICS$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.internal.widget.ActionBarContainer
-android.support.v7.internal.widget.ActionBarContainer: ActionBarContainer(android.content.Context)
-android.support.v7.internal.widget.ActionBarContainer: ActionBarContainer(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActionBarContextView
-android.support.v7.internal.widget.ActionBarContextView: ActionBarContextView(android.content.Context)
-android.support.v7.internal.widget.ActionBarContextView: ActionBarContextView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActionBarContextView: ActionBarContextView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.widget.ActionBarContextView$1: void onClick(android.view.View)
-android.support.v7.internal.widget.ActionBarOverlayLayout
-android.support.v7.internal.widget.ActionBarOverlayLayout: ActionBarOverlayLayout(android.content.Context)
-android.support.v7.internal.widget.ActionBarOverlayLayout: ActionBarOverlayLayout(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActionBarView
-android.support.v7.internal.widget.ActionBarView: ActionBarView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActionBarView$2: void onClick(android.view.View)
-android.support.v7.internal.widget.ActionBarView$3: void onClick(android.view.View)
-android.support.v7.internal.widget.ActionBarView$HomeView
-android.support.v7.internal.widget.ActionBarView$HomeView: ActionBarView$HomeView(android.content.Context)
-android.support.v7.internal.widget.ActionBarView$HomeView: ActionBarView$HomeView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActionBarView$SavedState
-android.support.v7.internal.widget.ActionBarView$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.internal.widget.ActivityChooserView
-android.support.v7.internal.widget.ActivityChooserView: ActivityChooserView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ActivityChooserView: ActivityChooserView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.widget.ActivityChooserView$Callbacks: void onClick(android.view.View)
-android.support.v7.internal.widget.CompatTextView
-android.support.v7.internal.widget.CompatTextView: CompatTextView(android.content.Context)
-android.support.v7.internal.widget.CompatTextView: CompatTextView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.CompatTextView: CompatTextView(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.widget.LinearLayoutICS
-android.support.v7.internal.widget.LinearLayoutICS: LinearLayoutICS(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ListPopupWindow
-android.support.v7.internal.widget.ListPopupWindow: ListPopupWindow(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ListPopupWindow: ListPopupWindow(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.internal.widget.NativeActionModeAwareLayout
-android.support.v7.internal.widget.NativeActionModeAwareLayout: NativeActionModeAwareLayout(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.ProgressBarICS$SavedState
-android.support.v7.internal.widget.ProgressBarICS$SavedState: android.os.Parcelable$Creator CREATOR
-android.support.v7.internal.widget.ScrollingTabContainerView$TabClickListener: void onClick(android.view.View)
-android.support.v7.internal.widget.ScrollingTabContainerView$TabView
-android.support.v7.internal.widget.ScrollingTabContainerView$TabView: ScrollingTabContainerView$TabView(android.content.Context,android.util.AttributeSet)
-android.support.v7.internal.widget.SpinnerICS: void onClick(android.content.DialogInterface,int)
-android.support.v7.internal.widget.SpinnerICS$DialogPopup: void onClick(android.content.DialogInterface,int)
-android.support.v7.widget.SearchView
-android.support.v7.widget.SearchView: SearchView(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.SearchView$7: void onClick(android.view.View)
-android.support.v7.widget.SearchView$SearchAutoComplete
-android.support.v7.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoComplete(android.content.Context)
-android.support.v7.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoComplete(android.content.Context,android.util.AttributeSet)
-android.support.v7.widget.SearchView$SearchAutoComplete: SearchView$SearchAutoComplete(android.content.Context,android.util.AttributeSet,int)
-android.support.v7.widget.SuggestionsAdapter: void onClick(android.view.View)
 com.google.android.voiceime.ActivityHelper
 com.google.android.voiceime.ActivityHelper: ActivityHelper()
 com.google.android.voiceime.ActivityHelper$1: void onClick(android.content.DialogInterface,int)
@@ -83,6 +8,7 @@ com.jbak2.Dialog.Dlg$1: void onClick(android.content.DialogInterface,int)
 com.jbak2.Dialog.Dlg$2: void onClick(android.content.DialogInterface,int)
 com.jbak2.Dialog.Dlg$OnButtonListener: void onClick(android.content.DialogInterface,int)
 com.jbak2.Dialog.DlgFileExplorer$1: void onClick(android.view.View)
+com.jbak2.Dialog.DlgPopupWnd$1: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.AboutActivity
 com.jbak2.JbakKeyboard.AboutActivity: AboutActivity()
 com.jbak2.JbakKeyboard.AboutActivity: void onClick(android.view.View)
@@ -139,7 +65,6 @@ com.jbak2.JbakKeyboard.JbKbdPreference$19: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.JbKbdPreference$23: void onClick(android.content.DialogInterface,int)
 com.jbak2.JbakKeyboard.JbKbdPreference$24: void onClick(android.content.DialogInterface,int)
 com.jbak2.JbakKeyboard.JbKbdPreference$9: void onClick(android.view.View)
-com.jbak2.JbakKeyboard.JbKbdReceiver
 com.jbak2.JbakKeyboard.JbKbdView
 com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet)
 com.jbak2.JbakKeyboard.JbKbdView: JbKbdView(android.content.Context,android.util.AttributeSet,int)
@@ -172,7 +97,8 @@ com.jbak2.JbakKeyboard.ServiceJbKbd: ServiceJbKbd()
 com.jbak2.JbakKeyboard.SetKbdActivity
 com.jbak2.JbakKeyboard.SetKbdActivity: SetKbdActivity()
 com.jbak2.JbakKeyboard.SetKbdActivity$11: void onClick(android.view.View)
-com.jbak2.JbakKeyboard.SetKbdActivity$15: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$13: void onClick(android.view.View)
+com.jbak2.JbakKeyboard.SetKbdActivity$17: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.SetKbdActivity$2: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.SetKbdActivity$3: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.SetKbdActivity$5: void onClick(android.view.View)
@@ -181,8 +107,6 @@ com.jbak2.JbakKeyboard.SetKbdActivity$7: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.SetKbdActivity$9: void onClick(android.view.View)
 com.jbak2.JbakKeyboard.SetSound
 com.jbak2.JbakKeyboard.SetSound: SetSound()
-com.jbak2.JbakKeyboard.ShowKeyboardReceiver
-com.jbak2.JbakKeyboard.ShowKeyboardReceiver: ShowKeyboardReceiver()
 com.jbak2.JbakKeyboard.SkinConstructorAct
 com.jbak2.JbakKeyboard.SkinConstructorAct: SkinConstructorAct()
 com.jbak2.JbakKeyboard.SkinConstructorAct: void onClick(android.view.View)
@@ -198,5 +122,7 @@ com.jbak2.ctrl.GlobDialog$1: void onClick(android.view.View)
 com.jbak2.ctrl.GlobDialog$2: void onClick(android.view.View)
 com.jbak2.ctrl.IntEditor
 com.jbak2.ctrl.IntEditor: IntEditor(android.content.Context,android.util.AttributeSet)
+com.jbak2.receiver.JbKbdReceiver
+com.jbak2.receiver.NotifReceiver
 com.jbak2.words.WordsService
 com.jbak2.words.WordsService: WordsService()

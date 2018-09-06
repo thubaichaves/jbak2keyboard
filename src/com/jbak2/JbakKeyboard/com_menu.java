@@ -454,6 +454,7 @@ public class com_menu
 //        	posY = 0;
 //        }
         m_MainView.setBackgroundDrawable(st.kv().getBackground());
+        m_MainView.setX(st.getKbdHorizontalBias());
         View bClose = m_MainView.findViewById(R.id.close);
         if(bClose!=null)
         {

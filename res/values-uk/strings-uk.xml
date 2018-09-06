@@ -3,7 +3,7 @@
   <string name="ime_name">jbak2 Клавіатура</string>
   <string name="ime_settings">Налаштування</string>
   <string name="pref_keys">Налаштування клавіш і автодоповнення</string>
-  <string name="pref_keys_desc">Висота та вертикальна корекція клавіш і автодоповнення</string>
+	<string name="pref_keys_desc">Высота, горизонтальное смещение клавиатуры и вертикальная коррекция клавиш и автодополнения</string>    
   <string name="label_go_key">Йти</string>
   <string name="label_next_key">Наступн</string>
   <string name="label_send_key">Відпр</string>
@@ -368,7 +368,7 @@
 <!-- оценка приложения -->
     <string name="rate_title">Оцінка додатку</string>
     <string name="rate_about">Будь ласка, оцініть додаток.</string>
-    <string name="rate_toast">Будьласка, оцініть програму (через налаштування)\nі це нагадування більше з\'являтися не буде.</string>
+    <string name="rate_toast">Будьласка, оцініть програму (ОБОВ\'ЯЗКОВО З НАЛАШТУВАНЬ)\nі це нагадування більше з\'являтися не буде.</string>
     <string name="rate_query">Вам нравится клавиатура?\nПожалуйста оцените приложение и эта просьба больше не будет появляться.</string>
     
 <!-- активность help -->
@@ -409,14 +409,16 @@
     <string name="set_keycode_desc">Для показу увімкніть автодоповнення.\nДокладніше читайте в \"Як користуватись клавіатурой\".</string>
     <string name="set_longtap_keycode_help">Коротке натискання на элементі меню, вводить зазначене на ньому значення, довге натискання - копіює число в буфер обміну\n\n---\n\n</string>
     
-  <string name="set_ch_keys_preview">Показ перегляду клавіш</string>
+    <string name="set_key_height">Высота клавиш</string>
+    <string name="set_kbd_horiz">Горизонтальное смещение клавиатуры</string>
+    <string name="set_ch_keys_preview">Показ перегляду клавіш</string>
   <string name="set_ch_keys_preview_desc">Вимкніть пункт, якщо не хочете бачити виринаючі вікна після натискання клавіш</string>
     <string name="set_keyboard_height">Висота клавіатури</string>
-  <string name="set_key_height_portrait">Висота клавіш - портрет</string>
-  <string name="set_key_height_portrait_desc">Зміна висоти клавіш в портретному режимі</string>
+    <string name="set_key_height_portrait">Высота и смещение - портрет</string>
+    <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
     <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
-  <string name="set_key_height_landscape">Висота клавіш - ландшафт</string>
-  <string name="set_key_height_landscape_desc">Зміна висоти клавіш в ландшафтному режимі</string>
+    <string name="set_key_height_landscape">Altura de las teclas en modo paisaje</string>
+    <string name="set_key_height_landscape_desc">Cambio de altura de las teclas en modo paisaje</string>
     <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
   <string name="set_key_ac_height">Висота автодоповнення</string>
     <string name="set_key_ac_height_desc"></string>
@@ -625,7 +627,10 @@
 	<string name="mm_translate_interfase_browser">Два символи (ru, en та т.і.) мови інтерфейсу перекладача в браузері</string>
 	<string name="mm_notation">Сістеми зчислення</string>
 	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
-
+	<string name="mm_stop_dict0">Временное отключение словаря (показывается только строка по умолчанию)</string>
+	<string name="mm_stop_dict1">Словарь: Работает</string>
+	<string name="mm_stop_dict2">Словарь: Отключен</string>
+	
 <!-- notation number  -->
 	<string name="notation_name">Какая базовая система счисления у числа</string>
 	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
@@ -647,7 +652,7 @@
   <string name="skin_not_found">Помилка.\nНе знайдено інстальований скін\nВикористовую скін за замовчуванням</string>
   <string name="clear">Очистити</string>
   <string name="clear_question">Очистити?</string>
-    <string name="honeycomb">Не підтримується  на вашій версії андроид</string>
+    <string name="honeycomb">Не підтримується на вашій версії андроид</string>
     <string name="not_work">Поки що не працює. </string>
     
   	<string name="sel_del">Видалити вибірково</string>
