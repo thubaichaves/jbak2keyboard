@@ -221,6 +221,10 @@ public interface IKbdSettings
     public static final String PREF_KEY_EMPTY_UPPERCASE = "up_empty";
     /** Ключ, String - набор символов, после которых вставляется пробел*/    
     public static final String PREF_KEY_ADD_SPACE_SYMBOLS = "space_symbols";
+    /** Ключ, String - добавлять ли пробел перед некоторыми символами */    
+    public static final String PREF_KEY_ADD_SPACE_BEFORE_SENTENCE = "add_space_before_sentence";
+    /** Ключ, String - набор символов, перед которыми вставляется пробел*/    
+    public static final String PREF_KEY_ADD_SPACE_BEFORE_SYMBOLS = "add_space_before_symbols";
     /** Ключ, String, тип ландшафтного редактора.  Одна из констант PREF_VAL_EDIT_TYPE_ , в видк строки */
     public static final String PREF_KEY_LANSCAPE_TYPE = "landscape_type";
     /** Ключ, String, тип портретного редактора.  Одна из констант PREF_VAL_EDIT_TYPE_ , в видк строки */
@@ -550,8 +554,8 @@ public interface IKbdSettings
     public static final String CALC_PRG_VERSION = "VERSION = 2";
     public static final String CALC_PRG_DESC_WORD = "DESCRIPTION:";
     public static final String CALC_PROGRAM_WORD = "PROGRAM:";
-    // коррекция высоты индикатора над клавиатурой если автодополнение отключено    
-    public static final String PREF_CALC_CORRECTION_IND = "calc_corr_ind";
+//    // коррекция высоты индикатора над клавиатурой если автодополнение отключено    
+//    public static final String PREF_CALC_CORRECTION_IND = "calc_corr_ind";
     // цифра калькулятора 0    
     public static final int SET_KEY_CALC_NUMBER0 = -540;
     // цифра калькулятора 1    

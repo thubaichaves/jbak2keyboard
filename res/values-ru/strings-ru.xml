@@ -318,9 +318,6 @@
 	<string name="calc_menu_history">История вычислений</string>
 	<string name="calc_menu_list">Листинг программы</string>
 	<string name="calc_menu">Меню</string>
-	<string name="calc_setting">Настройки калькулятора</string>
-	<string name="calc_corr_ind">Коррекция окна индикатора</string>
-	<string name="calc_corr_ind_desc">Высота окна индикатора над клавиатурой, если окно автодополнения выключено</string>
 	<string name="calc_prog_empty">Память программы пуста.\nНечего выводить</string>
 	<string name="calc_save">Сохранить</string>
 	<string name="calc_load">Загрузить</string>
@@ -480,6 +477,9 @@
     <string name="set_key_space_sentence_end_desc">Включает добавление пробелов после некоторых символов, перечисленных в следующей настройке</string>
     <string name="set_key_space_symbols">Символы добавления пробелов</string>
     <string name="set_key_space_symbols_desc">После ввода одного из этих символов вставляется пробел. Нажмите для редактирования.</string>
+    <string name="set_key_add_space_before_symbols_desc">Перед вводом одного из этих символов вставляется пробел. Нажмите для редактирования.</string>
+    <string name="set_key_space_sentence_before">Перед вводом символов</string>
+    <string name="set_key_space_sentence_before_desc">Включает добавление пробела перед вводом некоторых символов, перечисленных в следующей настройке</string>
     <string name="set_key_sentence_space_end">Только после пробелов</string>
     <string name="set_key_sentence_space_end_desc">Переход в верхний регистр после одного из символов из предыдущей настройки и пробела за ним</string>
     

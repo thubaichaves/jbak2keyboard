@@ -3,7 +3,7 @@
     <string name="ime_name">Teclado Jbak2</string>
     <string name="ime_settings">Ajustes del teclado Jbak2</string>
     <string name="pref_keys">Configuración de teclas y de autocompletado</string>    
-	<string name="pref_keys_desc">Высота, горизонтальное смещение клавиатуры и вертикальная коррекция клавиш и автодополнения</string>    
+	<string name="pref_keys_desc">Altura, desplazamiento horizontal del teclado y corrección vertical de las teclas y del Autocompletado</string>    
     <string name="msg_begin">NO mostrar más este mensaje</string>   
 	<string name="kbd_warning">¡Primero, inicia y activa el teclado!\n(el primer párrafo de Ajustes)</string>
 	<string name="jbak2layout">Disposiciones personalizadas</string>
@@ -19,36 +19,36 @@
 	<string name="nv_upload">Después de cada actualización, el teclado debe ser detenido de los servicios en ejecución, de lo contrario su comportamiento será impredecible.</string>
 
 <!-- Title for permission-->
-	<string name="perm_expl1">No hay acciones no autorizadas en el teclado, nada es recolectado o robado!\nEste es un mensaje estandard de sistema. Para más detalles ver \“Cómo usar el teclado\” \n\nPara un uso correcto la applicación requiere algunos permisos,  SIN ALGUNO DE ELLOS EL TECLADO NO FUNCIONARÁ:\n\n- acceso a leer y escribir en el almacenamiento interno (para el funcionamiento del diccionario de usuario, plantillas, disposiciones externas, apariencias y otro item del teclado).\n\n- tipo de ventana \“Encima de otras ventanas\” (para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y otros cuadros de diálogo).</string>
+	<string name="perm_expl1">No hay acciones no autorizadas en el teclado, nada es recolectado o robado!\nEste es un mensaje estándar de sistema. Para más detalles ver \“Cómo usar el teclado\” \n\nPara un uso correcto la applicación requiere algunos permisos,  SIN ALGUNO DE ELLOS EL TECLADO NO FUNCIONARÁ:\n\n- acceso a leer y escribir en el almacenamiento interno (para el funcionamiento del diccionario de usuario, plantillas, disposiciones externas, apariencias y otro item del teclado).\n\n- tipo de ventana \“Encima de otras ventanas\” (para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y otros cuadros de diálogo).</string>
 	<string name="perm_expl2"> Para el funcionamiento del Autocompletado (predicción de palabras), visualización de teclas pulsadas y algunas otras ventanas (cuadros de diálogo,visualización de teclas pulsadas, etc), el programa requiere el acceso al tipo de ventana \“Encima de otras ventanas\”.</string>
     <string name="perm_expl3">En caso que por alguna razón se hayan denegado permisos, y su solicitud ya no aparece, los permisos pueden ser dados a través de los ajustes de sistema del teclado Jbak2. Los párrafos \"Permisos\" y \"Encima de otras ventanas\"</string>
 	<string name="perm_not_all_perm">No todos los permisos requeridos han sido dados</string> 
 
 <!-- Title for file explorer-->
-    <string name="fi_title">Файловый менеджер</string>
-    <string name="fi_filter">Фильтр</string>
-    <string name="fi_filt1">Текущий фильтр:</string>
-    <string name="fi_filt2">Долгое нажатие на кнопку фильтра - включение/выключение фильтра</string>
-    <string name="fi_root">Корневая папка</string>
-    <string name="fi_folder_last">Последняя папка</string>
-    <string name="fi_folder_dowload">Загрузки</string>
-    <string name="fi_folder_pict">Картинки и видео</string>
+    <string name="fi_title">Administrador de archivos</string>
+    <string name="fi_filter">Filtro</string>
+    <string name="fi_filt1">Filtro actual:</string>
+    <string name="fi_filt2">Pulsación larga en la tecla de Filtro: activar/desactivar el filtro</string>
+    <string name="fi_root">Carpeta raíz</string>
+    <string name="fi_folder_last">Última carpeta</string>
+    <string name="fi_folder_dowload">Descargas</string>
+    <string name="fi_folder_pict">Imágenes y videos</string>
     <string name="fi_folder_emulated">emulated</string>
-    <string name="fi_not_open">Не могу открыть</string>
-    <string name="fi_done">Выполнено</string>
+    <string name="fi_not_open">No se puede abrir</string>
+    <string name="fi_done">Hecho</string>
     
-	<string name="set_kbd_background">Фон клавиатуры</string>
-	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
-	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
-	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
-	<string name="cancel_kbd_background">Фон из скина</string>
+	<string name="set_kbd_background">Fondo del teclado</string>
+	<string name="set_kbd_background_desc">Imagen como fondo del teclado. El teclado consumirá más memoria</string>
+	<string name="set_kbd_background_error">¡No hay suficiente memoria!\nNo se puede usar la imagen como fondo del teclado</string>
+	<string name="set_kbd_background_alpha">Transparencia del teclado</string>
+	<string name="set_kbd_background_alpha_desc">0: totalmente transparente, 10: transparencia de la apariencia del teclado. Tiene sentido solamente si se usa una imagen de fondo</string>
+	<string name="cancel_kbd_background">Fondo de la apariencia</string>
 	
 <!-- Title for show keyboard notification-->
-	<string name="set_show_kbd_notif">Вызов из шторки</string>
-	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Иногда необходимо</string>
-	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
-	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
+	<string name="set_show_kbd_notif">Habilitar desde el panel de notificaciones</string>
+	<string name="set_show_kbd_notif_desc">Habilitar el teclado desde el panel de notificaciones. Es necesario de vez en cuando</string>
+	<string name="set_show_kbd_notif_title">Mostrar el teclado jbak2</string>
+	<string name="set_show_kbd_notif_body">Se puede desactivar esta notificación yendo a Otros ajustes</string>
     
 <!-- Title for small keyboard-->
     <string name="pref_mini_kbd_screen">Teclado pequeño(todavía en fase beta)</string>
@@ -61,8 +61,8 @@
         <item>Por defecto</item>
         <item>Pequeño</item>
         <item>Mediano</item>
-        <item>Как у кнопок клавиатуры</item>
-        <item>Широкие</item>
+        <item>Como de las teclas del teclado</item>
+        <item>Grande</item>
     </string-array>
     <string name="pref_mini_kbd_textbtnsize">Tamaño de los caracteres en las teclas</string>
     <string name="pref_mini_kbd_textbtnsize_desc">Tamaño de los caracteres en las teclas del teclado pequeño</string>
@@ -136,7 +136,7 @@
     <string name="euv_read">Leyendo...</string>
     <string name="euv_save">Guardando...</string>
     <string name="euv_help">(el desplazamiento del texto está activado)\n\nSe puede editar palabras y sus frecuencias haciendo clic en la palabra deseada y en su frecuencia, respectivamente.\nPresione la tecla Enter para terminar la edición.\nAl tocar una palabra con pulsación larga, la eliminará del diccionario, y la palabra por sí mismo tomará el color rojo.\n\nCuanto mayor sea la frecuencia de la palabra, más cerca estará la palabra a la parte superior de la lista (si la lista de Autocompletado está dada por la frecuencia).\nEl rango de frecuencia de las palabras es desde 0 hasta 10000000.\nLa frecuencia de la palabra encima de 500000 indica que la palabra no estaba en los diccionarios principales, y ha sido añadida por el usuario, y debe ser mostrada en la parte superior de la lista (por lo tanto ella tiene un número tan grande).\nSi la palabra se establece en 0, la frecuencia no aumentará, y esa palabra no aparecerá en la lista (las palabras del diccionario principal tienen una frecuencia mínima establecida en 1, lo que les permite estar siempre visualizadas) .</string>
-    <string name="euv_cb1">Всегда открывать этот язык</string>
+    <string name="euv_cb1">Siempre abrir este idioma</string>
     
 <!-- Title for skin constructor  -->
     <string name="sc_actname">Constructor de temas</string>
@@ -198,8 +198,8 @@
 	<string name="pop2s_save_desc">Guardar la cadena con los símbolos adicionales en un archivo separado</string>
 	<string name="pop2s_load">Descargar la cadena</string>
 	<string name="pop2s_load_desc">Descargar la cadena con los símbolos adicionales del archivo separado</string>
-	<string name="pop2s_str_not_empty">Cadena no está vacía.\nDescargar?</string>
-	<string name="pop2s_file_not_empty">Archivo no está vacío.\nReescribir?</string>
+	<string name="pop2s_str_not_empty">Cadena no está vacía.\n¿Descargar?</string>
+	<string name="pop2s_file_not_empty">Archivo no está vacío.\n¿Reescribir?</string>
 					
 <!-- цвета кнопок для accoloract -->
 	<string name="ac_color_mainback">Color del fondo del autocompletado</string>
@@ -219,11 +219,11 @@
 <!-- активность popup2act -->
 	<string name="ac_place_arrow_down">Flecha hacia abajo del autocompletado</string>
 	<string name="ac_place_arrow_down_desc">Si está seleccionado, \"flecha hacia abajo\" no se muestra en el autocompletado. Se puede usar un gesto en vez de ella</string>
-	<string name="ac_place_separator_symb">Нажатие разделителя</string>
-	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
+	<string name="ac_place_separator_symb">Pulsación en el separador de caracteres</string>
+	<string name="ac_place_separator_symb_desc">Si está marcado, al hacer clic en el símbolo de separador (.,?!, etc) en el autocompletado, la palabra donde se encuentra el cursor no se reemplaza, y este caracter se inserta en la posición del cursor</string>
 	<string name="ac_list_value">Cantidad de palabras</string>
 	<string name="ac_list_value_desc">Cantidad de palabras en la lista desplegable. Mientras más alto sea el valor, más lento será el proceso</string>
-	<string name="ac_del_word">Eliminar la palabra?</string>
+	<string name="ac_del_word">¿Eliminar la palabra?</string>
 	<string name="ac_del_word_notdict">Acción no puede ser ejecutada\nLa palabra no existe en el diccionario</string>
 	<string name="ac_del_word_ok">Eliminada</string>
 	<string name="ac_listview_alfavit">Lista desplegable en orden alfabético</string>
@@ -262,7 +262,7 @@
 									
 <!-- новые жесты -->
 	<string name="gesture_select_all">Seleccionar todo</string>
-	<string name="gesture_select">Переключатель режима выделения (на раскладке должна быть клавиша Select)</string>
+	<string name="gesture_select">Cambio del modo de selección (la disposición debe tener la tecla Select)</string>
 	<string name="gesture_space_quantity">El número de los espacios depende del largo del gesto</string>
 	<string name="gesture_d_vr">Entrada de voz</string>
 	<string name="gesture_to_start">Al comienzo del texto</string>
@@ -284,10 +284,10 @@
 	<string name="gesture_cut">Cortar</string>
 	<string name="gesture_copy">Copiar</string>
 	<string name="gesture_paste">Pegar</string>
-	<string name="gesture_search_copy">Поиск скопированного в браузере</string>
-	<string name="gesture_search_sel">Поиск выделенного в браузере</string>
-	<string name="gesture_trans_sel">Traducir texto seleccionado</string>
-	<string name="gesture_trans_copy">Traducir texto copiado</string>
+	<string name="gesture_search_copy">Buscar el texto copiado en el navegador</string>
+	<string name="gesture_search_sel">Buscar el texto seleccionado en el navegador</string>
+	<string name="gesture_trans_sel">Traducir el texto seleccionado</string>
+	<string name="gesture_trans_copy">Traducir el texto copiado</string>
 	<string name="gesture_upcase">Caracter en mayúscula</string>
 	<string name="gesture_lowercase">Caracter en minúscula</string>
 	<string name="gesture_long_text">Ingrese caracter de pulsación larga de la tecla</string>
@@ -317,9 +317,6 @@
 	<string name="calc_menu_history">Historial de cálculos</string>
 	<string name="calc_menu_list">Listado del programa</string>
 	<string name="calc_menu">Menú</string>
-	<string name="calc_setting">Ajustes de la calculadora</string>
-	<string name="calc_corr_ind">Corrección de la ventana del indicador</string>
-	<string name="calc_corr_ind_desc">Altura de la ventana del indicador encima del teclado, si la ventana de autocompletado está desactivada</string>
 	<string name="calc_prog_empty">Memoria del programa está vacía. No hay nada que mostrar</string>
 	<string name="calc_save">Guardar</string>
 	<string name="calc_load">Descargar</string>
@@ -372,7 +369,7 @@
 	<string name="dict_load">Descarga de diccionarios</string>
 	<string name="dict_load_desc">Autocompletado no funciona sin diccionarios descargados para idiomas determinados</string>
 	<string name="dict_empty_dict">Crear diccionario vacío</string>
-	<string name="dict_empty_dict_desc">Dos letras del código de idioma  para que el autocompletado funccione. Las palabras se agregan al diccionario del usuario</string> 
+	<string name="dict_empty_dict_desc">Dos letras del código de idioma  para que el autocompletado funcione. Las palabras se agregan al diccionario del usuario</string> 
 	<string name="student_dict">Diccionario de aprendizaje</string>
 	<string name="student_dict_desc">Después de elegir una palabra del autocompletado, su frecuencia de uso aumenta a uno. Con el tiempo las palabras más comunes se mostrarán siempre en la pantalla.</string>
 	<string name="student_ext_dict">Aprendizaje avanzado</string>
@@ -387,7 +384,7 @@
 	<string name="set_enter_state_desc">Cambiar el icono en la tecla Enter dependiendo del contexto?</string>
     <string name="set_ac_defkey">Palabras por defecto</string>
     <string name="set_ac_defkey_desc">Palabras por defecto en el panel de autocompletado. Separador: espacio. Si una tecla corresponde a varios caracteres, se introducirá el primero.</string>
-	<string name="set_ac_new_defkey">Cтрока автодополнения по умолчанию изменилась. Вы хотите её изменить на новую (отменить изменение невозможно)?</string>
+	<string name="set_ac_new_defkey">Cadena del autocompletado predeterminada ha cambiado. ¿Desea cambiarla por una nueva (no se puede deshacer los cambios)?</string>
     <string name="set_market1">Evalúa la aplicación</string>
     <string name="set_ac_space">Inserción del espacio</string>
     <string name="set_ac_space_desc">Hacer espacio después de ingresar la palabra del autocompletado</string>
@@ -397,19 +394,19 @@
     <string name="set_counter_desc">Longitud del texto en el área de entrada ACTUAL\nActiva el autocompletado para visualizar.</string>
     <string name="set_keycode">Código de la tecla presionada</string>
     <string name="set_keycode_desc">Activa el autocompletado para visualizar.\nMás detalles en\"Cómo usar el teclado\".</string>
-    <string name="set_longtap_keycode_help">Короткое нажатие на элементе меню, вводит указанное на нём значение, долгое нажатие - копирует число в буфер обмена\n\n---\n\n</string>
+    <string name="set_longtap_keycode_help">Pulsación corta en el elemento del menú ingresará el valor especificado que se indica en él, pulsación larga copiará el número en el búfer\n\n---\n\n</string>
     
-    <string name="set_key_height">Высота клавиш</string>
-    <string name="set_kbd_horiz">Горизонтальное смещение клавиатуры</string>
+    <string name="set_key_height">Altura de las teclas</string>
+    <string name="set_kbd_horiz">Desplazamiento horizontal del teclado</string>
     <string name="set_ch_keys_preview">Muestra del indicador de teclas</string>
     <string name="set_ch_keys_preview_desc">Quite el ajuste, si no quiere ver las ventanas emergentes con teclas pulsadas</string>
     <string name="set_keyboard_height">Altura del teclado</string>
-    <string name="set_key_height_portrait">Высота и смещение - портрет</string>
-    <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
-    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
+    <string name="set_key_height_portrait">Altura y desplazamiento en modo retrato</string>
+    <string name="set_key_height_portrait_desc">Cambio de altura y de desplazamiento del teclado en modo paisaje</string>
+    <string name="set_key_height_portrait_toast">Gire la pantalla al modo retrato</string>
     <string name="set_key_height_landscape">Altura de las teclas en modo paisaje</string>
     <string name="set_key_height_landscape_desc">Cambio de altura de las teclas en modo paisaje</string>
-    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
+    <string name="set_key_height_landscape_toast">Gire la pantalla al modo paisaje</string>
     <string name="set_key_ac_height">Altura del autocompletado</string>
     <string name="set_key_ac_height_desc"></string>
     
@@ -478,6 +475,9 @@
     <string name="set_key_space_sentence_end_desc">Activa adición de espacios después de algunos símbolos que figuran en la configuración siguiente</string>
     <string name="set_key_space_symbols">Símbolos de adición de espacios</string>
     <string name="set_key_space_symbols_desc">Después de entrar uno de esos símbolos se inserta un espacio. Haga clic para editar</string>
+	<string name="set_key_add_space_before_symbols_desc">Antes de ingresar uno de estos símbolos, se insertará un espacio. Haz clic para editar</string>
+	<string name="set_key_space_sentence_before">Antes de insertar símbolos</string>
+	<string name="set_key_space_sentence_before_desc">Permite agregar espacio antes de ingresar uno de los símbolos listados en la siguiente configuración</string>
     <string name="set_key_sentence_space_end">Sólo después de espacios</string>
     <string name="set_key_sentence_space_end_desc">Cambio a mayúsculas se realiza después de uno de los símbolos de la configuración anterior y después del espacio posterior al símbolo</string>
     
@@ -512,8 +512,8 @@
     <string name="set_key_appearance_desc">Configuración de la apariencia del teclado y del editor de la pantalla completa (selección de apariencia, herramientas adicionales, instalación de fuentes, tamaño de caracteres etc.)</string>
 	<string name="set_key_intervals">Intervalos de teclados</string>
     <string name="set_key_intervals_desc">Retención y repetición de las teclas</string>
-	<string name="set_key_tpl_path">Путь в шаблонах</string>
-	<string name="set_key_tpl_path_desc">Если отмечено, то в меню шаблонов и в некоторых других меню, показывается путь к текущей папке</string>
+	<string name="set_key_tpl_path">Ruta en Plantillas</string>
+	<string name="set_key_tpl_path_desc">Si está marcado, la ruta a la carpeta actual se mostrará en el menú de plantillas y otros menús</string>
     
     <string name="set_key_save_pref">Guardar las configuraciones</string>
     <string name="set_key_save_pref_desc">En el archivo:</string>
@@ -579,8 +579,8 @@
         <item>En modo paisaje</item>
     </string-array>
     <string name="kbdact_back">Fondo de esa ventana</string>
-    <string name="kbdact_toast1">Долгое нажатие на кнопки вправо/влево, открывают список</string>
-    <string name="kbdact_error_open">Пока не всё подготовлено. Попробуйте немного позже</string>
+    <string name="kbdact_toast1">Pulsación larga en las teclas hacia derecha/izquierda para abrir la lista</string>
+    <string name="kbdact_error_open">Aún no está listo. Inténtelo más tarde</string>
     <string-array name="vibro_short_type">
         <item>No vibrar</item>
         <item>Cuando se suelta la tecla</item>
@@ -623,15 +623,15 @@
 	<string name="mm_ac_hide2">Autocompletado: Mostrar</string>
 	<string name="mm_translate_interfase">Idioma de la interfaz del traductor</string>
 	<string name="mm_translate_interfase_browser">idioma de la interfaz del traductor (código de dos letras: ru, en, etc) en un navegador</string>
-	<string name="mm_notation">Системы счисления</string>
-	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
-	<string name="mm_stop_dict0">Временное отключение словаря (показывается только строка по умолчанию)</string>
-	<string name="mm_stop_dict1">Словарь: Работает</string>
-	<string name="mm_stop_dict2">Словарь: Отключен</string>
+	<string name="mm_notation">Sistema numérico</string>
+	<string name="mm_copy_notation">Número copiado en diferentes sistemas numéricos</string>
+	<string name="mm_stop_dict0">Deshabilitación temporal del diccionario (solo se muestra la cadena predeterminada)</string>
+	<string name="mm_stop_dict1">Diccionario: habilitado</string>
+	<string name="mm_stop_dict2">Diccionario: deshabilitado</string>
 	
 <!-- notation number  -->
-	<string name="notation_name">Какая базовая система счисления у числа</string>
-	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+	<string name="notation_name">¿Cúal es la notación de base del número?</string>
+	<string name="notation_not_number">Número debe ser entero, positivo y menos de 10 caracteres (decimal)</string>
 	
 	<string name="search">Búsqueda</string>
 	<string name="ok">OK</string>
@@ -641,7 +641,7 @@
 	<string name="later">Más tarde</string>
     <string name="empty">Vacío</string>
 	<string name="unload">Detener</string>
-	<string name="create">Создано</string>
+	<string name="create">Creado</string>
 	<string name="save">Guardar</string>
 	<string name="decompil_skin">Descompilar el archivo del tema</string>
 	<string name="delete">Borrar</string>
@@ -695,11 +695,11 @@
         <item><b>$sellowercase</b> - convertir todas las letras a minúsculas en la selección</item>
         <item><b>$selupcase</b> - convertir todas las letras a mayúsculas en la selección</item>
         <item><b>$selinsertword</b> - inserta un símbolo o una palabra seleccionada entre los símbolos en la selección</item>
-        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
+        <item><b>$selDeleteWord</b> - elimina un caracter o palabra especificada en la selección</item>
         <item><b>$seltranslit</b> - translitera caracteres de idioma ruso en caracteres latinos en la selección</item>
-		<item><b>$selVerseMode</b> - modo verso: cada letra de la línea en la selección estará en mayúscula</item>
+		<item><b>$selVerseMode</b> - modo verso: cada letra de la cadena en la selección estará en mayúscula</item>
         <item><b>$selAsInTheSentences</b> - tamaño de letras en la selección como en las sentencias</item>
-        <item><b>$paste</b> - вставить текущее значение из буфера обмена</item>
+        <item><b>$paste</b> - insertar el valor actual del búfer</item>
         </string-array>
         
 <!-- список символов разделения для специнструкции $insertsymbol -->
@@ -821,9 +821,9 @@
  	
  <!-- Names for gestures commands -->
  	<string name="cmd_lang_change">Cambio de idioma</string>   
- 	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
- 	<string name="cmd_lang_change_prev">Смена языка без меню в обратном порядке</string>   
- 	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
+ 	<string name="cmd_lang_change_next">Cambio de idioma en círculo, sin el menú</string>   
+ 	<string name="cmd_lang_change_prev">Cambio de idioma en orden inverso, sin el</string>   
+ 	<string name="cmd_lang_change_two_lang">Cambio de idioma. Idiomas recientes</string>   
  	<string name="cmd_left">Cursor a la izquierda</string>   
  	<string name="cmd_right">Cursor a la derecha</string>   
  	<string name="cmd_up">Cursor hacia arriba</string>   
@@ -836,6 +836,6 @@
  	<string name="menu_copy_word">Copiar la palabra</string>
  	<string name="menu_copy">Copiado</string>
 
-	<string name="set_copy_msg">Сообщение о копировании</string>
- 	<string name="set_copy_msg_desc">Если отмечено, то при копировании выводится сообщение о копировании</string>
+	<string name="set_copy_msg">Notificación de copia</string>
+ 	<string name="set_copy_msg_desc">Si está marcado, al copiar se mostrará una notificación de copia</string>
 </resources>

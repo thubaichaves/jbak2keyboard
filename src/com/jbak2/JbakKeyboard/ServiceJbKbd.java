@@ -126,8 +126,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 	int m_popup_color_text = 0xee000000;
 /** поведение стрелок */
 	boolean m_arrow_key =false;
-// коррекция высоты окна индикатора над клавиатурой
-	int calc_corr_ind =25;
+//// коррекция высоты окна индикатора над клавиатурой
+//	int calc_corr_ind =25;
 // массив  горячих клавиш
 	String[] m_hot_str=new String[100];
 // массив шаблонов горячих клавиш
@@ -142,14 +142,20 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 //	int m_delay_symb = 10;
 // метод ввода цифр и символов
 	int input_method =1;
-// временные строки                                      !!!
+/** временная строка */
 	String s1 = st.STR_NULL;
+	/** временная строка */
 	int in1=0;
+	/** временная строка */
 	int in2=0;
+	/** временная строка */
 	int in3=0;
+	/** временная строка */
 	int in4=0;
 // символы удаления пробела
 	String del_space_symbol = ".,!?;:";
+/** символы добавления пробела перед одного из этих символов */	
+	String add_space_before_symbol = "—№";
 	
 // задержка после записи par.ini
 	//static int m_par_delay = 10;
@@ -295,6 +301,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             JbKbdPreference.inst.onStartService();
         if(Quick_setting_act.inst!=null)
         	Quick_setting_act.inst.showHintButton();
+        st.fl_show_kbd_notif = false;
+        setShowNotification();
         super.onDestroy();
         st.exitApp();
     }
@@ -1075,14 +1083,17 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 // задержка перед вводом в систему символа
 // закомментил - 16.12.16, посмотрим на реакцию юзеров        
 //    	st.sleep(m_delay_symb);
-        if (!st.fl_pref_act)
+        if (!st.fl_pref_act) {
         	setDelSymb(keyCode);
+        	setAddSpaceBeforeSymbol(keyCode);
+        }
 // добавил 4 строки 20.03.17
 //        long TekTime= System.currentTimeMillis();             // добавить
 //        if(TekTime - LastTime <= m_delay_symb) 
 //        	return;           // добавить
 //        LastTime = TekTime;   
 		st.fl_delsymb = false;
+		st.fl_add_space_before_symb = false;
 // присваеваем key клавишу hot
     	LatinKey key = st.curKbd().getKeyByCode(st.TXT_HOT);
         String k=st.STR_NULL;
@@ -1684,6 +1695,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         		st.fl_delsymb = false;
         		st.fl_ac_word = false;
         	}
+    		st.fl_add_space_before_symb = false;
         	if (sss.compareTo(st.STR_SPACE) == 0)
         		ic.commitText(word, 1);
         	else
@@ -2433,6 +2445,11 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             m_SpaceSymbols = sharedPreferences.getString(st.PREF_KEY_ADD_SPACE_SYMBOLS, ",?!.");
             m_SpaceSymbols = st.getDelSpace(m_SpaceSymbols,st.STR_SPACE);
         }
+        st.add_space_before_symbols = sharedPreferences.getBoolean(st.PREF_KEY_ADD_SPACE_BEFORE_SENTENCE, false);
+        if (st.PREF_KEY_ADD_SPACE_BEFORE_SYMBOLS.equals(key) || key == null){
+        	add_space_before_symbol = sharedPreferences.getString(st.PREF_KEY_ADD_SPACE_BEFORE_SYMBOLS, "—№");
+        	add_space_before_symbol = st.getDelSpace(add_space_before_symbol,st.STR_SPACE);
+        }
         if (st.PREF_KEY_DEL_SPACE_SYMBOL.equals(key) || key == null){
         	del_space_symbol = sharedPreferences.getString(st.PREF_KEY_DEL_SPACE_SYMBOL, ".,!?;:");
         	del_space_symbol = st.getDelSpace(del_space_symbol,st.STR_SPACE);
@@ -2533,7 +2550,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
        		processCaseAndCandidates();
        	}
        	
-       	calc_corr_ind = st.str2int(sharedPreferences.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL),0,255,"Calc cjrrection inddicator");
+//       	calc_corr_ind = st.str2int(sharedPreferences.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL),0,255,"Calc cjrrection inddicator");
        	st.set_kbdact_backcol = sharedPreferences.getInt(st.SET_KBD_BACK_COL, 0);
        	st.win_fix = sharedPreferences.getBoolean(st.PREF_KEY_PC2_WIN_FIX, false);
        	st.win_bg = st.str2hex(sharedPreferences.getString(st.PREF_KEY_PC2_WIN_BG, st.PREF_KEY_PC2_WIN_BG_DEF), 16);
@@ -2633,19 +2650,21 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 		if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
 			st.fl_show_kbd_notif = false;
 		}
-    	if (st.fl_show_kbd_notif){
-    		if (notif!=null&&notif.mact!= null){
-    			notif.dismiss(Notif.NOTIFY_ID);
-    			notif = null;
-    		}
-            notif = new Notif(inst);
-			notif.createNotif();
-    	} else {
-    		if (notif.mact!= null){
-    			notif.dismiss(Notif.NOTIFY_ID);
-    			notif = null;
-    		}
-    	}
+//!!!		
+		setShowNotification();
+//    	if (st.fl_show_kbd_notif){
+//    		if (notif!=null&&notif.mact!= null){
+//    			notif.dismiss(Notif.NOTIFY_ID);
+//    			notif = null;
+//    		}
+//            notif = new Notif(inst);
+//			notif.createNotif();
+//    	} else {
+//    		if (notif.mact!= null){
+//    			notif.dismiss(Notif.NOTIFY_ID);
+//    			notif = null;
+//    		}
+//    	}
         st.gesture_min_length = st.str2int(sharedPreferences.getString(st.SET_GESTURE_LENGTH, "100"),1,1000,"Gesture length");
         st.gesture_velocity = st.str2int(sharedPreferences.getString(st.SET_GESTURE_VELOCITY, "150"),1,1000,"Gesture velocity");
 // читаем свои жесты
@@ -3220,41 +3239,42 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 
         }
     }
-    public void setText(int keyCode) 
-    {
-    	setDelSymb(keyCode);
-		st.fl_delsymb = false;
-// присваеваем key клавишу hot
-    	LatinKey key = st.curKbd().getKeyByCode(st.TXT_HOT);
-        String k=st.STR_NULL;
-        String txt = st.STR_NULL;
-        k+= (char) keyCode;
-    	boolean hot= false;
-    	for (int i = 0; i < m_hot_count; i++) {
-            if(key!=null&&key.on) {
-            	if (m_hot_str[i].contains(k.toUpperCase())){
-            		txt=m_hot_tpl[i];
-            		hot=true;
-            	}
-            }
-    	}
-    	if (hot){
-    		Templates.inst.processTemplate(txt);
-    		if (key!=null)
-    			key.on=false;
-    		st.setQwertyKeyboard();
-    		
-    	} else
-    		getCurrentInputConnection().commitText(String.valueOf((char) keyCode), 1);
-//    		setTextAfterSetText(keyCode);
-        processCaseAndCandidates();
-    }
-// уже не используется
-//    public void setTextAfterSetText(int keycode) 
+//    нигде не используется. Закоментил 12.09.18
+//    public void ksetText(int keyCode) 
 //    {
-////    	st.sleep(m_delay_symb);
-//    	getCurrentInputConnection().commitText(String.valueOf((char) keycode), 1);
+//    	setDelSymb(keyCode);
+//		st.fl_delsymb = false;
+//// присваеваем key клавишу hot
+//    	LatinKey key = st.curKbd().getKeyByCode(st.TXT_HOT);
+//        String k=st.STR_NULL;
+//        String txt = st.STR_NULL;
+//        k+= (char) keyCode;
+//    	boolean hot= false;
+//    	for (int i = 0; i < m_hot_count; i++) {
+//            if(key!=null&&key.on) {
+//            	if (m_hot_str[i].contains(k.toUpperCase())){
+//            		txt=m_hot_tpl[i];
+//            		hot=true;
+//            	}
+//            }
+//    	}
+//    	if (hot){
+//    		Templates.inst.processTemplate(txt);
+//    		if (key!=null)
+//    			key.on=false;
+//    		st.setQwertyKeyboard();
+//    		
+//    	} else
+//    		getCurrentInputConnection().commitText(String.valueOf((char) keyCode), 1);
+////    		setTextAfterSetText(keyCode);
+//        processCaseAndCandidates();
 //    }
+//// уже не используется
+////    public void setTextAfterSetText(int keycode) 
+////    {
+//////    	st.sleep(m_delay_symb);
+////    	getCurrentInputConnection().commitText(String.valueOf((char) keycode), 1);
+////    }
     public void setDelSymb(int keyCode) 
     {
 		if(st.del_space&&!st.fl_pref_act) {
@@ -3278,14 +3298,31 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		}
         }
     }
-//    public static int getParSleepValue() 
-//    {
-//    	return m_par_delay;
-//    }
+    /** добавляет пробел перед перечисленными в настройках символами */
+    public void setAddSpaceBeforeSymbol(int keyCode) 
+    {
+    	if (st.fl_add_space_before_symb)
+    		return;
+		if(st.add_space_before_symbols&&!st.fl_pref_act) {
+			if (add_space_before_symbol!=null&&add_space_before_symbol.length()>0) {
+				char c = (char)keyCode;
+				char c1 = 0;
+				for (int i=0;i<add_space_before_symbol.length();i++) {
+					c1= add_space_before_symbol.charAt(i);
+					if (c==c1) {
+						getCurrentInputConnection().commitText(st.STR_SPACE, 1);
+						st.fl_add_space_before_symb = true;
+	                    break;
+					}
+				}
+			}
+        }
+    }
     public void setTplCount(int num) 
     {
     	m_hot_count = num;
     }
+    /** гасит индикатор на кнопке select если она есть на текущей раскладке */
     public void selOff() 
     {
     	stickyOff(st.TXT_ED_SELECT);
@@ -3307,8 +3344,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 //            kv.invalidateAllKeys();
 //        }
     }
-// гасит индикатор на кнопке с кодом codekey
-// если он включен    
+/** гасит индикатор на кнопке с кодом codekey если он включен */    
     public void stickyOff(int codekey) 
     {
     	LatinKey key = st.curKbd().getKeyByCode(codekey);
@@ -3765,5 +3801,21 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		}
     	}
     }
-
+    /** устанавливаем уведомление для вызова клавы из шторки */
+    public void setShowNotification() {
+    	if (st.fl_show_kbd_notif){
+    		if (notif!=null&&notif.mact!= null){
+    			notif.dismiss(Notif.NOTIFY_ID);
+    			notif = null;
+    		}
+            notif = new Notif(inst);
+			notif.createNotif();
+    	} else {
+    		if (notif.mact!= null){
+    			notif.dismiss(Notif.NOTIFY_ID);
+    			notif = null;
+    		}
+    	}
+   	
+    }
 }

@@ -90,7 +90,8 @@ public class Translate
                 		return 0;
                 	st.hidekbd();
                 	String interface_lang= st.pref().getString(st.PREF_TRANSLATE_INTERFACE, st.getSystemLangApp());
-                	String txt = "https://translate.google.com/?hl="+interface_lang+"&tab=TT#"+ar1[0]+st.STR_SLASH+ar1[1]+st.STR_SLASH+sel;
+//                	String txt = "https://translate.google.com/?hl="+interface_lang+"&tab=TT#"+ar1[0]+st.STR_SLASH+ar1[1]+st.STR_SLASH+sel;
+                	String txt = "https://translate.google.com/?hl="+interface_lang+"&tab=TT#"+ar1[0]+st.STR_SLASH+ar1[1]+st.STR_SLASH+Uri.encode(sel.toString());
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(txt));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     ServiceJbKbd.inst.startActivity(intent);

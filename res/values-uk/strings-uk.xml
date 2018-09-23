@@ -320,9 +320,9 @@
 	<string name="calc_menu_history">Історія обрахунків</string>
 	<string name="calc_menu_list">Лістинг программы</string>
 	<string name="calc_menu">Меню</string>
-	<string name="calc_setting">Налаштування калькулятора</string>
-	<string name="calc_corr_ind">Корегування вікна індикатора</string>
-	<string name="calc_corr_ind_desc">Висота вікна індикатора над клавіатурою, якщо вікно автодоповнення вимкнено</string>
+<!-- 	<string name="calc_setting">Налаштування калькулятора</string> -->
+<!-- 	<string name="calc_corr_ind">Корегування вікна індикатора</string> -->
+<!-- 	<string name="calc_corr_ind_desc">Висота вікна індикатора над клавіатурою, якщо вікно автодоповнення вимкнено</string> -->
 	<string name="calc_prog_empty">Пам\'ять програми пуста. Нічого виводити</string>
 	<string name="calc_save">Зберегти</string>
 	<string name="calc_load">Завантажити</string>
@@ -480,6 +480,9 @@
   <string name="set_key_space_sentence_end_desc">Вмикає додавання пробілів після деяких символів, перерахованих в наступному пункті налаштувань</string>
   <string name="set_key_space_symbols">Символи додавання пробілів</string>
   <string name="set_key_space_symbols_desc">Після введення одного з цих символів вставляється пробіл. Натисніть для редагування</string>
+    <string name="set_key_add_space_before_symbols_desc">Перед вводом одного из этих символов вставляется пробел. Нажмите для редактирования.</string>
+    <string name="set_key_space_sentence_before">Перед вводом символов</string>
+    <string name="set_key_space_sentence_before_desc">Включает добавление пробела перед вводом некоторых символов, перечисленных в следующей настройке</string>
   <string name="set_key_landscape_input">Повноекранний режим</string>
   <string name="set_key_landscape_input_desc">Налаштування для введення в повноекранному режимі</string>
   <string name="set_key_portrait_input_type">В портретному режимі</string>

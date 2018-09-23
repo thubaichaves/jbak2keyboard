@@ -479,7 +479,8 @@ public class JbCandView extends RelativeLayout
         m_defkey=ServiceJbKbd.inst.m_ac_defkey.split(st.STR_SPACE);
     	  if (st.fl_temp_stop_dict) {
     		  m_texts = m_defkey;
-    		  m_addVocab.setVisibility(View.GONE);
+    		  if (m_addVocab != null)
+    			  m_addVocab.setVisibility(View.GONE);
     	  } else {
     	        m_texts = words==null?m_defkey:words;
     	  }
@@ -643,8 +644,10 @@ public class JbCandView extends RelativeLayout
             	}
             	st.fl_ac_word = true;
             	tmp =((TextView)v).getText().toString();
-            	if (tmp.length()==1)
+            	if (tmp.length()==1) {
             		ServiceJbKbd.inst.setDelSymb(tmp.charAt(0));
+            		ServiceJbKbd.inst.setAddSpaceBeforeSymbol(tmp.charAt(0));
+            	}
 
                 CompletionInfo ci = (CompletionInfo)v.getTag();
 // нажатие на слово из автодополнения
@@ -1221,7 +1224,8 @@ public class JbCandView extends RelativeLayout
     	if (text == -10){
             if (st.calc_fl_ind==false&&ServiceJbKbd.inst.m_acPlace==0) {
                 CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
-            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
+//            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
+            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
                 showInView(ypos,true);
             }
             st.calc_fl_ind=true;
@@ -1435,7 +1439,8 @@ public class JbCandView extends RelativeLayout
     		calc_first_input=true;
             if (st.calc_fl_ind==false&&ServiceJbKbd.inst.m_acPlace==0) {
                 CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
-            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
+//            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
+            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
                 showInView(ypos,true);
             }
         	st.calc_fl_ind = true;

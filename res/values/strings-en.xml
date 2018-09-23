@@ -4,7 +4,7 @@
     <string name="ime_name">jbak2 Keyboard </string>
     <string name="ime_settings">Settings</string>
     <string name="pref_keys">Key settings and Autocomplete</string>
-	<string name="pref_keys_desc">Высота, горизонтальное смещение клавиатуры и вертикальная коррекция клавиш и автодополнения</string>    
+	<string name="pref_keys_desc">Keyboard height, horizontal offset and vertical correction of keys and Autocomplete</string>    
     <string name="msg_begin">Do not show this again</string>   
 	<string name="kbd_warning">First turn on and activate the keyboard!\n(the first paragraph of Settings)</string>
 	<string name="jbak2layout">Custom layouts and languages</string>
@@ -21,52 +21,52 @@
 
 <!-- Title for permission-->
 	<string name="perm_expl1">There are no extraneous activities in the keyboard application, nothing is collected or stolen!\nThis is a standard system warning. For more details, see \“How to use the keyboard\” \n\nFor a proper work, the application requires some permissions,  WITHOUT ANY OF THEM, THE KEYBOARD WILL NOT WORK:\n\n- access to read and write to Internal Sorage (for the work of custom dictionary, templates, external layouts, skins and other stuff used in the keyboard).\n\n- window type \“On top of other windows\” (for the work of Autocomplete (word prediction), keystroke display and some dialog boxes).</string>
-	<string name="perm_expl2">For the work of Autocomplete (word predicition), keystroke display and some other windows (dialog boxes, keystroke display, etc), the program requires the window type permission  \“On top of other windows\”.</string>
+	<string name="perm_expl2">For the work of Autocomplete (word prediction), keystroke display and some other windows (dialog boxes, keystroke display, etc), the program requires the window type permission  \“On top of other windows\”.</string>
 	<string name="perm_expl3">In case you, for some reason, have been denied permissions, and their request no longer appears,  then, permissions can be granted through the system settings of the Jbak2 keyboard application. The \"Permissions\" and \"On top of other windows\" items</string>	
 	<string name="perm_not_all_perm">Not all required permissions have been allowed</string>
 
 <!-- Title for file explorer-->
     <string name="fi_title">File explorer</string>
-    <string name="fi_filter">Фильтр</string>
-    <string name="fi_filt1">Текущий фильтр:</string>
-    <string name="fi_filt2">Долгое нажатие на кнопку фильтра - включение/выключение фильтра</string>
-    <string name="fi_root">Корневая папка</string>
+    <string name="fi_filter">Filter</string>
+    <string name="fi_filt1">Current filter:</string>
+    <string name="fi_filt2">Long press on the Filter button: turn the filter on/off </string>
+    <string name="fi_root">Root folder</string>
     <string name="fi_folder_last">Last folder</string>
-    <string name="fi_folder_dowload">Загрузки</string>
-    <string name="fi_folder_pict">Картинки и видео</string>
+    <string name="fi_folder_dowload">Downloads</string>
+    <string name="fi_folder_pict">Pictures and videos</string>
     <string name="fi_folder_emulated">emulated</string>
-    <string name="fi_not_open">Не могу открыть</string>
-    <string name="fi_done">Выполнено</string>
+    <string name="fi_not_open">Cannot open</string>
+    <string name="fi_done">Done</string>
     	
-	<string name="set_kbd_background">Фон клавиатуры</string>
-	<string name="set_kbd_background_desc">Картинка в качестве фона. Клавиатура потребляет больше памяти</string>
-	<string name="set_kbd_background_error">Мало памяти!\nНе могу использовать картинку для фона клавиатуры</string>
-	<string name="set_kbd_background_alpha">Прозрачность клавиатуры</string>
-	<string name="set_kbd_background_alpha_desc">0 - полностью прозрачна, 10 - прозрачность из скина. Имеет смысл только при использовании фоновой картинки</string>
-	<string name="cancel_kbd_background">Фон из скина</string>
+	<string name="set_kbd_background">Keyboard background</string>
+	<string name="set_kbd_background_desc">Set image as a background. The keyboard app will use more memory</string>
+	<string name="set_kbd_background_error">Out of memory!\nCannot use this image as keyboard background</string>
+	<string name="set_kbd_background_alpha">Keyboard transparency</string>
+	<string name="set_kbd_background_alpha_desc">0: fully transparent, 10: transparency of skin. It only makes sense if you use a background image</string>
+	<string name="cancel_kbd_background">Background of skin</string>
 	
 <!-- Title for show keyboard notification-->
-	<string name="set_show_kbd_notif">Вызов из шторки</string>
-	<string name="set_show_kbd_notif_desc">Вызов клавиатуры через уведомление в  шторке. Иногда необходимо</string>
-	<string name="set_show_kbd_notif_title">Показать клавиатуру jbak2 keyboard</string>
-	<string name="set_show_kbd_notif_body">Это уведомление отключается в прочих настройках</string>
+	<string name="set_show_kbd_notif">Enable from the notification panel</string>
+	<string name="set_show_kbd_notif_desc">Enable the keyboard via the notification panel. Sometimes it is necessary</string>
+	<string name="set_show_kbd_notif_title">Show the jbak2 keyboard</string>
+	<string name="set_show_kbd_notif_body">You can disable this notification going to Other settings</string>
 	
 <!-- Title for small keyboard-->
     <string name="pref_mini_kbd_screen">Small keyboard (still in beta)</string>
-    <string name="pref_mini_kbd_screen_desc">Still in beta. These settings apply only to the first version small keyboard (i.e. when the popupCharacter tag is not v2).</string>
+    <string name="pref_mini_kbd_screen_desc">Still in beta. These settings apply only to the first version of the small keyboard (i.e. when the popupCharacter tag is not v2).</string>
     <string name="pref_mini_kbd_its">Its own small keyboard</string>
     <string name="pref_mini_kbd_its_desc">If checked, its own small keyboard is used, otherwise the default one will be used</string>
     <string name="pref_mini_kbd_btnsize">Key size</string>
-    <string name="pref_mini_kbd_btnsize_desc">Key size in small keyboard</string>
+    <string name="pref_mini_kbd_btnsize_desc">Key size in the small keyboard</string>
     <string-array name="array_minikbd_btn_size">
         <item>Default</item>
         <item>Small</item>
         <item>Medium</item>
-        <item>Как у кнопок клавиатуры</item>
-        <item>Широкие</item>
+        <item>Like keyboard keys</item>
+        <item>Large</item>
     </string-array>
     <string name="pref_mini_kbd_textbtnsize">Character size on keys</string>
-    <string name="pref_mini_kbd_textbtnsize_desc">Character size on keys of small keyboard</string>
+    <string name="pref_mini_kbd_textbtnsize_desc">Character size on keys of the small keyboard</string>
     <string-array name="array_minikbd_btn_text_size">
         <item>Default</item>
         <item>Small</item>
@@ -102,14 +102,14 @@
 	<string name="qs_title">Quick settings wizard</string>
 	<string name="qs_ann">This professional keyboard is fully customizable and differs from most other keyboards.\nThis is a keyboard constructor with huge possibilities.\nFor this reason, the keyboard does not have predictive input and and Swype function.\n\nThe warning about a possible theft of passwords is a standard system message. For more information, see \"How to use the keyboard\".\n\nIf you have a device with a MIUI ROM, by default the autocomplete box (where you can see word suggestion) and the keypress pop-up feature will be turned off. To turn them on, read How to use the keyboard.</string>
 	<string name="qs_ann_perm">Viewer of the permission annotation</string>
-	<string name="qs_xiaomi">The Xiaomi manufacter has been detected: by default, some windows will not work on your device (Autocomplete, keystroke display,  some confirmation messages before actions, etc), be sure to read “How to use the keyboard”</string>
+	<string name="qs_xiaomi">The Xiaomi manufacture has been detected: by default, some windows will not work on your device (Autocomplete, keystroke display,  some confirmation messages before actions, etc), be sure to read “How to use the keyboard”</string>
 	<string name="qs_btn1">Enable the jbak2 keyboard</string>
     <string name="qs_btn2">Activate the jbak2 keyboard</string>
     <string name="qs_sel_lang">Select application language</string>
     <string name="qs_sel_lang_def">System</string>
     <string name="qs_btn3">Select languages and layouts</string>
     <string name="qs_btn3_help">Mark the languages you want.\nThen, in front of each language you can find the \"Select layout\" button. Click on it.\nIt will open a screen to select layouts. Scroll layouts using right and left arrows.\nAfter selecting the one you like, do not forget to click the \ "Save \" button.\nRepeat the same operation for each selected language.</string>
-    <string name="qs_btn3_1">Высота клавиатуры</string>
+    <string name="qs_btn3_1">Keyboard height</string>
     <string name="qs_btn4">Select keyboard skin (theme)</string>
     <string name="qs_btn4_help">Select skin.\nAfter selecting, press the \"Save\" button.</string>
     <string name="qs_btn5_help">To enable the Autocomplete box, you need to install the dictionaries for the selected languages.\n\nDownload a dictionary installer application?</string>
@@ -137,7 +137,7 @@
     <string name="euv_read">Reading...</string>
     <string name="euv_save">Saving</string>   
     <string name="euv_help">(the scrolling text feature is available)\n\nYou can edit a word or change its frequency by clicking on this word or its frequency accordingly.\nPress Enter to finish editing.\nLong press on a word will delete it from the dictionary, and the word itself will be colored with red.\n\nThe higher is the word frequency, the closer is a word to the top of list, if the list of AutoComplete is given by frequency.\nFrequency range of words from 0 to 10000000.\nThe word frequency above 500000 indicates that the word was not in the main dictionaries, and it has been added by the user, and it needs to be shown at the top of the list (that is why it has such a large number).\nIf the frequency of a word is set to 0, its frequency will not increase, and it will not appear in the word list (words from the main dictionary have a minimal frequency set to 1, that is why they will be always displayed).</string>
-    <string name="euv_cb1">Всегда открывать этот язык</string>
+    <string name="euv_cb1">Always open this language</string>
     
 <!-- Title for skin constructor  -->
     <string name="sc_actname">Skin constructor</string>
@@ -195,9 +195,9 @@
     <string name="sc_msg32">Gradient type of keys in a pressed state. 0 - linear, 1 - radial</string>
     
 <!-- сохранение строки дополнительных символов -->
-	<string name="pop2s_save">Save string</string>
+	<string name="pop2s_save">Save the string</string>
 	<string name="pop2s_save_desc">Save the string with additional characters to a separate file</string>
-	<string name="pop2s_load">Load string</string>
+	<string name="pop2s_load">Load the string</string>
 	<string name="pop2s_load_desc">Load the string with additional symbols from a single file</string>
 	<string name="pop2s_str_not_empty">String is not empty.\nLoad?</string>
 	<string name="pop2s_file_not_empty">File is not empty.\nRewrite?</string>
@@ -236,8 +236,8 @@
 
 	<string name="ac_place_arrow_down">Down Arrow from the Autocomplete box</string>
 	<string name="ac_place_arrow_down_desc">If checked, \"Down Arrow\" is not showing in Autocomplete. It is possible to use a gesture instead of it</string>
-	<string name="ac_place_separator_symb">Нажатие разделителя</string>
-	<string name="ac_place_separator_symb_desc">Если отмечено, то при нажатии на символ разделителя (.,?! и т.д.) в автодополнении, слово где находится курсор не заменяется, а этот символ вставляется в позицию курсора</string>
+	<string name="ac_place_separator_symb">Pressing on the character separator</string>
+	<string name="ac_place_separator_symb_desc">If checked, when you click on the separator character (.,?! ,etc) in Autocomplete, the word where the cursor is located will be not replaced, and this character will be inserted at the cursor position</string>
 	<string name="ac_list_value">Number of words</string>
 	<string name="ac_list_value_desc">Number of words in the drop-down list. The higher value is chosen, the slower will be the process</string>
 	<string name="ac_del_word">Delete the word?</string>
@@ -262,7 +262,7 @@
 		
 <!-- новые жесты -->
 	<string name="gesture_select_all">Select all</string>
-	<string name="gesture_select">Переключатель режима выделения (на раскладке должна быть клавиша Select)</string>
+	<string name="gesture_select">Selection mode switcher(the Select button must be present on the keyboard layout)</string>
 	<string name="gesture_space_quantity">The number of spaces depends of the gesture length</string>
 	<string name="gesture_d_vr">Voice input</string>
 	<string name="gesture_to_start">To the beginning of the text</string>
@@ -283,9 +283,9 @@
 	<string name="gesture_cand_list">Word list of AutoComplete</string>
 	<string name="gesture_cut">Cut</string>
 	<string name="gesture_copy">Copy</string>
-	<string name="gesture_paste">Insert</string>
-	<string name="gesture_search_copy">Поиск скопированного в браузере</string>
-	<string name="gesture_search_sel">Поиск выделенного в браузере</string>
+	<string name="gesture_paste">Paste</string>
+	<string name="gesture_search_copy">Search for copied text in your browser</string>
+	<string name="gesture_search_sel">Search for selected text in your browser</string>
 	<string name="gesture_trans_sel">Translate selected text</string>
 	<string name="gesture_trans_copy">Translate copied text</string>
 	<string name="gesture_upcase">Character in uppercase</string>
@@ -308,7 +308,7 @@
 	<string name="runapp_favorite_cnt">Apps in favorite: </string>
 						
 <!-- настройки главного меню -->
-	<string name="mainmenu_setting">Main meny display</string>
+	<string name="mainmenu_setting">Main menu display</string>
 		<string name="mainmenu_setting_desc">Select items to show on the main menu</string>
 	<string name="mainmenu_toast">Long press on the menu item button: delete</string>
 	<string name="mainmenu_cb1">Delete without asking</string>
@@ -317,9 +317,6 @@
 	<string name="calc_menu_list">Program listing</string>
 	<string name="calc_menu_history">Calculation log</string>
 	<string name="calc_menu">Menu</string>
-	<string name="calc_setting">Calculator settings</string>
-	<string name="calc_corr_ind">Display window correction</string>
-	<string name="calc_corr_ind_desc">Window height of the display above the keyboard, if  the Autocomplete box is disabled</string>
 	<string name="calc_prog_empty">Program memory is empty. Nothing to output</string>
 	<string name="calc_save">Save</string>
 	<string name="calc_load">Download</string>
@@ -401,7 +398,7 @@
 	<string name="set_enter_state_desc">Change the icon on the Enter key depending on the context?</string>
 	<string name="set_ac_defkey">Words by default</string>
     <string name="set_ac_defkey_desc">Words in Autocomplete by default. Separator: space. If one key corresponds to many characters, will be entered the first one.</string>
-	<string name="set_ac_new_defkey">Cтрока автодополнения по умолчанию изменилась. Вы хотите её изменить на новую (отменить изменение невозможно)?</string>
+	<string name="set_ac_new_defkey">Default Autocomplete string  has changed. Do you want to change it to a new one (cannot undo changes)?</string>
     <string name="set_ac_space">Insert space</string>
     <string name="set_ac_space_desc">Insert space after a word selected from Autocomplete</string>
 
@@ -410,19 +407,19 @@
     <string name="set_counter_desc">Text length in the CURRENT input field\nTurn on Autocomplete to display.</string>
     <string name="set_keycode">Key pressed code</string>
     <string name="set_keycode_desc">Turn on Autocomplete to display.\nMore details on\"How to use the keyboard\".</string>
-    <string name="set_longtap_keycode_help">Короткое нажатие на элементе меню, вводит указанное на нём значение, долгое нажатие - копирует число в буфер обмена\n\n---\n\n</string>
+    <string name="set_longtap_keycode_help">Short press on the menu item will enter the specified value indicated on it, long press will copy the number to the clipboard\n\n---\n\n</string>
     
-    <string name="set_key_height">Высота клавиш</string>
-    <string name="set_kbd_horiz">Горизонтальное смещение клавиатуры</string>
+    <string name="set_key_height">Key height</string>
+    <string name="set_kbd_horiz">Keyboard horizontal offset</string>
     <string name="set_ch_keys_preview">Display key preview</string>
     <string name="set_ch_keys_preview_desc">Turn it off, if you do not want to see keypress pop-up previews</string>
     <string name="set_keyboard_height">Keyboard height</string>
-    <string name="set_key_height_portrait">Высота и смещение - портрет</string>
-    <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
-    <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
-    <string name="set_key_height_landscape">Высота и смещение - ландшафт</string>
-    <string name="set_key_height_landscape_desc">Изменение высоты и смещения клавиатуры в ландшафтном режиме</string>
-    <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
+    <string name="set_key_height_portrait">Height and offset in portrait mode</string>
+    <string name="set_key_height_portrait_desc">Change the keyboard height and offset in portrait mode</string>
+    <string name="set_key_height_portrait_toast">Rotate the screen to portrait mode</string>
+    <string name="set_key_height_landscape">Height and offset in landscape mode</string>
+    <string name="set_key_height_landscape_desc">Change the keyboard height and offset in landscape mode</string>
+    <string name="set_key_height_landscape_toast">Rotate the screen to landscape mode</string>
     <string name="set_key_ac_height">Autocomplete height</string>
     <string name="set_key_ac_height_desc"></string>
     
@@ -463,7 +460,7 @@
     <string name="set_ac_font_desc">Font of the Autocomplete bar</string>
 
     <string name="set_key_other">Autoinput</string>
-    <string name="set_key_other_desc">Some settings for automatic input</string>
+    <string name="set_key_other_desc">Some settings for the automatic input</string>
     <string name="set_key_register">Switch to uppercase</string>
     <string name="set_key_spaces">Adding a space</string>
     <string name="set_key_empty_uppercase">In empty fields</string>
@@ -475,7 +472,7 @@
 
 	<string name="set_key_del_spase_category">Deleting a space</string>
 	<string name="set_key_del_space">Delete a space before characters </string>
-	<string name="set_key_del_space_desc">If enabled, all spaces (if they are there) will be deleted after the characters presented in the following configuration</string>
+	<string name="set_key_del_space_desc">If enabled, all spaces (if they are there) will be deleted after the characters listed in the following configuration</string>
     <string name="set_key_del_space_symbols">Characters to delete spaces</string>
     <string name="set_key_del_space_symbols_desc">If enabled, all spaces will be deleted before the following characters. Click to edit</string>
 
@@ -486,10 +483,13 @@
     <string name="set_key_sentence_space_end">Only after spaces</string>
     <string name="set_key_sentence_space_end_desc">Switch to uppercase after a space and after one of the characters from the previous setting</string>
 
-    <string name="set_key_space_sentence_end">After character</string>
+    <string name="set_key_space_sentence_end">After entering characters</string>
     <string name="set_key_space_sentence_end_desc">Automatic space adding after the following characters. See the next setting</string>
     <string name="set_key_space_symbols">Characters to add a space</string>
     <string name="set_key_space_symbols_desc">Space will be added after entering the following characters. Click to edit</string>
+	<string name="set_key_add_space_before_symbols_desc">Before entering one of these characters, a space will be inserted. Click to edit.</string>
+	<string name="set_key_space_sentence_before">Before entering characters</string>
+	<string name="set_key_space_sentence_before_desc">Enables space adding before entering some of these characters listed in the following configuration</string>
     <string name="set_key_landscape_input">Fullscreen mode</string>
     <string name="set_key_landscape_input_desc">Input settings in fullscreen mode</string>
     <string name="set_key_portrait_input_type">In portrait mode</string>
@@ -520,8 +520,8 @@
     <string name="set_key_clipbrd_size_desc">Maximum number of items in the multi-clipboard</string>
     <string name="set_key_intervals">Key delays</string>
     <string name="set_key_intervals_desc">Delays for long-press and repeats</string>
-	<string name="set_key_tpl_path">Путь в шаблонах</string>
-	<string name="set_key_tpl_path_desc">Если отмечено, то в меню шаблонов и в некоторых других меню, показывается путь к текущей папке</string>
+	<string name="set_key_tpl_path">Path in Templates</string>
+	<string name="set_key_tpl_path_desc">If checked, the path to the current folder will be displayed in the menu of Templates and other menus</string>
     <string name="set_key_save_pref">Save settings</string>
     <string name="set_key_save_pref_desc">Into file:</string>
     <string name="set_key_load_pref">Load settings</string>
@@ -581,8 +581,8 @@
         <item>2 modes (normal,capslock)</item>
     </string-array>
     <string name="kbdact_back">Current window background</string>
-    <string name="kbdact_toast1">Долгое нажатие на кнопки вправо/влево, открывают список</string>
-    <string name="kbdact_error_open">Пока не всё подготовлено. Попробуйте немного позже</string>
+    <string name="kbdact_toast1">Long press on the buttons to the right/left to open the list</string>
+    <string name="kbdact_error_open">Not fully ready yet. Try later</string>
     <string-array name="vibro_short_type">
         <item>No vibration</item>
         <item>On key release</item>
@@ -644,14 +644,14 @@
 	<string name="mm_translate_interfase">Translator interface language</string>
 	<string name="mm_translate_interfase_browser">Two letter code (ru, en, etc) of the translator interface language in a browser</string>
 	<string name="mm_notation">Notation</string>
-	<string name="mm_copy_notation">Скопированное число в разных системах счисления</string>
-	<string name="mm_stop_dict0">Временное отключение словаря (показывается только строка по умолчанию)</string>
-	<string name="mm_stop_dict1">Словарь: Работает</string>
-	<string name="mm_stop_dict2">Словарь: Отключен</string>
+	<string name="mm_copy_notation">Copied number in different number systems</string>
+	<string name="mm_stop_dict0">Dictionary temporary disabling (only the default string is displaying)</string>
+	<string name="mm_stop_dict1">Dictionary: on</string>
+	<string name="mm_stop_dict2">Dictionary: off</string>
 	
 <!-- notation number  -->
-	<string name="notation_name">Какая базовая система счисления у числа</string>
-	<string name="notation_not_number">Число должно быть целым, положительным и меньше 10 знаков (десятичн.)</string>
+	<string name="notation_name">What is the base notation of the number</string>
+	<string name="notation_not_number">Number must be an integer, positive and less than 10 characters (decimal)</string>
 		
 	<string name="search">Search</string>
 	<string name="ok">OK</string>
@@ -661,7 +661,7 @@
 	<string name="later">Later</string>
     <string name="empty">Empty</string>
 	<string name="unload">Unload</string>
-	<string name="create">Create</string>
+	<string name="create">Created</string>
 	<string name="save">Save</string>
 	<string name="decompil_skin">Decompile skin</string>
 	<string name="delete">Delete</string>
@@ -712,14 +712,14 @@
         <item><b>$selline</b> - if nothing is selected, the instruction will be replaced by the current paragraph, otherwise, it will be replaced by the selected text</item>
         <item><b>$$</b> - it will be replaced by the $ sign</item>
         <item><b>$datetime</b> - the current date and time will be inserted. If the cursor is located at the word, it will be replaced</item>
-        <item><b>$sellowercase</b> - convert all letters to lowercase in the selection </item>
+        <item><b>$sellowercase</b> - converts all letters to lowercase in the selection </item>
         <item><b>$selupcase</b> - convert all letters to uppercase in the selection</item>
-        <item><b>$selinsertword</b> - insert selected character or word between symbols in the selection</item>
-        <item><b>$selDeleteWord</b> - удаляет указанный символ или слово в выделении</item>
-        <item><b>$seltranslit</b> - transliterate Russian language characters into Latin characters in the selection</item>
+        <item><b>$selinsertword</b> - inserts selected character or word between symbols in the selection</item>
+        <item><b>$selDeleteWord</b> - removes a specified character or word in the selection</item>
+        <item><b>$seltranslit</b> - transliterates Russian language characters into Latin characters in the selection</item>
 		<item><b>$selVerseMode</b> - verse mode: each first character of the string in the selection will be capitalized</item>
         <item><b>$selAsInTheSentences</b> - letter case in the selection like in the sentences</item>
-        <item><b>$paste</b> - вставить текущее значение из буфера обмена</item>
+        <item><b>$paste</b> - pastes the current value from the clipboard</item>
         </string-array>
     
 <!-- список символов разделения для специнструкции $insertsymbol -->
@@ -850,10 +850,10 @@
  	<string name="lang_symbol_selector">Switch between characters and qwerty keyboards</string>   
  	
  <!-- Names for gestures commands -->
- 	<string name="cmd_lang_change">Change language</string>
- 	<string name="cmd_lang_change_next">Смена языка без меню по кругу</string>   
- 	<string name="cmd_lang_change_prev">Смена языка без меню в обратном порядке</string>   
- 	<string name="cmd_lang_change_two_lang">Смена языка. Последние языки</string>   
+ 	<string name="cmd_lang_change">Language switching</string>
+ 	<string name="cmd_lang_change_next">Language switching on a loop, without Menu</string>   
+ 	<string name="cmd_lang_change_prev">Language switching in reverse order, without Menu</string>   
+ 	<string name="cmd_lang_change_two_lang">Language switching. Recent languages</string>   
  	<string name="cmd_left">Cursor to the left</string>
  	<string name="cmd_right">Cursor to the right</string>
  	<string name="cmd_up">Cursor up</string>
@@ -870,7 +870,7 @@
  	<string name="menu_copy_word">Copy word</string>
  	<string name="menu_copy">Copied</string>
 
-	<string name="set_copy_msg">Сообщение о копировании</string>
- 	<string name="set_copy_msg_desc">Если отмечено, то при копировании выводится сообщение о копировании</string>
+	<string name="set_copy_msg">Notification about copying</string>
+ 	<string name="set_copy_msg_desc">If checked, when you copy, the notification about copying will be displayed</string>
  			
 </resources>

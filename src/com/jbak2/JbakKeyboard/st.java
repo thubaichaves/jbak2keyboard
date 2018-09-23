@@ -130,8 +130,10 @@ public class st extends IKeyboard implements IKbdSettings
 	// подавлять сообщение о синхронизации
 	public static boolean fl_clipbrd_sync_msg = true;
 	
-// удалять ли пробел
+/** удалять ли пробел перед символами */
 	public static boolean del_space = false;
+/** добавлять ли пробел перед указанными символами */
+	public static boolean add_space_before_symbols = false;
 // запущена preferences activity или редактор шаблонов
 	public static boolean fl_pref_act = false;
 // строка для запуска интента для маркета
@@ -142,8 +144,10 @@ public class st extends IKeyboard implements IKbdSettings
 	public static String AC_DEF_WORD = "$[-500,Menu] ! @ ? ; : , .";
 // последнее состояние шифта
 	public static int last_case = 0;
-// флаг, что delsymb() из servicekbd выполнил удаление	
+/** флаг, что delsymb() из servicekbd выполнил удаление */	
 	public static boolean fl_delsymb = false;
+/** флаг, что метод из servicekbd добавил пробел перед символом */	
+	public static boolean fl_add_space_before_symb = false;
 // флаг что нажато слово из автодополнения
 	public static boolean fl_ac_word = false;
 	

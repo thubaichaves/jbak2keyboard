@@ -297,7 +297,7 @@ public class Gesture_create<ContextMenuInfo> extends Activity
 				} catch(Throwable e)
 		        {
 					keycode=0;
-					st.toast("rror. Field keycode not a number");
+					st.toast("Error. Field keycode not a number");
 					return;
 		        }
 
@@ -310,7 +310,7 @@ public class Gesture_create<ContextMenuInfo> extends Activity
 			{
 				st.gc.add(gc1);
         	}catch (java.lang.NullPointerException e) {
-        		st.toast("\nerror format");
+        		st.toast("\nError format");
         	}  
 			llview_create.removeAllViews();
 			btnCreate.setText(R.string.gesture_create_add);
