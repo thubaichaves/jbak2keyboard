@@ -572,7 +572,8 @@
         <item>3 posiciones (normal,shift,capslock)</item>
         <item>2 posiciones (normal,shift)</item>
         <item>2 posiciones (normal,capslock)</item>
-    </string-array>
+        <item>2 posiciones (normal,shift (двойное нажатие = capslock))</item>
+        </string-array>
     <string-array name="screen_type_vars">
         <item>Modo retrato y paisaje</item>
         <item>En modo retrato</item>
@@ -750,7 +751,7 @@
 
 <!-- переводить только то, что есть на русском и именно так, как указано здесь -->
 <!-- для каждой локали своя строка! -->
-	<string name="about_web">Tema de conversación del programa Jbak2: http://4pda.ru/forum/index.php?showtopic=638021 \nmi nick: wolf3d2\n\nBasado en la jbak keyboard versión 0.97.7\n</string>
+	<string name="about_web">Сайт программы: http://jbak2.ucoz.net\nTema de conversación del programa Jbak2: http://4pda.ru/forum/index.php?showtopic=638021 \nmi nick: wolf3d2\n\nBasado en la jbak keyboard versión 0.97.7\n</string>
     
     <string name="about_keycode_button">Código del símbolo (útil para crear su propio tema) \n(la aplicación UnicodePad)</string>
     

@@ -134,7 +134,7 @@ public class st extends IKeyboard implements IKbdSettings
 	public static boolean del_space = false;
 /** добавлять ли пробел перед указанными символами */
 	public static boolean add_space_before_symbols = false;
-// запущена preferences activity или редактор шаблонов
+/** запущена preferences activity или редактор шаблонов */
 	public static boolean fl_pref_act = false;
 // строка для запуска интента для маркета
 	public static String RUN_MARKET_STRING = "https://play.google.com/store/apps/details?id=";
@@ -269,6 +269,8 @@ public class st extends IKeyboard implements IKbdSettings
 	public static boolean fl_ralt = false;;
 // флаг что ctrl включен
 	public static boolean fl_ctrl = false;
+/**  флаг что на сработал дабл клик на клавишу Шифт*/
+	public static boolean fl_gest_double_click_shift = false;
 // массив своих жестов
 	public static ArrayList<GestureHisList> gc = new ArrayList<GestureHisList>();
 // длина жеста 

@@ -320,9 +320,6 @@
 	<string name="calc_menu_history">Історія обрахунків</string>
 	<string name="calc_menu_list">Лістинг программы</string>
 	<string name="calc_menu">Меню</string>
-<!-- 	<string name="calc_setting">Налаштування калькулятора</string> -->
-<!-- 	<string name="calc_corr_ind">Корегування вікна індикатора</string> -->
-<!-- 	<string name="calc_corr_ind_desc">Висота вікна індикатора над клавіатурою, якщо вікно автодоповнення вимкнено</string> -->
 	<string name="calc_prog_empty">Пам\'ять програми пуста. Нічого виводити</string>
 	<string name="calc_save">Зберегти</string>
 	<string name="calc_load">Завантажити</string>
@@ -417,8 +414,8 @@
     <string name="set_key_height_portrait">Высота и смещение - портрет</string>
     <string name="set_key_height_portrait_desc">Изменение высоты и смещения клавиатуры в портретном режиме </string>
     <string name="set_key_height_portrait_toast">Переведите экран в портрет</string>
-    <string name="set_key_height_landscape">Altura de las teclas en modo paisaje</string>
-    <string name="set_key_height_landscape_desc">Cambio de altura de las teclas en modo paisaje</string>
+    <string name="set_key_height_landscape">Высота и смещение - ландшафт</string>
+    <string name="set_key_height_landscape_desc">Изменение высоты и смещения клавиатуры в ландшафтном режиме</string>
     <string name="set_key_height_landscape_toast">Переведите экран в ландшафт</string>
   <string name="set_key_ac_height">Висота автодоповнення</string>
     <string name="set_key_ac_height_desc"></string>
@@ -570,7 +567,8 @@
         <item>3 позиції (normal,shift,capslock)</item>
         <item>2 позиції (normal,shift)</item>
         <item>2 позиції (normal,capslock)</item>
-    </string-array>
+        <item>2 позиции (normal,shift (двойное нажатие=capslock))</item>
+        </string-array>
     <string-array name="screen_type_vars">
         <item>Портрет та ландшафт</item>
         <item>В портретному режимі</item>
@@ -747,7 +745,7 @@
   <string name="about_app">Програма:</string>
   <string name="about_version">Версія:</string>
   <string name="about_author">Автор:</string>
-  <string name="about_web">Тема на форумі: http://4pda.ru/forum/index.php?showtopic=638021\n(мій нік wolf3d2)\n</string>
+  <string name="about_web">Сайт программы: http://jbak2.ucoz.net\nТема на форумі: http://4pda.ru/forum/index.php?showtopic=638021\n(мій нік wolf3d2)\n</string>
   <string name="about_author_desc">"Михайло Вязенкін (MWcorp)"</string>
   <string name="about_other">Інше:</string>
   <string name="about_other_desc">"Попередній автор:\nдо 0.97.7 - Юрій Бакунін\nЗроблено на основі jbak keyboard версії 0.97.7\n\nПереклад українською - Денис Манжос(4pda.ru - zdrweb), Stealth3001, TealcJaffa\nПереклад іспанською та англійською - Луїза Валеєва (4pda.ru - Luiza_Va)\nАвтор іконки додатку - myha781 (4pda.ru)\n Просто допомога - elizz69, yergnoor</string>

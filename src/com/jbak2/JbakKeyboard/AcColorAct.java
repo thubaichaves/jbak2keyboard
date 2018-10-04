@@ -194,41 +194,32 @@ public class AcColorAct extends Activity
     		return;
     	}
     	if (fl_changed) {
-    		final DlgPopupWnd dpw = new DlgPopupWnd(st.c());
-            //gd.setPositionOnKeyboard(true);
-    		dpw.set(R.string.data_changed, R.string.yes, R.string.no);
-    		dpw.setObserver(new st.UniObserver()
-            {
-                @Override
-                public int OnObserver(Object param1, Object param2)
+    		if (st.fl_pref_act) {
+    			save();
+    			st.toast(R.string.settings_saved);
+    			finish();
+    		} else {
+        		final DlgPopupWnd dpw = new DlgPopupWnd(st.c());
+                //gd.setPositionOnKeyboard(true);
+        		dpw.set(R.string.data_changed, R.string.yes, R.string.no);
+        		dpw.setObserver(new st.UniObserver()
                 {
-                    if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                    @Override
+                    public int OnObserver(Object param1, Object param2)
                     {
-                        st.pref(st.c()).edit().putString(st.AC_COL_MAIN_BG, et_back.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_KEYCODE_BG, et1.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_KEYCODE_T, et2.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_COUNTER_BG, et3.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_COUNTER_T, et4.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_FORCIBLY_BG, et5.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_FORCIBLY_T, et6.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_ADD_BG, et7.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_ADD_T, et8.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_WORD_BG, et9.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_WORD_T, et10.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_ARROWDOWN_BG, et11.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_ARROWDOWN_T, et12.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_CALCMENU_BG, et13.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_CALCMENU_T, et14.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_BG, et15.getEditableText().toString().trim()).commit();
-                        st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_T, et16.getEditableText().toString().trim()).commit();
-                        dpw.dismiss();
-                        finish();
+                        if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+                        {
+                        	save();
+                            dpw.dismiss();
+                            finish();
+                        }
+                        return 0;
                     }
-                    return 0;
-                }
-            });
-    		dpw.show(0);
-            //gd.showAlert();
+                });
+        		dpw.show(0);
+                //gd.showAlert();
+    			
+    		}
     	} else
     		super.onBackPressed();
     	finish();
@@ -252,4 +243,25 @@ public class AcColorAct extends Activity
             return false;
         }
     };
+    public void save()
+    {
+        st.pref(st.c()).edit().putString(st.AC_COL_MAIN_BG, et_back.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_KEYCODE_BG, et1.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_KEYCODE_T, et2.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_COUNTER_BG, et3.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_COUNTER_T, et4.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_FORCIBLY_BG, et5.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_FORCIBLY_T, et6.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_ADD_BG, et7.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_ADD_T, et8.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_WORD_BG, et9.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_WORD_T, et10.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_ARROWDOWN_BG, et11.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_ARROWDOWN_T, et12.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_CALCMENU_BG, et13.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_CALCMENU_T, et14.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_BG, et15.getEditableText().toString().trim()).commit();
+        st.pref(st.c()).edit().putString(st.AC_COL_CALCIND_T, et16.getEditableText().toString().trim()).commit();
+    }
+
 }

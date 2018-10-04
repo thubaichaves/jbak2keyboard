@@ -453,9 +453,9 @@ public class SetKbdActivity extends Activity {
 			switch (m_curAction) {
 			case st.SET_SELECT_KEYBOARD:
 				if (bNext)
-				changeKbd(0);
-				else
 					changeKbd(1);
+				else
+					changeKbd(0);
 				break;
 			case st.SET_SELECT_SKIN:
 				changeSkin(bNext);

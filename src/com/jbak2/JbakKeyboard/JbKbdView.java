@@ -459,7 +459,23 @@ public class JbKbdView extends KeyboardView
         {
             String s = st.pref().getString(st.PREF_KEY_SHIFT_STATE, st.STR_ZERO);
             int v = Integer.decode(s);
-//            v=3;
+            //v=3;
+            if (v==3) { //normal-shift (double click=CAPSLOCK)
+            	if (st.fl_gest_double_click_shift) {
+            		st.fl_gest_double_click_shift = false;
+                    m_state = st.rem(m_state, STATE_TEMP_SHIFT);
+                    m_state|=STATE_CAPS_LOCK;
+                	//st.toast("shift CAPS");
+            	} else {
+        			if (!isUpperCase())
+        				setTempShift(true, true);
+        			else 
+        				setTempShift(false, true);
+            	}
+        		checkCapsLock();
+            	return;
+            }
+    		st.fl_gest_double_click_shift = false;
             if(v>0)
             {
 // пока не сделал - двойной тап по шифту включает капслок

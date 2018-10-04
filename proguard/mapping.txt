@@ -415,12 +415,13 @@ com.jbak2.JbakKeyboard.AcColorAct -> com.jbak2.JbakKeyboard.AcColorAct:
     android.text.TextWatcher tw -> s
     android.view.View$OnKeyListener m_keyListener -> t
     20:36:void <clinit>() -> <clinit>
-    18:236:void <init>() -> <init>
+    18:227:void <init>() -> <init>
     64:175:void onCreate(android.os.Bundle) -> onCreate
     178:179:void onPause() -> onPause
     182:183:void onResume() -> onResume
     187:188:void onDestroy() -> onDestroy
-    192:235:void onBackPressed() -> onBackPressed
+    192:226:void onBackPressed() -> onBackPressed
+    248:265:void save() -> a
 com.jbak2.JbakKeyboard.AcColorAct$1 -> com.jbak2.JbakKeyboard.a:
     com.jbak2.JbakKeyboard.AcColorAct this$0 -> a
     1:39:void <init>(com.jbak2.JbakKeyboard.AcColorAct) -> <init>
@@ -429,13 +430,13 @@ com.jbak2.JbakKeyboard.AcColorAct$1 -> com.jbak2.JbakKeyboard.a:
     56:57:void onTextChanged(java.lang.CharSequence,int,int,int) -> onTextChanged
 com.jbak2.JbakKeyboard.AcColorAct$2 -> com.jbak2.JbakKeyboard.b:
     com.jbak2.JbakKeyboard.AcColorAct this$0 -> a
-    1:236:void <init>(com.jbak2.JbakKeyboard.AcColorAct) -> <init>
-    242:252:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
+    1:227:void <init>(com.jbak2.JbakKeyboard.AcColorAct) -> <init>
+    233:243:boolean onKey(android.view.View,int,android.view.KeyEvent) -> onKey
 com.jbak2.JbakKeyboard.AcColorAct$3 -> com.jbak2.JbakKeyboard.c:
     com.jbak2.JbakKeyboard.AcColorAct this$0 -> a
     com.jbak2.Dialog.DlgPopupWnd val$dpw -> d
-    1:200:void <init>(com.jbak2.JbakKeyboard.AcColorAct,com.jbak2.Dialog.DlgPopupWnd) -> <init>
-    205:227:int OnObserver(java.lang.Object,java.lang.Object) -> a
+    1:205:void <init>(com.jbak2.JbakKeyboard.AcColorAct,com.jbak2.Dialog.DlgPopupWnd) -> <init>
+    210:216:int OnObserver(java.lang.Object,java.lang.Object) -> a
 com.jbak2.JbakKeyboard.Ads -> com.jbak2.JbakKeyboard.d:
     java.lang.String ID_DEVICE -> a
     int count_failed_load -> b
@@ -1149,7 +1150,7 @@ com.jbak2.JbakKeyboard.IKeyboard -> com.jbak2.JbakKeyboard.bc:
     676:676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd defKbd() -> d
     694:699:com.jbak2.JbakKeyboard.IKeyboard$Lang getLangByName(java.lang.String) -> a
     703:709:com.jbak2.JbakKeyboard.IKeyboard$Lang addCustomLang(java.lang.String) -> b
-    713:795:void setDesignDefault() -> e
+    713:796:void setDesignDefault() -> e
     28127:28128:com.jbak2.CustomGraphics.GradBack com.jbak2.CustomGraphics.GradBack.setGap(int):127:128 -> e
     28127:28128:void setDesignDefault():729 -> e
     28135:28136:com.jbak2.CustomGraphics.GradBack com.jbak2.CustomGraphics.GradBack.setGradType(int):135:136 -> e
@@ -1693,9 +1694,9 @@ com.jbak2.JbakKeyboard.JbKbdView -> com.jbak2.JbakKeyboard.JbKbdView:
     int NOT_A_KEY -> N
     android.inputmethodservice.KeyboardView$OnKeyboardActionListener m_actionListener -> O
     android.inputmethodservice.KeyboardView$OnKeyboardActionListener m_extListener -> P
-    91:863:void <clinit>() -> <clinit>
-    53:864:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
-    53:864:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
+    91:879:void <clinit>() -> <clinit>
+    53:880:void <init>(android.content.Context,android.util.AttributeSet) -> <init>
+    53:880:void <init>(android.content.Context,android.util.AttributeSet,int) -> <init>
     116:122:int getFieldInt(java.lang.reflect.Field,java.lang.Object,int) -> a
     132:330:void init() -> h
     3377:3383:com.jbak2.JbakKeyboard.IKeyboard$KbdDesign com.jbak2.JbakKeyboard.IKeyboard$KbdDesign.getDesign():377:383 -> h
@@ -1839,17 +1840,17 @@ com.jbak2.JbakKeyboard.JbKbdView -> com.jbak2.JbakKeyboard.JbKbdView:
     31183:31183:void com.jbak2.JbakKeyboard.KeyboardPaints.createFromSettings():202 -> h
     31183:31183:void init():321 -> h
     334:381:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey) -> a
-    31702:31702:boolean isUserInput():702:702 -> a
-    31702:31702:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):345 -> a
-    32702:32702:boolean isUserInput():702:702 -> a
-    32702:32702:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):369 -> a
+    31718:31718:boolean isUserInput():718:718 -> a
+    31718:31718:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):345 -> a
+    32718:32718:boolean isUserInput():718:718 -> a
+    32718:32718:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):369 -> a
     33312:33312:boolean com.jbak2.JbakKeyboard.JbKbd$LatinKey.isGoQwerty():312:312 -> a
     33312:33312:boolean processLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):373 -> a
     385:420:boolean onLongPress(android.inputmethodservice.Keyboard$Key) -> onLongPress
-    33987:33990:boolean hasKey(android.inputmethodservice.Keyboard$Key):987:990 -> onLongPress
-    33987:33990:boolean onLongPress(android.inputmethodservice.Keyboard$Key):387 -> onLongPress
+    34003:34006:boolean hasKey(android.inputmethodservice.Keyboard$Key):1003:1006 -> onLongPress
+    34003:34006:boolean onLongPress(android.inputmethodservice.Keyboard$Key):387 -> onLongPress
     34110:34110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> onLongPress
-    34110:34110:boolean hasKey(android.inputmethodservice.Keyboard$Key):987 -> onLongPress
+    34110:34110:boolean hasKey(android.inputmethodservice.Keyboard$Key):1003 -> onLongPress
     34110:34110:boolean onLongPress(android.inputmethodservice.Keyboard$Key):387 -> onLongPress
     35079:35080:void com.jbak2.JbakKeyboard.KeyDrw.set(com.jbak2.JbakKeyboard.JbKbd$LatinKey,boolean):79:80 -> onLongPress
     35079:35080:boolean onLongPress(android.inputmethodservice.Keyboard$Key):398 -> onLongPress
@@ -1859,73 +1860,73 @@ com.jbak2.JbakKeyboard.JbKbdView -> com.jbak2.JbakKeyboard.JbKbdView:
     36080:36312:boolean com.jbak2.JbakKeyboard.PopupKeyboard.showPopupKeyboard(android.inputmethodservice.Keyboard$Key):67 -> onLongPress
     36080:36312:boolean onLongPress(android.inputmethodservice.Keyboard$Key):412 -> onLongPress
     448:454:void setTempShift$25decb5(boolean) -> a
-    457:525:void handleShift() -> a
+    457:541:void handleShift() -> a
     37110:37110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> a
     37110:37110:void handleShift():457 -> a
-    528:535:void checkCapsLock() -> i
+    544:551:void checkCapsLock() -> i
     38110:38110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> i
-    38110:38110:void checkCapsLock():528 -> i
-    539:543:boolean isUpperCase() -> b
-    548:590:void setPreferences() -> c
-    595:600:void onDraw(android.graphics.Canvas) -> onDraw
-    604:606:void invalidateKey(int) -> invalidateKey
-    609:609:boolean isDefaultDesign() -> d
-    614:626:void setLang(java.lang.String) -> a
-    38702:38702:boolean isUserInput():702:702 -> a
-    38702:38702:void setLang(java.lang.String):622 -> a
-    634:687:void handleLangChange(boolean,int) -> a
-    39702:39702:boolean isUserInput():702:702 -> a
-    39702:39702:void handleLangChange(boolean,int):635 -> a
-    690:692:void reload() -> e
-    695:699:void reloadSkin() -> f
-    717:746:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
-    751:839:void gesture(com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo) -> a
-    40702:40702:boolean isUserInput():702:702 -> a
-    40702:40702:void gesture(com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo):751 -> a
-    843:843:boolean setShifted(boolean) -> setShifted
-    847:848:void trueInvalidateKey(int) -> a
-    994:997:int getKeyIndex(android.inputmethodservice.Keyboard$Key) -> a
+    38110:38110:void checkCapsLock():544 -> i
+    555:559:boolean isUpperCase() -> b
+    564:606:void setPreferences() -> c
+    611:616:void onDraw(android.graphics.Canvas) -> onDraw
+    620:622:void invalidateKey(int) -> invalidateKey
+    625:625:boolean isDefaultDesign() -> d
+    630:642:void setLang(java.lang.String) -> a
+    38718:38718:boolean isUserInput():718:718 -> a
+    38718:38718:void setLang(java.lang.String):638 -> a
+    650:703:void handleLangChange(boolean,int) -> a
+    39718:39718:boolean isUserInput():718:718 -> a
+    39718:39718:void handleLangChange(boolean,int):651 -> a
+    706:708:void reload() -> e
+    711:715:void reloadSkin() -> f
+    733:762:boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+    767:855:void gesture(com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo) -> a
+    40718:40718:boolean isUserInput():718:718 -> a
+    40718:40718:void gesture(com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo):767 -> a
+    859:859:boolean setShifted(boolean) -> setShifted
+    863:864:void trueInvalidateKey(int) -> a
+    1010:1013:int getKeyIndex(android.inputmethodservice.Keyboard$Key) -> a
     41110:41110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> a
-    41110:41110:int getKeyIndex(android.inputmethodservice.Keyboard$Key):994 -> a
-    1001:1004:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKeyByCode(int) -> b
+    41110:41110:int getKeyIndex(android.inputmethodservice.Keyboard$Key):1010 -> a
+    1017:1020:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKeyByCode(int) -> b
     42110:42110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> b
-    42110:42110:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKeyByCode(int):1001 -> b
-    1011:1017:void setOnKeyboardActionListener(android.inputmethodservice.KeyboardView$OnKeyboardActionListener) -> setOnKeyboardActionListener
-    42702:42702:boolean isUserInput():702:702 -> setOnKeyboardActionListener
-    42702:42702:void setOnKeyboardActionListener(android.inputmethodservice.KeyboardView$OnKeyboardActionListener):1012 -> setOnKeyboardActionListener
-    1023:1051:void setKeyboard(android.inputmethodservice.Keyboard) -> setKeyboard
-    43702:43702:boolean isUserInput():702:702 -> setKeyboard
-    43702:43702:void setKeyboard(android.inputmethodservice.Keyboard):1044 -> setKeyboard
+    42110:42110:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKeyByCode(int):1017 -> b
+    1027:1033:void setOnKeyboardActionListener(android.inputmethodservice.KeyboardView$OnKeyboardActionListener) -> setOnKeyboardActionListener
+    42718:42718:boolean isUserInput():718:718 -> setOnKeyboardActionListener
+    42718:42718:void setOnKeyboardActionListener(android.inputmethodservice.KeyboardView$OnKeyboardActionListener):1028 -> setOnKeyboardActionListener
+    1039:1067:void setKeyboard(android.inputmethodservice.Keyboard) -> setKeyboard
+    43718:43718:boolean isUserInput():718:718 -> setKeyboard
+    43718:43718:void setKeyboard(android.inputmethodservice.Keyboard):1060 -> setKeyboard
     44106:44108:void com.jbak2.JbakKeyboard.ServiceJbKbd.onKeyboardChanged():3106:3108 -> setKeyboard
-    44106:44108:void setKeyboard(android.inputmethodservice.Keyboard):1046 -> setKeyboard
-    1054:1058:boolean resetPressed() -> g
+    44106:44108:void setKeyboard(android.inputmethodservice.Keyboard):1062 -> setKeyboard
+    1070:1074:boolean resetPressed() -> g
     44110:44110:com.jbak2.JbakKeyboard.JbKbd getCurKeyboard():110:110 -> g
-    44110:44110:boolean resetPressed():1055 -> g
-    1064:1074:void closing() -> closing
-    1078:1079:void onAttachedToWindow() -> onAttachedToWindow
-    1083:1088:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
-    44702:44702:boolean isUserInput():702:702 -> onWindowFocusChanged
-    44702:44702:void onWindowFocusChanged(boolean):1083 -> onWindowFocusChanged
+    44110:44110:boolean resetPressed():1071 -> g
+    1080:1090:void closing() -> closing
+    1094:1095:void onAttachedToWindow() -> onAttachedToWindow
+    1099:1104:void onWindowFocusChanged(boolean) -> onWindowFocusChanged
+    44718:44718:boolean isUserInput():718:718 -> onWindowFocusChanged
+    44718:44718:void onWindowFocusChanged(boolean):1099 -> onWindowFocusChanged
     45128:45129:void com.jbak2.JbakKeyboard.ServiceJbKbd.onKeyboardWindowFocus(boolean):3128:3129 -> onWindowFocusChanged
-    45128:45129:void onWindowFocusChanged(boolean):1085 -> onWindowFocusChanged
-    1096:1100:void setVerticalCorrection(int) -> setVerticalCorrection
+    45128:45129:void onWindowFocusChanged(boolean):1101 -> onWindowFocusChanged
+    1112:1116:void setVerticalCorrection(int) -> setVerticalCorrection
 com.jbak2.JbakKeyboard.JbKbdView$1 -> com.jbak2.JbakKeyboard.cr:
     com.jbak2.JbakKeyboard.JbKbdView this$0 -> a
-    1:864:void <init>(com.jbak2.JbakKeyboard.JbKbdView) -> <init>
-    869:870:void onText(java.lang.CharSequence) -> onText
-    878:900:void onRelease(int) -> onRelease
-    906:937:void onPress(int) -> onPress
+    1:880:void <init>(com.jbak2.JbakKeyboard.JbKbdView) -> <init>
+    885:886:void onText(java.lang.CharSequence) -> onText
+    894:916:void onRelease(int) -> onRelease
+    922:953:void onPress(int) -> onPress
     1110:1110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> onPress
-    1110:1110:void onPress(int):907 -> onPress
+    1110:1110:void onPress(int):923 -> onPress
     1151:1152:void com.jbak2.JbakKeyboard.OwnKeyboardHandler.sendLongPress(com.jbak2.JbakKeyboard.JbKbd$LatinKey):151:152 -> onPress
-    1151:1152:void onPress(int):923 -> onPress
+    1151:1152:void onPress(int):939 -> onPress
     2079:2080:void com.jbak2.JbakKeyboard.KeyDrw.set(com.jbak2.JbakKeyboard.JbKbd$LatinKey,boolean):79:80 -> onPress
-    2079:2080:void onPress(int):931 -> onPress
-    945:974:void onKey(int,int[]) -> onKey
-    977:977:void swipeUp() -> swipeUp
-    979:979:void swipeRight() -> swipeRight
-    981:981:void swipeLeft() -> swipeLeft
-    983:983:void swipeDown() -> swipeDown
+    2079:2080:void onPress(int):947 -> onPress
+    961:990:void onKey(int,int[]) -> onKey
+    993:993:void swipeUp() -> swipeUp
+    995:995:void swipeRight() -> swipeRight
+    997:997:void swipeLeft() -> swipeLeft
+    999:999:void swipeDown() -> swipeDown
 com.jbak2.JbakKeyboard.KeyDrw -> com.jbak2.JbakKeyboard.cs:
     android.graphics.Bitmap bmp -> a
     android.graphics.Bitmap bmpSmall -> b
@@ -1972,30 +1973,32 @@ com.jbak2.JbakKeyboard.KeyDrw$DrwCache -> com.jbak2.JbakKeyboard.ct:
     boolean isHalfSmallLabel -> i
     135:145:void <init>() -> <init>
 com.jbak2.JbakKeyboard.KeyboardGesture -> com.jbak2.JbakKeyboard.cu:
-    13:14:void <init>(com.jbak2.JbakKeyboard.JbKbdView) -> <init>
-    1027:1028:com.jbak2.JbakKeyboard.KeyboardGesture$KvListener com.jbak2.JbakKeyboard.KeyboardGesture$KvListener.setKeyboardView(com.jbak2.JbakKeyboard.JbKbdView):27:28 -> <init>
-    1027:1028:void <init>(com.jbak2.JbakKeyboard.JbKbdView):13 -> <init>
+    14:15:void <init>(com.jbak2.JbakKeyboard.JbKbdView) -> <init>
+    1028:1029:com.jbak2.JbakKeyboard.KeyboardGesture$KvListener com.jbak2.JbakKeyboard.KeyboardGesture$KvListener.setKeyboardView(com.jbak2.JbakKeyboard.JbKbdView):28:29 -> <init>
+    1028:1029:void <init>(com.jbak2.JbakKeyboard.JbKbdView):14 -> <init>
 com.jbak2.JbakKeyboard.KeyboardGesture$GestureHisList -> com.jbak2.JbakKeyboard.cv:
     int keycode -> a
     int direction -> b
     int action -> c
     int id -> d
-    98:104:void <init>(int) -> <init>
+    108:114:void <init>(int) -> <init>
 com.jbak2.JbakKeyboard.KeyboardGesture$GestureInfo -> com.jbak2.JbakKeyboard.cw:
     com.jbak2.JbakKeyboard.JbKbd$LatinKey downKey -> a
     int dir -> b
-    85:89:void <init>(com.jbak2.JbakKeyboard.JbKbd$LatinKey,int) -> <init>
+    95:99:void <init>(com.jbak2.JbakKeyboard.JbKbd$LatinKey,int) -> <init>
 com.jbak2.JbakKeyboard.KeyboardGesture$KvListener -> com.jbak2.JbakKeyboard.cx:
     com.jbak2.JbakKeyboard.JbKbdView m_kv -> a
     int minGestSize -> b
     float deltaDelim -> c
     int minVelocity -> d
-    15:24:void <init>() -> <init>
-    32:32:boolean onDoubleTap(android.view.MotionEvent) -> onDoubleTap
-    37:65:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
-    69:74:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKey(int,int) -> a
-    1110:1110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> a
-    1110:1110:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKey(int,int):69 -> a
+    16:25:void <init>() -> <init>
+    33:42:boolean onDoubleTap(android.view.MotionEvent) -> onDoubleTap
+    1110:1110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> onDoubleTap
+    1110:1110:boolean onDoubleTap(android.view.MotionEvent):35 -> onDoubleTap
+    47:75:boolean onFling(android.view.MotionEvent,android.view.MotionEvent,float,float) -> onFling
+    79:84:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKey(int,int) -> a
+    2110:2110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> a
+    2110:2110:com.jbak2.JbakKeyboard.JbKbd$LatinKey getKey(int,int):79 -> a
 com.jbak2.JbakKeyboard.KeyboardPaints -> com.jbak2.JbakKeyboard.cy:
     com.jbak2.JbakKeyboard.KeyboardPaints inst -> a
     android.graphics.Paint main -> b
@@ -2121,8 +2124,8 @@ com.jbak2.JbakKeyboard.OwnKeyboardHandler -> com.jbak2.JbakKeyboard.dg:
     92:144:void handleMessage(android.os.Message) -> handleMessage
     1110:1110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> handleMessage
     1110:1110:void handleMessage(android.os.Message):109 -> handleMessage
-    1856:1862:void com.jbak2.JbakKeyboard.JbKbdView.onKeyRepeat(com.jbak2.JbakKeyboard.JbKbd$LatinKey):856:862 -> handleMessage
-    1856:1862:void handleMessage(android.os.Message):112 -> handleMessage
+    1872:1878:void com.jbak2.JbakKeyboard.JbKbdView.onKeyRepeat(com.jbak2.JbakKeyboard.JbKbd$LatinKey):872:878 -> handleMessage
+    1872:1878:void handleMessage(android.os.Message):112 -> handleMessage
     147:148:void sendRepeat(com.jbak2.JbakKeyboard.JbKbd$LatinKey,boolean) -> a
 com.jbak2.JbakKeyboard.Popup2act -> com.jbak2.JbakKeyboard.Popup2act:
     com.jbak2.JbakKeyboard.ColorPicker m_colpic -> a
@@ -2183,15 +2186,17 @@ com.jbak2.JbakKeyboard.PopupKeyWindow$1 -> com.jbak2.JbakKeyboard.dm:
     1:101:void <init>(com.jbak2.JbakKeyboard.PopupKeyWindow) -> <init>
     106:107:void onTimer$75670eda() -> a
 com.jbak2.JbakKeyboard.PopupKeyWindow$OwnView -> com.jbak2.JbakKeyboard.dn:
-    com.jbak2.JbakKeyboard.JbKbd$LatinKey key -> a
-    boolean bLong -> b
-    android.text.TextPaint m_pt -> c
-    android.graphics.Paint m_bgPaint -> d
-    android.graphics.RectF m_bgRf -> e
-    120:136:void <init>(android.content.Context) -> <init>
-    139:142:void setKey(com.jbak2.JbakKeyboard.JbKbd$LatinKey,boolean) -> a
-    146:147:void onMeasure(int,int) -> onMeasure
-    152:163:void draw(android.graphics.Canvas) -> draw
+    android.graphics.Paint kaima -> a
+    com.jbak2.JbakKeyboard.JbKbd$LatinKey key -> b
+    boolean bLong -> c
+    android.text.TextPaint m_pt -> d
+    android.graphics.Paint m_bgPaint -> e
+    android.graphics.RectF m_bgRf -> f
+    android.graphics.RectF kaimaRf -> g
+    121:141:void <init>(android.content.Context) -> <init>
+    144:147:void setKey(com.jbak2.JbakKeyboard.JbKbd$LatinKey,boolean) -> a
+    151:152:void onMeasure(int,int) -> onMeasure
+    157:171:void draw(android.graphics.Canvas) -> draw
 com.jbak2.JbakKeyboard.PopupKeyboard -> com.jbak2.JbakKeyboard.do:
     int keyXpos -> a
     int keyYpos -> b
@@ -3497,295 +3502,296 @@ com.jbak2.JbakKeyboard.st -> com.jbak2.JbakKeyboard.ht:
     boolean fl_lalt -> aY
     boolean fl_ralt -> aZ
     boolean fl_ctrl -> ba
-    java.util.ArrayList gc -> bb
-    float gesture_length -> bc
-    int gesture_min_length -> bd
-    int minGestSize -> be
-    int gesture_velocity -> bf
-    java.lang.String gesture_str -> bg
-    boolean fl_popupcharacter2 -> bh
-    int acplce1 -> bi
-    java.lang.String tmps -> bj
-    int tmpi -> bk
-    int type_kbd -> bl
-    java.util.ArrayList runapp_favorite -> bm
-    java.lang.String[] runapp_all -> bn
-    int mm_btn_size -> bo
-    int mm_btn_off_size -> bp
-    java.lang.String[] mainmmenu -> bq
-    int mainmmenu_allitem -> br
-    boolean mainmmenu_fl -> bs
-    int[] mainmmenui -> bt
-    int[] mainmmenui_n -> bu
-    int[] mainmmenui_id -> bv
-    int[] mainmmenui_n_id -> bw
-    java.lang.String[] calc_history -> bx
-    double[] calc_reg -> by
-    java.lang.String fiks_calc -> bz
-    boolean fl_fiks_calc -> bA
-    java.lang.String calc_prg_desc -> bB
-    int[] calc_pp -> bC
-    int[] calc_prog -> bD
-    int calc_prog_step -> bE
-    boolean calc_iniprg -> bF
-    boolean calc_fl_ind -> bG
-    int KeySymbol -> bH
-    java.lang.String[] arDesignNames -> bI
-    java.util.ArrayList ar_asg -> bJ
-    boolean tempEnglishQwerty -> bK
-    java.lang.String strcol -> bL
-    java.lang.String stralpha -> bM
-    java.lang.String strte -> bN
-    58:1390:void <clinit>() -> <clinit>
-    554:558:com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest getElementSpecFormatSymbol(java.util.ArrayList,int) -> a
-    563:584:void setElementSpecFormatAddSymbol(java.util.ArrayList,java.lang.String,int) -> a
-    588:588:boolean has(int,int) -> a
-    593:595:int rem(int,int) -> b
-    599:600:int min(int,int) -> c
-    604:605:int max(int,int) -> d
-    611:614:void logEx(java.lang.Throwable) -> a
-    618:619:void log(java.lang.String) -> c
-    623:649:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String) -> d
-    4320:4320:android.content.SharedPreferences pref():1320:1320 -> d
-    4320:4320:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):626 -> d
-    4324:4324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> d
-    4324:4324:android.content.SharedPreferences pref():1320 -> d
-    4324:4324:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):626 -> d
+    boolean fl_gest_double_click_shift -> bb
+    java.util.ArrayList gc -> bc
+    float gesture_length -> bd
+    int gesture_min_length -> be
+    int minGestSize -> bf
+    int gesture_velocity -> bg
+    java.lang.String gesture_str -> bh
+    boolean fl_popupcharacter2 -> bi
+    int acplce1 -> bj
+    java.lang.String tmps -> bk
+    int tmpi -> bl
+    int type_kbd -> bm
+    java.util.ArrayList runapp_favorite -> bn
+    java.lang.String[] runapp_all -> bo
+    int mm_btn_size -> bp
+    int mm_btn_off_size -> bq
+    java.lang.String[] mainmmenu -> br
+    int mainmmenu_allitem -> bs
+    boolean mainmmenu_fl -> bt
+    int[] mainmmenui -> bu
+    int[] mainmmenui_n -> bv
+    int[] mainmmenui_id -> bw
+    int[] mainmmenui_n_id -> bx
+    java.lang.String[] calc_history -> by
+    double[] calc_reg -> bz
+    java.lang.String fiks_calc -> bA
+    boolean fl_fiks_calc -> bB
+    java.lang.String calc_prg_desc -> bC
+    int[] calc_pp -> bD
+    int[] calc_prog -> bE
+    int calc_prog_step -> bF
+    boolean calc_iniprg -> bG
+    boolean calc_fl_ind -> bH
+    int KeySymbol -> bI
+    java.lang.String[] arDesignNames -> bJ
+    java.util.ArrayList ar_asg -> bK
+    boolean tempEnglishQwerty -> bL
+    java.lang.String strcol -> bM
+    java.lang.String stralpha -> bN
+    java.lang.String strte -> bO
+    58:1392:void <clinit>() -> <clinit>
+    556:560:com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest getElementSpecFormatSymbol(java.util.ArrayList,int) -> a
+    565:586:void setElementSpecFormatAddSymbol(java.util.ArrayList,java.lang.String,int) -> a
+    590:590:boolean has(int,int) -> a
+    595:597:int rem(int,int) -> b
+    601:602:int min(int,int) -> c
+    606:607:int max(int,int) -> d
+    613:616:void logEx(java.lang.Throwable) -> a
+    620:621:void log(java.lang.String) -> c
+    625:651:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String) -> d
+    4322:4322:android.content.SharedPreferences pref():1322:1322 -> d
+    4322:4322:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):628 -> d
+    4326:4326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> d
+    4326:4326:android.content.SharedPreferences pref():1322 -> d
+    4326:4326:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):628 -> d
     4670:4670:boolean com.jbak2.JbakKeyboard.IKeyboard$Keybrd.isLang(java.lang.String):670:670 -> d
-    4670:4670:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):631 -> d
-    654:658:void saveCurLang() -> a
-    5320:5320:android.content.SharedPreferences pref():1320:1320 -> a
-    5320:5320:void saveCurLang():657 -> a
-    5324:5324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> a
-    5324:5324:android.content.SharedPreferences pref():1320 -> a
-    5324:5324:void saveCurLang():657 -> a
-    662:689:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd() -> b
-    6320:6320:android.content.SharedPreferences pref():1320:1320 -> b
-    6320:6320:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():662 -> b
-    6324:6324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> b
-    6324:6324:android.content.SharedPreferences pref():1320 -> b
-    6324:6324:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():662 -> b
+    4670:4670:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getKeybrdForLangName(java.lang.String):633 -> d
+    656:660:void saveCurLang() -> a
+    5322:5322:android.content.SharedPreferences pref():1322:1322 -> a
+    5322:5322:void saveCurLang():659 -> a
+    5326:5326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> a
+    5326:5326:android.content.SharedPreferences pref():1322 -> a
+    5326:5326:void saveCurLang():659 -> a
+    664:691:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd() -> b
+    6322:6322:android.content.SharedPreferences pref():1322:1322 -> b
+    6322:6322:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():664 -> b
+    6326:6326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> b
+    6326:6326:android.content.SharedPreferences pref():1322 -> b
+    6326:6326:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():664 -> b
     6676:6676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd com.jbak2.JbakKeyboard.IKeyboard.defKbd():676:676 -> b
-    6676:6676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():669 -> b
+    6676:6676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():671 -> b
     7676:7676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd com.jbak2.JbakKeyboard.IKeyboard.defKbd():676:676 -> b
-    7676:7676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():671 -> b
+    7676:7676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():673 -> b
     8676:8676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd com.jbak2.JbakKeyboard.IKeyboard.defKbd():676:676 -> b
-    8676:8676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():687 -> b
-    694:696:com.jbak2.JbakKeyboard.JbKbd curKbd() -> f
+    8676:8676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd getCurQwertyKeybrd():689 -> b
+    696:698:com.jbak2.JbakKeyboard.JbKbd curKbd() -> f
     9110:9110:com.jbak2.JbakKeyboard.JbKbd com.jbak2.JbakKeyboard.JbKbdView.getCurKeyboard():110:110 -> f
-    9110:9110:com.jbak2.JbakKeyboard.JbKbd curKbd():696 -> f
-    701:709:android.content.Context c() -> g
-    771:771:boolean isQwertyKeyboard(com.jbak2.JbakKeyboard.IKeyboard$Keybrd) -> a
-    775:781:java.util.Vector getKeybrdArrayByLang(java.lang.String) -> e
-    787:791:void setTextEditKeyboard() -> h
-    795:796:void setSmilesKeyboard() -> i
-    800:801:void setNumberKeyboard() -> j
-    805:806:void setCalcKeyboard() -> k
-    811:813:void setSymbolKeyboard(boolean) -> a
-    817:819:void setQwertyKeyboard() -> l
-    823:835:void setQwertyKeyboard(boolean) -> b
-    839:850:com.jbak2.JbakKeyboard.JbKbd loadKeyboard(com.jbak2.JbakKeyboard.IKeyboard$Keybrd) -> b
-    856:862:void setTempEnglishQwerty() -> m
-    865:865:java.lang.String getCurLang() -> n
-    9320:9320:android.content.SharedPreferences pref():1320:1320 -> n
-    9320:9320:java.lang.String getCurLang():865 -> n
-    9324:9324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> n
-    9324:9324:android.content.SharedPreferences pref():1320 -> n
-    9324:9324:java.lang.String getCurLang():865 -> n
+    9110:9110:com.jbak2.JbakKeyboard.JbKbd curKbd():698 -> f
+    703:711:android.content.Context c() -> g
+    773:773:boolean isQwertyKeyboard(com.jbak2.JbakKeyboard.IKeyboard$Keybrd) -> a
+    777:783:java.util.Vector getKeybrdArrayByLang(java.lang.String) -> e
+    789:793:void setTextEditKeyboard() -> h
+    797:798:void setSmilesKeyboard() -> i
+    802:803:void setNumberKeyboard() -> j
+    807:808:void setCalcKeyboard() -> k
+    813:815:void setSymbolKeyboard(boolean) -> a
+    819:821:void setQwertyKeyboard() -> l
+    825:837:void setQwertyKeyboard(boolean) -> b
+    841:852:com.jbak2.JbakKeyboard.JbKbd loadKeyboard(com.jbak2.JbakKeyboard.IKeyboard$Keybrd) -> b
+    858:864:void setTempEnglishQwerty() -> m
+    867:867:java.lang.String getCurLang() -> n
+    9322:9322:android.content.SharedPreferences pref():1322:1322 -> n
+    9322:9322:java.lang.String getCurLang():867 -> n
+    9326:9326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> n
+    9326:9326:android.content.SharedPreferences pref():1322 -> n
+    9326:9326:java.lang.String getCurLang():867 -> n
     9676:9676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd com.jbak2.JbakKeyboard.IKeyboard.defKbd():676:676 -> n
-    9676:9676:java.lang.String getCurLang():865 -> n
-    870:872:com.jbak2.JbakKeyboard.JbKbdView kv() -> o
-    9877:9884:int getKeyHeight():877:884 -> o
-    9877:9884:com.jbak2.JbakKeyboard.JbKbdView kv():871 -> o
-    10320:10320:android.content.SharedPreferences pref():1320:1320 -> o
-    10320:10320:int getKeyHeight():879 -> o
-    10320:10320:com.jbak2.JbakKeyboard.JbKbdView kv():871 -> o
-    10324:10324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> o
-    10324:10324:android.content.SharedPreferences pref():1320 -> o
-    10324:10324:int getKeyHeight():879 -> o
-    10324:10324:com.jbak2.JbakKeyboard.JbKbdView kv():871 -> o
-    11320:11320:android.content.SharedPreferences pref():1320:1320 -> o
-    11320:11320:int getKeyHeight():881 -> o
-    11320:11320:com.jbak2.JbakKeyboard.JbKbdView kv():871 -> o
-    11324:11324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> o
-    11324:11324:android.content.SharedPreferences pref():1320 -> o
-    11324:11324:int getKeyHeight():881 -> o
-    11324:11324:com.jbak2.JbakKeyboard.JbKbdView kv():871 -> o
-    890:896:int getKbdHorizontalBias() -> p
-    903:909:java.lang.String getDefaultLangString() -> M
+    9676:9676:java.lang.String getCurLang():867 -> n
+    872:874:com.jbak2.JbakKeyboard.JbKbdView kv() -> o
+    9879:9886:int getKeyHeight():879:886 -> o
+    9879:9886:com.jbak2.JbakKeyboard.JbKbdView kv():873 -> o
+    10322:10322:android.content.SharedPreferences pref():1322:1322 -> o
+    10322:10322:int getKeyHeight():881 -> o
+    10322:10322:com.jbak2.JbakKeyboard.JbKbdView kv():873 -> o
+    10326:10326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> o
+    10326:10326:android.content.SharedPreferences pref():1322 -> o
+    10326:10326:int getKeyHeight():881 -> o
+    10326:10326:com.jbak2.JbakKeyboard.JbKbdView kv():873 -> o
+    11322:11322:android.content.SharedPreferences pref():1322:1322 -> o
+    11322:11322:int getKeyHeight():883 -> o
+    11322:11322:com.jbak2.JbakKeyboard.JbKbdView kv():873 -> o
+    11326:11326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> o
+    11326:11326:android.content.SharedPreferences pref():1322 -> o
+    11326:11326:int getKeyHeight():883 -> o
+    11326:11326:com.jbak2.JbakKeyboard.JbKbdView kv():873 -> o
+    892:898:int getKbdHorizontalBias() -> p
+    905:911:java.lang.String getDefaultLangString() -> M
     11676:11676:com.jbak2.JbakKeyboard.IKeyboard$Keybrd com.jbak2.JbakKeyboard.IKeyboard.defKbd():676:676 -> M
-    11676:11676:java.lang.String getDefaultLangString():904 -> M
-    914:915:java.lang.String[] getLangsArray$33c6ab02() -> q
-    12320:12320:android.content.SharedPreferences pref():1320:1320 -> q
-    12320:12320:java.lang.String[] getLangsArray$33c6ab02():914 -> q
-    12324:12324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> q
-    12324:12324:android.content.SharedPreferences pref():1320 -> q
-    12324:12324:java.lang.String[] getLangsArray$33c6ab02():914 -> q
-    920:927:int searchStr(java.lang.String,java.lang.String[]) -> a
-    932:936:com.jbak2.JbakKeyboard.Stor stor() -> r
-    941:941:boolean runAct(java.lang.Class) -> a
-    947:958:boolean runAct(java.lang.Class,android.content.Context) -> a
-    982:994:boolean runAct(java.lang.Class,android.content.Context,java.lang.String,int) -> a
-    999:999:java.lang.String normalizeFileName(java.lang.String) -> f
-    1004:1285:boolean kbdCommand(int) -> a
-    12761:12767:int isQwertyKeyboard():761:767 -> a
-    12761:12767:boolean kbdCommand(int):1005 -> a
-    13463:13468:void sendShareTextIntent(android.content.Context):2463:2468 -> a
-    13463:13468:boolean kbdCommand(int):1023 -> a
-    13702:13702:boolean com.jbak2.JbakKeyboard.JbKbdView.isUserInput():702:702 -> a
-    13702:13702:boolean kbdCommand(int):1076 -> a
-    13941:13941:boolean runAct(java.lang.Class):941:941 -> a
-    13941:13941:boolean kbdCommand(int):1088 -> a
-    14941:14941:boolean runAct(java.lang.Class):941:941 -> a
-    14941:14941:boolean kbdCommand(int):1093 -> a
-    15941:15941:boolean runAct(java.lang.Class):941:941 -> a
-    15941:15941:boolean kbdCommand(int):1115 -> a
+    11676:11676:java.lang.String getDefaultLangString():906 -> M
+    916:917:java.lang.String[] getLangsArray$33c6ab02() -> q
+    12322:12322:android.content.SharedPreferences pref():1322:1322 -> q
+    12322:12322:java.lang.String[] getLangsArray$33c6ab02():916 -> q
+    12326:12326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> q
+    12326:12326:android.content.SharedPreferences pref():1322 -> q
+    12326:12326:java.lang.String[] getLangsArray$33c6ab02():916 -> q
+    922:929:int searchStr(java.lang.String,java.lang.String[]) -> a
+    934:938:com.jbak2.JbakKeyboard.Stor stor() -> r
+    943:943:boolean runAct(java.lang.Class) -> a
+    949:960:boolean runAct(java.lang.Class,android.content.Context) -> a
+    984:996:boolean runAct(java.lang.Class,android.content.Context,java.lang.String,int) -> a
+    1001:1001:java.lang.String normalizeFileName(java.lang.String) -> f
+    1006:1287:boolean kbdCommand(int) -> a
+    12763:12769:int isQwertyKeyboard():763:769 -> a
+    12763:12769:boolean kbdCommand(int):1007 -> a
+    13465:13470:void sendShareTextIntent(android.content.Context):2465:2470 -> a
+    13465:13470:boolean kbdCommand(int):1025 -> a
+    13718:13718:boolean com.jbak2.JbakKeyboard.JbKbdView.isUserInput():718:718 -> a
+    13718:13718:boolean kbdCommand(int):1078 -> a
+    13943:13943:boolean runAct(java.lang.Class):943:943 -> a
+    13943:13943:boolean kbdCommand(int):1090 -> a
+    14943:14943:boolean runAct(java.lang.Class):943:943 -> a
+    14943:14943:boolean kbdCommand(int):1095 -> a
+    15943:15943:boolean runAct(java.lang.Class):943:943 -> a
+    15943:15943:boolean kbdCommand(int):1117 -> a
     16771:16783:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3771:3783 -> a
-    16771:16783:boolean kbdCommand(int):1269 -> a
+    16771:16783:boolean kbdCommand(int):1271 -> a
     17648:17649:void com.jbak2.JbakKeyboard.ServiceJbKbd.removeCandView():648:649 -> a
     17648:17649:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3772 -> a
-    17648:17649:boolean kbdCommand(int):1269 -> a
-    18320:18320:android.content.SharedPreferences pref():1320:1320 -> a
-    18320:18320:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3782 -> a
-    18320:18320:boolean kbdCommand(int):1269 -> a
-    18324:18324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> a
-    18324:18324:android.content.SharedPreferences pref():1320 -> a
-    18324:18324:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3782 -> a
-    18324:18324:boolean kbdCommand(int):1269 -> a
-    1290:1301:int getCmdByLabel(java.lang.String) -> g
-    1320:1320:android.content.SharedPreferences pref() -> s
-    19324:19324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> s
-    19324:19324:android.content.SharedPreferences pref():1320 -> s
-    1324:1324:android.content.SharedPreferences pref(android.content.Context) -> a
-    1329:1331:void prefReload() -> t
-    20320:20320:android.content.SharedPreferences pref():1320:1320 -> t
-    20320:20320:void prefReload():1330 -> t
-    20324:20324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> t
-    20324:20324:android.content.SharedPreferences pref():1320 -> t
-    20324:20324:void prefReload():1330 -> t
-    1335:1348:int parseInt(java.lang.String,int) -> a
-    1355:1370:java.lang.String num2str(java.lang.String,int) -> b
-    1374:1382:java.lang.String rowInParentheses(java.lang.String) -> h
-    1386:1386:boolean isLandscape(android.content.Context) -> b
-    1395:1424:int getSkinColorAlpha(int) -> b
-    1428:1455:com.jbak2.JbakKeyboard.IKeyboard$KbdDesign getSkinByPath(java.lang.String) -> i
-    1459:1468:java.lang.String getSkinPath(com.jbak2.JbakKeyboard.IKeyboard$KbdDesign) -> a
-    1474:1514:void upgradeSettings(android.content.Context) -> c
-    21324:21324:android.content.SharedPreferences pref(android.content.Context):1324:1324 -> c
-    21324:21324:void upgradeSettings(android.content.Context):1474 -> c
-    1517:1517:java.io.File[] getFilesByExt(java.io.File,java.lang.String) -> a
-    1532:1536:java.lang.CharSequence[] getGestureEntries(android.content.Context) -> d
-    1540:1543:java.lang.CharSequence[] getGestureEntryValues() -> u
-    1548:1556:int getGestureIndexBySetting(java.lang.String) -> j
-    1560:1560:com.jbak2.JbakKeyboard.st$KbdGesture getGesture(java.lang.String,android.content.SharedPreferences) -> a
-    1564:1564:java.lang.String getGestureDefault(java.lang.String) -> k
-    1568:1587:java.lang.String compileText(java.lang.String) -> l
-    1591:1612:java.lang.String decompileText(java.lang.String) -> m
-    1617:1621:void save_calc_history(java.lang.String) -> n
-    1625:1627:void toast(java.lang.String) -> o
-    1631:1634:void toast(int) -> c
-    1637:1638:void toast(android.content.Context,int) -> a
-    1659:1661:void toastLong(int) -> d
-    1665:1667:void toastLong(java.lang.String) -> p
-    1672:1674:void sleep(int) -> e
-    1677:1688:int str2int(java.lang.String,int,int,java.lang.String) -> a
-    1693:1717:int str2hex(java.lang.String,int) -> c
-    1723:1770:boolean checkHexValue(java.lang.String,int) -> d
-    1778:1785:java.lang.String lenstr$5583d186(java.lang.String,int,java.lang.String) -> a
-    1790:1820:void popupAdditional$13462e() -> v
-    21672:21674:void sleep(int):1672:1674 -> v
-    21672:21674:void popupAdditional$13462e():1816 -> v
-    1823:1899:java.lang.String getCalcCommandText(int) -> f
-    1904:1911:java.lang.String intToStr(java.util.ArrayList) -> a
-    1916:1922:boolean isCalcPrg() -> w
-    1927:1933:void calcClear() -> x
-    1939:1957:void desc_act_ini(int) -> g
-    1960:1962:java.lang.String returnZamok(boolean) -> c
-    1982:1984:void showkbd() -> y
-    1987:1998:void showkbd(android.widget.EditText) -> a
-    2001:2003:void hidekbd() -> z
-    2006:2008:java.lang.String getStr(int) -> h
-    2016:2016:float floatDp$62b020d3(android.content.Context) -> e
-    22012:22012:float screenDensity(android.content.Context):2012:2012 -> e
-    22012:22012:float floatDp$62b020d3(android.content.Context):2016 -> e
-    2020:2022:int getWidthDisplay$faab21a() -> A
-    2029:2031:int getHeightDisplay$faab21a() -> B
-    2046:2046:int getOrientation(android.content.Context) -> f
-    2052:2068:void runApp(android.content.Context,java.lang.String) -> a
-    2088:2089:void help(int) -> i
-    2098:2099:void help(java.lang.String) -> q
-    2103:2119:void help(java.lang.String,android.content.Context) -> a
-    2122:2133:boolean isAppInstalled(android.content.Context,java.lang.String) -> b
-    2138:2145:java.lang.String getDelSpace(java.lang.String,java.lang.String) -> a
-    2150:2150:boolean isEven(int) -> j
-    2156:2160:void processVolumeKey(int,boolean) -> a
-    2164:2206:void runSetKbd(android.content.Context,int) -> b
-    2209:2212:void messageCopyClipboard() -> C
-    2226:2282:void getGestureAll() -> D
-    2286:2291:void startSyncServise() -> E
-    2295:2299:void stopSyncServise() -> F
-    2306:2308:boolean isDebugEmulator() -> G
-    2313:2315:java.lang.String upFirstSymbol(java.lang.String) -> r
-    2319:2363:void createFolderApp() -> H
-    2367:2369:boolean isHoneycomb() -> I
-    2374:2401:java.lang.String getSystemLangApp() -> J
-    2407:2410:java.lang.String getAppVersionCode(android.content.Context) -> g
-    2416:2418:java.lang.String getAppVersionName(android.content.Context) -> h
-    2422:2423:java.lang.String getAppNameAndVersion(android.content.Context) -> i
-    2440:2458:int getRegisterKbd(android.content.Context) -> j
-    2472:2482:void sendShareTextIntent(android.content.Context,java.lang.String) -> c
-    2486:2492:java.lang.String getLengthOfString(long) -> a
-    2495:2499:com.jbak2.words.UserWords$WordArray getWordArrayElementById(int,java.util.ArrayList) -> a
-    2503:2505:java.lang.CharSequence getClipboardCharSequence() -> K
-    22509:22517:java.lang.CharSequence getClipboardCharSequence(android.content.Context):2509:2517 -> K
-    22509:22517:java.lang.CharSequence getClipboardCharSequence():2504 -> K
-    2520:2525:void copyText(android.content.Context,java.lang.String) -> d
-    2528:2529:void exitApp() -> L
+    17648:17649:boolean kbdCommand(int):1271 -> a
+    18322:18322:android.content.SharedPreferences pref():1322:1322 -> a
+    18322:18322:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3782 -> a
+    18322:18322:boolean kbdCommand(int):1271 -> a
+    18326:18326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> a
+    18326:18326:android.content.SharedPreferences pref():1322 -> a
+    18326:18326:void com.jbak2.JbakKeyboard.ServiceJbKbd.viewAcPlace():3782 -> a
+    18326:18326:boolean kbdCommand(int):1271 -> a
+    1292:1303:int getCmdByLabel(java.lang.String) -> g
+    1322:1322:android.content.SharedPreferences pref() -> s
+    19326:19326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> s
+    19326:19326:android.content.SharedPreferences pref():1322 -> s
+    1326:1326:android.content.SharedPreferences pref(android.content.Context) -> a
+    1331:1333:void prefReload() -> t
+    20322:20322:android.content.SharedPreferences pref():1322:1322 -> t
+    20322:20322:void prefReload():1332 -> t
+    20326:20326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> t
+    20326:20326:android.content.SharedPreferences pref():1322 -> t
+    20326:20326:void prefReload():1332 -> t
+    1337:1350:int parseInt(java.lang.String,int) -> a
+    1357:1372:java.lang.String num2str(java.lang.String,int) -> b
+    1376:1384:java.lang.String rowInParentheses(java.lang.String) -> h
+    1388:1388:boolean isLandscape(android.content.Context) -> b
+    1397:1426:int getSkinColorAlpha(int) -> b
+    1430:1457:com.jbak2.JbakKeyboard.IKeyboard$KbdDesign getSkinByPath(java.lang.String) -> i
+    1461:1470:java.lang.String getSkinPath(com.jbak2.JbakKeyboard.IKeyboard$KbdDesign) -> a
+    1476:1516:void upgradeSettings(android.content.Context) -> c
+    21326:21326:android.content.SharedPreferences pref(android.content.Context):1326:1326 -> c
+    21326:21326:void upgradeSettings(android.content.Context):1476 -> c
+    1519:1519:java.io.File[] getFilesByExt(java.io.File,java.lang.String) -> a
+    1534:1538:java.lang.CharSequence[] getGestureEntries(android.content.Context) -> d
+    1542:1545:java.lang.CharSequence[] getGestureEntryValues() -> u
+    1550:1558:int getGestureIndexBySetting(java.lang.String) -> j
+    1562:1562:com.jbak2.JbakKeyboard.st$KbdGesture getGesture(java.lang.String,android.content.SharedPreferences) -> a
+    1566:1566:java.lang.String getGestureDefault(java.lang.String) -> k
+    1570:1589:java.lang.String compileText(java.lang.String) -> l
+    1593:1614:java.lang.String decompileText(java.lang.String) -> m
+    1619:1623:void save_calc_history(java.lang.String) -> n
+    1627:1629:void toast(java.lang.String) -> o
+    1633:1636:void toast(int) -> c
+    1639:1640:void toast(android.content.Context,int) -> a
+    1661:1663:void toastLong(int) -> d
+    1667:1669:void toastLong(java.lang.String) -> p
+    1674:1676:void sleep(int) -> e
+    1679:1690:int str2int(java.lang.String,int,int,java.lang.String) -> a
+    1695:1719:int str2hex(java.lang.String,int) -> c
+    1725:1772:boolean checkHexValue(java.lang.String,int) -> d
+    1780:1787:java.lang.String lenstr$5583d186(java.lang.String,int,java.lang.String) -> a
+    1792:1822:void popupAdditional$13462e() -> v
+    21674:21676:void sleep(int):1674:1676 -> v
+    21674:21676:void popupAdditional$13462e():1818 -> v
+    1825:1901:java.lang.String getCalcCommandText(int) -> f
+    1906:1913:java.lang.String intToStr(java.util.ArrayList) -> a
+    1918:1924:boolean isCalcPrg() -> w
+    1929:1935:void calcClear() -> x
+    1941:1959:void desc_act_ini(int) -> g
+    1962:1964:java.lang.String returnZamok(boolean) -> c
+    1984:1986:void showkbd() -> y
+    1989:2000:void showkbd(android.widget.EditText) -> a
+    2003:2005:void hidekbd() -> z
+    2008:2010:java.lang.String getStr(int) -> h
+    2018:2018:float floatDp$62b020d3(android.content.Context) -> e
+    22014:22014:float screenDensity(android.content.Context):2014:2014 -> e
+    22014:22014:float floatDp$62b020d3(android.content.Context):2018 -> e
+    2022:2024:int getWidthDisplay$faab21a() -> A
+    2031:2033:int getHeightDisplay$faab21a() -> B
+    2048:2048:int getOrientation(android.content.Context) -> f
+    2054:2070:void runApp(android.content.Context,java.lang.String) -> a
+    2090:2091:void help(int) -> i
+    2100:2101:void help(java.lang.String) -> q
+    2105:2121:void help(java.lang.String,android.content.Context) -> a
+    2124:2135:boolean isAppInstalled(android.content.Context,java.lang.String) -> b
+    2140:2147:java.lang.String getDelSpace(java.lang.String,java.lang.String) -> a
+    2152:2152:boolean isEven(int) -> j
+    2158:2162:void processVolumeKey(int,boolean) -> a
+    2166:2208:void runSetKbd(android.content.Context,int) -> b
+    2211:2214:void messageCopyClipboard() -> C
+    2228:2284:void getGestureAll() -> D
+    2288:2293:void startSyncServise() -> E
+    2297:2301:void stopSyncServise() -> F
+    2308:2310:boolean isDebugEmulator() -> G
+    2315:2317:java.lang.String upFirstSymbol(java.lang.String) -> r
+    2321:2365:void createFolderApp() -> H
+    2369:2371:boolean isHoneycomb() -> I
+    2376:2403:java.lang.String getSystemLangApp() -> J
+    2409:2412:java.lang.String getAppVersionCode(android.content.Context) -> g
+    2418:2420:java.lang.String getAppVersionName(android.content.Context) -> h
+    2424:2425:java.lang.String getAppNameAndVersion(android.content.Context) -> i
+    2442:2460:int getRegisterKbd(android.content.Context) -> j
+    2474:2484:void sendShareTextIntent(android.content.Context,java.lang.String) -> c
+    2488:2494:java.lang.String getLengthOfString(long) -> a
+    2497:2501:com.jbak2.words.UserWords$WordArray getWordArrayElementById(int,java.util.ArrayList) -> a
+    2505:2507:java.lang.CharSequence getClipboardCharSequence() -> K
+    22511:22519:java.lang.CharSequence getClipboardCharSequence(android.content.Context):2511:2519 -> K
+    22511:22519:java.lang.CharSequence getClipboardCharSequence():2506 -> K
+    2522:2527:void copyText(android.content.Context,java.lang.String) -> d
+    2530:2531:void exitApp() -> L
 com.jbak2.JbakKeyboard.st$1 -> com.jbak2.JbakKeyboard.hu:
-    1:1043:void <init>() -> <init>
-    1048:1066:int OnObserver(java.lang.Object,java.lang.Object) -> a
+    1:1045:void <init>() -> <init>
+    1050:1068:int OnObserver(java.lang.Object,java.lang.Object) -> a
 com.jbak2.JbakKeyboard.st$2 -> com.jbak2.JbakKeyboard.hv:
     java.lang.String val$ext -> a
-    1:1517:void <init>(java.lang.String) -> <init>
-    1522:1526:boolean accept(java.io.File,java.lang.String) -> accept
+    1:1519:void <init>(java.lang.String) -> <init>
+    1524:1528:boolean accept(java.io.File,java.lang.String) -> accept
 com.jbak2.JbakKeyboard.st$3 -> com.jbak2.JbakKeyboard.hw:
     android.widget.EditText val$et -> a
-    1:1987:void <init>(android.widget.EditText) -> <init>
-    1991:1996:void run() -> run
+    1:1989:void <init>(android.widget.EditText) -> <init>
+    1993:1998:void run() -> run
 com.jbak2.JbakKeyboard.st$4 -> com.jbak2.JbakKeyboard.hx:
-    1:2109:void <init>() -> <init>
-    2114:2115:int OnObserver(java.lang.Object,java.lang.Object) -> a
+    1:2111:void <init>() -> <init>
+    2116:2117:int OnObserver(java.lang.Object,java.lang.Object) -> a
 com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest -> com.jbak2.JbakKeyboard.hy:
     int id -> a
     int code -> b
     java.lang.String visibleText -> c
-    442:454:void <init>() -> <init>
+    444:456:void <init>() -> <init>
 com.jbak2.JbakKeyboard.st$IntEntry -> com.jbak2.JbakKeyboard.hz:
     int index -> a
     int value -> b
     int defvalue -> c
     int resId_et -> d
-    495:500:void <init>() -> <init>
-    495:507:void <init>(int,int) -> <init>
-    495:521:void <init>(int,int,int,int) -> <init>
+    497:502:void <init>() -> <init>
+    497:509:void <init>(int,int) -> <init>
+    497:523:void <init>(int,int,int,int) -> <init>
 com.jbak2.JbakKeyboard.st$KbdGesture -> com.jbak2.JbakKeyboard.ia:
     int nameId -> a
     int code -> b
-    2215:2219:void <init>(int,int) -> <init>
+    2217:2221:void <init>(int,int) -> <init>
 com.jbak2.JbakKeyboard.st$SyncAsycOper -> com.jbak2.JbakKeyboard.ib:
     com.jbak2.JbakKeyboard.st$UniObserver m_obs -> c
-    718:721:void <init>(com.jbak2.JbakKeyboard.st$UniObserver) -> <init>
-    730:731:void startAsync() -> b
-    736:738:void onProgressUpdate(java.lang.Void[]) -> a
-    744:749:java.lang.Void doInBackground$10299ca() -> a
+    720:723:void <init>(com.jbak2.JbakKeyboard.st$UniObserver) -> <init>
+    732:733:void startAsync() -> b
+    738:740:void onProgressUpdate(java.lang.Void[]) -> a
+    746:751:java.lang.Void doInBackground$10299ca() -> a
     void makeOper(com.jbak2.JbakKeyboard.st$UniObserver) -> a
     1:1:java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
     1:1:void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
 com.jbak2.JbakKeyboard.st$UniObserver -> com.jbak2.JbakKeyboard.ic:
     java.lang.Object m_param1 -> b
     java.lang.Object m_param2 -> c
-    535:537:void <init>() -> <init>
-    541:541:int Observ() -> a
+    537:539:void <init>() -> <init>
+    543:543:int Observ() -> a
     int OnObserver(java.lang.Object,java.lang.Object) -> a
 com.jbak2.ctrl.GlobDialog -> com.jbak2.ctrl.GlobDialog:
     boolean fl_back_key -> a

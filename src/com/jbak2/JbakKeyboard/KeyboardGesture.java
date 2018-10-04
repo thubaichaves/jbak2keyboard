@@ -1,4 +1,5 @@
 package com.jbak2.JbakKeyboard;
+import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.Keyboard.Key;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -29,7 +30,16 @@ public class KeyboardGesture extends GestureDetector
         }
 		@Override
 		public boolean onDoubleTap(MotionEvent e) {
-			return super.onDoubleTap(e);
+			boolean ret = super.onDoubleTap(e); 
+			LatinKey lk = getKey((int)e.getX(),(int)e.getY());
+	        JbKbd kbd = st.kv().getCurKeyboard();
+	        if(kbd==null)
+	            return ret;
+	        LatinKey slk = kbd.getKeyByCode(Keyboard.KEYCODE_SHIFT);
+			if (lk!=slk)
+				return ret;
+			st.fl_gest_double_click_shift = true;
+			return ret;
 		}
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)

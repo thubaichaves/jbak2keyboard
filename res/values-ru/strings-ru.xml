@@ -574,7 +574,8 @@
         <item>3 позиции (normal,shift,capslock)</item>
         <item>2 позиции (normal,shift)</item>
         <item>2 позиции (normal,capslock)</item>
-    </string-array>
+        <item>2 позиции (normal,shift (двойное нажатие=capslock))</item>
+        </string-array>
     <string-array name="screen_type_vars">
         <item>Портрет и ландшафт</item>
         <item>В портретном режиме</item>
@@ -752,7 +753,7 @@
 	<string name="about_other_desc">Переводы:\nИспанский: Луиза Валеева (4pda.ru: Luiza_Va)\nАнглийский: Луиза Валеева\nУкраинский: Денис Манжос (4pda.ru: zdrweb), Stealth3001, TealcJaffa.\nАвтор иконки приложения - myha781 (4pda.ru)\n Просто помощь - elizz69, yergnoor</string>
 
 <!-- В других локалях этот текст не переводить! Какой там тест есть, тот и переводить -->
-	<string name="about_web">(Пролистайте до конца)\n\nТема обсуждения: http://4pda.ru/forum/index.php?showtopic=638021\nГруппа на одноклассниках:\nhttps://ok.ru/jbak2keyboard\n\nСделано на основе jbak keyboard версии 0.97.7</string>
+	<string name="about_web">(Пролистайте до конца)\n\nСайт программы: http://jbak2.ucoz.net\nТема обсуждения: http://4pda.ru/forum/index.php?showtopic=638021\nГруппа на одноклассниках:\nhttps://ok.ru/jbak2keyboard\n\nСделано на основе jbak keyboard версии 0.97.7</string>
 
 	<string name="about_keycode_button">Код символа, удобно при создании своей раскладки или для жеста Дополнительные символы\n(приложение UnicodePad)</string>
     

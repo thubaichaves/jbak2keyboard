@@ -579,7 +579,8 @@
         <item>3 modes (normal,shift,capslock)</item>
         <item>2 modes (normal,shift)</item>
         <item>2 modes (normal,capslock)</item>
-    </string-array>
+        <item>2 modes (normal,shift (double click = capslock mode))</item>
+        </string-array>
     <string name="kbdact_back">Current window background</string>
     <string name="kbdact_toast1">Long press on the buttons to the right/left to open the list</string>
     <string name="kbdact_error_open">Not fully ready yet. Try later</string>
@@ -769,7 +770,7 @@
 
 <!-- переводить только то, что есть на русском и именно так, как указано здесь -->
 <!-- для каждой локали своя строка! -->
-	<string name="about_web">(Read till the end)\n\nThe jbak2 discussion topic: http://4pda.ru/forum/index.php?showtopic=638021\nmy nickname: wolf3d2\n\nMade on the jbak keyboard version 0.97.7\n</string>
+	<string name="about_web">(Read till the end)\n\nSite app: http://jbak2.ucoz.net\nThe jbak2 discussion topic: http://4pda.ru/forum/index.php?showtopic=638021\nmy nickname: wolf3d2\n\nMade on the jbak keyboard version 0.97.7\n</string>
 
 	<string name="about_author_desc">Michail Wyazenkin (MWcorp, 4pda - wolf3d2)\n Previous developer (until 0.97.7)\nJuriy Bakunin</string>
 	<string name="about_other">Other:</string>
@@ -828,7 +829,8 @@
 	<string name="design_eliz7">Cherry by elizz69</string>    
 	<string name="design_eliz8">Grey_2 by elizz69</string>    
 	<string name="design_eliz9">MD_blue by elizz69</string>    
-	<string name="design_schenee">Chocolate by Schnee-Leopard</string>    
+	<string name="design_eliz10">Black robo by elizz69</string>    
+		<string name="design_schenee">Chocolate by Schnee-Leopard</string>    
 	<string name="design_thepop3250_1">Light</string>    
 	<string name="design_thepop3250_2">Blue</string>    
 	<string name="design_thepop3250_3">Neon</string>    

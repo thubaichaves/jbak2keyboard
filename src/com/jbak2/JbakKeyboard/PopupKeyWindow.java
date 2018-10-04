@@ -116,11 +116,15 @@ public class PopupKeyWindow
     }
     public static class OwnView extends View
     {
+    	/** нигде не используется, но если убрать,
+    	 * то кайма на окне рисуется неправильно */
+    	Paint kaima = null;
         LatinKey key;
         boolean bLong=false;
         TextPaint m_pt;
         Paint m_bgPaint;
         RectF m_bgRf;
+        RectF kaimaRf;
         public OwnView(Context context)
         {
             super(context);
@@ -128,6 +132,7 @@ public class PopupKeyWindow
             m_pt.setColor(Color.BLACK);
             m_pt.setAntiAlias(true);
             m_bgRf = new RectF(0, 0, m_w-1, m_h-1);
+            kaimaRf = new RectF(1, 1, m_w-2, m_h-2);
             m_bgPaint = new Paint();
 // цвет фона окна показа нажатой клавиши
 //            m_bgPaint.setColor(0xeeffffff);
@@ -154,7 +159,10 @@ public class PopupKeyWindow
             canvas.drawRoundRect(m_bgRf, 8, 8, m_bgPaint);
             draw.paint().bitmapPreview.setColor(Color.BLACK);
             draw.paint().bitmapPreview.setStyle(Style.STROKE);
-            canvas.drawRoundRect(m_bgRf, 8, 8,draw.paint().bitmapPreview);
+            kaima = draw.paint().bitmapPreview;
+            // задаём размер кисти (каёмка вокруг окна)
+            kaima.setStrokeWidth(2);
+            canvas.drawRoundRect(kaimaRf, 8, 8,draw.paint().bitmapPreview);
             draw.paint().bitmapPreview.setStyle(Style.FILL);
             
 //            canvas.translate(0, 0-m_h/2);
