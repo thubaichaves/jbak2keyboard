@@ -50,11 +50,18 @@ import com.jbak2.CustomGraphics.draw;
 @SuppressLint("NewApi")
 public class JbKbdView extends KeyboardView 
 {
+	/** итерация нажатой клавиши 
+	 * (если есть массив codes[])*/
+	public int key_iter = -1;
+	/** текущая нажатая клавиша */
+	public LatinKey lk_this = null;
+	/** прошлая нажатая клавиша */
+	public LatinKey lk_prev = null;
 	public PopupKeyboard m_pk = null;
 	String gstr = st.STR_NULL;
 	boolean longpress = false;
-	int thiskey = 0;
-	int lastkey = 0;
+	int thiskey_code = 0;
+	int lastkey_code = 0;
 	boolean temshift = false;
 //неиспользуется	
 //	static final int INTERVAL_REDRAW = 100;
@@ -130,6 +137,8 @@ public class JbKbdView extends KeyboardView
     void init()
     {
         inst = this;
+        lk_this = null;
+        lk_prev = null;
     	if (m_pk==null)
     		m_pk = new PopupKeyboard(inst.getContext());
     	if (IKeyboard.arDesign==null)
@@ -382,6 +391,8 @@ public class JbKbdView extends KeyboardView
     }
     @Override
     protected boolean onLongPress(Key key) {
+    	lk_this = (LatinKey)key;
+        key_iter = -1;
     	if (ServiceJbKbd.inst.isMacro(((LatinKey)key).longCode))
     		return false;
         if(m_previewType>0&&m_handler!=null&&hasKey(key))
@@ -748,6 +759,17 @@ public class JbKbdView extends KeyboardView
         	}
         	else if(m_gd!=null)
                 ret = m_gd.onTouchEvent(me);
+        	lk_this = st.getKeyByPress((int)me.getX(),(int)me.getY());
+        	if (lk_this==null)
+        		key_iter = -1;
+        	else 
+        		if (lk_this.codes.length>1) {
+            		if (lk_this == lk_prev)
+            			key_iter++;
+            		else
+            			key_iter=-1;
+        		} else 
+        			key_iter = 0;
             boolean sup = super.onTouchEvent(me);
             if(ret)
             {
@@ -869,6 +891,7 @@ public class JbKbdView extends KeyboardView
 //        {
 //            m_popup.show(inst, lk, false);
 //        }
+    	key_iter = -1;
         m_vibro.runVibro(VibroThread.VIBRO_REPEAT);
 //        m_pressed.setPress(lk.codes[0], PressArray.TYPE_REPEAT);
         m_repeatedKey = lk;
@@ -899,7 +922,7 @@ public class JbKbdView extends KeyboardView
             LatinKey key = getKeyByCode(primaryCode);
             if(key==null)
                 return;
-            Log.d("JKB", "release: "+key.getMainText());
+            //Log.d("JKB", "release: "+key.getMainText());
             key.processed = false;
 //            if(!key.processed)
 //                onKey(primaryCode, null);
@@ -911,8 +934,9 @@ public class JbKbdView extends KeyboardView
 //            else
 //                invalidateAllKeys();
         	longpress = false;
-
             m_extListener.onRelease(primaryCode);
+        	lk_prev = lk_this;
+            lk_this = null;
         }
         
         @Override
@@ -920,34 +944,36 @@ public class JbKbdView extends KeyboardView
         {
         		
             gestureProcessed = false;
-            LatinKey key = getCurKeyboard().getKeyByCode(primaryCode);
-            if(key==null)
+            //LatinKey key = getCurKeyboard().getKeyByCode(primaryCode);
+            if (lk_this==null)
+            	lk_this = getCurKeyboard().getKeyByCode(primaryCode);
+            if(lk_this==null)
                 return;
-            Log.d("JKB", "press: "+key.getMainText());
+            //Log.d("JKB", "press: "+key.getMainText());
             if(m_vibro.hasVibroOnPress())
                 m_vibro.runVibro(VibroThread.VIBRO_SHORT);
             if(m_handler!=null)
             {
-                if(key.trueRepeat)
+                if(lk_this.trueRepeat)
                 {
-                    m_repeatedKey = key;
-                    m_handler.sendRepeat(key,true);
+                    m_repeatedKey = lk_this;
+                    m_handler.sendRepeat(lk_this,true);
                 }
-                else if(key.hasLongPress()){
+                else if(lk_this.hasLongPress()){
 //                    m_handler.removeMessages(OwnKeyboardHandler.MSG_MY_LONG_PRESS);
 
-                    m_handler.sendLongPress(key);
+                    m_handler.sendLongPress(lk_this);
                 }
             }
             if(m_previewType>0
-            		&&key.codes!=null
-            		&&key.codes.length<2
+            		&&lk_this.codes!=null
+            		&&lk_this.codes.length<2
             		&&!st.fl_popupcharacter2)
             {
-               m_PreviewDrw.set(key,true);
+               m_PreviewDrw.set(lk_this,true);
                m_PreviewDrw.m_bLongPreview = false;
-               key.iconPreview = m_PreviewDrw.getDrawable();
-               m_popup.show(inst, key, false);
+               lk_this.iconPreview = m_PreviewDrw.getDrawable();
+               m_popup.show(inst, lk_this, false);
             }
             m_extListener.onPress(primaryCode);
         }
@@ -975,7 +1001,7 @@ public class JbKbdView extends KeyboardView
                 m_vibro.runVibro(VibroThread.VIBRO_SHORT);
 //           if(k.runSpecialInstructions(false))
 //            	return;
-            thiskey = primaryCode;
+            thiskey_code = primaryCode;
             if (longpress
             	&&k!=null
             	&&!k.hasLongPress()
@@ -986,7 +1012,7 @@ public class JbKbdView extends KeyboardView
             	if (!st.fl_popupcharacter2)
             		m_extListener.onKey(primaryCode,keyCodes);
             }
-            lastkey = primaryCode;
+            lastkey_code = primaryCode;
         }
         @Override
         public void swipeUp()

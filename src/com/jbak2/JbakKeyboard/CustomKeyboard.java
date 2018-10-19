@@ -52,7 +52,10 @@ public class CustomKeyboard extends JbKbd
     public static final String A_horizontalGap = "horizontalGap";
     public static final String A_typeKeyboard = "typeKeyboard";
     
-    public static final String A_codes="codes";     
+    public static final String A_codes="codes";
+    // реализация комбинаций клавиш по нажатию одной клавиши
+    public static final String A_comboKeyCodes="comboKeyCodes";     
+    public static final String A_longComboKeyCode="longComboKeyCode";     
     public static final String A_iconPreview="iconPreview"; 
     public static final String A_isRepeatable="isRepeatable";   
     public static final String A_isSticky="isSticky";       
@@ -118,6 +121,8 @@ public class CustomKeyboard extends JbKbd
     public static final  byte B_calcMenu=30;
     public static final  byte B_shortPopupCharacters=31;
     public static final  byte B_typeKeyboard=32;
+    public static final  byte B_comboKeyCodes=33;
+    public static final  byte B_longComboKeyCode=34;
 
     
     public static final  byte BA_KBD=(byte)'|';
@@ -546,6 +551,12 @@ public class CustomKeyboard extends JbKbd
                 case B_codes:
                     out+=A_ANDROID+A_codes+"=\""+is.readUTF()+"\" ";
                     break;
+                case B_comboKeyCodes:
+                    out+=A_ANDROID+A_comboKeyCodes+"=\""+is.readUTF()+"\" ";
+                    break;
+                case B_longComboKeyCode:
+                    out+=A_ANDROID+A_longComboKeyCode+"=\""+is.readUTF()+"\" ";
+                    break;
                 case B_upCode:
                     out+=A_ANDROID+A_upCode+"=\""+is.readInt()+"\" ";
                     break;
@@ -625,7 +636,7 @@ public class CustomKeyboard extends JbKbd
                     m_fraction+=floatToIntFraction(h);
                     break;
                 case B_codes:
-                    k.codes = parseCodes(is.readUTF());
+                    k.codes = parseCodes(is.readUTF(), B_codes);
                     break;
                 case B_template:
                     k.mainText = is.readUTF();
@@ -782,8 +793,16 @@ public class CustomKeyboard extends JbKbd
                     flag_teg = true;
             }
             else if(name.equals(A_codes)) {
-                	k.codes = parseCodes(p.getAttributeValue(i));
+                	k.codes = parseCodes(p.getAttributeValue(i),B_codes);
                     flag_teg = true;
+            }
+            else if(name.equals(A_comboKeyCodes)) {
+            	k.comboKeyCodes = parseCodes(p.getAttributeValue(i),B_comboKeyCodes);
+                flag_teg = true;
+            }
+            else if(name.equals(A_longComboKeyCode)) {
+            	k.longComboKeyCode = Integer.decode(p.getAttributeValue(i));
+                flag_teg = true;
             }
             else if(name.equals(A_upCode))
             {
@@ -922,12 +941,16 @@ public class CustomKeyboard extends JbKbd
         }
         return label;
     }
-    private int[] parseCodes(String attributeValue) throws IOException
+    /** возвращает массив int с кодами клавиш.
+     * @param attributeValue - строка для преобразования в int 
+     * @param save_code - имя параметра для декомпиляции (B_ коды) */
+    private int[] parseCodes(String attributeValue, byte save_code) throws IOException
     {
         attributeValue.trim();
         if(m_os!=null)
         {
-            m_os.writeByte(B_codes);
+            //m_os.writeByte(B_codes);
+            m_os.writeByte(save_code);
             m_os.writeUTF(attributeValue);
         }
         String a[] = attributeValue.split(st.STR_COMMA);

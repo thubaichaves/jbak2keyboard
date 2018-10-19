@@ -814,6 +814,7 @@
  	<string name="lang_symbol_shift">Доп. символьная клавиатура</string>   
  	<string name="lang_edittext">Клавиатура правки текста</string>   
  	<string name="lang_edittext2">Клавиатура правки текста MWcorp</string>   
+ 	<string name="lang_edittext3">Клавиатура правки текста для больших экранов</string>   
  	<string name="lang_smiles">Клавиатура смайликов</string>   
  	<string name="lang_numbers">Числовая клавиатура</string>   
  	<string name="lang_calc">Калькулятор</string>   

@@ -815,7 +815,8 @@
  	<string name="lang_symbol_shift">Teclado de símbolos adicionales</string>   
  	<string name="lang_edittext">Teclado de edición</string>   
  	<string name="lang_edittext2">Teclado de edición MWcorp</string>   
- 	<string name="lang_smiles">Teclado de emoticones</string>   
+ 	<string name="lang_edittext3">Клавиатура правки текста для больших экранов</string>   
+ 		<string name="lang_smiles">Teclado de emoticones</string>   
  	<string name="lang_numbers">Teclado numérico</string>   
  	<string name="lang_calc">Calculadora</string>   
  	<string name="lang_symbol_selector">Selector entre los teclados de símbolos y qwerty</string>   

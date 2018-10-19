@@ -189,6 +189,7 @@ public class IKeyboard
         new Keybrd("edittext_MWcorp",   R.string.lang_edittext2),
         new Keybrd("edittext_standard",R.string.lang_edittext),
         new Keybrd("edittext_Round",   R.string.kbd_name_round),
+        new Keybrd("edittext_4row_8inch_MWcorp",   R.string.lang_edittext3),
         new Keybrd("symbol_edtext",    R.string.kbd_name_sym_edit),
         new Keybrd("smile_standard",   R.string.lang_smiles),
         new Keybrd("smile_MWcorp_v100",   R.string.smiles_MWcorp),

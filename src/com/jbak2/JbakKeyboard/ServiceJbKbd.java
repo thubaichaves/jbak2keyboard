@@ -188,7 +188,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     public int m_acPlace = JbCandView.AC_PLACE_TITLE;
     PopupKeyboard pk;
     /** Текущий просмотр кандидатов */    
-    public JbCandView                 m_candView;
+    public JbCandView                 m_candView = null;
     /** сохранение параметров для калькулятора */    
     JbCandView                 m_candView1;
 /** Просмотр кандидатов, прикрепленный к клавиатуре*/    
@@ -266,6 +266,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         WordsService.g_serviceHandler = m_autoCompleteHandler;
         WordsService.start(this);
         st.upgradeSettings(inst);
+        m_candView = null;
         m_candView = createNewCandView();
 //        SharedPreferences pref = st.pref();
 //        m_es.load(st.PREF_KEY_EDIT_SETTINGS);
@@ -327,6 +328,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     }
     JbCandView createNewCandView()
     {
+//    	if (m_candView!=null)
+//    		return m_candView;
         return (JbCandView) getLayoutInflater().inflate(R.layout.candidates, null);
     }
     void forceFullScreen(EditorInfo attribute)
@@ -741,9 +744,9 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         // a particular editor, to avoid popping the underlying application
         // up and down if the user is entering text into the bottom of
         // its window.
-        removeCandView();
         if (JbKbdView.inst != null)
         {
+            removeCandView();
             JbKbdView.inst.closing();
         }
         kbd_show_ei = null;
@@ -1022,6 +1025,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             processVolumeKey(keyCode, true);
             return true;
         }
+        //return super.onKeyDown(keyCode, event);
         return super.onKeyDown(keyCode, event);
     }
     /** Ловим keyUp */
@@ -1224,19 +1228,74 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     		meta = st.rem(meta, getModifier(code));
     	}
     }
+    int combocode = 0;
+    int maincode = 0;
+    /** реализация нажатия комбинации клавиш одной клавишей (ctrl-c, shift-a и тд */
+    public boolean processComboKey(LatinKey lk,int primaryCode, InputConnection ic)
+    {
+    	if (lk==null)
+    		return false;
+    	if (JbKbdView.inst==null)
+    		return false;
+    	combocode = 0;
+    	maincode = primaryCode;
+    	if (!JbKbdView.inst.longpress) {
+    		if (lk.comboKeyCodes==null)
+    			return false;
+    		if (lk.comboKeyCodes.length<JbKbdView.inst.key_iter)
+    			return false;
+    		if (JbKbdView.inst.key_iter<0)
+    			return false;
+    		if (primaryCode == Keyboard.KEYCODE_DELETE)
+    			return false;
+    		combocode = lk.comboKeyCodes[JbKbdView.inst.key_iter];
+    	} else {
+    		if (lk.longComboKeyCode==0)
+    			return false;
+    		combocode = lk.longComboKeyCode;
+    	}
+    	if (combocode == 0)
+    		return false;
+    	
+        if (maincode >st.KEYCODE_CODE||maincode <st.KEYCODE_CODE-2000)
+        	return false;
+		ic.beginBatchEdit();
+        if (maincode <=st.KEYCODE_CODE&&maincode >=st.KEYCODE_CODE-2000
+          &&combocode <=st.KEYCODE_CODE&&combocode >=st.KEYCODE_CODE-2000
+          ) {
+        	sendHardwareSequence(ic, getKeycode(maincode), getKeycode(combocode));
+        }
+        else if (maincode <=st.KEYCODE_CODE&&maincode >=st.KEYCODE_CODE-2000
+          &&combocode >st.KEYCODE_CODE&&combocode <st.KEYCODE_CODE-2000
+          ) {
+           	sendHardwareSequence(ic, getKeycode(maincode), combocode);
+        }
+        else if (maincode >st.KEYCODE_CODE&&maincode < st.KEYCODE_CODE-2000
+          &&combocode <=st.KEYCODE_CODE&&combocode >=st.KEYCODE_CODE-2000
+          ) {
+           	sendHardwareSequence(ic, maincode, getKeycode(combocode));
+        } else
+           	sendHardwareSequence(ic, maincode, combocode);
+
+       	ic.endBatchEdit();
+    	return true;
+    }
     public final void processKey(int primaryCode)
     {
-        LatinKey key = st.curKbd().getKeyByCode(primaryCode);
-        lastkey_index = st.kv().getKeyIndex(key);
-        if (key!=null)
-        	thiskey = key;
-        if (key!=null&&key.mainText!=null&&key.mainText.length() > 0) {
-        	if (key.runSpecialInstructions(false))
+    	thiskey = null;
+    	if (st.kv()!=null)
+    		thiskey = st.kv().lk_this;
+    	else
+    		thiskey = st.curKbd().getKeyByCode(primaryCode);
+        lastkey_index = st.kv().getKeyIndex(thiskey);
+        
+        if (thiskey!=null&&thiskey.mainText!=null&&thiskey.mainText.length() > 0) {
+        	if (thiskey.runSpecialInstructions(false))
         		return;
         }
-        if (key!=null&&key.shortPopupCharacters.length() > 0){
+        if (thiskey!=null&&thiskey.shortPopupCharacters.length() > 0){
         	if (JbKbdView.inst!=null&&!JbKbdView.inst.m_pk.fl_popupcharacter_window){
-        		JbKbdView.inst.m_pk.showPopupKeyboard("v2 "+key.shortPopupCharacters.trim());
+        		JbKbdView.inst.m_pk.showPopupKeyboard("v2 "+thiskey.shortPopupCharacters.trim());
         		return;
         	}
         }
@@ -1244,6 +1303,9 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         	m_candView.setKeycode(primaryCode);
     	beep(primaryCode);
     	InputConnection ic = getCurrentInputConnection();
+// обработка комбинаций клавиш
+        if (processComboKey(thiskey,primaryCode, ic))
+        	return;
 // альт или ctrl нажаты
         if (primaryCode > 0||(primaryCode <=st.KEYCODE_CODE&&primaryCode >=st.KEYCODE_CODE-2000)) {
        		if (st.fl_lalt&&st.fl_ctrl){
@@ -1448,8 +1510,9 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         else 
         {
             m_lastInput = primaryCode;
-        	if (lastkey_index>-1&&lastkey_index == st.kv().getKeyIndex(key)){
-        		if (isLastCase(key,primaryCode) == 0){
+    		firstsymb = false;
+        	if (lastkey_index>-1&&lastkey_index == st.kv().getKeyIndex(thiskey)){
+        		if (isLastCase(thiskey,primaryCode) == 0){
         			firstsymb = JbKbdView.inst.isUpperCase();
         		}
         	} else

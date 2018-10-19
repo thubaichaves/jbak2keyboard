@@ -808,7 +808,8 @@
   <string name="lang_symbol_shift">Дод. символьна клавіатура</string>
   <string name="lang_edittext">Клавіатура правки тексту</string>
  	<string name="lang_edittext2">Клавіатура правки тексту MWcorp</string>   
-  <string name="lang_smiles">Клавіатура смайликів</string>
+ 	<string name="lang_edittext3">Клавиатура правки текста для больших экранов</string>   
+ 	<string name="lang_smiles">Клавіатура смайликів</string>
   <string name="lang_numbers">Числова клавіатура</string>
    	<string name="lang_calc">Калькулятор</string>   
   <string name="lang_symbol_selector">Перемикач символьної та qwerty клавіатури</string>   

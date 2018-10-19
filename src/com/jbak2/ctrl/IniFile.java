@@ -19,7 +19,7 @@ public class IniFile {
 	// для тестирования
 //	public long RATE_FIRST_TIME= 1000l*300l;
     // время ожидания до повторной просьбы оценить, если юзер нажал Нет на просьбе
-	public long RATE_NEGATIVE_TIME= 1000l*3600l*24l*1l;
+	public long RATE_NEGATIVE_TIME= 1000l*3600l*24l*2l;
 	// для тестирования
 //	public long RATE_NEGATIVE_TIME= 1000l*120l;
 	// массив параметров

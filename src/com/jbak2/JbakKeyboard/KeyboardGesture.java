@@ -31,7 +31,7 @@ public class KeyboardGesture extends GestureDetector
 		@Override
 		public boolean onDoubleTap(MotionEvent e) {
 			boolean ret = super.onDoubleTap(e); 
-			LatinKey lk = getKey((int)e.getX(),(int)e.getY());
+			LatinKey lk = st.getKeyByPress((int)e.getX(),(int)e.getY());
 	        JbKbd kbd = st.kv().getCurKeyboard();
 	        if(kbd==null)
 	            return ret;
@@ -61,27 +61,18 @@ public class KeyboardGesture extends GestureDetector
             if(mdx>=st.minGestSize&&(mdy==0||mdx/mdy>=deltaDelim)&&Math.abs(velocityX)>minVelocity)
             {
                 int type = velocityX>0?GestureInfo.RIGHT:GestureInfo.LEFT;
-                m_kv.gesture(new GestureInfo(getKey(downX, m_kv.m_vertCorr+downY),type));
+                m_kv.gesture(new GestureInfo(st.getKeyByPress(downX, m_kv.m_vertCorr+downY),type));
                 return true;
             }
             if(mdy>=st.minGestSize&&(mdx==0||mdy/mdx>=deltaDelim)&&Math.abs(velocityY)>minVelocity&&(velocityX==0||Math.abs(velocityY/velocityX)>=deltaDelim))
             {
                 int type = velocityY>0?GestureInfo.DOWN:GestureInfo.UP;
-                m_kv.gesture(new GestureInfo(getKey(downX, m_kv.m_vertCorr+downY),type));
+                m_kv.gesture(new GestureInfo(st.getKeyByPress(downX, m_kv.m_vertCorr+downY),type));
                 return true;
             }
             if(mdx>=st.minGestSize||mdy>=st.minGestSize)
                 return true;
             return false;
-        }
-        final LatinKey getKey(int x,int y)
-        {
-            for(Key k:m_kv.getCurKeyboard().getKeys())
-            {
-                if(k.isInside(x, y))
-                    return (LatinKey)k;
-            }
-            return null;
         }
     };
     public static class GestureInfo

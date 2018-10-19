@@ -846,6 +846,7 @@
  	<string name="lang_symbol_shift">Special character keyboard</string>
  	<string name="lang_edittext">TextEdit keyboard</string>
  	<string name="lang_edittext2">TextEdit keyboard MWcorp</string>   
+ 	<string name="lang_edittext3">Клавиатура правки текста для больших экранов</string>   
  	<string name="lang_smiles">Emoji keyboard</string>
  	<string name="lang_numbers">Numeric keyboard</string>
  	<string name="lang_calc">Calculator</string>

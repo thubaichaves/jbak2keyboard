@@ -229,6 +229,12 @@ public class JbKbd extends Keyboard {
  */
     static class LatinKey extends Keyboard.Key 
     {
+    	/** массив вторых кнопок для организации комбинаций клавиш 
+    	 * по короткому нажатию */
+    	int comboKeyCodes[] = null;
+    	/** вторая кнопка для организации комбинаций клавиш 
+    	 * по длинному нажатию */
+    	int longComboKeyCode = 0;
     	// строка popupcharacter для короткого нажатия        
         String  shortPopupCharacters = st.STR_NULL;
     	/** По нажатию клавиши происходит переход на qwerty-клавиатуру */
@@ -264,6 +270,7 @@ public class JbKbd extends Keyboard {
         String mainText;
         String longText;
         String stringText;
+        
         public LatinKey(Resources res, Keyboard.Row parent, int x, int y, XmlResourceParser parser) {
             super(res, parent, x, y, parser);
             init(parent);

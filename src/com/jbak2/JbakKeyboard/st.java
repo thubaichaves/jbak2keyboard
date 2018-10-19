@@ -21,6 +21,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.inputmethodservice.Keyboard;
+import android.inputmethodservice.Keyboard.Key;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -873,6 +874,20 @@ public class st extends IKeyboard implements IKbdSettings
     		JbKbdView.inst.m_KeyHeight = getKeyHeight();
         return JbKbdView.inst;
     }
+   /** возвращает клавишу по координатам нажатия, или null.
+    * Остальные функции определения клавиши находятся в JbKbd */
+    public static LatinKey getKeyByPress(int x,int y)
+    {
+    	if (st.kv()==null)
+    		return null;
+        for(Key k:st.kv().getCurKeyboard().getKeys())
+        {
+            if(k.isInside(x, y))
+                return (LatinKey)k;
+        }
+        return null;
+    }
+
     // возвращает высоту клавиш в зависимости от ориентации
     public static int getKeyHeight()
     {
