@@ -554,8 +554,8 @@ public interface IKbdSettings
     public static final String CALC_PRG_VERSION = "VERSION = 2";
     public static final String CALC_PRG_DESC_WORD = "DESCRIPTION:";
     public static final String CALC_PROGRAM_WORD = "PROGRAM:";
-//    // коррекция высоты индикатора над клавиатурой если автодополнение отключено    
-//    public static final String PREF_CALC_CORRECTION_IND = "calc_corr_ind";
+    // коррекция высоты индикатора над клавиатурой если автодополнение отключено    
+    //public static final String PREF_CALC_CORRECTION_IND = "calc_corr_ind";
     // цифра калькулятора 0    
     public static final int SET_KEY_CALC_NUMBER0 = -540;
     // цифра калькулятора 1    
@@ -683,8 +683,8 @@ public interface IKbdSettings
   //-------------------------------------------------------------------    
   // команды калькулятора
   //-------------------------------------------------------------------    
-    // клавиша окончания работы с калькулятором. Аналог клавиши (-2)
-    public static final int SET_KEY_CALC_GO_QWERTY = -561;
+    /** клавиша окончания работы с калькулятором. Аналог клавиши (-2) */
+    public static final int SET_KEY_CALC_CLOSE = -561;
     // клавиша включения индикатора калькулятора
     public static final int SET_KEY_CALC_ON = -562;
     // клавиша "шаг вперед"

@@ -126,8 +126,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 	int m_popup_color_text = 0xee000000;
 /** поведение стрелок */
 	boolean m_arrow_key =false;
-//// коррекция высоты окна индикатора над клавиатурой
-//	int calc_corr_ind =25;
+// коррекция высоты окна индикатора над клавиатурой
+	//int calc_corr_ind =25;
 // массив  горячих клавиш
 	String[] m_hot_str=new String[100];
 // массив шаблонов горячих клавиш
@@ -1283,18 +1283,37 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     public final void processKey(int primaryCode)
     {
     	thiskey = null;
-    	if (st.kv()!=null)
+    	if (st.kv()!=null) {
     		thiskey = st.kv().lk_this;
-    	else
+    		if (st.kv().longpress) {
+    			if (JbKbdView.processLongKey)
+    				return;
+    			else
+    				JbKbdView.processLongKey = true;
+    		}
+    		
+    	} else
     		thiskey = st.curKbd().getKeyByCode(primaryCode);
         lastkey_index = st.kv().getKeyIndex(thiskey);
         
         if (thiskey!=null&&thiskey.mainText!=null&&thiskey.mainText.length() > 0) {
-        	if (thiskey.runSpecialInstructions(false))
-        		return;
+        	if (st.kv()!=null) {
+        		if (st.kv().longpress) {
+	            	if (thiskey.runSpecialInstructions(true))
+	            		return;
+        		} else {
+	            	if (thiskey.runSpecialInstructions(false))
+	            		return;
+        		}
+        		
+        	}
         }
-        if (thiskey!=null&&thiskey.shortPopupCharacters.length() > 0){
-        	if (JbKbdView.inst!=null&&!JbKbdView.inst.m_pk.fl_popupcharacter_window){
+        if (thiskey!=null
+        	&&JbKbdView.inst!=null
+        	&&!JbKbdView.inst.longpress
+        	&&thiskey.shortPopupCharacters.length() > 0
+        	){
+        	if (!JbKbdView.inst.m_pk.fl_popupcharacter_window){
         		JbKbdView.inst.m_pk.showPopupKeyboard("v2 "+thiskey.shortPopupCharacters.trim());
         		return;
         	}
@@ -1374,10 +1393,14 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
             
         }
 // код клавиши окончания работы с калькулятором        
-        else if (primaryCode == -561 && JbKbdView.inst != null)
+        else if (primaryCode == st.SET_KEY_CALC_CLOSE&& JbKbdView.inst != null)
         {
             m_candView.setInd(false);
         	m_candView.restoreAc_place();
+        	if (m_acPlace==JbCandView.AC_PLACE_NONE)
+        		removeCandView();
+        		//m_candView.remove();
+
             if (st.isQwertyKeyboard(st.curKbd().kbd))
             {
                 st.setSymbolKeyboard(false);
@@ -1790,6 +1813,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 
     public void onRelease(int primaryCode)
     {
+    	JbKbdView.processLongKey=false;
     }
     
     public void onOptions()
@@ -2613,7 +2637,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
        		processCaseAndCandidates();
        	}
        	
-//       	calc_corr_ind = st.str2int(sharedPreferences.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL),0,255,"Calc cjrrection inddicator");
+//       	calc_corr_ind = st.str2int(sharedPreferences.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL),0,255,"Calc correction inddicator");
        	st.set_kbdact_backcol = sharedPreferences.getInt(st.SET_KBD_BACK_COL, 0);
        	st.win_fix = sharedPreferences.getBoolean(st.PREF_KEY_PC2_WIN_FIX, false);
        	st.win_bg = st.str2hex(sharedPreferences.getString(st.PREF_KEY_PC2_WIN_BG, st.PREF_KEY_PC2_WIN_BG_DEF), 16);

@@ -788,11 +788,15 @@ new BitmapCachedGradBack(st.getSkinColorAlpha(0xff686868),
                 new KbdDesign(R.string.design_eliz8,"grey_2.skin"),
                 new KbdDesign(R.string.design_eliz9,"md_blue.skin"),
                 new KbdDesign(R.string.design_eliz10,"black_robo.skin"),
-                new KbdDesign(R.string.design_schenee,"Chocolate.skin"),
+                new KbdDesign(R.string.design_schenee,"Chocolate_by_Schnee-Leopard.skin"),
+                // старый Леопарда, валяется в assets, 470 байт всего 
+                // в конце ноября 2018 удалить если не будет вопросов
+                //new KbdDesign(R.string.design_schenee,"Chocolate.skin"),
                 new KbdDesign(R.string.design_newportstyle,"NewPortStyle.skin"),
                 new KbdDesign(R.string.design_glamor,"glamor.skin"),
                 new KbdDesign(R.string.design_nad1,"Blue_and_gray.skin"),
                 new KbdDesign(R.string.design_nad2,"Brown&pink&yellow.skin"),
+                new KbdDesign(R.string.design_BOGDANPRIME1,"Gray_Soft_Keys_by_BOGDANPRIME.skin"),
         };
     }
 }

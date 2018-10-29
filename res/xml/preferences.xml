@@ -11,7 +11,6 @@
 <!--         android:title="@string/set_kbd_background_alpha"  -->
 <!--         android:summary="@string/set_kbd_background_alpha_desc" /> -->
 
-<!-- калькулятор, экран -->
 <!--     <PreferenceScreen -->
 <!--         android:title="@string/calc_setting"  -->
 <!--         > -->
@@ -19,6 +18,12 @@
 <!--          Коррекция окна автодополнения -->
 <!--         <PreferenceCategory android:title="@string/calc_corr_ind" > -->
 
+<!--     <Preference -->
+<!--         android:key="calc_corr_ind" -->
+<!--         android:summary="@string/calc_corr_ind_desc" -->
+<!--         android:title="@string/calc_corr_ind" -->
+<!--         /> -->
+<!-- уже не используется -->
 <!--         <EditTextPreference -->
 <!-- 	        android:defaultValue="25" -->
 <!-- 	        android:key="calc_corr_ind" -->
@@ -494,6 +499,7 @@
         />
         </PreferenceScreen>
     
+<!-- калькулятор, экран -->
 <!-- MAIN_ITEM - вибрация и звук -->
 
     <PreferenceScreen

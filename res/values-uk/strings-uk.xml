@@ -320,6 +320,9 @@
 	<string name="calc_menu_history">Історія обрахунків</string>
 	<string name="calc_menu_list">Лістинг программы</string>
 	<string name="calc_menu">Меню</string>
+<!-- 	<string name="calc_setting">Налаштування калькулятора</string> -->
+<!-- 	<string name="calc_corr_ind">Корегування вікна індикатора</string> -->
+<!-- 	<string name="calc_corr_ind_desc">Висота вікна індикатора над клавіатурою, працуе тiлькi якщо вікно автодоповнення вимкнено</string> -->
 	<string name="calc_prog_empty">Пам\'ять програми пуста. Нічого виводити</string>
 	<string name="calc_save">Зберегти</string>
 	<string name="calc_load">Завантажити</string>

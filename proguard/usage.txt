@@ -174,8 +174,8 @@ com.jbak2.JbakKeyboard.CustomKeyboard:
     public static final byte BA_ROW
     public static final byte BA_KEY
     int m_rowHeight
-    755:762:final void processKeyPercentWidth(float,com.jbak2.JbakKeyboard.JbKbd$LatinKey)
-    1136:1136:public int getPercentSize(java.io.DataInputStream)
+    756:763:final void processKeyPercentWidth(float,com.jbak2.JbakKeyboard.JbKbd$LatinKey)
+    1137:1137:public int getPercentSize(java.io.DataInputStream)
 com.jbak2.JbakKeyboard.EditSetActivity:
     public static final java.lang.String EXTRA_PREF_KEY
     public static final java.lang.String EXTRA_DEFAULT_EDIT_SET
@@ -276,14 +276,14 @@ com.jbak2.JbakKeyboard.JbKbdPreference:
     public static final java.lang.String DEF_SIZE_CLIPBRD
     public static final java.lang.String DEF_SHORT_VIBRO
     public static final java.lang.String DEF_LONG_VIBRO
-    1795:1815:public void setLangApp()
+    1853:1873:public void setLangApp()
 com.jbak2.JbakKeyboard.JbKbdView:
     android.graphics.drawable.Drawable m_PreviewDrawable
     public static final int STATE_TEMP_SHIFT
     public static final int STATE_CAPS_LOCK
     public static final int STATE_SOUNDS
     public static final int STATE_GESTURES
-    1133:1134:void setTopSpace(int)
+    1110:1111:void setTopSpace(int)
 com.jbak2.JbakKeyboard.KeyDrw:
     public static final java.lang.String DRW_PREFIX
     public static final int DELIM
@@ -347,9 +347,9 @@ com.jbak2.JbakKeyboard.ServiceJbKbd:
     public static final int STATE_GO_END
     static final int MSG_SHOW_PANEL
     337:343:void forceFullScreen(android.view.inputmethod.EditorInfo)
-    1896:1921:public void onVoiceRecognition(java.util.ArrayList)
-    3070:3070:public final boolean canGiveVocabWords()
-    3234:3247:void getTextAfterCursor()
+    1920:1945:public void onVoiceRecognition(java.util.ArrayList)
+    3094:3094:public final boolean canGiveVocabWords()
+    3258:3271:void getTextAfterCursor()
 com.jbak2.JbakKeyboard.ServiceJbKbd$6
 com.jbak2.JbakKeyboard.SetKbdActivity:
     android.text.SpannableString m_testSpan
@@ -412,20 +412,20 @@ com.jbak2.JbakKeyboard.com_menu:
     public static final int STAT_TRANSLATE
     public static final int STAT_KEYCODE_NOTATION
     202:203:void add(int,int,long)
-    603:605:public boolean has(int)
-    1013:1027:void removeLastLongClicked()
+    604:606:public boolean has(int)
+    1014:1028:void removeLastLongClicked()
 com.jbak2.JbakKeyboard.st:
     public static final boolean DEBUG
     56:56:public st()
     621:622:static void log(java.lang.String)
-    981:993:static boolean runAct(java.lang.Class,android.content.Context,java.lang.String,java.lang.String)
-    1368:1368:public static java.lang.String num2str(int,int)
-    1658:1659:public static void toast(android.content.Context,java.lang.String)
-    1662:1673:public static varargs void toast(boolean,java.lang.Integer[])
-    1984:1995:public static int returnCtrlAltCode(int)
-    2090:2100:public static java.lang.String getKeyDesc(int)
-    2110:2111:public static void help(int,android.content.Context)
-    2446:2448:public static java.lang.String getAppPackageName(android.content.Context)
+    987:999:static boolean runAct(java.lang.Class,android.content.Context,java.lang.String,java.lang.String)
+    1374:1374:public static java.lang.String num2str(int,int)
+    1664:1665:public static void toast(android.content.Context,java.lang.String)
+    1668:1679:public static varargs void toast(boolean,java.lang.Integer[])
+    1990:2001:public static int returnCtrlAltCode(int)
+    2096:2106:public static java.lang.String getKeyDesc(int)
+    2116:2117:public static void help(int,android.content.Context)
+    2452:2454:public static java.lang.String getAppPackageName(android.content.Context)
 com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest:
     445:454:public st$ArrayFuncAddSymbolsGest(int,int,java.lang.String)
 com.jbak2.JbakKeyboard.st$IntEntry:

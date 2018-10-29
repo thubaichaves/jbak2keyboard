@@ -422,9 +422,10 @@ public class CustomKeyboard extends JbKbd
             }
         }
         while (b<BA_ROW);
-        if (st.type_keyboard.contains(TYPE_LAYOUT_CALC)){
-        	ServiceJbKbd.inst.m_candView.restoreAc_place();
-        }
+// закоментил 26.10.18        
+//        if (st.type_keyboard.contains(TYPE_LAYOUT_CALC)){
+//        	ServiceJbKbd.inst.m_candView.restoreAc_place();
+//        }
         return b;
     }
     final boolean parseKeyboard(XmlPullParser p) throws IOException

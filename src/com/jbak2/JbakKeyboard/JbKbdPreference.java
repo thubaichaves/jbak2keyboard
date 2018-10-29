@@ -498,6 +498,11 @@ public void checkStartIntent()
         	showAcHeight();
             return true;
         }
+//        else if("calc_corr_ind".equals(k))
+//        {
+//        	showCalcHeightCorrInd();
+//            return true;
+//        }
         else if("show_kbd_notif".equals(k))
         {
     		if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
@@ -1242,6 +1247,59 @@ public void checkStartIntent()
         });
         Dlg.CustomDialog(inst, v, inst.getString(R.string.ok), inst.getString(R.string.cancel), null, obs);
     }
+    /**коррекция высоты индикатора над калькулятором */
+//    void showCalcHeightCorrInd()
+//    {
+//        final View v = inst.getLayoutInflater().inflate(R.layout.edit_intervals, null);
+//        int max = 200,min = -200;
+//        int steps[] = new int[]{1,5,10};
+//        final SharedPreferences p = st.pref(inst);
+//
+//        ((TextView)v.findViewById(R.id.ei_title)).setText(R.string.calc_corr_ind);
+//
+//        ((TextView)v.findViewById(R.id.interval1)).setVisibility(View.GONE);
+//        final IntEditor ie = (IntEditor)v.findViewById(R.id.long_press);
+//        ie.setMinAndMax(min, max);
+//        ie.setValue(st.str2int(p.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL+25),min,max,st.STR_ERROR));
+//        ie.setSteps(steps);
+//        
+//        ((TextView)v.findViewById(R.id.interval2)).setVisibility(View.GONE);
+//        ((IntEditor)v.findViewById(R.id.first_repeat)).setVisibility(View.GONE);
+//        ((TextView)v.findViewById(R.id.interval3)).setVisibility(View.GONE);
+//        ((IntEditor)v.findViewById(R.id.next_repeat)).setVisibility(View.GONE);
+//
+//        st.UniObserver obs = new st.UniObserver()
+//        {
+//            @Override
+//            public int OnObserver(Object param1, Object param2)
+//            {
+//                if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
+//                {
+//                    IntEditor ie;
+//                    Editor e = p.edit();
+//                    ie = (IntEditor)v.findViewById(R.id.long_press);
+//                    e.putString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL+ie.getValue());
+//                    e.commit();
+//                    if(OwnKeyboardHandler.inst!=null)
+//                        OwnKeyboardHandler.inst.loadFromSettings();
+//                }
+//                return 0;
+//            }
+//        };
+//        final Button btn = (Button)v.findViewById(R.id.ei_btn_def);
+//        btn.setVisibility(View.VISIBLE);
+//        btn.setOnClickListener(new OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                ie.setValue(25);
+//                if(OwnKeyboardHandler.inst!=null)
+//                    OwnKeyboardHandler.inst.loadFromSettings();
+//            }
+//        });
+//        Dlg.CustomDialog(inst, v, inst.getString(R.string.ok), inst.getString(R.string.cancel), null, obs);
+//    }
     void showAlpha()
     {
         final View v = inst.getLayoutInflater().inflate(R.layout.edit_intervals, null);

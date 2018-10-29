@@ -417,6 +417,7 @@ public class com_menu
 	@SuppressLint("NewApi")
 	void show(st.UniObserver observer, boolean fl_closemenu)
     {
+		JbKbdView.processLongKey=false;
 		if (!fl_closemenu)
 			close_menu = false;
     	sizeOfficialButton();

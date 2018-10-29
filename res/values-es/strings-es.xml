@@ -317,6 +317,9 @@
 	<string name="calc_menu_history">Historial de cálculos</string>
 	<string name="calc_menu_list">Listado del programa</string>
 	<string name="calc_menu">Menú</string>
+<!-- 	<string name="calc_setting">Настройки калькулятора</string> -->
+<!-- 	<string name="calc_corr_ind">Коррекция окна индикатора</string> -->
+<!-- 	<string name="calc_corr_ind_desc">Высота окна индикатора над клавиатурой, работает только если окно автодополнения выключено</string> -->
 	<string name="calc_prog_empty">Memoria del programa está vacía. No hay nada que mostrar</string>
 	<string name="calc_save">Guardar</string>
 	<string name="calc_load">Descargar</string>

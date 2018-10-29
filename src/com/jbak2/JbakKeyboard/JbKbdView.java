@@ -50,6 +50,8 @@ import com.jbak2.CustomGraphics.draw;
 @SuppressLint("NewApi")
 public class JbKbdView extends KeyboardView 
 {
+	/** флаг, что клавиша уже обработана по длинному нажатию */
+	public static boolean processLongKey = false;
 	/** итерация нажатой клавиши 
 	 * (если есть массив codes[])*/
 	public int key_iter = -1;
@@ -137,6 +139,7 @@ public class JbKbdView extends KeyboardView
     void init()
     {
         inst = this;
+        processLongKey = false;
         lk_this = null;
         lk_prev = null;
     	if (m_pk==null)
@@ -410,8 +413,8 @@ public class JbKbdView extends KeyboardView
                     m_PreviewDrw.m_bLongPreview = true;
                     key.iconPreview = m_PreviewDrw.getDrawable();
                     m_popup.show(inst, (LatinKey)key, true);
-                    longpress = true;
                 }
+                longpress = true;
             }
         }
         if(processLongPress((LatinKey)key))
@@ -489,33 +492,6 @@ public class JbKbdView extends KeyboardView
     		st.fl_gest_double_click_shift = false;
             if(v>0)
             {
-// пока не сделал - двойной тап по шифту включает капслок
-// одиночный - включает/выключает верхний регистр            	
-//            	if (v==3){
-//            		if (thiskey!=lastkey)
-//            			if (!isUpperCase()){
-//            				setTempShift(true, true);
-//            			}
-//            			else {
-//            				setTempShift(false, true);
-//            			}
-//            		if (thiskey==lastkey){
-//            			if (isUpperCase()){
-//            				setTempShift(false, true);
-//            			}
-//            			else if (isUpperCase()&&!temshift){
-//            				m_state = st.rem(m_state, STATE_TEMP_SHIFT);
-//                			m_state|=STATE_CAPS_LOCK;
-//            				temshift = false;
-//            			}
-//            			else {
-//            				setTempShift(false, true);
-//            				temshift = true;
-//            			}
-//            			
-//            		}
-//            	}
-//            	else if(isUpperCase())
                	if(isUpperCase())
                 {
                     m_state = st.rem(m_state, STATE_CAPS_LOCK);
@@ -1082,6 +1058,7 @@ public class JbKbdView extends KeyboardView
         catch (Throwable e) {
         }
         resetPressed();
+		processLongKey = false;
         super.setKeyboard(keyboard);
         if(isUserInput())
         {

@@ -251,7 +251,7 @@ public class st extends IKeyboard implements IKbdSettings
 	public static boolean fl_sound = true;
 // флаг что список автодополнения открыт
 	public static boolean fl_ac_list_view = false;
-// переменная хранящая значение где показываем автодополнение
+/** переменная хранящая значение где показываем автодополнение */
 	public static int  ac1 = 1;
 // флаги записи макросов
 	public static boolean fl_macro1 = false;
@@ -805,6 +805,12 @@ public class st extends IKeyboard implements IKbdSettings
     /** Установа клавиатуры калькулятора*/
     public static void setCalcKeyboard()
     {
+        if (st.calc_fl_ind==false&&ServiceJbKbd.inst.m_acPlace==JbCandView.AC_PLACE_NONE) {
+        	ServiceJbKbd.inst.m_candView.saveAc_place();
+        	ServiceJbKbd.inst.m_acPlace=JbCandView.AC_PLACE_KEYBOARD;
+        	ServiceJbKbd.inst.createNewCandView();
+        }
+
         JbKbdView.inst.setKeyboard(loadKeyboard(getKeybrdForLangName(LANG_CALCULATOR)));
     }
 /** Установка символьной клавиатуры 
@@ -1818,7 +1824,7 @@ public class st extends IKeyboard implements IKbdSettings
         	if (lk==null)
         		lk = st.curKbd().getKeyByCode(-1);
         	if (lk==null)
-        		lk = st.curKbd().getKeyByCode(-561);
+        		lk = st.curKbd().getKeyByCode(st.SET_KEY_CALC_CLOSE);
         	if (lk != null) {
                 switch (num)
                 {

@@ -533,11 +533,13 @@ public class TplEditorActivity extends Activity
                     int f = txt.indexOf(" - ");
                     if(f>0)
                         txt = txt.substring(0,f);
-                    int s = m_edText.getSelectionStart();
-                    int e = m_edText.getSelectionEnd();
-                    m_edText.getText().replace(s<e?s:e,e>s?e:s, txt);
-                	// показываем клавиатуру
-                	ServiceJbKbd.inst.forceShow();
+                    boolean movecur = false;
+                    if (txt.length()==3)
+                   		movecur = true;
+                    replaceText(txt, movecur, true);
+
+//                	// показываем клавиатуру
+//                	ServiceJbKbd.inst.forceShow();
                 	st.toastLong(R.string.insertsymbol_toast);
                 }
                 return 0;
@@ -562,18 +564,52 @@ public class TplEditorActivity extends Activity
                     String txt = ar1.getItem(which);
                     int f = txt.indexOf('-');
                     if(f>0)
-                        txt = txt.substring(0,f);
-                    int s = m_edText.getSelectionStart();
-                    int e = m_edText.getSelectionEnd();
-                    m_edText.getText().replace(s<e?s:e,e>s?e:s, txt);
-                	// показываем клавиатуру
-                	ServiceJbKbd.inst.forceShow();
+                        txt = txt.substring(0,f).trim();
+//                    int s = m_edText.getSelectionStart();
+//                    int e = m_edText.getSelectionEnd();
+//                    m_edText.getText().replace(s<e?s:e,e>s?e:s, txt);
+                    
+//                    int pos = 0;
+//                    if (txt.length()>2)
+//                    	pos = txt.length()*-1;
+//                    else
+//                    	pos = -1;
+                    boolean movecur = false;
+                    if (txt.length()==2)
+                   		movecur = true;
+                    replaceText(txt, movecur, true);
+//                	// показываем клавиатуру
+//                	ServiceJbKbd.inst.forceShow();
                 }
                 return 0;
             }
         });
     }
-
+    /**  @param txt - строка для замены
+     * @param movecur - помещать ли курсор после "["
+     * @param show_kbd - показ клавиатуры*/
+    void replaceText(String txt, boolean movecur, boolean show_kbd)
+    {
+        int s = m_edText.getSelectionStart();
+        int e = m_edText.getSelectionEnd();
+        m_edText.getText().replace(s<e?s:e,e>s?e:s, txt);
+        // перемещаем курсор
+        if (movecur) {
+            int cp = m_edText.getSelectionStart();
+            int ind = txt.indexOf("[");
+            if (ind>-1) {
+            	int ps = m_edText.getSelectionStart();
+            	ps = ind-txt.length()+1;
+            	cp = cp+ps;
+            	m_edText.setSelection(cp);
+            }
+        	
+        }
+        m_edText.requestFocus();
+    	// показываем клавиатуру
+        if (show_kbd)
+        	ServiceJbKbd.inst.forceShow();
+    }
 /** Меню специальных инструкций для добавления в шаблон */    
     void onSpecOptions()
     {

@@ -317,6 +317,9 @@
 	<string name="calc_menu_list">Program listing</string>
 	<string name="calc_menu_history">Calculation log</string>
 	<string name="calc_menu">Menu</string>
+<!-- 	<string name="calc_setting">Настройки калькулятора</string> -->
+<!-- 	<string name="calc_corr_ind">Коррекция окна индикатора</string> -->
+<!-- 	<string name="calc_corr_ind_desc">Высота окна индикатора над клавиатурой, работает только если окно автодополнения выключено</string> -->
 	<string name="calc_prog_empty">Program memory is empty. Nothing to output</string>
 	<string name="calc_save">Save</string>
 	<string name="calc_load">Download</string>
@@ -840,7 +843,8 @@
 	<string name="design_glamor">Glamor by jenibek</string>    
 	<string name="design_nad1">Blue_and_gray by Надежда Ф</string>    
 	<string name="design_nad2">Brown_pink_yellow by Надежда Ф</string>    
-						
+	<string name="design_BOGDANPRIME1">Gray_Soft_Keys_by_BOGDANPRIME</string>    
+							
 <!-- Names for languages -->
  	<string name="lang_symbol">Character keyboard</string>
  	<string name="lang_symbol_shift">Special character keyboard</string>

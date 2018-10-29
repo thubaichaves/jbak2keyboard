@@ -126,7 +126,7 @@ public class JbCandView extends RelativeLayout
     int m_counter1;
     int m_keycode1;
     int m_rightView1;
-
+    int m_acPlace1;
 // временные переменные
     String tmp = st.STR_NULL;
 // код последней нажатой клавиши
@@ -1221,10 +1221,12 @@ public class JbCandView extends RelativeLayout
     	calc_ind= m_calcind.getText().toString();
     	if (text == -10){
             if (st.calc_fl_ind==false&&ServiceJbKbd.inst.m_acPlace==0) {
-                CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
+//                ServiceJbKbd.inst.viewAcPlace();
+//
+//            	CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
 //            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
-            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
-                showInView(ypos,true);
+////            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
+//                showInView(ypos,true);
             }
             st.calc_fl_ind=true;
     		return;
@@ -1436,10 +1438,10 @@ public class JbCandView extends RelativeLayout
     		calc_zero = false;
     		calc_first_input=true;
             if (st.calc_fl_ind==false&&ServiceJbKbd.inst.m_acPlace==0) {
-                CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
+//                CustomKeyboard kbd = (CustomKeyboard)st.kv().getCurKeyboard();
 //            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-ServiceJbKbd.inst.calc_corr_ind-kbd.getHeight();
-            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
-                showInView(ypos,true);
+////            	int ypos = getContext().getResources().getDisplayMetrics().heightPixels-kbd.getHeight();
+//                showInView(ypos,true);
             }
         	st.calc_fl_ind = true;
     	}
@@ -2017,6 +2019,7 @@ public class JbCandView extends RelativeLayout
     public void saveAc_place()
     {
     	if (calc_par==false) {
+    		m_acPlace1 = ServiceJbKbd.inst.m_acPlace;
             m_counter1 = m_counter.getVisibility();
             m_keycode1 = m_keycode.getVisibility();
             m_addVocab1 = m_addVocab.getVisibility();
@@ -2047,6 +2050,9 @@ public class JbCandView extends RelativeLayout
     }
     public void restoreAc_place()
     {
+    	// восстанавливаем состояние видимости автодопа
+		ServiceJbKbd.inst.m_acPlace = m_acPlace1;
+
     	m_calcind.setVisibility(View.GONE);
     	m_calcmenu.setVisibility(View.GONE);
 		m_forcibly.setVisibility(View.GONE);
