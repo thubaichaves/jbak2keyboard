@@ -41,6 +41,9 @@ import com.jbak2.words.IWords.WordEntry;
 public class JbCandView extends RelativeLayout
 {
 	ArrayList<ArrayFuncAddSymbolsGest> arFuncKey = new ArrayList<ArrayFuncAddSymbolsGest>();
+	/** длина начала слова, после которого сокращаем показ предлагаемых слов, 
+	 * если сокращение включено */
+    public static final int ABBREVIATED_LEN = 3;
 	static Context m_c;
 	boolean fl_ac_show = false;
 	// флап что коррекция уже была
@@ -167,10 +170,10 @@ public class JbCandView extends RelativeLayout
 //    public static final String[] DEF_WORD = new String[]
 //    {
 //    	st.STR_COMMA,
-//        ".",
+//        st.STR_POINT,
 //        "!",
 //        "?",
-//        ":",
+//        st.STR_COLON,
 //        ";",
 //        "@",
 //        "\"",
@@ -395,6 +398,9 @@ public class JbCandView extends RelativeLayout
         }
     }
 
+    /** Предлагает юзеру набор автодополнений. В браузере - показывает какой-то
+     * набор из закладок и посещенных ссылок.
+     * Вызывается из ServiceJbKbd */
     public void setCompletions(CompletionInfo[] completions)
     {
         m_bCanCorrect = false;
@@ -482,7 +488,23 @@ public class JbCandView extends RelativeLayout
     		  if (m_addVocab != null)
     			  m_addVocab.setVisibility(View.GONE);
     	  } else {
-    	        m_texts = words==null?m_defkey:words;
+    		  //m_texts = words==null?m_defkey:words;
+    		  if (words==null)
+    			  m_texts = m_defkey;
+    		  else {
+    			  m_texts = words;
+    			  if (st.abbreviated_dict&&st.this_word.length()>ABBREVIATED_LEN) {
+        			  for (int i=0;i<words.length;i++) {
+        				  if (!st.this_word.isEmpty()
+        					 &&words[i].startsWith(st.this_word)
+        					 &&words[i].trim().compareToIgnoreCase(st.this_word) != 0
+        					 ) {
+        					  m_texts[i] = st.STR_POINT+st.STR_POINT+words[i].substring(st.this_word.length());
+        				  }
+        			  }
+
+    			  }
+    		  }
     	  }
 
         if(m_ll==null) {
@@ -621,8 +643,17 @@ public class JbCandView extends RelativeLayout
         @Override
         public boolean onLongClick(View v)
         {
+        	String word = ((TextView)v).getText().toString().trim();
+        	if (st.abbreviated_dict&&st.this_word!=null) {//.length()>ABBREVIATED_LEN)
+        		if (st.this_word.compareToIgnoreCase(word)!=0)
+        			word = st.this_word+((TextView)v).getText().toString().trim().substring(2);
+        	}
 //        	ViewCandList();
-        	WordsService.command(WordsService.CMD_DELETE_VOCAB, ((TextView)v).getText().toString().trim(), ServiceJbKbd.inst);
+        	if (ServiceJbKbd.inst!=null) {
+            	WordsService.command(WordsService.CMD_DELETE_VOCAB, word, ServiceJbKbd.inst);
+            	ServiceJbKbd.inst.getCandidates();
+            	//WordsService.command(WordsService.CMD_GET_WORDS, word, ServiceJbKbd.inst);
+        	}
         	return true;
         }
     };
@@ -652,7 +683,16 @@ public class JbCandView extends RelativeLayout
                 CompletionInfo ci = (CompletionInfo)v.getTag();
 // нажатие на слово из автодополнения
                 if(ci==null) {
-                	word_on_click = ((TextView)v).getText().toString();
+                	String word_on_click = ((TextView)v).getText().toString();
+                	if (st.this_word!=null&&st.this_word.length()>ABBREVIATED_LEN) {
+                		if (st.abbreviated_dict) {
+                			if (word_on_click.startsWith(st.STR_POINT+st.STR_POINT)) {
+                        		word_on_click = word_on_click.substring(2);
+                        		word_on_click= st.this_word+word_on_click;
+                				
+                			}
+                		}
+                	}
                 	if (st.fl_ac_separator_symbol) {
                 		if (word_on_click.length()==1
                 			&&!Character.isLetterOrDigit(word_on_click.charAt(0))
@@ -1030,11 +1070,23 @@ public class JbCandView extends RelativeLayout
 //            return false;
 //        fl_correction = true;
         TextView tv = (TextView)m_ll.getChildAt(0);
-        String text = st.STR_NULL;
-        if (code == 0)
-            text = tv.getText().toString();
-        else
-            text = tv.getText().toString()+(char)code;
+        String text = tv.getText().toString();
+    	if (st.this_word!=null&&st.this_word.length()>ABBREVIATED_LEN) {
+    		if (st.abbreviated_dict&&st.this_word.compareToIgnoreCase(text)!=0) {
+    			if (text.startsWith(st.STR_POINT+st.STR_POINT)) {
+        			text = text.substring(2);
+        			text = st.this_word+text;
+    			}
+    		}
+    	}
+//    	String text = st.STR_NULL;
+//        if (code == 0)
+//            text = tv.getText().toString();
+//        else
+//            text = tv.getText().toString()+(char)code;
+
+        if (code != 0)
+        	text = text+(char)code;
         ServiceJbKbd.inst.setWord(text,true);
         return true;
     }
@@ -1149,7 +1201,7 @@ public class JbCandView extends RelativeLayout
     	while (calc_tmp.length()<4){
     		calc_tmp=st.STR_ZERO+calc_tmp;
     	}
-    	calc_tmp="."+calc_tmp.trim();
+    	calc_tmp=st.STR_POINT+calc_tmp.trim();
     	while (calc_tmp3.length()<12) {
     		calc_tmp3=calc_tmp3+" ---";
     	}
@@ -1340,9 +1392,9 @@ public class JbCandView extends RelativeLayout
 			// команда round
  			if (calc_flag_round) {
  				if (text >=0&&text<=9) {
- 					if (calc_ind.contains(".")) {
+ 					if (calc_ind.contains(st.STR_POINT)) {
  						
- 						calc_round = calc_ind.substring(calc_ind.indexOf(".")+1);
+ 						calc_round = calc_ind.substring(calc_ind.indexOf(st.STR_POINT)+1);
  						double bbb = Double.valueOf(calc_ind);
  						double ttt = 1;
  						for (int ii=0;ii<text;ii++) {
@@ -1461,9 +1513,9 @@ public class JbCandView extends RelativeLayout
     		calcRegY=calcRegX;
     		calcRegX=d;
     		calc_tmp=String.valueOf(calcRegX);
-    		calc_tmp1 = calc_tmp.substring(0, calc_tmp.indexOf("."));
-    		calc_tmp2 = calc_tmp.substring(calc_tmp.indexOf(".")+1);
-    		calc_tmp=".";
+    		calc_tmp1 = calc_tmp.substring(0, calc_tmp.indexOf(st.STR_POINT));
+    		calc_tmp2 = calc_tmp.substring(calc_tmp.indexOf(st.STR_POINT)+1);
+    		calc_tmp=st.STR_POINT;
     		if (calc_tmp2.length()==1&calc_tmp2.contains(st.STR_ZERO)) {
         			calc_tmp=st.STR_NULL;
         			calc_tmp2=st.STR_NULL;
@@ -1475,8 +1527,8 @@ public class JbCandView extends RelativeLayout
      		calcRegX = Double.valueOf(calc_ind);
     		calcRegX=calcRegX*(-1);
     		calc_tmp=String.valueOf(calcRegX);
-    		calc_tmp1 = calc_tmp.substring(0, calc_tmp.indexOf("."));
-    		calc_tmp2 = calc_tmp.substring(calc_tmp.indexOf(".")+1);
+    		calc_tmp1 = calc_tmp.substring(0, calc_tmp.indexOf(st.STR_POINT));
+    		calc_tmp2 = calc_tmp.substring(calc_tmp.indexOf(st.STR_POINT)+1);
     		calc_tmp=st.STR_NULL;
     		if (calc_tmp2.length()==1&calc_tmp2.contains(st.STR_ZERO)) {
     			calc_tmp2=st.STR_NULL;
@@ -1708,8 +1760,8 @@ public class JbCandView extends RelativeLayout
 		   calc_b_arrow = true;
      	}
      	if (text == 53) {
-     		if (calc_ind.contains(".")) {
-     			calc_ind = calc_ind.substring(0,calc_ind.indexOf("."));
+     		if (calc_ind.contains(st.STR_POINT)) {
+     			calc_ind = calc_ind.substring(0,calc_ind.indexOf(st.STR_POINT));
      			calcRegX = Double.valueOf(calc_ind);
      		}
      		setCalcRegRotation();
@@ -1977,10 +2029,10 @@ public class JbCandView extends RelativeLayout
      		calc_history += calc_history_key.trim();
    		calc_full=Double.toString(calcRegX);
    		if (calc_rez) {
-   			if (calc_ind.length()!=1&&calc_ind.contains(".")) {
+   			if (calc_ind.length()!=1&&calc_ind.contains(st.STR_POINT)) {
    				calc_tmp2=calc_ind;
-   				calc_tmp1 = calc_tmp2.substring(0, calc_tmp2.indexOf("."));
-   				calc_tmp = calc_tmp2.substring(calc_tmp2.indexOf(".")+1);
+   				calc_tmp1 = calc_tmp2.substring(0, calc_tmp2.indexOf(st.STR_POINT));
+   				calc_tmp = calc_tmp2.substring(calc_tmp2.indexOf(st.STR_POINT)+1);
    				if (calc_tmp.length()==1&calc_tmp.contains(st.STR_ZERO)) {
    					calc_tmp=st.STR_NULL;
    					calc_ind = calc_tmp1;
@@ -2080,13 +2132,13 @@ public class JbCandView extends RelativeLayout
     {
     	if (calc_full.length() == 0)
     		calc_full = "0.0";
-		calc_cel = calc_full.substring(0, calc_full.indexOf("."));
-		calc_drob_s = calc_full.substring(calc_full.indexOf(".")+1);
+		calc_cel = calc_full.substring(0, calc_full.indexOf(st.STR_POINT));
+		calc_drob_s = calc_full.substring(calc_full.indexOf(st.STR_POINT)+1);
 		if (calc_drob_s.length()==1&calc_drob_s.contains(st.STR_ZERO))
 			calc_drob_s =st.STR_NULL;
 		calc_tmp=st.STR_NULL;
 		if (calc_drob == true) {
-			calc_tmp = ".";
+			calc_tmp = st.STR_POINT;
 //			calc_drob=false;
 		}
 		if (calc_cel.length()==1&calc_cel.contains(st.STR_ZERO))
@@ -2203,9 +2255,10 @@ public class JbCandView extends RelativeLayout
     	}
     	return tv;
 	}
-// подбирает подходящие слова из текущей позиции курсора или выдаёт
-// строку по умолчанию
-// bfl - выдавать звук или нет    
+/** подбирает подходящие слова из текущей позиции курсора или выдаёт
+ *  строку по умолчанию
+ * @param fl_beep  - выдавать звук или нет
+ */
     public void createWord(boolean fl_beep)
     {
     	ServiceJbKbd.inst.openWords();

@@ -76,7 +76,7 @@ public class EditUserVocab extends Activity
         btn_sellang =(Button)findViewById(R.id.euv_sellang);
         btn_search =(Button)findViewById(R.id.euv_search);
         btn_search.setVisibility(View.GONE);
-        ((TextView)findViewById(R.id.euv_txtlang)).setText(getString(R.string.euv_lang_text)+":");
+        ((TextView)findViewById(R.id.euv_txtlang)).setText(getString(R.string.euv_lang_text)+st.STR_COLON);
         tv_cnt_word =(TextView)findViewById(R.id.euv_allword);
         tv_cnt_word.setVisibility(View.GONE);
 

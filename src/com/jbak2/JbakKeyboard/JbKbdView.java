@@ -431,6 +431,7 @@ public class JbKbdView extends KeyboardView
         }
         if (st.fl_popupcharacter2)
         	return true;
+        longpress = false;
         return super.onLongPress(key);
     }
 //    public TextView popV2_createTextView(boolean fullView)

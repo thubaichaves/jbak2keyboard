@@ -250,14 +250,15 @@ com.jbak2.JbakKeyboard.IKeyboard$Keybrd:
 com.jbak2.JbakKeyboard.IKeyboard$Lang:
     578:583:static java.lang.String getLangShortName(int)
 com.jbak2.JbakKeyboard.JbCandView:
+    public static final int ABBREVIATED_LEN
     public static final int AC_PLACE_NONE
     public static final int AC_PLACE_KEYBOARD
     public static final int AC_PLACE_TITLE
     public static final int AC_PLACE_CURSOR_POS
-    184:184:public int getPlace()
-    188:189:public void setPlace(int)
-    853:860:public void hide()
-    863:863:int getFixedHeight()
+    187:187:public int getPlace()
+    191:192:public void setPlace(int)
+    890:897:public void hide()
+    900:900:int getFixedHeight()
 com.jbak2.JbakKeyboard.JbKbd:
     54:54:public int getHeightKey()
     58:59:void setHeightKey(int)
@@ -283,7 +284,7 @@ com.jbak2.JbakKeyboard.JbKbdView:
     public static final int STATE_CAPS_LOCK
     public static final int STATE_SOUNDS
     public static final int STATE_GESTURES
-    1110:1111:void setTopSpace(int)
+    1111:1112:void setTopSpace(int)
 com.jbak2.JbakKeyboard.KeyDrw:
     public static final java.lang.String DRW_PREFIX
     public static final int DELIM
@@ -315,7 +316,7 @@ com.jbak2.JbakKeyboard.OwnKeyboardHandler:
 com.jbak2.JbakKeyboard.PopupKeyWindow:
     113:116:public void hide()
 com.jbak2.JbakKeyboard.PopupKeyboard:
-    644:644:public void setBackgroundOnTouch(android.view.View)
+    651:651:public void setBackgroundOnTouch(android.view.View)
 com.jbak2.JbakKeyboard.PressArray
 com.jbak2.JbakKeyboard.PressArray$PressInfo
 com.jbak2.JbakKeyboard.R
@@ -347,9 +348,9 @@ com.jbak2.JbakKeyboard.ServiceJbKbd:
     public static final int STATE_GO_END
     static final int MSG_SHOW_PANEL
     337:343:void forceFullScreen(android.view.inputmethod.EditorInfo)
-    1920:1945:public void onVoiceRecognition(java.util.ArrayList)
-    3094:3094:public final boolean canGiveVocabWords()
-    3258:3271:void getTextAfterCursor()
+    1925:1950:public void onVoiceRecognition(java.util.ArrayList)
+    3105:3105:public final boolean canGiveVocabWords()
+    3269:3282:void getTextAfterCursor()
 com.jbak2.JbakKeyboard.ServiceJbKbd$6
 com.jbak2.JbakKeyboard.SetKbdActivity:
     android.text.SpannableString m_testSpan
@@ -417,17 +418,17 @@ com.jbak2.JbakKeyboard.com_menu:
 com.jbak2.JbakKeyboard.st:
     public static final boolean DEBUG
     56:56:public st()
-    621:622:static void log(java.lang.String)
-    987:999:static boolean runAct(java.lang.Class,android.content.Context,java.lang.String,java.lang.String)
-    1374:1374:public static java.lang.String num2str(int,int)
-    1664:1665:public static void toast(android.content.Context,java.lang.String)
-    1668:1679:public static varargs void toast(boolean,java.lang.Integer[])
-    1990:2001:public static int returnCtrlAltCode(int)
-    2096:2106:public static java.lang.String getKeyDesc(int)
-    2116:2117:public static void help(int,android.content.Context)
-    2452:2454:public static java.lang.String getAppPackageName(android.content.Context)
+    627:628:static void log(java.lang.String)
+    993:1005:static boolean runAct(java.lang.Class,android.content.Context,java.lang.String,java.lang.String)
+    1380:1380:public static java.lang.String num2str(int,int)
+    1670:1671:public static void toast(android.content.Context,java.lang.String)
+    1674:1685:public static varargs void toast(boolean,java.lang.Integer[])
+    2000:2011:public static int returnCtrlAltCode(int)
+    2106:2116:public static java.lang.String getKeyDesc(int)
+    2126:2127:public static void help(int,android.content.Context)
+    2462:2464:public static java.lang.String getAppPackageName(android.content.Context)
 com.jbak2.JbakKeyboard.st$ArrayFuncAddSymbolsGest:
-    445:454:public st$ArrayFuncAddSymbolsGest(int,int,java.lang.String)
+    451:460:public st$ArrayFuncAddSymbolsGest(int,int,java.lang.String)
 com.jbak2.JbakKeyboard.st$IntEntry:
     public static final byte KeyBackStartColor
     public static final byte KeyBackEndColor
@@ -463,11 +464,11 @@ com.jbak2.JbakKeyboard.st$IntEntry:
     public static final byte SpecKeyBackPressedGradientType
     public static final byte SpecKeyPressedStrokeStartColor
     public static final byte SpecKeyPressedStrokeEndColor
-    498:517:public st$IntEntry(int,int,int)
+    504:523:public st$IntEntry(int,int,int)
 com.jbak2.JbakKeyboard.st$SyncAsycOper:
-    728:729:public void startSync()
+    734:735:public void startSync()
 com.jbak2.JbakKeyboard.st$UniObserver:
-    532:536:public st$UniObserver(java.lang.Object,java.lang.Object)
+    538:542:public st$UniObserver(java.lang.Object,java.lang.Object)
 com.jbak2.ctrl.GlobDialog:
     public static int[] list
     public static java.util.ArrayList slist

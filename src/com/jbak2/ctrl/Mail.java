@@ -25,6 +25,9 @@ public class Mail
 //			info = new StringBuilder(String.format(Locale.ENGLISH,
 //				"\n\n%s", "О "+ getAppNameAndVersion(c)));
 		String delim = ": ";
+		info.append(String.format(Locale.ENGLISH, "%s%s%s%s\n","Application",
+				delim, st.STR_NULL,
+				st.getAppNameAndVersion(c)));
 		info.append(String.format(Locale.ENGLISH, "%s%s%s%s\n","Device locale",
 				delim, st.STR_NULL,
 				Locale.getDefault().getLanguage()));
@@ -52,7 +55,7 @@ public class Mail
 
 		String subj = null;
 		if(crash==null)
-			subj = "О "+st.getAppNameAndVersion(c);
+			subj = "О "+c.getString(R.string.ime_name);
 		else
 			subj = "Crash report "+st.getAppNameAndVersion(c);
 		emailIntent.putExtra(Intent.EXTRA_SUBJECT, subj);

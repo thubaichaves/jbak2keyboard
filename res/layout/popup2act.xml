@@ -65,6 +65,13 @@
     android:textSize="15sp" 
     />
 
+<CheckBox
+    android:id="@+id/pc2act_cb2"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/pc2act_lr"
+    />
+
 <TextView
     android:id="@+id/pc2act_btn_size"
     android:layout_width="fill_parent"

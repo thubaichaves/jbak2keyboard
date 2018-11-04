@@ -55,6 +55,9 @@ import com.jbak2.words.UserWords.WordArray;
 /** Класс содержит полезные статические переменные */
 public class st extends IKeyboard implements IKbdSettings
 {
+	/** текущее введённое слово определённое 
+	 * в getCandidates в ServiceJbKbd */
+	public static String this_word = st.STR_NULL;
 	// горизонтальное смещение клавиатуры
 	public static int kbd_horiz_port = 0;
 	public static int kbd_horiz_land = 0;
@@ -186,12 +189,14 @@ public class st extends IKeyboard implements IKbdSettings
 	
 // принудительное чтение из словаря	
 	public static boolean fl_suggest_dict = false;
-// временное отключение словаря
+/** временное отключение словаря */
 	public static boolean fl_temp_stop_dict = false;
 // какое freq ставить при добавлении нового слова
 	public static int freq_dict = 500000;
 // интеллектуальный ввод
 	public static boolean student_dict = false;
+/** сокращать словаа в автодопе */
+	public static boolean abbreviated_dict = false;
 // расширенное обучение словаря
 	public static boolean student_dict_ext = false;
 // количество слов в списке автодополнения 	
@@ -222,6 +227,7 @@ public class st extends IKeyboard implements IKbdSettings
 // параметры для popupCharacter2
 //*****************************
 	public static boolean win_fix  = false;
+	public static boolean pc2_lr  = false;
 	public static int win_bg  = str2hex(IKbdSettings.PREF_KEY_PC2_WIN_BG_DEF,16);
 	public static int btn_size  = str2hex(IKbdSettings.PREF_KEY_PC2_BTN_SIZE_DEF,10);
 	public static int btn_bg = str2hex(IKbdSettings.PREF_KEY_PC2_BTN_BG_DEF,16);
@@ -288,7 +294,7 @@ public class st extends IKeyboard implements IKbdSettings
 	public static boolean fl_popupcharacter2 = false;;
 
 // временное хранение где показывать автодополнение	
-	public static int acplce1 = 0;
+	public static int acplace1 = 0;
 	
 	
 /** временные переменные */
@@ -1833,11 +1839,15 @@ public class st extends IKeyboard implements IKbdSettings
                 	break;
                 }
                 popupcharacter_save = lk.popupCharacters;
-        		lk.popupCharacters=out;
+//                if (out.length()>0)
+                	lk.popupCharacters=out;
         		lk.popupResId = R.xml.kbd_empty;
         		OwnKeyboardHandler.inst.m_kv.onLongPress(lk);
         		st.sleep(100);
+        		OwnKeyboardHandler.inst.m_kv.longpress=false;
+        		OwnKeyboardHandler.inst.m_kv.processLongKey=false;        		
                 lk.popupCharacters = popupcharacter_save;
+                
         	} else 
         		toast("error gesture. Not a \"shift\", \"enter\", or \"123\" key on layout");
        	}

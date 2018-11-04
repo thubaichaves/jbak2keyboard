@@ -83,6 +83,8 @@ public interface IKbdSettings
 	
 // ключ, включения обучаемого словаря
 		public static final String STUDENT_DICT = "ac_student_dict";
+/** ключ, вывод подсказок в сокращённом виде */
+		public static final String AC_ABBREVIATED_DICT = "ac_abbreviated_dict";
 // ключ, расширенного обучения словаря
 		public static final String EXTENDED_STUDENT_DICT = "ac_student_ext_dict";
 // количество слов в выпадающем списке из автодополнения
@@ -315,8 +317,8 @@ public interface IKbdSettings
     public static final String PREF_KEY_CORR_LANDSCAPE = "pref_vertcorr_l";
     
     // сокращения для уменьшения занимаемой памяти
-    public static final String DOT_SRING = ".";
-    public static final String COLON_SRING = ":";
+    //public static final String DOT_SRING = ".";
+    //public static final String COLON_SRING = ":";
     public static final String EXT_XML = "xml";
     public static final String EXT_SKIN = "skin";
     public static final String SETTINGS_BACKUP_FILE= "settings_backup"+'.'+EXT_XML;
@@ -339,7 +341,9 @@ public interface IKbdSettings
     public static final String STR_ERROR = "error";
     public static final String STR_PREFIX = "$[";
     public static final String STR_COMMA = ",";
+    public static final String STR_POINT = ".";
     public static final String STR_SLASH= "/";
+    public static final String STR_COLON= ":;";
 
     
     public static final int PREF_VAL_EDIT_TYPE_DEFAULT = 0;
@@ -354,6 +358,8 @@ public interface IKbdSettings
     public static final String PREF_KEY_PC2_WIN_BG_DEF = "#cc000000";
 
     public static final String PREF_KEY_PC2_WIN_FIX = "pc2win_fix";
+    /** позиционирование под левую/правую руку */
+    public static final String PREF_KEY_PC2_LR = "pc2win_lr";
 
     public static final String PREF_KEY_PC2_BTN_SIZE = "pc2btn_size";
     public static final String PREF_KEY_PC2_BTN_SIZE_DEF = "20";

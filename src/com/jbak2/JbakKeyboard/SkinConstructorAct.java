@@ -189,8 +189,8 @@ public class SkinConstructorAct extends Activity
                   if(((Integer)param1).intValue()==AlertDialog.BUTTON_POSITIVE)
                   {
                 	  if (gd.ret_edittext_text.length() > 0){
-                		  if (!gd.ret_edittext_text.endsWith(st.DOT_SRING+st.EXT_SKIN)){
-                			  gd.ret_edittext_text+=st.DOT_SRING+st.EXT_SKIN;
+                		  if (!gd.ret_edittext_text.endsWith(st.STR_POINT+st.EXT_SKIN)){
+                			  gd.ret_edittext_text+=st.STR_POINT+st.EXT_SKIN;
                 		  }
                 		  setNameSkin(gd.ret_edittext_text);
     					  if (VisibleEditSkin()) {
@@ -294,7 +294,7 @@ public class SkinConstructorAct extends Activity
         	if (myFolder.isDirectory() != false){
             	String[] file = myFolder.list();
             	for (int i = 0; i < file.length; i++) {
-            		if (file[i].endsWith(st.DOT_SRING+st.EXT_SKIN)){
+            		if (file[i].endsWith(st.STR_POINT+st.EXT_SKIN)){
             			arskinname.add(file[i]);
             		}
             	}

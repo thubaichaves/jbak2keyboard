@@ -1635,7 +1635,7 @@ public void checkStartIntent()
 //        {
 //            long time = times[i];
 //            total+=time;
-//            log+=test[i]+":"+time;
+//            log+=test[i]+st.STR_COLON+time;
 //        }
 //        log+="} total:"+total;
 //        Log.w("Words test", log);

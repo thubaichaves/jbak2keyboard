@@ -23,7 +23,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-// класс для маленьких клавиатур
+/** класс для маленьких клавиатур */
 public class PopupKeyboard 
 {
 	// координаты вызывающей кнопки
@@ -456,7 +456,14 @@ public class PopupKeyboard
     		st.ar_asg.clear();
     	popupstr = popupstr.substring(3, popupstr.length()).trim();
     	String[] txt = popupstr.split(st.STR_SPACE);
-        View v = ServiceJbKbd.inst.getLayoutInflater().inflate(R.layout.popup_kbd_full, null);
+    	View v = null;
+    	if (!st.pc2_lr)
+    		v = ServiceJbKbd.inst.getLayoutInflater().inflate(R.layout.popup_kbd_full_right, null);
+    	else
+    		v = ServiceJbKbd.inst.getLayoutInflater().inflate(R.layout.popup_kbd_full_left, null);
+    		
+        if (v==null)
+        	return false;
         llmain = ((RelativeLayout) v.findViewById(R.id.popup2main));
         llright = ((LinearLayout) v.findViewById(R.id.buttons_official));
         final LinearLayout llrow = ((LinearLayout) v.findViewById(R.id.pc2_llrow));

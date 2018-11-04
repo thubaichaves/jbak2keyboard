@@ -668,11 +668,11 @@ public class CustomKbdScroll
                     	try {
 //                    		ClipboardManager cm = (ClipboardManager)c.getSystemService(Service.CLIPBOARD_SERVICE);
 //                    		String s = menu.m_arItems.get(pos).text;
-//                    		s = s.substring(s.indexOf(":")+1).trim();
+//                    		s = s.substring(s.indexOf(st.STR_COLON)+1).trim();
 //                    		cm.setText(s);
 //                    		st.messageCopyClipboard();
                     		String s = menu.m_arItems.get(pos).text;
-                    		s = s.substring(s.indexOf(":")+1).trim();
+                    		s = s.substring(s.indexOf(st.STR_COLON)+1).trim();
                     		st.copyText(c, s);
                     	} catch (Throwable e) {}
 
@@ -682,7 +682,7 @@ public class CustomKbdScroll
                 }
 
 				String out = str[(Integer)param1];
-				out = out.substring(out.indexOf(":")+1).trim();
+				out = out.substring(out.indexOf(st.STR_COLON)+1).trim();
         		if (ServiceJbKbd.inst!=null){
             		ServiceJbKbd.inst.onText(out);
             		ServiceJbKbd.inst.processCaseAndCandidates();
@@ -867,7 +867,7 @@ public class CustomKbdScroll
     			while (zero.length() < 4) {
     				zero=st.STR_ZERO+zero;
     			}
-   				out += zero+"."+st.getCalcCommandText(st.calc_prog[i])+st.STR_SPACE;
+   				out += zero+st.STR_POINT+st.getCalcCommandText(st.calc_prog[i])+st.STR_SPACE;
    	    		count++;
    				fl = false;
     		}

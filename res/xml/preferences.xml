@@ -78,6 +78,12 @@
         
     <CheckBoxPreference
       	android:defaultValue="false"
+       	android:key="ac_abbreviated_dict"
+       	android:summary="@string/ac_abbrev_word_desc"
+       	android:title="@string/ac_abbrev_word" />
+
+    <CheckBoxPreference
+      	android:defaultValue="false"
        	android:key="ac_student_dict"
        	android:summary="@string/student_dict_desc"
        	android:title="@string/student_dict" />

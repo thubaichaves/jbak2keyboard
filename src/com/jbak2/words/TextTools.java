@@ -24,7 +24,8 @@ public class TextTools
     public static int CORRECT_SIZE = 1;
     public static final int getTextCase(String text)
     {
-        if(text.length()<1)return CASE_LOWER;
+        if(text.length()<1)
+        	return CASE_LOWER;
         int ret = CASE_LOWER;
         if(Character.isUpperCase(text.charAt(0)))
         {

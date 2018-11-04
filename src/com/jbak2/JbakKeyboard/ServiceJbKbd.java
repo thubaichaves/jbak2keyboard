@@ -910,10 +910,13 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
           }
           String wstart = Templates.getCurWordStart(m_textBeforeCursor, false);
           String wend = Templates.getCurWordEnd(m_textAfterCursor, false);
+          st.this_word = null;
           if (wstart != null && wend != null)
           {
-              String word = wstart + wend;
-              if (word.length() < 1)
+              //String word = wstart + wend;
+        	  st.this_word = wstart + wend;
+        	  
+              if (st.this_word.length() < 1)
               {
             	  if (st.student_dict&st.student_dict_ext){
             		  st.freq_dict = 1;
@@ -925,8 +928,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
               }
               else
               {
-                  WordsService.command(WordsService.CMD_GET_WORDS, word, inst);
-            	  old_word = word;
+                  WordsService.command(WordsService.CMD_GET_WORDS, st.this_word, inst);
+            	  old_word = st.this_word;
               }
           }
           }
@@ -1608,6 +1611,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     	if (isMacro(primaryCode))
     		return;
         processKey(primaryCode);
+
 //        ServiceJbKbd.inst.createNewCandView();
 //        ServiceJbKbd.inst.showCandView(true);
 //        ServiceJbKbd.inst.getCandidates();
@@ -1683,6 +1687,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         ic.commitText(text, text.length()>0?1:0);
 //        ic.commitText(text, newpos);
         ic.endBatchEdit();
+		processCaseAndCandidates();
     }
 
     private void handleBackspace()
@@ -2136,6 +2141,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         			sendHardwareSequence(ic, KeyEvent.KEYCODE_CTRL_LEFT,KeyEvent.KEYCODE_A);
         		else
         			ic.performContextMenuAction(android.R.id.selectAll);
+        		processCaseAndCandidates();
             	selOff();
             break;
             case st.TXT_ED_CUT: // Cut
@@ -2471,6 +2477,10 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         {
             st.fl_ac_separator_symbol = sharedPreferences.getBoolean(st.PREF_AC_REPLACE_SEPARATOR_SYMBOL, false);
         }
+        if (key==null||st.AC_ABBREVIATED_DICT.equals(key))
+        {
+            st.abbreviated_dict = sharedPreferences.getBoolean(st.AC_ABBREVIATED_DICT, false);
+        }
         if (key==null||st.PREF_KEY_AC_AUTOCORRECT.equals(key))
         {
             m_acAutocorrect = sharedPreferences.getBoolean(st.PREF_KEY_AC_AUTOCORRECT, false);
@@ -2640,6 +2650,7 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
 //       	calc_corr_ind = st.str2int(sharedPreferences.getString(st.PREF_CALC_CORRECTION_IND, st.STR_NULL),0,255,"Calc correction inddicator");
        	st.set_kbdact_backcol = sharedPreferences.getInt(st.SET_KBD_BACK_COL, 0);
        	st.win_fix = sharedPreferences.getBoolean(st.PREF_KEY_PC2_WIN_FIX, false);
+       	st.pc2_lr = sharedPreferences.getBoolean(st.PREF_KEY_PC2_LR, false);
        	st.win_bg = st.str2hex(sharedPreferences.getString(st.PREF_KEY_PC2_WIN_BG, st.PREF_KEY_PC2_WIN_BG_DEF), 16);
        	st.btn_size = st.str2hex(sharedPreferences.getString(st.PREF_KEY_PC2_BTN_SIZE, st.PREF_KEY_PC2_BTN_SIZE_DEF),10);
        	st.btn_bg = st.str2hex(sharedPreferences.getString(st.PREF_KEY_PC2_BTN_BG, st.PREF_KEY_PC2_BTN_BG_DEF),16);

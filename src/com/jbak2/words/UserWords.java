@@ -427,6 +427,10 @@ public class UserWords {
 		m_sel[0] = sel;
 		try {
 			Cursor c = m_db.query(m_curTable, null, C_WORD + " LIKE ?", m_sel, null, null, null);
+			if (c.getCount() <= 0) {
+				st.toast(R.string.ac_del_word_notdict);
+				return false;
+			}
 			c.moveToFirst();
 			String user_word_bd = st.STR_NULL;
 			boolean bflag = true;
@@ -438,7 +442,8 @@ public class UserWords {
 						if (tv!=null&col.length==2&col[1]!=0)
 							tv.setTextColor(col[1]);
 						GlobDialog gd = new GlobDialog(st.c());
-						gd.set(R.string.ac_del_word, R.string.yes, R.string.no);
+						gd.set(st.c().getString(R.string.ac_del_word)+" ("+word2+")", 
+								R.string.yes, R.string.no);
 						gd.setObserver(new st.UniObserver() {
 							@Override
 							public int OnObserver(Object param1, Object param2) {

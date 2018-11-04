@@ -231,7 +231,8 @@
 	<string name="pc2act_btn_off_size">Размер служебных кнопок\n(по умолчанию 20)</string>
 	<string name="pc2act_winfix">Фиксация окна</string>
 	<string name="pc2act_winfix_desc">Если отмечено, то после нажатия обычной кнопки окно маленькой клавиатуры не закрывается\n\n</string>
-	
+	<string name="pc2act_lr">Под левую руку</string>
+		
 <!-- окно popupcharacter2 -->
 	<string name="pc2_info">ℹ Если кнопок много, окно прокручивается</string>
 	
@@ -246,6 +247,8 @@
 	<string name="ac_del_word_ok">Удалено</string>
 	<string name="ac_listview_alfavit">Выпадающий список по алфавиту</string>
 	<string name="ac_listview_alfavit_desc">Если отмечено, то выпадающий список слов выдаётся по алфавиту, иначе - по частоте использования слов</string>
+	<string name="ac_abbrev_word">Сокращение слов</string>
+	<string name="ac_abbrev_word_desc">Сокращение подсказываемых слов после 4 первых букв, для увеличения количества подсказок в строке автодополнении </string>
 		
 <!-- создание своего жеста -->
 	<string name="gesture_create">Создание своего жеста</string>

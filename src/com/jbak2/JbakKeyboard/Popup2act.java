@@ -25,6 +25,7 @@ public class Popup2act extends Activity
     static Popup2act inst;
     Button btn_unicode_app = null;
     CheckBox cb1 = null;
+    CheckBox cb2 = null;
 	EditText str_add = null;
 	EditText win_bg = null;
 	EditText btn_size = null;
@@ -67,6 +68,10 @@ public class Popup2act extends Activity
         cb1 = (CheckBox)v.findViewById(R.id.pc2act_cb1);
         cb1.setChecked(st.win_fix);
         cb1.setOnClickListener(m_ClickListener);
+        
+        cb2 = (CheckBox)v.findViewById(R.id.pc2act_cb2);
+        cb2.setChecked(st.pc2_lr);
+        cb2.setOnClickListener(m_ClickListener);
         btn_unicode_app = (Button)v.findViewById(R.id.pc2act_unicode_app);
         btn_unicode_app.setOnClickListener(m_ClickListener);
         str_add = (EditText)v.findViewById(R.id.pc2act_et_addsymb);
@@ -124,6 +129,7 @@ public class Popup2act extends Activity
                 		st.pref().edit().putString(st.SET_STR_GESTURE_DOPSYMB, str_add.getText().toString().trim()).commit();
                 		st.pref().edit().putString(st.PREF_KEY_PC2_WIN_BG, win_bg.getText().toString().trim()).commit();
                 		st.pref().edit().putBoolean(st.PREF_KEY_PC2_WIN_FIX, cb1.isChecked()).commit();
+                		st.pref().edit().putBoolean(st.PREF_KEY_PC2_LR, cb2.isChecked()).commit();
                    		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_SIZE, btn_size.getText().toString().trim()).commit();
                    		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_BG, btn_bg.getText().toString().trim()).commit();
                    		st.pref().edit().putString(st.PREF_KEY_PC2_BTN_TCOL, btn_tc.getText().toString().trim()).commit();
@@ -224,6 +230,7 @@ public class Popup2act extends Activity
             switch (v.getId())
             {
             case R.id.pc2act_cb1:
+            case R.id.pc2act_cb2:
             	fl_changed = true;
                 return;
             case R.id.pc2act_unicode_app:

@@ -119,7 +119,7 @@ public class TplEditorActivity extends Activity
                 	break;
             }
             if (Templates.rejim == 2) {
-        		ServiceJbKbd.inst.m_acPlace = st.acplce1;
+        		ServiceJbKbd.inst.m_acPlace = st.acplace1;
             	st.type_kbd = 7;
             	if (fl_hide_kbd == false){
             		ServiceJbKbd.inst.setTypeKbd();
@@ -135,7 +135,7 @@ public class TplEditorActivity extends Activity
     	temp_tpl_m_state = -1;
     	ServiceJbKbd.inst.fl_text = false;
     	if (Templates.rejim == 2) {
-    		st.acplce1 = ServiceJbKbd.inst.m_acPlace;
+    		st.acplace1 = ServiceJbKbd.inst.m_acPlace;
     		ServiceJbKbd.inst.m_acPlace = 0;
     		st.type_kbd = 1;
     		ServiceJbKbd.inst.setTypeKbd();
@@ -503,7 +503,7 @@ public class TplEditorActivity extends Activity
     	ServiceJbKbd.inst.fl_text = true;
     	finish();
         if (Templates.rejim == 2) {
-    		ServiceJbKbd.inst.m_acPlace = st.acplce1;
+    		ServiceJbKbd.inst.m_acPlace = st.acplace1;
         	st.type_kbd = 7;
         	ServiceJbKbd.inst.setTypeKbd();
         }

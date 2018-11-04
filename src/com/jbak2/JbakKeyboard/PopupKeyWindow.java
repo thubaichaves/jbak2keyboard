@@ -19,7 +19,7 @@ import com.jbak2.JbakKeyboard.JbKbd.LatinKey;
 import com.jbak2.ctrl.SameThreadTimer;
 import com.jbak2.perm.Perm;
 import com.jbak2.CustomGraphics.draw;
-// показывает окно нажатой клавиши
+/* показывает окно нажатой клавиши */
 public class PopupKeyWindow
 {
     SameThreadTimer m_tm;
