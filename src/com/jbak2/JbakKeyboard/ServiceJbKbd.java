@@ -34,9 +34,11 @@ import android.app.AlertDialog;
 import android.app.Service;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -430,7 +432,6 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
         createNewCandView();
     }
     String param = st.STR_NULL;
-    // если версия новая, то выводит change log,
 	// если версия новая, то выводит change log,
 	// а также проверяется выводить ли сообщение с просьбой оценить
 	public boolean isNewVersion() {
@@ -2460,7 +2461,8 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     {
     	removeSharedPreferences();
     	VibroThread.getInstance(this).readSettings();
-        if (st.KBD_BACK_ALPHA.equals(key) || key == null){
+    	setShowIconLauncher(true);
+    	if (st.KBD_BACK_ALPHA.equals(key) || key == null){
             st.kbd_back_alpha = st.str2int(sharedPreferences.getString(st.KBD_BACK_ALPHA, st.STR_NULL+st.KBD_BACK_ALPHA_DEF),0,st.KBD_BACK_ALPHA_DEF,"Error read. Set default value");
             st.setDesignDefault();
         }
@@ -3914,6 +3916,30 @@ public class ServiceJbKbd extends InputMethodService implements KeyboardView.OnK
     			notif = null;
     		}
     	}
-   	
+    }
+    /** устанавливаем отображение иконки в лаунчере */
+    public void setShowIconLauncher(boolean visible) {
+    	// пока нормально не работает
+    	// если скрытие иконки делать в JbKbdPreference, то иконка скрывается, 
+    	// но и активность не запускается (через системные "язык и ввод"
+    	// настройки клавы тоже не запускаются
+    	
+//        PackageManager pkg = getPackageManager();
+////        visible = false;
+//    	if (!visible){
+//    		pkg.setComponentEnabledSetting(new ComponentName(this,JbKbdPreference.class), 
+//    				PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 
+//    				PackageManager.DONT_KILL_APP);     		
+//    	} else {
+//    		PackageManager p = getPackageManager(); 
+//    		ComponentName componentName = new ComponentName(this,JbKbdPreference.class); 
+//    		p.setComponentEnabledSetting(componentName, 
+//    				PackageManager.COMPONENT_ENABLED_STATE_ENABLED, 
+//    				PackageManager.DONT_KILL_APP); 
+////    		pkg.setComponentEnabledSetting(new ComponentName(inst,JbKbdPreference.class),
+////            		PackageManager.COMPONENT_ENABLED_STATE_DISABLED, 
+////            		PackageManager.DONT_KILL_APP); 
+//    		
+//    	}
     }
 }

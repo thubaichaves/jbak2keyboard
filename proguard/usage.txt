@@ -1,16 +1,3 @@
-android.support.v7.appcompat.R
-android.support.v7.appcompat.R$anim
-android.support.v7.appcompat.R$attr
-android.support.v7.appcompat.R$bool
-android.support.v7.appcompat.R$color
-android.support.v7.appcompat.R$dimen
-android.support.v7.appcompat.R$drawable
-android.support.v7.appcompat.R$id
-android.support.v7.appcompat.R$integer
-android.support.v7.appcompat.R$layout
-android.support.v7.appcompat.R$string
-android.support.v7.appcompat.R$style
-android.support.v7.appcompat.R$styleable
 com.google.android.voiceime.ActivityHelper:
     private static final java.lang.String TAG
     private static final int RECOGNITION_REQUEST
@@ -257,8 +244,8 @@ com.jbak2.JbakKeyboard.JbCandView:
     public static final int AC_PLACE_CURSOR_POS
     187:187:public int getPlace()
     191:192:public void setPlace(int)
-    890:897:public void hide()
-    900:900:int getFixedHeight()
+    893:900:public void hide()
+    903:903:int getFixedHeight()
 com.jbak2.JbakKeyboard.JbKbd:
     54:54:public int getHeightKey()
     58:59:void setHeightKey(int)
@@ -277,7 +264,7 @@ com.jbak2.JbakKeyboard.JbKbdPreference:
     public static final java.lang.String DEF_SIZE_CLIPBRD
     public static final java.lang.String DEF_SHORT_VIBRO
     public static final java.lang.String DEF_LONG_VIBRO
-    1853:1873:public void setLangApp()
+    1855:1875:public void setLangApp()
 com.jbak2.JbakKeyboard.JbKbdView:
     android.graphics.drawable.Drawable m_PreviewDrawable
     public static final int STATE_TEMP_SHIFT
@@ -347,10 +334,10 @@ com.jbak2.JbakKeyboard.ServiceJbKbd:
     public static final int STATE_UP_AFTER_SYMBOLS
     public static final int STATE_GO_END
     static final int MSG_SHOW_PANEL
-    337:343:void forceFullScreen(android.view.inputmethod.EditorInfo)
-    1925:1950:public void onVoiceRecognition(java.util.ArrayList)
-    3105:3105:public final boolean canGiveVocabWords()
-    3269:3282:void getTextAfterCursor()
+    339:345:void forceFullScreen(android.view.inputmethod.EditorInfo)
+    1926:1951:public void onVoiceRecognition(java.util.ArrayList)
+    3107:3107:public final boolean canGiveVocabWords()
+    3271:3284:void getTextAfterCursor()
 com.jbak2.JbakKeyboard.ServiceJbKbd$6
 com.jbak2.JbakKeyboard.SetKbdActivity:
     android.text.SpannableString m_testSpan

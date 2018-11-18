@@ -19,8 +19,7 @@ public class Mail
 		sendFeedback(c, null);
 	}
 	public static void sendFeedback(Context c,File crash) {
-		StringBuilder info;
-		info = new StringBuilder();
+		StringBuilder info = new StringBuilder();
 //		if (crash!=null)
 //			info = new StringBuilder(String.format(Locale.ENGLISH,
 //				"\n\n%s", "О "+ getAppNameAndVersion(c)));
